@@ -1,3 +1,10 @@
 {
-  "label": "Nucléaire et énergie"
+  "label": "Nucléaire et énergie",
+  "prochain_vote": {
+    "titre": "Proposition de loi portant programmation nationale énergie et climat (PPL Grémillet), nouvelle lecture",
+    "date": "à confirmer",
+    "vote_voulu": "pour",
+    "position": "P4",
+    "ref_hemicycle": ""
+  }
 }

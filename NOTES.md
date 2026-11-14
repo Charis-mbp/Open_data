@@ -198,3 +198,26 @@ changed the keywords, since you chose them.
   update, backup first). Still counted in the score, shown in the "Signal" column of every votes table.
   n° 2433 is flagged: the dispositif only adds a −50 % / 2050 climate target, while the exposé argues against
   new reactors. It stays "contre", by user decision.
+
+## Hémicycle and the "Prochain vote" page (task 11), in progress
+
+- **No public documentation found.** hemicycle.ai is a web app (it has a `/predictions` page) backed by
+  `atlas.hemicycle.ai`, which serves the same HTML page for every path, so its API routes can't be found from
+  outside. The key was never sent to a guessed address. **Needed from the user:** base URL, path of the
+  per-député prediction, auth header, the id of an upcoming scrutin, and one sample response.
+- `hemicycle.py`: the only client. It reads HEMICYCLE_API_KEY / HEMICYCLE_BASE_URL / HEMICYCLE_PREDICTION_PATH
+  (with `{scrutin}`) / HEMICYCLE_AUTH_HEADER from .env, caches every response in
+  `themes/<t>/hemicycle_cache/`, never raises, and logs to data/hemicycle.log. The response parser is tolerant
+  (list, or dict with predictions/deputes/votes/data; id via acteurRef/uid/id, or name) and is to be tightened
+  once a real response is seen.
+- There was **no existing simulation**, so I wrote one in `scoring.simulation()`. A current député who cast
+  pour/contre/abstention on under 20 % of the theme's validated scrutins in office → absent; otherwise the
+  wanted vote if score (or else group average) ≥ 50, the opposite below. `scoring.raison()` builds the reason
+  sentence (score, number of votes, group average, label, "s'écarte de son groupe").
+- `theme.json` → `prochain_vote`: title, date ("à confirmer": not invented), wanted vote, position,
+  `ref_hemicycle` (empty until known). nucleaire: next reading of the Grémillet bill, wanted "pour" (P4).
+- "Prochain vote" page (2nd in the sidebar): predicted or simulated totals; "À rencontrer" = predicted against
+  the organisation with past score ≥ 40 (`SEUIL_A_RENCONTRER`), highest first; "Alliés à mobiliser" = alliés
+  predicted to abstain or be absent; button to open a Fiche. With no Hémicycle data, it shows the simulation and
+  a short French message saying why. Tested: not configured, configured but unreachable. No crash.
+- Simulation today: 138 pour, 114 contre, 322 absent; 12 to meet, 15 alliés to mobilise.

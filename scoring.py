@@ -152,3 +152,39 @@ if __name__ == "__main__":
     actuels = df[df["en_mandat"]]
     print(actuels["label"].value_counts().to_string())
     print(actuels.groupby("groupe")["score"].mean().round().sort_values(ascending=False).to_string())
+
+
+# ---- Upcoming vote: reasons and fallback simulation (plain code, no model) ----
+
+SEUIL_A_RENCONTRER = 40   # past score from which a député predicted against us is worth meeting
+SEUIL_PRESENCE = 0.2      # below this share of votes cast on the theme's scrutins: simulated "absent"
+
+
+def raison(r):
+    """One French sentence explaining a député's label, from their scores."""
+    if pd.isna(r["score"]):
+        return f"Pas assez de votes ({r['exprimes']} pour ou contre) pour un score."
+    txt = f"Score {int(r['score'])} sur {r['exprimes']} votes"
+    if pd.notna(r.get("moyenne_groupe")):
+        txt += f", groupe à {int(r['moyenne_groupe'])}"
+    txt += f" : {r['label']}"
+    if r.get("note"):
+        txt += f", {r['note']}"
+    return txt + "."
+
+
+def simulation(theme, vote_voulu):
+    """Fallback when Hémicycle gives nothing: predicted vote per current député from their past behaviour.
+    Rarely present on the theme's scrutins -> absent; score >= 50 -> the wanted vote, else the opposite;
+    no score -> follows their group's average the same way."""
+    df = scores(theme)
+    df = df[df["en_mandat"]].copy()
+    oppose = {"pour": "contre", "contre": "pour"}[vote_voulu]
+    total = df["exprimes"] + df["abstentions"] + df["absences"]
+    presence = (df["exprimes"] + df["abstentions"]) / total.where(total > 0)
+    base = df["score"].fillna(df["moyenne_groupe"])
+    df["vote_predit"] = [
+        "absent" if (pd.isna(p) or p < SEUIL_PRESENCE) else
+        (vote_voulu if (pd.notna(b) and b >= 50) else oppose)
+        for p, b in zip(presence, base)]
+    return df

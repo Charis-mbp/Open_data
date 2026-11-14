@@ -6,6 +6,7 @@ import traceback
 import pandas as pd
 import streamlit as st
 
+import hemicycle
 import matching
 import scoring
 import styles
@@ -530,6 +531,93 @@ def page_accueil(theme, label):
     t2.markdown(COMMENT_TECHNIQUE)
 
 
+def prevision(theme, cfg):
+    """(DataFrame of current députés with vote_predit, source label, message or None). Never raises."""
+    oppose = {"pour": "contre", "contre": "pour"}[cfg["vote_voulu"]]
+    message = None
+    preds = None
+    if not hemicycle.configure():
+        message = "Prédictions Hémicycle non configurées (adresse de l'API absente du fichier .env)."
+    elif not cfg.get("ref_hemicycle"):
+        message = "Aucun scrutin Hémicycle n'est associé à ce prochain vote (theme.json, « ref_hemicycle »)."
+    else:
+        try:
+            preds = hemicycle.predictions(theme, cfg["ref_hemicycle"])
+        except Exception:
+            traceback.print_exc()
+            preds = None
+        if not preds:
+            message = "L'API Hémicycle est injoignable ou n'a rien renvoyé."
+    if preds:
+        df = scoring.scores(theme)
+        df = df[df["en_mandat"]].copy()
+        p = pd.DataFrame(preds)
+        par_id = dict(zip(p["depute_id"], p["vote"]))
+        par_nom = {normalise(n): v for n, v in zip(p["nom"], p["vote"]) if n}
+        df["vote_predit"] = [par_id.get(i) or par_nom.get(normalise(n)) for i, n in zip(df["depute_id"], df["nom"])]
+        df = df[df["vote_predit"].notna()]
+        if not df.empty:
+            return df, "Hémicycle", None, oppose
+        message = "Les prédictions Hémicycle ne correspondent à aucun député connu."
+    return scoring.simulation(theme, cfg["vote_voulu"]), "simulation", message, oppose
+
+
+def page_prochain_vote(theme, label):
+    st.header(f"Prochain vote : {label}")
+    path = matching.theme_path(theme, "theme.json")
+    cfg = json.load(open(path, encoding="utf-8")).get("prochain_vote") if os.path.exists(path) else None
+    if not cfg:
+        st.info("Aucun prochain vote n'est renseigné pour ce thème (theme.json, « prochain_vote »).")
+        return
+    if not os.path.exists(matching.theme_path(theme, "validated.json")):
+        st.info("Validez d'abord des scrutins : la page s'appuie sur les scores passés.")
+        return
+    df, source, message, oppose = prevision(theme, cfg)
+    st.markdown(f"**{cfg['titre']}**  \nDate : {cfg.get('date', 'à confirmer')} · vote voulu par "
+                f"l'organisation : **{cfg['vote_voulu']}**")
+    if source == "simulation":
+        st.warning((message + " " if message else "") + "Affichage d'une **simulation** à partir des votes passés : "
+                   "un député qui vote rarement sur ces scrutins est compté absent, les autres votent dans le sens "
+                   "de leur score (ou de celui de leur groupe).")
+    else:
+        st.caption("Prédictions par député fournies par Hémicycle.")
+
+    totaux = df["vote_predit"].value_counts()
+    cols = st.columns(4)
+    for col, v in zip(cols, ["pour", "contre", "abstention", "absent"]):
+        col.metric(f"{v.capitalize()} ({'prévu' if source == 'Hémicycle' else 'simulé'})", int(totaux.get(v, 0)))
+
+    df = df.assign(raison=[scoring.raison(r) for _, r in df.iterrows()])
+    colonnes = {"nom": "Député", "groupe": "Groupe",
+                "score": st.column_config.ProgressColumn("Score passé", min_value=0, max_value=100, format="%d"),
+                "vote_predit": "Vote prévu", "raison": st.column_config.TextColumn("Raison", width="large")}
+
+    st.subheader("À rencontrer")
+    st.caption(f"Prévus « {oppose} » alors que leur score passé est d'au moins {scoring.SEUIL_A_RENCONTRER} : "
+               "ils ont déjà voté avec vous.")
+    rencontrer = df[(df["vote_predit"] == oppose) & (df["score"] >= scoring.SEUIL_A_RENCONTRER)]
+    rencontrer = rencontrer.sort_values("score", ascending=False)
+    if rencontrer.empty:
+        st.info("Aucun député dans ce cas.")
+    else:
+        st.dataframe(rencontrer[list(colonnes)], hide_index=True, width="stretch", column_config=colonnes)
+
+    st.subheader("Alliés à mobiliser")
+    st.caption("Alliés dont on prévoit l'abstention ou l'absence : chaque voix compte.")
+    mobiliser = df[(df["label"] == scoring.ALLIE) & df["vote_predit"].isin(["abstention", "absent"])]
+    mobiliser = mobiliser.sort_values(["score", "exprimes"], ascending=False)
+    if mobiliser.empty:
+        st.info("Aucun allié dans ce cas.")
+    else:
+        st.dataframe(mobiliser[list(colonnes)], hide_index=True, width="stretch", column_config=colonnes)
+
+    choix = pd.concat([rencontrer, mobiliser])
+    if not choix.empty:
+        noms = {r.depute_id: f"{r.nom} ({r.groupe})" for r in choix.itertuples()}
+        qui = st.selectbox("Ouvrir la fiche de", list(noms), format_func=noms.get)
+        st.button("Ouvrir la fiche du député", key="pv-fiche", on_click=ouvrir_fiche, args=(qui,))
+
+
 def main():
     st.title("Boussole parlementaire")
     st.caption(METHODE)
@@ -541,7 +629,7 @@ def main():
     st.markdown(styles.css(styles.DEFAUT), unsafe_allow_html=True)
     theme = st.sidebar.selectbox("Thème", list(themes), format_func=lambda k: themes[k])
     st.session_state["theme"] = theme
-    page = st.sidebar.radio("Pages", ["Accueil", "Classement", "Fiche député", "Validation des scrutins",
+    page = st.sidebar.radio("Pages", ["Accueil", "Prochain vote", "Classement", "Fiche député", "Validation des scrutins",
                                       "Shortlist", "Scrutins"], key="page")
 
     if not os.path.exists(DB_PATH):
@@ -550,6 +638,8 @@ def main():
     try:
         if page == "Accueil":
             page_accueil(theme, themes[theme])
+        elif page == "Prochain vote":
+            page_prochain_vote(theme, themes[theme])
         elif page == "Classement":
             page_classement(theme, themes[theme])
         elif page == "Fiche député":
