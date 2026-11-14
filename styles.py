@@ -1,4 +1,4 @@
-"""Four visual styles for the app, inspired by Sanzo Wada's "A Dictionary of Color Combinations".
+"""Two visual styles for the app, inspired by Sanzo Wada's "A Dictionary of Color Combinations".
 
 Hex values are approximations of Wada's named colours, not exact plates.
 Each style sets the page colours, fonts and the colours of the three labels.
@@ -11,20 +11,6 @@ STYLES = {
         "fond": "#F3ECDD", "surface": "#E8DDC7", "texte": "#2A2723", "discret": "#6F6658",
         "accent": "#C8473A", "ligne": "#CDBFA5",
         "allie": "#4E8A6B", "convaincre": "#D29A2E", "opposant": "#A3322B",
-    },
-    "Bleu de Prusse": {
-        "note": "Gris clair, bleu de Prusse, soufre : Prussian Blue, Nile Blue, Sulphur Yellow, Venetian Red.",
-        "font_titre": "IBM Plex Sans", "font_texte": "IBM Plex Sans",
-        "fond": "#EEF1F1", "surface": "#DCE4E6", "texte": "#16263A", "discret": "#55667A",
-        "accent": "#1F3A60", "ligne": "#B9C6CC",
-        "allie": "#3F7F73", "convaincre": "#D9A62B", "opposant": "#B04A30",
-    },
-    "Rose camée et sienne": {
-        "note": "Rose pâle, sienne brûlée, olive : Cameo Pink, Burnt Sienna, Olive Buff, Pompeian Red.",
-        "font_titre": "Fraunces", "font_texte": "Lora",
-        "fond": "#F5E6DF", "surface": "#EAD3C8", "texte": "#3A2925", "discret": "#7A5F57",
-        "accent": "#A0522D", "ligne": "#D8BCAE",
-        "allie": "#6D8B55", "convaincre": "#D08F38", "opposant": "#8E2B2B",
     },
     "Vert-de-gris et paon": {
         "note": "Vert pâle, bleu paon, ocre : Pale Lumiere Green, Peacock Blue, Olive Ocher, Etruscan Red.",

@@ -161,7 +161,7 @@ changed the keywords, since you chose them.
 
 ## Four visual styles (task 8)
 
-- `styles.py`: 4 light styles inspired by Sanzo Wada's *A Dictionary of Color Combinations* (hex values are
+- `styles.py`: 4 light styles (later cut to the 2 the user preferred: "Papier et vermillon" and "Vert-de-gris et paon") inspired by Sanzo Wada's *A Dictionary of Color Combinations* (hex values are
   approximations from his named colours, not exact plates): "Papier et vermillon", "Bleu de Prusse",
   "Rose camée et sienne", "Vert-de-gris et paon". Each sets background, surfaces, text, accent, fonts
   (Google Fonts) and the three label colours. "Apparence" selector at the top of the sidebar, with a swatch strip.
