@@ -195,8 +195,22 @@ def carte_match(theme, m, decision):
         st.markdown(f"Position {m['position_id']} : *{m['position']}*  \n"
                     f"Vote voulu proposé : **{m['vote_souhaite']}** · confiance {m['confiance']:.2f}  \n"
                     f"Raison : {m['raison']}")
+        amdt = m.get("amendement")
+        if amdt:
+            groupe = f" ({amdt['groupe']})" if amdt["groupe"] else ""
+            expose = amdt["expose"] or "(pas d'exposé sommaire)"
+            st.markdown(f"**Amendement n° {amdt['numero']}**, {amdt['auteur']}{groupe}. Exposé sommaire :")
+            st.caption(matching.tronquer(expose, 500))
+            parent = amdt.get("parent")
+            if len(expose) > 500 or parent:
+                with st.expander("Exposé complet" + (" et amendement visé" if parent else "")):
+                    st.write(expose)
+                    if parent:
+                        pg = f" ({parent['groupe']})" if parent["groupe"] else ""
+                        st.markdown(f"**Amendement visé : n° {parent['numero']}**, {parent['auteur']}{pg}")
+                        st.write(parent["expose"] or "(pas d'exposé sommaire)")
         if decision:
-            st.caption(f"Décision : {LIBELLES_STATUT[decision['statut']]}"
+            st.caption(f"Décision :{LIBELLES_STATUT[decision['statut']]}"
                        + (f" (vote retenu : {decision['vote_retenu']})" if decision["vote_retenu"] else ""))
         oppose = matching.OPPOSE[m["vote_souhaite"]]
         c1, c2, c3, _ = st.columns([1, 1.4, 1, 3])

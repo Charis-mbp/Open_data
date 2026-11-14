@@ -77,3 +77,29 @@ changed the keywords, since you chose them.
   "l'amendement n° 345 de M. X à l'article 5". The model cannot know what the amendment does, so it must
   guess from the author and give low confidence. Better version (about 30 min): download the amendments
   dataset and add each amendment's "exposé sommaire" to the prompt. Not done.
+
+## Amendments (task 4)
+
+- Source: `loi/amendements_div_legis/Amendements.json.zip` (363 MB, 148 034 amendments). `load_data.py` reads
+  it inside the zip, without extracting it. Loading takes about 30 s.
+- Link scrutin → amendment: number taken from the title ("l'amendement n° 345…", "le sous-amendement n° 781…",
+  "l'amendement de suppression n° 622…"), joined on (scrutin `seanceRef`, amendment `seanceDiscussionRef`,
+  number). When two texts debated in the same séance share a number, I keep the amendment whose first
+  signatory is named in the title. Result: 6 445 of 8 456 amendment scrutins linked across the legislature,
+  and **all 147 amendment scrutins of the nucleaire shortlist** (the other 3 are votes on an article or on the
+  whole text). 0.5% of links name a different author than the title, mostly titles citing a co-signatory.
+- New: table `amendements` (id, numero, auteur = first signatory + "et al.", groupe = sigle or "Gouvernement",
+  expose, dispositif, sort, parent_id) and columns `scrutins.seance_ref` and `scrutins.amendement_id`.
+  Only amendments voted in a scrutin, plus the parents of voted sub-amendments, are stored.
+- Prompt: each amendment gets its author, the author's group and its exposé truncated to 700 characters.
+  For a sub-amendment, the amendment it modifies also gets author, group and exposé (400 characters).
+  The rule that a "pour" on an amendment working against a position is a vote against it is kept.
+  Constants `EXPOSE_MAX` and `EXPOSE_PARENT_MAX` are at the top of `matching.py`. A batch of 20 is about 22 000 characters.
+- Cache: there was nothing to clear, because the analysis had never run (no `.env`). The prompt changed
+  anyway, so any earlier cache would have been bypassed.
+- Comparison: `.venv/bin/python matching.py nucleaire --comparer` runs the analysis with the amendments
+  and again on titles only (written to `matching_titres.json`, the Validation page ignores it), then prints
+  the average confidence of each. Not run: no API key.
+- **`requirements.txt` holds the Sfen position paper**, pasted in place of the dependency list.
+  `themes/nucleaire/position.txt` still holds my fictional example. I did not move the text: that is for you
+  to do. The dependency list is in the last commit (`git checkout requirements.txt` restores it).
