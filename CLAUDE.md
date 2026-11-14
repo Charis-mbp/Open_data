@@ -1,4 +1,4 @@
-# Boussole parlementaire
+# Cleon
 
 One-day hackathon prototype. A user pastes an organisation's position paper. The app ranks every député of the Assemblée nationale as allié, opposant or à convaincre on a theme, and shows the votes behind each score.
 

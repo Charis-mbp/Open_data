@@ -19,7 +19,7 @@ THEMES_DIR = os.path.join(ROOT, "themes")
 METHODE = ("Méthode : un modèle de langage propose les scrutins liés à la position, "
            "une personne les valide, et le score est une simple part des votes alignés.")
 
-st.set_page_config(page_title="Boussole parlementaire", layout="wide")
+st.set_page_config(page_title="Cleon", layout="wide")
 
 
 def list_themes():
@@ -526,13 +526,13 @@ def page_fiche(theme, label):
     votes_derriere(detail, choix)
 
 
-PITCH = ("**Collez le document de position d'une organisation : la Boussole classe les 577 députés en "
+PITCH = ("**Collez le document de position d'une organisation : Cleon classe les 577 députés en "
          "alliés, opposants et à convaincre, et montre pour chaque score les votes qui le justifient.**")
 
 COMMENT_UTILISATEUR = """
 1. **Le document de position.** L'organisation colle sa note. Un modèle de langage en extrait 3 à 6 positions,
    chacune appuyée sur une citation du texte.
-2. **Les scrutins.** Parmi les 9 895 scrutins publics de la législature, la Boussole garde ceux du thème
+2. **Les scrutins.** Parmi les 9 895 scrutins publics de la législature, Cleon garde ceux du thème
    (mots-clés, assez de votants, vote assez disputé), puis le modèle propose ceux qui touchent une position
    et le vote que l'organisation aurait voulu, pour ou contre. Pour un amendement, il lit son exposé sommaire.
 3. **La validation.** Une personne accepte, inverse ou rejette chaque proposition. Seuls les scrutins validés
@@ -709,7 +709,7 @@ def page_prochain_vote(theme, label):
 
 def main():
     st.markdown(styles.css(styles.DEFAUT), unsafe_allow_html=True)
-    st.markdown(styles.hero("Boussole parlementaire", METHODE), unsafe_allow_html=True)
+    st.markdown(styles.hero("Cleon", METHODE), unsafe_allow_html=True)
 
     themes = list_themes()
     if not themes:

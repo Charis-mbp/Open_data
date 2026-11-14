@@ -1,4 +1,4 @@
-# Handoff: Boussole parlementaire
+# Handoff: Cleon
 
 Recap for a Claude session that picks this project up on another computer. Read `CLAUDE.md` first
 (the project rules), then this file, then `NOTES.md` (every choice made so far, task by task).

@@ -1,6 +1,6 @@
-# Boussole parlementaire
+# Cleon
 
-Paste an organisation's position paper. The Boussole ranks every député of the Assemblée nationale (17th
+Paste an organisation's position paper. Cleon ranks every député of the Assemblée nationale (17th
 legislature) as **allié**, **opposant** or **à convaincre** on a theme, and shows the votes behind each score,
 each linked to its page on the Assemblée nationale website. The interface is in French.
 

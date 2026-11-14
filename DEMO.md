@@ -1,4 +1,4 @@
-# Démo : Boussole parlementaire (environ 3 minutes)
+# Démo : Cleon (environ 3 minutes)
 
 Avant : `.venv/bin/streamlit run app.py`, navigateur en plein écran, page **Accueil** ouverte.
 Thème : Nucléaire et énergie. Document : note de la Sfen sur la PPE (février 2026).
@@ -30,7 +30,7 @@ Thème : Nucléaire et énergie. Document : note de la Sfen sur la PPE (février
 - « On voit d'un coup qui, dans un groupe, est proche de vos positions. Colonne Note : ceux qui s'écartent
   de leur groupe, au moins 10 points au-dessus de sa moyenne et moins loyaux que leurs collègues. »
 - Une phrase sur EPR à 48 : « Camp pro-nucléaire, mais la majorité a souvent rejeté les amendements
-  pro-nucléaires de l'opposition. La Boussole compte les votes, pas les intentions. »
+  pro-nucléaires de l'opposition. Cleon compte les votes, pas les intentions. »
 
 ## 4. Validation (30 s)
 
@@ -56,6 +56,6 @@ nouveau dossier : santé, agriculture, numérique. »
 - **Le modèle peut se tromper ?** Oui, c'est pour ça qu'une personne valide chaque scrutin et que chaque vote est lié
   à sa source. Le modèle ne produit jamais de score.
 - **D'où vient la loyauté ?** D'Hémicycle, qui compte sur toute la législature la part des votes d'un député qui
-  suivent la position majoritaire de son groupe. Le score, lui, reste calculé par la Boussole.
+  suivent la position majoritaire de son groupe. Le score, lui, reste calculé par Cleon.
 - **Pourquoi 275 non classés ?** Les votes sur amendements réunissent peu de députés en séance. Moins de 5 votes
   pour ou contre : pas de score.
