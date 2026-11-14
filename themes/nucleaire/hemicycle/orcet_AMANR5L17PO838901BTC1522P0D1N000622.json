@@ -1,0 +1,7 @@
+{
+  "appel": "predire_vote",
+  "amendement": "AMANR5L17PO838901BTC1522P0D1N000622",
+  "scrutin": "VTANR5L17V2424",
+  "appele_le": "2026-11-14",
+  "reponse_brute": {"type":"https://hemicycle.ai/docs/erreurs#introuvable","title":"Introuvable","status":404,"detail":"Orcet n'a pas encore de prédiction pour cet amendement.","request_id":""}
+}

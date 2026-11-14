@@ -396,6 +396,38 @@ def ouvrir_fiche(depute_id):
     st.session_state["page"] = "Fiche député"
 
 
+def pct(x):
+    """0.8945 -> "89,5" (French decimal comma)."""
+    return f"{100 * x:.1f}".replace(".", ",")
+
+
+def encart_hemicycle(depute_id, r):
+    """Fiche data and loyalty from Hémicycle, read from the local cache, with the source credited."""
+    f = hemicycle.fiche(depute_id)
+    lignes = []
+    if f:
+        if f.get("profession"):
+            lignes.append(f"**Profession** : {f['profession']}")
+        com = f.get("commission")
+        if com:
+            role = ", ".join(q for q in com["qualites"] if q != "Membre") or "Membre"
+            lignes.append(f"**Commission** : {com.get('nom') or com['organe']} ({role.lower()})")
+        if f.get("fonction"):
+            lignes.append(f"**Fonction** : {f['fonction']}")
+        if f.get("hatvp"):
+            lignes.append(f"[Déclarations d'intérêts (HATVP)]({f['hatvp']})")
+    if pd.notna(r.get("loyaute")):
+        lignes.append(f"**Loyauté envers son groupe** : {pct(r['loyaute'])} % de ses votes suivent la "
+                      f"position majoritaire du groupe (médiane du groupe : {pct(r['mediane_groupe'])} %, "
+                      f"{int(r['votes_loyaute'])} votes comptés sur la législature)")
+    if not lignes:
+        return
+    with st.container(border=True):
+        st.markdown("  \n".join(lignes))
+        st.caption("Source : Hémicycle (hemicycle.ai), d'après les données ouvertes de l'Assemblée nationale "
+                   "(Licence Ouverte). Données consultées le 14 novembre 2026.")
+
+
 def page_fiche(theme, label):
     st.header("Fiche député")
     path = matching.theme_path(theme, "validated.json")
@@ -423,6 +455,7 @@ def page_fiche(theme, label):
                 + ("" if r["en_mandat"] else " · ne siège plus")
                 + f"  \n[Page du député sur le site de l'Assemblée nationale]"
                 f"(https://www.assemblee-nationale.fr/dyn/deputes/{choix})")
+    encart_hemicycle(choix, r)
 
     st.markdown(f"#### Thème : {label}")
     c1, c2, c3 = st.columns(3)
@@ -431,8 +464,11 @@ def page_fiche(theme, label):
     c3.metric("Moyenne de son groupe",
               "–" if pd.isna(r["moyenne_groupe"]) else f"{int(r['moyenne_groupe'])} / 100")
     if r["note"]:
-        st.warning(f"**{r['note'].capitalize()}** : son score est à {int(abs(r['score'] - r['moyenne_groupe']))} "
-                   f"points de la moyenne de son groupe. Classé « à convaincre », quel que soit le score.")
+        st.warning(f"**{r['note'].capitalize()}** : sur l'ensemble de la législature, il suit la position "
+                   f"majoritaire de son groupe dans {pct(r['loyaute'])} % de ses votes, contre "
+                   f"{pct(r['mediane_groupe'])} % pour le député médian du groupe (source : Hémicycle). "
+                   f"Sur ce thème, son score ({int(r['score'])}) dépasse la moyenne de son groupe "
+                   f"({int(r['moyenne_groupe'])}). Classé « à convaincre », quel que soit le score.")
     st.markdown(f"Sur les scrutins validés de ce thème tenus pendant son mandat : **{r['alignes']}** votes "
                 f"alignés et **{r['opposes']}** opposés (ce sont eux qui font le score), "
                 f"{r['abstentions']} abstentions et {r['absences']} absences (affichées, non comptées).")
@@ -454,8 +490,10 @@ COMMENT_UTILISATEUR = """
 3. **La validation.** Une personne accepte, inverse ou rejette chaque proposition. Seuls les scrutins validés
    comptent : le modèle propose, l'humain décide.
 4. **Le score.** Pour chaque député : part de ses votes pour ou contre qui vont dans le sens voulu.
-   70 ou plus : allié. 30 ou moins : opposant. Entre les deux : à convaincre. Un député à 20 points ou plus
-   de la moyenne de son groupe est aussi « à convaincre » : il s'écarte de son groupe, c'est une porte d'entrée.
+   70 ou plus : allié. 30 ou moins : opposant. Entre les deux : à convaincre. Un député qui suit nettement
+   moins souvent son groupe que ses collègues (loyauté mesurée par Hémicycle sur toute la législature, 5 points
+   sous la médiane du groupe) et qui, sur ce thème, est plus favorable que son groupe, est aussi « à convaincre » :
+   il s'écarte de son groupe, c'est une porte d'entrée.
    Moins de 5 votes pour ou contre : données insuffisantes. Abstentions et absences sont montrées, jamais comptées.
 5. **La preuve.** Chaque score renvoie à la liste de ses votes, et chaque vote à sa page sur le site de
    l'Assemblée nationale.

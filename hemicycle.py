@@ -96,3 +96,33 @@ def predictions(theme, scrutin_ref):
             out.append({"depute_id": ident if str(ident).startswith("PA") else None,
                         "nom": item.get("nom") or item.get("name"), "vote": vote})
     return out or None
+
+
+# ---- Cached fiches of députés (lire_acteur, fetched through the Hémicycle MCP server) ----
+
+ACTEURS_DIR = os.path.join(ROOT, "data", "hemicycle", "acteurs")
+ORGANES_DIRS = [os.path.join(ROOT, "data", d, "json", "organe") for d in ("amo", "amo20")]
+
+
+def nom_organe(uid):
+    """Official name of an organ (e.g. a commission) from the local open data, or None."""
+    for d in ORGANES_DIRS:
+        path = os.path.join(d, f"{uid}.json")
+        try:
+            with open(path, encoding="utf-8") as f:
+                return json.load(f)["organe"]["libelle"]
+        except (OSError, ValueError, KeyError):
+            continue
+    return None
+
+
+def fiche(depute_id):
+    """Cached Hémicycle fiche of a député (dict), or None if it was never fetched. Never raises."""
+    try:
+        with open(os.path.join(ACTEURS_DIR, f"{depute_id}.json"), encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, ValueError):
+        return None
+    if data.get("commission"):
+        data["commission"]["nom"] = nom_organe(data["commission"]["organe"])
+    return data

@@ -18,9 +18,11 @@ from shortlist import DB_PATH, theme_path
 MIN_VOTES = 5          # fewer aligned + opposed votes: no score
 SEUIL_ALLIE = 70       # score >= 70: allié
 SEUIL_OPPOSANT = 30    # score <= 30: opposant
-ECART_GROUPE = 20      # score this far or more ABOVE the group average: à convaincre, "s'écarte de son groupe"
+ECART_LOYAUTE = 5      # Hémicycle loyalty this many points or more BELOW the group median, and a theme score above
+                       # the group average: à convaincre, "s'écarte de son groupe"
 SANS_GROUPE = "Non inscrit"  # not a political group: no group average, the rule does not apply
 NOTE_ECART = "s'écarte de son groupe"
+HEMICYCLE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "hemicycle")
 
 ALLIE = "allié"
 OPPOSANT = "opposant"
@@ -31,7 +33,7 @@ LABELS = [ALLIE, A_CONVAINCRE, OPPOSANT, INSUFFISANT]
 
 def seuils(theme):
     s = {"min_votes": MIN_VOTES, "seuil_allie": SEUIL_ALLIE, "seuil_opposant": SEUIL_OPPOSANT,
-         "ecart_groupe": ECART_GROUPE}
+         "ecart_loyaute": ECART_LOYAUTE}
     path = theme_path(theme, "theme.json")
     if os.path.exists(path):
         with open(path, encoding="utf-8") as f:
@@ -93,6 +95,38 @@ def detail_votes(theme):
     return df
 
 
+def loyautes():
+    """Hémicycle loyalty per député, from the cached loyaute_deputes responses (one file per group, all votes of
+    the legislature, not theme-specific). Columns: depute_id, loyaute, mediane_groupe, votes_loyaute, ecarts.
+    A député listed under several groups keeps the entry of their current group, else the one with most votes.
+    Députés not listed (the most loyal of a large group, or under 20 votes) are absent: no loyalty, no flag."""
+    rows = []
+    if os.path.isdir(HEMICYCLE_DIR):
+        for name in sorted(os.listdir(HEMICYCLE_DIR)):
+            if not (name.startswith("loyaute_") and name.endswith(".json")):
+                continue
+            try:
+                with open(os.path.join(HEMICYCLE_DIR, name), encoding="utf-8") as f:
+                    data = json.load(f)
+            except (OSError, ValueError):
+                continue
+            sigle = data["perimetre"]["groupe"]
+            for d in data.get("deputes_moins_loyaux", []):
+                rows.append({"depute_id": d["acteur"], "sigle": sigle, "loyaute": d["loyaute"],
+                             "mediane_groupe": data["mediane_loyaute"], "votes_loyaute": d["votes"],
+                             "ecarts": d["ecarts"]})
+    cols = ["depute_id", "loyaute", "mediane_groupe", "votes_loyaute", "ecarts"]
+    if not rows:
+        return pd.DataFrame(columns=cols)
+    df = pd.DataFrame(rows)
+    con = sqlite3.connect(DB_PATH)
+    actuel = dict(con.execute("SELECT d.id, g.sigle FROM deputes d JOIN groupes g ON g.nom = d.groupe").fetchall())
+    con.close()
+    df["_actuel"] = df["sigle"] == df["depute_id"].map(actuel)
+    df = df.sort_values(["_actuel", "votes_loyaute"], ascending=False).drop_duplicates("depute_id")
+    return df[cols]
+
+
 def label(score, nb_exprimes, s):
     if nb_exprimes < s["min_votes"] or score is None:
         return INSUFFISANT
@@ -135,11 +169,14 @@ def scores(theme):
     moyennes = (df[df["en_mandat"] & df["score"].notna() & (df["groupe"] != SANS_GROUPE)]
                 .groupby("groupe")["score"].mean())
     df["moyenne_groupe"] = df["groupe"].map(moyennes).round()
-    # Only députés MORE favourable than their group (user decision): one less favourable than their own
-    # group is no lead, so they keep their normal label.
-    ecart = df["score"] - df["moyenne_groupe"]
+    # "S'écarte de son groupe": Hémicycle loyalty (all votes of the legislature) at least ecart_loyaute points
+    # below their group's median. Kept only for députés MORE favourable than their group on this theme (user
+    # decision of 2026-11-14): one less favourable than their own group is no lead, so they keep their label.
+    df = df.merge(loyautes(), on="depute_id", how="left")
+    df["ecart_loyaute"] = (100 * (df["mediane_groupe"] - df["loyaute"])).round(1)
     df["note"] = ""
-    hors_ligne = df["score"].notna() & df["moyenne_groupe"].notna() & (ecart >= s["ecart_groupe"])
+    hors_ligne = (df["score"].notna() & df["moyenne_groupe"].notna() & (df["score"] > df["moyenne_groupe"])
+                  & (df["ecart_loyaute"] >= s["ecart_loyaute"]) & (df["groupe"] != SANS_GROUPE))
     df.loc[hors_ligne, "label"] = A_CONVAINCRE
     df.loc[hors_ligne, "note"] = NOTE_ECART
     return df.sort_values(["score", "nom"], ascending=[False, True], na_position="last")

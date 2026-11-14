@@ -221,3 +221,35 @@ changed the keywords, since you chose them.
   predicted to abstain or be absent; button to open a Fiche. With no Hémicycle data, it shows the simulation and
   a short French message saying why. Tested: not configured, configured but unreachable. No crash.
 - Simulation today: 138 pour, 114 contre, 322 absent; 12 to meet, 15 alliés to mobilise.
+
+## Hémicycle loyalty and fiches (task 12)
+
+- **Calls made** (Hémicycle MCP server): `loyaute_deputes` once per group, legislature 17, `limite=100`: 11 groups,
+  55 credits. Non-inscrits are excluded by Hémicycle. Running the calls in parallel led to 422s and 429s (not
+  billed), so I re-ran them one at a time. `lire_acteur` for the 30 députés shown in the three Accueil lists of
+  `nucleaire` (default theme; `sante` has no validated matches yet, so its lists are empty): 30 credits.
+  Total spent: 85 credits.
+- **Cache**: `data/hemicycle/loyaute_<SIGLE>.json` and `data/hemicycle/acteurs/<id>.json`. These are trimmed copies,
+  not the raw responses, which were too large to keep in full. Names are dropped from the loyalty files (they are
+  in the DB). The fiche mandates list is cut to the current permanent commission and the current role.
+  `data/` is gitignored, so **these files are not committed**: keep them, or the calls must be run again.
+- **Coverage**: 527 of 574 current députés have a loyalty figure. RN has 133 members and the call returns at most
+  100, so its 33 most loyal members are missing. They can't be flagged, which is the right result anyway.
+  A député listed under two groups (e.g. Fruchon: LIOT and DR) keeps the entry of their current group.
+- **New rule** (`scoring.py`): "s'écarte de son groupe" = Hémicycle loyalty ≥ `ECART_LOYAUTE` (5) points below the
+  group median **and** theme score above the group average. I kept the second condition so the "only more
+  favourable than the group" decision from earlier today still holds. Loyalty alone has no direction.
+  5 points is my choice: depending on the group, the median sits between 90 % (LIOT) and 99 % (LFI, RN), and
+  5 points picks out the clear outliers.
+- **Effect on nucleaire**: 8 flagged, down from 4 under the old rule. The old 4 (Pouzyreff, Melchior, Fesneau,
+  Riotton) are no longer flagged: they are loyal overall. Now flagged: Ménagé and Dussausaye (RN, 92 and 87 vs
+  group 86), Lam and Brard (HOR), Daubié and Brocard (DEM), Brulebois and L. Tanguy (EPR). Totals per label
+  are unchanged (121/109/69/275) because 4 alliés moved to à convaincre in both versions.
+  **Worth a look**: Dussausaye is 1 point above his group on the theme and RN votes very much as a block, so his
+  "à convaincre" rests on his overall loyalty, not on nuclear.
+- **Fiche député**: framed box with profession, commission (name from the local AMO organe files, since Hémicycle
+  only gives the code), role, HATVP link, and loyalty vs group median. Caption credits Hémicycle and the AN
+  open-data licence. Loyalty shows for anyone with a figure; the fiche part only for the 30 cached députés.
+- Hémicycle's `lire_acteur` returns at most 50 mandates, newest first, so the first election date and the number
+  of terms can't be read reliably. I left them out.
+- DEMO.md, HANDOFF.md and prospectus.html still describe the 20-point rule. Not touched (outside this task).
