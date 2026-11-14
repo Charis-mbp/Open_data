@@ -302,3 +302,20 @@ changed the keywords, since you chose them.
   tooltip gives name, group and score. The prototype's group highlight on hover is not done.
 - Removed: PITCH and COMMENT_UTILISATEUR (replaced by the hero and the method section).
 - Checked: all 7 pages run with no error (AppTest). No screenshot: headless Firefox hangs on Streamlit.
+
+## Redesign step 2: Classement and Fiche député (task 15)
+
+- Shared helpers in `styles.py`: `tete_page` (mono label, big title, one paragraph), `encart` (side box with
+  term/definition rows and a source line), `metriques` (ruled row of big mono figures). `bandeau_validation`
+  is now a mono info line.
+- Emoji removed from labels, vote categories and the "cheval de Troie" flag (plain text). The Altair cloud
+  uses the new palette and fonts.
+- Classement: page head, search, filters, label counters; then a "Le nuage" section and a "Le tableau" section.
+  Clicking a row of the table opens that député's fiche (`on_select` callback). The old "Votes derrière un
+  score" selector at the bottom is gone: the fiche shows those votes, so every score still links to its votes.
+- Fiche député: page head with name, group, circonscription, AN link and label badges; the député selector sits
+  top right. "Thème" section: score, group average and aligned/opposed as big figures, the
+  "s'écarte de son groupe" explanation when it applies, and the Hémicycle box on the right (now shows
+  "non mesurée" when loyalty is missing). Then "Les votes derrière le score" with the table.
+- Checked with AppTest: all pages run; Daubié's fiche has the alert, Girard's does not. The row click cannot be
+  simulated in AppTest; check it by hand.

@@ -202,6 +202,28 @@ svg.hemi circle:hover {{ stroke: var(--craie); stroke-width: 1.5; }}
 .entete b {{ font: 700 1.1rem var(--f-titre); }}
 .entete span {{ color: var(--gris); font-size: .88rem; }}
 
+/* page heads (all pages but Accueil) */
+.tete-page {{ display: grid; gap: .5rem; padding-bottom: .4rem; }}
+.tete-page h1 {{ margin: 0; padding: 0; font: 700 clamp(2rem, 4.4vw, 3.3rem)/1.02 var(--f-titre); letter-spacing: -.035em; max-width: 22ch; }}
+.tete-page p {{ margin: 0; color: var(--gris); max-width: 68ch; }}
+.ligne-info {{ color: var(--gris); font: 400 .8rem/1.4 var(--f-data); margin: .2rem 0 1rem; }}
+.ligne-info b {{ color: var(--craie); font-weight: 500; }}
+
+/* fiche */
+.metriques {{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--filet2); border-bottom: 1px solid var(--filet2); }}
+.metriques div {{ padding: 1rem 1rem 1rem 0; display: grid; gap: .3rem; align-content: start; }}
+.metriques div + div {{ padding-left: 1rem; border-left: 1px solid var(--filet); }}
+.metriques span {{ color: var(--gris); font-size: .8rem; }}
+.metriques b {{ font: 500 clamp(1.6rem, 3vw, 2.2rem)/1 var(--f-data); color: var(--c, var(--craie)); }}
+.encart {{ border: 1px solid var(--filet2); border-radius: 6px; padding: 1rem 1.1rem; display: grid; gap: .6rem; font-size: .9rem; background: var(--ardoise); }}
+.encart dl {{ margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .4rem .9rem; }}
+.encart dt {{ color: var(--gris); }}
+.encart dd {{ margin: 0; }}
+.encart .src {{ color: var(--gris); font-size: .76rem; border-top: 1px solid var(--filet); padding-top: .55rem; }}
+.alerte {{ border-left: 3px solid var(--convaincre); padding: .7rem .9rem; background: color-mix(in srgb, var(--convaincre) 8%, transparent); font-size: .9rem; margin-top: 1rem; }}
+.fiche-sous {{ color: var(--gris); margin: .3rem 0 .8rem; }}
+@media (max-width: 520px) {{ .metriques {{ grid-template-columns: minmax(0, 1fr); }} .metriques div + div {{ padding-left: 0; border-left: 0; border-top: 1px solid var(--filet); }} }}
+
 @media (max-width: 880px) {{
   .positions {{ grid-template-columns: minmax(0, 1fr); }}
   .position:nth-child(even) {{ padding-left: 0; border-left: 0; }}
@@ -303,3 +325,22 @@ def jauge(score, classe):
 
 def entete(classe, titre, n):
     return f'<div class="entete {classe}"><b>{e(titre)}</b><span>{e(n)}</span></div>'
+
+
+def tete_page(etiquette, titre, texte=""):
+    """Page head shared by every page: a small mono label, a big title, one paragraph."""
+    return (f'<div class="tete-page"><span class="etiq">{e(etiquette)}</span><h1>{e(titre)}</h1>'
+            + (f'<p>{texte}</p>' if texte else "") + '</div>')
+
+
+def encart(titre, lignes, source):
+    """Bordered side box: a label, term/definition rows (already escaped HTML), a source line."""
+    dl = "".join(f"<dt>{e(t)}</dt><dd>{d}</dd>" for t, d in lignes)
+    return (f'<aside class="encart"><span class="etiq">{e(titre)}</span><dl>{dl}</dl>'
+            f'<span class="src">{e(source)}</span></aside>')
+
+
+def metriques(items):
+    """items: list of (label, value HTML, css class or ""). A ruled row of big mono figures."""
+    cases = "".join(f'<div class="{c}"><span>{e(lib)}</span><b>{v}</b></div>' for lib, v, c in items)
+    return f'<div class="metriques">{cases}</div>'

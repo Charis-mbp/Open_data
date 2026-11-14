@@ -172,7 +172,7 @@ def page_shortlist(theme, label):
         })
 
 
-AMBIGU_LIBELLE = "🐴 Ambigu : « cheval de Troie »"
+AMBIGU_LIBELLE = "Ambigu : « cheval de Troie »"
 AMBIGU_AIDE = ("Le texte voté et l'intention de son auteur vont dans des sens opposés (par exemple un objectif "
                "climatique défendu dans l'exposé comme une alternative au nucléaire). Le vote compte dans le "
                "score, mais il est signalé partout où il apparaît.")
@@ -286,8 +286,7 @@ def page_validation(theme, label):
         carte_match(theme, m, decisions.get(str(m["numero"])))
 
 
-COULEURS_LABEL = {scoring.ALLIE: "🟢", scoring.A_CONVAINCRE: "🟠", scoring.OPPOSANT: "🔴",
-                  scoring.INSUFFISANT: "⚪"}
+COULEURS_LABEL = {scoring.ALLIE: "●", scoring.A_CONVAINCRE: "●", scoring.OPPOSANT: "●", scoring.INSUFFISANT: "○"}
 CLASSE_LABEL = {scoring.ALLIE: "allie", scoring.A_CONVAINCRE: "convaincre", scoring.OPPOSANT: "opposant",
                 scoring.INSUFFISANT: "insuffisant"}
 COULEURS_HEX = {scoring.ALLIE: styles.P["allie"], scoring.A_CONVAINCRE: styles.P["convaincre"],
@@ -309,7 +308,7 @@ def nuage_scores(vue, s):
     ordre = d.groupby("groupe")["score"].mean().sort_values(ascending=False).index.tolist()
     labs = [l for l in scoring.LABELS if l != scoring.INSUFFISANT]
     survol = alt.selection_point(fields=["label"], bind="legend")
-    points = alt.Chart(d).mark_circle(opacity=.85, stroke="#0B1116", strokeWidth=.5).encode(
+    points = alt.Chart(d).mark_circle(opacity=.85, stroke=styles.P["encre"], strokeWidth=.5).encode(
         x=alt.X("score:Q", title="Score", scale=alt.Scale(domain=[0, 100])),
         y=alt.Y("groupe:N", title=None, sort=ordre),
         yOffset=alt.YOffset("jitter:Q"),
@@ -323,16 +322,16 @@ def nuage_scores(vue, s):
                  alt.Tooltip("exprimes:Q", title="Votes comptés")],
     ).transform_calculate(jitter="random()").add_params(survol)
     seuils = alt.Chart(pd.DataFrame({"x": [s["seuil_opposant"], s["seuil_allie"]]})).mark_rule(
-        strokeDash=[4, 4], color="#8DA19C", opacity=.6).encode(x="x:Q")
+        strokeDash=[4, 4], color=styles.P["gris"], opacity=.6).encode(x="x:Q")
     graphe = (seuils + points).properties(height=max(260, 34 * len(ordre))).configure(
         background="transparent").configure_view(stroke=None).configure_axis(
-        gridColor="#22323B", domainColor="#22323B", labelColor="#C9D6D2", titleColor="#8DA19C",
-        labelFont="Inter", titleFont="Inter").configure_legend(labelColor="#C9D6D2", titleColor="#8DA19C")
+        gridColor=styles.P["filet"], domainColor=styles.P["filet"], labelColor=styles.P["craie"],
+        titleColor=styles.P["gris"], labelFont="IBM Plex Sans", titleFont="IBM Plex Mono").configure_legend(
+        labelColor=styles.P["craie"], titleColor=styles.P["gris"], labelFont="IBM Plex Sans", titleFont="IBM Plex Mono")
     st.altair_chart(graphe, width="stretch")
 
 
-LIBELLES_CATEGORIE = {"aligné": "✅ aligné", "opposé": "❌ opposé", "abstention": "➖ abstention",
-                      "absent": "· absent"}
+LIBELLES_CATEGORIE = {"aligné": "aligné", "opposé": "opposé", "abstention": "abstention", "absent": "absent"}
 
 
 @st.cache_data
@@ -348,10 +347,10 @@ def bandeau_validation(theme):
     decisions = matching.load_validated(theme)
     acceptes = sum(1 for d in decisions.values() if d["statut"] in ("accepte", "inverse"))
     non_valides = 0 if data is None else sum(1 for m in data["matches"] if str(m["numero"]) not in decisions)
-    texte = f"Scores calculés sur **{acceptes} scrutins validés**."
+    texte = f"Scores calculés sur <b>{acceptes} scrutins validés</b>."
     if non_valides:
-        texte += f" {non_valides} propositions du modèle sont **non validées** et ne comptent pas."
-    st.markdown(texte)
+        texte += f" {non_valides} propositions du modèle sont <b>non validées</b> et ne comptent pas."
+    st.markdown(f'<p class="ligne-info">{texte}</p>', unsafe_allow_html=True)
     return acceptes
 
 
@@ -361,7 +360,7 @@ def votes_derriere(detail, depute_id):
     rows = detail[detail["depute_id"] == depute_id]
     rows = rows.assign(_o=rows["categorie"].map(ordre)).sort_values(["_o", "date"])
     rows = rows.assign(categorie=rows["categorie"].map(LIBELLES_CATEGORIE),
-                       ambigu=rows["ambigu"].map(lambda a: "🐴 cheval de Troie" if a else ""))
+                       ambigu=rows["ambigu"].map(lambda a: "cheval de Troie" if a else ""))
     st.dataframe(
         rows[["categorie", "numero", "date", "titre", "ambigu", "position_id", "vote_retenu", "vote", "raison",
               "url"]],
@@ -378,24 +377,25 @@ def votes_derriere(detail, depute_id):
 
 
 def page_classement(theme, label):
-    st.header(f"Classement : {label}")
-    if not bandeau_validation(theme):
+    path = matching.theme_path(theme, "validated.json")
+    s = scoring.seuils(theme)
+    st.markdown(styles.tete_page(
+        f"Classement · {label}", "Tous les députés, du plus proche au plus éloigné",
+        f"Score = part des votes alignés sur le vote voulu, parmi les votes pour et contre. Allié : "
+        f"{s['seuil_allie']} ou plus. Opposant : {s['seuil_opposant']} ou moins. Moins de {s['min_votes']} votes "
+        "pour ou contre : données insuffisantes. Abstentions et absences sont affichées mais ne comptent pas."),
+        unsafe_allow_html=True)
+    if not bandeau_validation(theme) or not os.path.exists(path):
         st.info("Aucun scrutin validé pour ce thème : validez des correspondances sur la page "
                 "« Validation des scrutins » pour obtenir des scores.")
         return
-    path = matching.theme_path(theme, "validated.json")
-    df, detail = scores_theme(theme, (os.path.getmtime(path), os.path.getmtime(scoring.__file__)))
-    s = scoring.seuils(theme)
-    st.caption(f"Score = part des votes alignés sur le vote voulu, parmi les votes pour et contre. "
-               f"Allié : {s['seuil_allie']} ou plus. Opposant : {s['seuil_opposant']} ou moins. "
-               f"Moins de {s['min_votes']} votes pour ou contre : données insuffisantes. "
-               "Abstentions et absences sont affichées mais ne comptent pas.")
+    df, _ = scores_theme(theme, (os.path.getmtime(path), os.path.getmtime(scoring.__file__)))
 
-    f1, f2, f3 = st.columns([2, 2, 1])
+    q = st.text_input("Rechercher un député", placeholder="Nom du député", label_visibility="collapsed")
+    f1, f2, f3 = st.columns([2, 2, 1], vertical_alignment="bottom")
     groupes = f1.multiselect("Groupe", sorted(g for g in df["groupe"].unique() if g))
     labels = f2.multiselect("Étiquette", scoring.LABELS)
     anciens = f3.checkbox("Inclure les anciens députés")
-    q = st.text_input("Rechercher un député", placeholder="nom")
     vue = df if anciens else df[df["en_mandat"]]
     if groupes:
         vue = vue[vue["groupe"].isin(groupes)]
@@ -403,40 +403,40 @@ def page_classement(theme, label):
         vue = vue[vue["label"].isin(labels)]
     if q.strip():
         vue = vue[vue["nom"].map(normalise).str.contains(normalise(q.strip()), regex=False)]
-
     visuel_labels(vue)
-    with st.expander("Nuage des scores par groupe", expanded=True):
-        st.caption("Un point par député, taille selon le nombre de votes comptés. Les pointillés marquent les "
-                   "seuils opposant et allié. Cliquez une étiquette de la légende pour l'isoler.")
-        nuage_scores(vue, s)
 
-    table = vue.assign(etiquette=vue["label"].map(lambda l: f"{COULEURS_LABEL[l]} {l}"))
+    st.markdown(styles.coupe("Le nuage", "un point par député · taille selon les votes comptés")
+                + styles.titre_bande("Les scores, groupe par groupe",
+                                     "Les pointillés marquent les seuils d'opposant et d'allié. Cliquez une "
+                                     "étiquette de la légende pour l'isoler."), unsafe_allow_html=True)
+    nuage_scores(vue, s)
+
+    st.markdown(styles.coupe("Le tableau", f"{len(vue)} députés · cliquez une ligne pour ouvrir la fiche"),
+                unsafe_allow_html=True)
+    if vue.empty:
+        st.info("Aucun député ne correspond aux filtres.")
+        return
+    st.session_state["_classement_ids"] = list(vue["depute_id"])
     st.dataframe(
-        table[["nom", "groupe", "circonscription", "score", "etiquette", "note", "alignes", "opposes",
-               "abstentions", "absences"]],
-        hide_index=True, width="stretch",
+        vue[["nom", "groupe", "circonscription", "score", "label", "note", "alignes", "opposes",
+             "abstentions", "absences"]],
+        hide_index=True, width="stretch", key="tableau_classement", on_select=ouvrir_depuis_tableau,
+        selection_mode="single-row",
         column_config={
             "nom": "Député", "groupe": "Groupe", "circonscription": "Circonscription",
             "score": st.column_config.ProgressColumn("Score", min_value=0, max_value=100, format="%d"),
-            "etiquette": "Étiquette", "note": "Note", "alignes": "Alignés", "opposes": "Opposés",
+            "label": "Étiquette", "note": "Note", "alignes": "Alignés", "opposes": "Opposés",
             "abstentions": "Abstentions", "absences": "Absences",
         },
     )
 
-    st.subheader("Votes derrière un score")
-    if vue.empty:
-        st.info("Aucun député ne correspond aux filtres.")
-        return
-    noms = {r.depute_id: f"{r.nom} ({r.groupe}) : "
-            + (f"{int(r.score)}" if pd.notna(r.score) else "pas de score") for r in vue.itertuples()}
-    choix = st.selectbox("Député", list(noms), format_func=noms.get)
-    r = vue.set_index("depute_id").loc[choix]
-    st.markdown(f"{COULEURS_LABEL[r['label']]} **{r['label']}**"
-                + (f" ({r['note']})" if r["note"] else "")
-                + f" · {r['alignes']} alignés, {r['opposes']} opposés, {r['abstentions']} abstentions, "
-                f"{r['absences']} absences")
-    st.button("Ouvrir la fiche du député", on_click=ouvrir_fiche, args=(choix,))
-    votes_derriere(detail, choix)
+
+def ouvrir_depuis_tableau():
+    """Callback of the Classement table: the clicked row opens that député's fiche."""
+    lignes = st.session_state["tableau_classement"].selection.rows
+    ids = st.session_state.get("_classement_ids", [])
+    if lignes and lignes[0] < len(ids):
+        ouvrir_fiche(ids[lignes[0]])
 
 
 def ouvrir_fiche(depute_id):
@@ -455,31 +455,30 @@ def encart_hemicycle(depute_id, r):
     lignes = []
     if f:
         if f.get("profession"):
-            lignes.append(f"**Profession** : {f['profession']}")
+            lignes.append(("Profession", styles.e(f["profession"])))
         com = f.get("commission")
         if com:
-            role = ", ".join(q for q in com["qualites"] if q != "Membre") or "Membre"
-            lignes.append(f"**Commission** : {com.get('nom') or com['organe']} ({role.lower()})")
+            role = ", ".join(q for q in com["qualites"] if q != "Membre") or "membre"
+            lignes.append(("Commission", f"{styles.e(com.get('nom') or com['organe'])} ({styles.e(role.lower())})"))
         if f.get("fonction"):
-            lignes.append(f"**Fonction** : {f['fonction']}")
-        if f.get("hatvp"):
-            lignes.append(f"[Déclarations d'intérêts (HATVP)]({f['hatvp']})")
+            lignes.append(("Fonction", styles.e(f["fonction"])))
     if pd.notna(r.get("loyaute")):
-        lignes.append(f"**Loyauté envers son groupe** : {pct(r['loyaute'])} % de ses votes suivent la "
-                      f"position majoritaire du groupe (médiane du groupe : {pct(r['mediane_groupe'])} %, "
-                      f"{int(r['votes_loyaute'])} votes comptés sur la législature)")
-    if not lignes:
-        return
-    with st.container(border=True):
-        st.markdown("  \n".join(lignes))
-        st.caption("Source : Hémicycle (hemicycle.ai), d'après les données ouvertes de l'Assemblée nationale "
-                   "(Licence Ouverte). Données consultées le 14 novembre 2026.")
+        lignes.append(("Loyauté", f"{pct(r['loyaute'])} % de ses votes suivent la position majoritaire du groupe "
+                                  f"(médiane du groupe : {pct(r['mediane_groupe'])} %, "
+                                  f"{int(r['votes_loyaute'])} votes comptés sur la législature)"))
+    else:
+        lignes.append(("Loyauté", '<span style="color:var(--gris)">non mesurée</span>'))
+    if f and f.get("hatvp"):
+        lignes.append(("Intérêts", f'<a href="{styles.e(f["hatvp"])}" target="_blank">déclarations HATVP</a>'))
+    st.markdown(styles.encart("Hémicycle", lignes, "Source : Hémicycle (hemicycle.ai), d'après les données "
+                              "ouvertes de l'Assemblée nationale (Licence Ouverte). Consulté le 14 novembre 2026."),
+                unsafe_allow_html=True)
 
 
 def page_fiche(theme, label):
-    st.header("Fiche député")
     path = matching.theme_path(theme, "validated.json")
     if not os.path.exists(path):
+        st.markdown(styles.tete_page("Fiche député", "Fiche député"), unsafe_allow_html=True)
         st.info("Aucun scrutin validé pour ce thème : la fiche ne peut pas encore montrer de score.")
         return
     df, detail = scores_theme(theme, (os.path.getmtime(path), os.path.getmtime(scoring.__file__)))
@@ -488,41 +487,44 @@ def page_fiche(theme, label):
             for r in df.itertuples()}
     ids = list(noms)
     courant = st.session_state.get("fiche_depute")
-    choix = st.selectbox("Député", ids, index=ids.index(courant) if courant in ids else 0,
-                         format_func=noms.get)
+    tete, choix_col = st.columns([3, 1.2], vertical_alignment="bottom")
+    choix = choix_col.selectbox("Autre député", ids, index=ids.index(courant) if courant in ids else 0,
+                                format_func=noms.get)
     st.session_state["fiche_depute"] = choix
     r = df.set_index("depute_id").loc[choix]
-
-    st.subheader(r["nom"])
     classe = CLASSE_LABEL[r["label"]]
-    st.markdown(f'<span class="pastille {classe}">{r["label"]}</span>'
-                + (f' <span class="pastille insuffisant">{r["note"]}</span>' if r["note"] else ""),
-                unsafe_allow_html=True)
-    st.markdown(f"{r['groupe'] or 'Sans groupe'} · {r['circonscription']}"
-                + ("" if r["en_mandat"] else " · ne siège plus")
-                + f"  \n[Page du député sur le site de l'Assemblée nationale]"
-                f"(https://www.assemblee-nationale.fr/dyn/deputes/{choix})")
-    encart_hemicycle(choix, r)
+    tete.markdown(
+        styles.tete_page(f"Fiche député · {r['groupe'] or 'sans groupe'}", r["nom"])
+        + f'<p class="fiche-sous">{styles.e(r["circonscription"])}' + ("" if r["en_mandat"] else " · ne siège plus")
+        + f' · <a href="https://www.assemblee-nationale.fr/dyn/deputes/{choix}" target="_blank">page sur le site '
+          "de l'Assemblée</a></p>"
+        + f'<div class="pastilles"><span class="pastille {classe}">{styles.e(r["label"])}</span>'
+        + (f'<span class="pastille neutre">{styles.e(r["note"])}</span>' if r["note"] else "") + "</div>",
+        unsafe_allow_html=True)
 
-    st.markdown(f"#### Thème : {label}")
-    c0, c1, c2, c3 = st.columns([1.1, 1, 1, 1], vertical_alignment="center")
-    c0.markdown(styles.jauge(None if pd.isna(r["score"]) else r["score"], classe), unsafe_allow_html=True)
-    c1.metric("Score", "–" if pd.isna(r["score"]) else f"{int(r['score'])} / 100")
-    c2.metric("Étiquette", f"{COULEURS_LABEL[r['label']]} {r['label']}")
-    c3.metric("Moyenne de son groupe",
-              "–" if pd.isna(r["moyenne_groupe"]) else f"{int(r['moyenne_groupe'])} / 100")
-    if r["note"]:
-        st.warning(f"**{r['note'].capitalize()}** : sur l'ensemble de la législature, il suit la position "
-                   f"majoritaire de son groupe dans {pct(r['loyaute'])} % de ses votes, contre "
-                   f"{pct(r['mediane_groupe'])} % pour le député médian du groupe (source : Hémicycle). "
-                   f"Sur ce thème, son score ({int(r['score'])}) dépasse de {int(r['score'] - r['moyenne_groupe'])} points "
-                   f"la moyenne de son groupe ({int(r['moyenne_groupe'])}). Classé « à convaincre », quel que soit le score.")
-    st.markdown(f"Sur les scrutins validés de ce thème tenus pendant son mandat : **{r['alignes']}** votes "
-                f"alignés et **{r['opposes']}** opposés (ce sont eux qui font le score), "
-                f"{r['abstentions']} abstentions et {r['absences']} absences (affichées, non comptées).")
-    bandeau_validation(theme)
+    st.markdown(styles.coupe(f"Thème · {label}", "scrutins validés tenus pendant son mandat"), unsafe_allow_html=True)
+    gauche, droite = st.columns([1.35, 1], gap="large")
+    with gauche:
+        st.markdown(styles.metriques([
+            ("Score sur le thème", "–" if pd.isna(r["score"]) else int(r["score"]), classe),
+            ("Moyenne de son groupe", "–" if pd.isna(r["moyenne_groupe"]) else int(r["moyenne_groupe"]), ""),
+            ("Votes alignés / opposés", f"{r['alignes']} / {r['opposes']}", ""),
+        ]) + f'<p class="fiche-sous" style="margin-top:.8rem">{r["alignes"]} votes alignés et {r["opposes"]} '
+             f"opposés font le score ; {r['abstentions']} abstentions et {r['absences']} absences sont affichées, "
+             "non comptées.</p>"
+           + (f'<div class="alerte"><b>S\'écarte de son groupe.</b> Sur toute la législature, il suit la position '
+              f"majoritaire de son groupe dans {pct(r['loyaute'])} % de ses votes, contre {pct(r['mediane_groupe'])} % "
+              f"pour le député médian du groupe (source : Hémicycle). Sur ce thème, son score dépasse de "
+              f"{int(r['score'] - r['moyenne_groupe'])} points la moyenne du groupe. Classé « à convaincre », quel "
+              "que soit le score.</div>" if r["note"] else ""),
+           unsafe_allow_html=True)
+        bandeau_validation(theme)
+    with droite:
+        encart_hemicycle(choix, r)
 
-    st.markdown("#### Les votes derrière le score")
+    n = int((detail["depute_id"] == choix).sum()) if not detail.empty else 0
+    st.markdown(styles.coupe("Les votes derrière le score", f"{n} scrutins · chaque ligne renvoie au site de "
+                             "l'Assemblée"), unsafe_allow_html=True)
     votes_derriere(detail, choix)
 
 
