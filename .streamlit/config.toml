@@ -1,7 +1,7 @@
-# Light base matching the "Vert-de-gris et paon" style: data tables are drawn by Streamlit and follow this, not the CSS.
+# Dark base matching the "Nuit et cuivre" style: data tables and charts are drawn by Streamlit and follow this, not the CSS.
 [theme]
-base = "light"
-backgroundColor = "#EDF2E9"
-secondaryBackgroundColor = "#D9E4D3"
-textColor = "#12201A"
-primaryColor = "#0D5A63"
+base = "dark"
+backgroundColor = "#0B1116"
+secondaryBackgroundColor = "#121B22"
+textColor = "#E4ECEA"
+primaryColor = "#E3A15A"

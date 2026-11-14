@@ -3,6 +3,7 @@ import os
 import sqlite3
 import traceback
 
+import altair as alt
 import pandas as pd
 import streamlit as st
 
@@ -287,6 +288,49 @@ def page_validation(theme, label):
 
 COULEURS_LABEL = {scoring.ALLIE: "🟢", scoring.A_CONVAINCRE: "🟠", scoring.OPPOSANT: "🔴",
                   scoring.INSUFFISANT: "⚪"}
+CLASSE_LABEL = {scoring.ALLIE: "allie", scoring.A_CONVAINCRE: "convaincre", scoring.OPPOSANT: "opposant",
+                scoring.INSUFFISANT: "insuffisant"}
+COULEURS_HEX = {scoring.ALLIE: "#3FC488", scoring.A_CONVAINCRE: "#F2B544", scoring.OPPOSANT: "#EF5F57",
+                scoring.INSUFFISANT: "#5C6F6A"}
+
+
+def visuel_labels(vue):
+    """Animated counters and stacked bar of the labels, for a set of députés."""
+    items = [(int((vue["label"] == lab).sum()), lab, CLASSE_LABEL[lab]) for lab in scoring.LABELS]
+    st.markdown(styles.compteurs(items) + styles.repartition(items), unsafe_allow_html=True)
+
+
+def nuage_scores(vue, s):
+    """One dot per député: score by group, coloured by label."""
+    d = vue[vue["score"].notna()][["nom", "groupe", "score", "label", "exprimes"]].copy()
+    if d.empty:
+        return
+    d["groupe"] = d["groupe"].fillna("Sans groupe")
+    ordre = d.groupby("groupe")["score"].mean().sort_values(ascending=False).index.tolist()
+    labs = [l for l in scoring.LABELS if l != scoring.INSUFFISANT]
+    survol = alt.selection_point(fields=["label"], bind="legend")
+    points = alt.Chart(d).mark_circle(opacity=.85, stroke="#0B1116", strokeWidth=.5).encode(
+        x=alt.X("score:Q", title="Score", scale=alt.Scale(domain=[0, 100])),
+        y=alt.Y("groupe:N", title=None, sort=ordre),
+        yOffset=alt.YOffset("jitter:Q"),
+        size=alt.Size("exprimes:Q", title="Votes comptés", scale=alt.Scale(range=[20, 160]), legend=None),
+        color=alt.Color("label:N", title="Étiquette",
+                        scale=alt.Scale(domain=labs, range=[COULEURS_HEX[l] for l in labs]),
+                        legend=alt.Legend(orient="top")),
+        opacity=alt.condition(survol, alt.value(.9), alt.value(.12)),
+        tooltip=[alt.Tooltip("nom:N", title="Député"), alt.Tooltip("groupe:N", title="Groupe"),
+                 alt.Tooltip("score:Q", title="Score", format=".0f"), alt.Tooltip("label:N", title="Étiquette"),
+                 alt.Tooltip("exprimes:Q", title="Votes comptés")],
+    ).transform_calculate(jitter="random()").add_params(survol)
+    seuils = alt.Chart(pd.DataFrame({"x": [s["seuil_opposant"], s["seuil_allie"]]})).mark_rule(
+        strokeDash=[4, 4], color="#8DA19C", opacity=.6).encode(x="x:Q")
+    graphe = (seuils + points).properties(height=max(260, 34 * len(ordre))).configure(
+        background="transparent").configure_view(stroke=None).configure_axis(
+        gridColor="#22323B", domainColor="#22323B", labelColor="#C9D6D2", titleColor="#8DA19C",
+        labelFont="Inter", titleFont="Inter").configure_legend(labelColor="#C9D6D2", titleColor="#8DA19C")
+    st.altair_chart(graphe, width="stretch")
+
+
 LIBELLES_CATEGORIE = {"aligné": "✅ aligné", "opposé": "❌ opposé", "abstention": "➖ abstention",
                       "absent": "· absent"}
 
@@ -360,9 +404,11 @@ def page_classement(theme, label):
     if q.strip():
         vue = vue[vue["nom"].map(normalise).str.contains(normalise(q.strip()), regex=False)]
 
-    cols = st.columns(4)
-    for col, lab in zip(cols, scoring.LABELS):
-        col.metric(f"{COULEURS_LABEL[lab]} {lab}", int((vue["label"] == lab).sum()))
+    visuel_labels(vue)
+    with st.expander("Nuage des scores par groupe", expanded=True):
+        st.caption("Un point par député, taille selon le nombre de votes comptés. Les pointillés marquent les "
+                   "seuils opposant et allié. Cliquez une étiquette de la légende pour l'isoler.")
+        nuage_scores(vue, s)
 
     table = vue.assign(etiquette=vue["label"].map(lambda l: f"{COULEURS_LABEL[l]} {l}"))
     st.dataframe(
@@ -448,8 +494,7 @@ def page_fiche(theme, label):
     r = df.set_index("depute_id").loc[choix]
 
     st.subheader(r["nom"])
-    classe = {scoring.ALLIE: "allie", scoring.A_CONVAINCRE: "convaincre", scoring.OPPOSANT: "opposant",
-              scoring.INSUFFISANT: "insuffisant"}[r["label"]]
+    classe = CLASSE_LABEL[r["label"]]
     st.markdown(f'<span class="pastille {classe}">{r["label"]}</span>'
                 + (f' <span class="pastille insuffisant">{r["note"]}</span>' if r["note"] else ""),
                 unsafe_allow_html=True)
@@ -460,7 +505,8 @@ def page_fiche(theme, label):
     encart_hemicycle(choix, r)
 
     st.markdown(f"#### Thème : {label}")
-    c1, c2, c3 = st.columns(3)
+    c0, c1, c2, c3 = st.columns([1.1, 1, 1, 1], vertical_alignment="center")
+    c0.markdown(styles.jauge(None if pd.isna(r["score"]) else r["score"], classe), unsafe_allow_html=True)
     c1.metric("Score", "–" if pd.isna(r["score"]) else f"{int(r['score'])} / 100")
     c2.metric("Étiquette", f"{COULEURS_LABEL[r['label']]} {r['label']}")
     c3.metric("Moyenne de son groupe",
@@ -547,6 +593,7 @@ def page_accueil(theme, label):
     df, _ = scores_theme(theme, (os.path.getmtime(path), os.path.getmtime(scoring.__file__)))
     bandeau_validation(theme)
     actuels = df[df["en_mandat"]]
+    visuel_labels(actuels)
     colonnes = st.columns(3)
     for col, lab, asc in zip(colonnes, [scoring.ALLIE, scoring.A_CONVAINCRE, scoring.OPPOSANT],
                              [False, False, True]):
@@ -556,11 +603,12 @@ def page_accueil(theme, label):
                 ["_e", "exprimes"], ascending=False)
         else:  # strongest scores first, then the most votes behind them
             liste = liste.sort_values(["score", "exprimes"], ascending=[asc, False])
-        col.markdown(f"#### {COULEURS_LABEL[lab]} {lab.capitalize()}s ({len(liste)})"
-                     if lab != scoring.A_CONVAINCRE else f"#### {COULEURS_LABEL[lab]} À convaincre ({len(liste)})")
+        titre = "À convaincre" if lab == scoring.A_CONVAINCRE else f"{lab.capitalize()}s"
+        col.markdown(styles.entete(CLASSE_LABEL[lab], titre, f"{len(liste)} députés"), unsafe_allow_html=True)
+        boite = col.container(key=f"liste-{CLASSE_LABEL[lab]}")
         for r in liste.head(10).itertuples():
             note = " · s'écarte de son groupe" if r.note else ""
-            col.button(f"{r.nom} · {int(r.score)} · {r.groupe}{note}", key=f"acc-{r.depute_id}",
+            boite.button(f"{r.nom} · {int(r.score)} · {r.groupe}{note}", key=f"acc-{r.depute_id}",
                        on_click=ouvrir_fiche, args=(r.depute_id,), width="stretch")
     st.caption(f"Dix premiers de chaque liste, députés en exercice. "
                f"{(actuels['label'] == scoring.INSUFFISANT).sum()} députés n'ont pas assez de votes sur ces "
@@ -660,14 +708,13 @@ def page_prochain_vote(theme, label):
 
 
 def main():
-    st.title("Boussole parlementaire")
-    st.caption(METHODE)
+    st.markdown(styles.css(styles.DEFAUT), unsafe_allow_html=True)
+    st.markdown(styles.hero("Boussole parlementaire", METHODE), unsafe_allow_html=True)
 
     themes = list_themes()
     if not themes:
         st.error("Aucun thème trouvé dans le dossier themes/.")
         return
-    st.markdown(styles.css(styles.DEFAUT), unsafe_allow_html=True)
     theme = st.sidebar.selectbox("Thème", list(themes), format_func=lambda k: themes[k])
     st.session_state["theme"] = theme
     page = st.sidebar.radio("Pages", ["Accueil", "Prochain vote", "Classement", "Fiche député", "Validation des scrutins",

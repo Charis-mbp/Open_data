@@ -270,3 +270,16 @@ changed the keywords, since you chose them.
   committee, and is 10th in the À convaincre column. Brulebois was too thin, with 5 votes. The prospectus
   counters were partly stale before this task (101 opposants), and are now fixed. HANDOFF.md rewritten
   (GitHub remote, demo DB, Hémicycle). README.md added.
+
+## Dark, animated redesign (task 14)
+
+- New style "Nuit et cuivre" in `styles.py`, now the default (the two light styles are kept for reference).
+  `.streamlit/config.toml` switched to a dark base so tables and charts match.
+- Animations are CSS only (no new dependency): blocks slide in on load, compass needle swings in the header,
+  counters count up, label bar and score ring fill, hover lift on cards and buttons. Disabled under
+  "reduced motion".
+- New visuals: counters + stacked label bar (Accueil, Classement), score-by-group dot chart with Altair
+  (Classement, ships with Streamlit, added to requirements.txt), score ring (Fiche député), coloured
+  column headers on Accueil.
+- The counters' count-up uses CSS `@property`: works in Chrome/Edge/Firefox 128+; older browsers show the final number.
+- `themes/sante/` is empty, so only `nucleaire` appears in the selector (unchanged by this task).
