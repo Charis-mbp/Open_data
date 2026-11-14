@@ -1,0 +1,25 @@
+{
+ "outil": "lire_acteur",
+ "id": "PA719890",
+ "note": "Copie allégée : la liste des mandats (50 au plus, des plus récents aux plus anciens) est réduite à la commission permanente en cours et à la fonction en cours.",
+ "fournisseur": "Hémicycle (hemicycle.ai)",
+ "consulte_le": "2026-11-14",
+ "source": {
+  "editeur": "Assemblée nationale",
+  "url": "https://www.assemblee-nationale.fr/dyn/deputes/PA719890",
+  "licence": "Licence Ouverte 2.0"
+ },
+ "civilite": "Mme",
+ "prenom": "Danielle",
+ "nom": "Brulebois",
+ "profession": "Retraitée de l'enseignement",
+ "hatvp": "https://www.hatvp.fr/pages_nominatives/brulebois-danielle",
+ "commission": {
+  "organe": "PO419610",
+  "qualites": [
+   "Membre"
+  ],
+  "debut": "2026-04-16"
+ },
+ "fonction": null
+}

@@ -1,0 +1,25 @@
+{
+ "outil": "lire_acteur",
+ "id": "PA841701",
+ "note": "Copie allégée : la liste des mandats (50 au plus, des plus récents aux plus anciens) est réduite à la commission permanente en cours et à la fonction en cours.",
+ "fournisseur": "Hémicycle (hemicycle.ai)",
+ "consulte_le": "2026-11-14",
+ "source": {
+  "editeur": "Assemblée nationale",
+  "url": "https://www.assemblee-nationale.fr/dyn/deputes/PA841701",
+  "licence": "Licence Ouverte 2.0"
+ },
+ "civilite": "Mme",
+ "prenom": "Léa",
+ "nom": "Balage El Mariky",
+ "profession": "(37) - Cadre administratif et commercial d'entreprise",
+ "hatvp": "https://www.hatvp.fr/pages_nominatives/balage-el-mariky-lea-27449",
+ "commission": {
+  "organe": "PO59051",
+  "qualites": [
+   "Membre"
+  ],
+  "debut": "2026-07-09"
+ },
+ "fonction": null
+}

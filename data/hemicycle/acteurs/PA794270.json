@@ -1,0 +1,25 @@
+{
+ "outil": "lire_acteur",
+ "id": "PA794270",
+ "note": "Copie allégée : la liste des mandats (50 au plus, des plus récents aux plus anciens) est réduite à la commission permanente en cours et à la fonction en cours.",
+ "fournisseur": "Hémicycle (hemicycle.ai)",
+ "consulte_le": "2026-11-14",
+ "source": {
+  "editeur": "Assemblée nationale",
+  "url": "https://www.assemblee-nationale.fr/dyn/deputes/PA794270",
+  "licence": "Licence Ouverte 2.0"
+ },
+ "civilite": "Mme",
+ "prenom": "Anna",
+ "nom": "Pic",
+ "profession": "Professeur, profession scientifique",
+ "hatvp": "https://www.hatvp.fr/pages_nominatives/pic-anna-20030",
+ "commission": {
+  "organe": "PO59046",
+  "qualites": [
+   "Membre"
+  ],
+  "debut": "2026-10-23"
+ },
+ "fonction": null
+}

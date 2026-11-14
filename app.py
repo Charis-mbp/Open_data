@@ -11,10 +11,9 @@ import matching
 import scoring
 import styles
 from llm import LLMUnavailable
-from shortlist import build_shortlist, load_shortlist, normalise
+from shortlist import DB_PATH, DEMO_DB_PATH, build_shortlist, load_shortlist, normalise
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(ROOT, "data", "boussole.db")
 THEMES_DIR = os.path.join(ROOT, "themes")
 METHODE = ("Méthode : un modèle de langage propose les scrutins liés à la position, "
            "une personne les valide, et le score est une simple part des votes alignés.")
@@ -58,6 +57,9 @@ def page_scrutins():
     if q.strip():
         df = df[df["_recherche"].str.contains(normalise(q.strip()), regex=False)]
     st.caption(f"{len(df)} scrutins")
+    if DB_PATH == DEMO_DB_PATH:
+        st.caption("Version de démonstration : seuls les scrutins retenus pour les thèmes sont chargés. "
+                   "Les 9 895 scrutins de la législature se chargent avec load_data.py.")
     st.dataframe(
         df[["numero", "date", "titre", "resultat", "pour", "contre", "abstention", "url"]],
         hide_index=True,

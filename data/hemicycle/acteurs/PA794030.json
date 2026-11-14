@@ -1,0 +1,25 @@
+{
+ "outil": "lire_acteur",
+ "id": "PA794030",
+ "note": "Copie allégée : la liste des mandats (50 au plus, des plus récents aux plus anciens) est réduite à la commission permanente en cours et à la fonction en cours.",
+ "fournisseur": "Hémicycle (hemicycle.ai)",
+ "consulte_le": "2026-11-14",
+ "source": {
+  "editeur": "Assemblée nationale",
+  "url": "https://www.assemblee-nationale.fr/dyn/deputes/PA794030",
+  "licence": "Licence Ouverte 2.0"
+ },
+ "civilite": "M.",
+ "prenom": "Alexis",
+ "nom": "Jolly",
+ "profession": "Commerçant et assimilé",
+ "hatvp": "https://www.hatvp.fr/pages_nominatives/jolly-alexis-24185",
+ "commission": {
+  "organe": "PO419610",
+  "qualites": [
+   "Membre"
+  ],
+  "debut": "2026-04-08"
+ },
+ "fonction": null
+}

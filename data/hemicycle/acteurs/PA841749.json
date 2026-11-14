@@ -1,0 +1,25 @@
+{
+ "outil": "lire_acteur",
+ "id": "PA841749",
+ "note": "Copie allégée : la liste des mandats (50 au plus, des plus récents aux plus anciens) est réduite à la commission permanente en cours et à la fonction en cours.",
+ "fournisseur": "Hémicycle (hemicycle.ai)",
+ "consulte_le": "2026-11-14",
+ "source": {
+  "editeur": "Assemblée nationale",
+  "url": "https://www.assemblee-nationale.fr/dyn/deputes/PA841749",
+  "licence": "Licence Ouverte 2.0"
+ },
+ "civilite": "Mme",
+ "prenom": "Tiffany",
+ "nom": "Joncour",
+ "profession": "(37) - Cadre administratif et commercial d'entreprise",
+ "hatvp": "https://www.hatvp.fr/pages_nominatives/joncour-tiffany-27441",
+ "commission": {
+  "organe": "PO419604",
+  "qualites": [
+   "Membre"
+  ],
+  "debut": "2024-07-20"
+ },
+ "fonction": null
+}

@@ -1,0 +1,26 @@
+{
+ "outil": "lire_acteur",
+ "id": "PA345722",
+ "note": "Copie allégée : la liste des mandats (50 au plus, des plus récents aux plus anciens) est réduite à la commission permanente en cours et à la fonction en cours.",
+ "fournisseur": "Hémicycle (hemicycle.ai)",
+ "consulte_le": "2026-11-14",
+ "source": {
+  "editeur": "Assemblée nationale",
+  "url": "https://www.assemblee-nationale.fr/dyn/deputes/PA345722",
+  "licence": "Licence Ouverte 2.0"
+ },
+ "civilite": "Mme",
+ "prenom": "Constance",
+ "nom": "Le Grip",
+ "profession": "Conseillère parlementaire",
+ "hatvp": "https://www.hatvp.fr/pages_nominatives/le-grip-constance",
+ "commission": {
+  "organe": "PO59047",
+  "qualites": [
+   "Membre",
+   "Vice-président"
+  ],
+  "debut": "2026-10-27"
+ },
+ "fonction": null
+}

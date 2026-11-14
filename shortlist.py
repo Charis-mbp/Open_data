@@ -12,7 +12,11 @@ import unicodedata
 from datetime import datetime
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(ROOT, "data", "boussole.db")
+# Full database built by load_data.py; when it is absent (e.g. on a deploy), the small demo copy
+# written by make_demo_db.py, which holds only the shortlisted scrutins.
+FULL_DB_PATH = os.path.join(ROOT, "data", "boussole.db")
+DEMO_DB_PATH = os.path.join(ROOT, "data", "boussole_demo.db")
+DB_PATH = FULL_DB_PATH if os.path.exists(FULL_DB_PATH) else DEMO_DB_PATH
 THEMES_DIR = os.path.join(ROOT, "themes")
 
 # Defaults; a theme can override them in theme.json under "shortlist".

@@ -1,0 +1,25 @@
+{
+ "outil": "lire_acteur",
+ "id": "PA342240",
+ "note": "Copie allégée : la liste des mandats (50 au plus, des plus récents aux plus anciens) est réduite à la commission permanente en cours et à la fonction en cours.",
+ "fournisseur": "Hémicycle (hemicycle.ai)",
+ "consulte_le": "2026-11-14",
+ "source": {
+  "editeur": "Assemblée nationale",
+  "url": "https://www.assemblee-nationale.fr/dyn/deputes/PA342240",
+  "licence": "Licence Ouverte 2.0"
+ },
+ "civilite": "M.",
+ "prenom": "Jean-Luc",
+ "nom": "Bourgeaux",
+ "profession": "Agriculteur",
+ "hatvp": "https://www.hatvp.fr/pages_nominatives/bourgeaux-jean-luc-18806",
+ "commission": {
+  "organe": "PO419610",
+  "qualites": [
+   "Membre"
+  ],
+  "debut": "2026-09-24"
+ },
+ "fonction": null
+}

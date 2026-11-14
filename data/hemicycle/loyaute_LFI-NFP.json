@@ -1,0 +1,455 @@
+{
+ "outil": "loyaute_deputes",
+ "note": "Copie allégée de la réponse : noms, prénoms et organe de groupe retirés (ils sont dans la base locale).",
+ "source": {
+  "nom": "Assemblée nationale",
+  "url": "https://data.assemblee-nationale.fr",
+  "licence": "Licence Ouverte (Etalab)"
+ },
+ "fournisseur": "Hémicycle (hemicycle.ai)",
+ "consulte_le": "2026-11-14T14:48:15.894Z",
+ "perimetre": {
+  "legislature": 17,
+  "groupe": "LFI-NFP",
+  "min_votes": 20,
+  "scrutins": 9872,
+  "scrutins_retenus": 9766,
+  "deputes": 72
+ },
+ "definition": "Votes comptés : pour, contre ou abstention d'un député aux scrutins où son groupe du jour a une position majoritaire, celle qui réunit strictement plus de votes de ses membres que chacune des deux autres. Écart : un vote différent de cette position. Loyauté = (votes - écarts) / votes. Les motions de censure, où seuls les votes pour sont recensés, et les non-inscrits, qui ne forment pas un groupe, sont exclus. La liste donne les députés les moins loyaux parmi ceux qui ont au moins min_votes votes comptés ; groupe : le groupe du jour le plus fréquent sur ces votes. Une position majoritaire n'est pas une consigne de vote.",
+ "mediane_loyaute": 0.9932,
+ "deputes_moins_loyaux": [
+  {
+   "acteur": "PA610654",
+   "votes": 1018,
+   "ecarts": 58,
+   "loyaute": 0.943
+  },
+  {
+   "acteur": "PA721202",
+   "votes": 2178,
+   "ecarts": 95,
+   "loyaute": 0.9564
+  },
+  {
+   "acteur": "PA841729",
+   "votes": 1680,
+   "ecarts": 49,
+   "loyaute": 0.9708
+  },
+  {
+   "acteur": "PA719578",
+   "votes": 1278,
+   "ecarts": 21,
+   "loyaute": 0.9836
+  },
+  {
+   "acteur": "PA793756",
+   "votes": 1577,
+   "ecarts": 24,
+   "loyaute": 0.9848
+  },
+  {
+   "acteur": "PA720952",
+   "votes": 1027,
+   "ecarts": 14,
+   "loyaute": 0.9864
+  },
+  {
+   "acteur": "PA795164",
+   "votes": 2151,
+   "ecarts": 29,
+   "loyaute": 0.9865
+  },
+  {
+   "acteur": "PA795228",
+   "votes": 3483,
+   "ecarts": 46,
+   "loyaute": 0.9868
+  },
+  {
+   "acteur": "PA794130",
+   "votes": 2737,
+   "ecarts": 36,
+   "loyaute": 0.9868
+  },
+  {
+   "acteur": "PA794938",
+   "votes": 2207,
+   "ecarts": 28,
+   "loyaute": 0.9873
+  },
+  {
+   "acteur": "PA793772",
+   "votes": 4117,
+   "ecarts": 46,
+   "loyaute": 0.9888
+  },
+  {
+   "acteur": "PA794138",
+   "votes": 4676,
+   "ecarts": 52,
+   "loyaute": 0.9889
+  },
+  {
+   "acteur": "PA794166",
+   "votes": 2568,
+   "ecarts": 27,
+   "loyaute": 0.9895
+  },
+  {
+   "acteur": "PA791812",
+   "votes": 2016,
+   "ecarts": 21,
+   "loyaute": 0.9896
+  },
+  {
+   "acteur": "PA795136",
+   "votes": 4133,
+   "ecarts": 41,
+   "loyaute": 0.9901
+  },
+  {
+   "acteur": "PA795298",
+   "votes": 2751,
+   "ecarts": 27,
+   "loyaute": 0.9902
+  },
+  {
+   "acteur": "PA793872",
+   "votes": 2554,
+   "ecarts": 24,
+   "loyaute": 0.9906
+  },
+  {
+   "acteur": "PA721062",
+   "votes": 2778,
+   "ecarts": 26,
+   "loyaute": 0.9906
+  },
+  {
+   "acteur": "PA817211",
+   "votes": 3771,
+   "ecarts": 35,
+   "loyaute": 0.9907
+  },
+  {
+   "acteur": "PA796090",
+   "votes": 1672,
+   "ecarts": 15,
+   "loyaute": 0.991
+  },
+  {
+   "acteur": "PA795616",
+   "votes": 2092,
+   "ecarts": 18,
+   "loyaute": 0.9914
+  },
+  {
+   "acteur": "PA841845",
+   "votes": 3861,
+   "ecarts": 33,
+   "loyaute": 0.9915
+  },
+  {
+   "acteur": "PA795588",
+   "votes": 3067,
+   "ecarts": 26,
+   "loyaute": 0.9915
+  },
+  {
+   "acteur": "PA795084",
+   "votes": 1605,
+   "ecarts": 13,
+   "loyaute": 0.9919
+  },
+  {
+   "acteur": "PA795672",
+   "votes": 2859,
+   "ecarts": 23,
+   "loyaute": 0.992
+  },
+  {
+   "acteur": "PA795516",
+   "votes": 5017,
+   "ecarts": 40,
+   "loyaute": 0.992
+  },
+  {
+   "acteur": "PA791824",
+   "votes": 4874,
+   "ecarts": 38,
+   "loyaute": 0.9922
+  },
+  {
+   "acteur": "PA796062",
+   "votes": 3362,
+   "ecarts": 26,
+   "loyaute": 0.9923
+  },
+  {
+   "acteur": "PA842037",
+   "votes": 4035,
+   "ecarts": 31,
+   "loyaute": 0.9923
+  },
+  {
+   "acteur": "PA720846",
+   "votes": 2784,
+   "ecarts": 21,
+   "loyaute": 0.9925
+  },
+  {
+   "acteur": "PA842187",
+   "votes": 3906,
+   "ecarts": 29,
+   "loyaute": 0.9926
+  },
+  {
+   "acteur": "PA795310",
+   "votes": 3262,
+   "ecarts": 24,
+   "loyaute": 0.9926
+  },
+  {
+   "acteur": "PA842029",
+   "votes": 4356,
+   "ecarts": 31,
+   "loyaute": 0.9929
+  },
+  {
+   "acteur": "PA342384",
+   "votes": 2841,
+   "ecarts": 20,
+   "loyaute": 0.993
+  },
+  {
+   "acteur": "PA794478",
+   "votes": 1001,
+   "ecarts": 7,
+   "loyaute": 0.993
+  },
+  {
+   "acteur": "PA794686",
+   "votes": 2761,
+   "ecarts": 19,
+   "loyaute": 0.9931
+  },
+  {
+   "acteur": "PA841251",
+   "votes": 3681,
+   "ecarts": 25,
+   "loyaute": 0.9932
+  },
+  {
+   "acteur": "PA794106",
+   "votes": 3876,
+   "ecarts": 26,
+   "loyaute": 0.9933
+  },
+  {
+   "acteur": "PA794870",
+   "votes": 3165,
+   "ecarts": 21,
+   "loyaute": 0.9934
+  },
+  {
+   "acteur": "PA793262",
+   "votes": 3750,
+   "ecarts": 24,
+   "loyaute": 0.9936
+  },
+  {
+   "acteur": "PA795200",
+   "votes": 1586,
+   "ecarts": 10,
+   "loyaute": 0.9937
+  },
+  {
+   "acteur": "PA841191",
+   "votes": 4090,
+   "ecarts": 25,
+   "loyaute": 0.9939
+  },
+  {
+   "acteur": "PA841947",
+   "votes": 3439,
+   "ecarts": 21,
+   "loyaute": 0.9939
+  },
+  {
+   "acteur": "PA794906",
+   "votes": 2483,
+   "ecarts": 15,
+   "loyaute": 0.994
+  },
+  {
+   "acteur": "PA795466",
+   "votes": 2663,
+   "ecarts": 16,
+   "loyaute": 0.994
+  },
+  {
+   "acteur": "PA841215",
+   "votes": 3166,
+   "ecarts": 19,
+   "loyaute": 0.994
+  },
+  {
+   "acteur": "PA721960",
+   "votes": 2167,
+   "ecarts": 13,
+   "loyaute": 0.994
+  },
+  {
+   "acteur": "PA795982",
+   "votes": 3877,
+   "ecarts": 23,
+   "loyaute": 0.9941
+  },
+  {
+   "acteur": "PA793532",
+   "votes": 4614,
+   "ecarts": 27,
+   "loyaute": 0.9941
+  },
+  {
+   "acteur": "PA794082",
+   "votes": 4557,
+   "ecarts": 24,
+   "loyaute": 0.9947
+  },
+  {
+   "acteur": "PA841023",
+   "votes": 2665,
+   "ecarts": 14,
+   "loyaute": 0.9947
+  },
+  {
+   "acteur": "PA796070",
+   "votes": 3454,
+   "ecarts": 18,
+   "loyaute": 0.9948
+  },
+  {
+   "acteur": "PA795108",
+   "votes": 4225,
+   "ecarts": 22,
+   "loyaute": 0.9948
+  },
+  {
+   "acteur": "PA795318",
+   "votes": 2424,
+   "ecarts": 12,
+   "loyaute": 0.995
+  },
+  {
+   "acteur": "PA793464",
+   "votes": 1826,
+   "ecarts": 9,
+   "loyaute": 0.9951
+  },
+  {
+   "acteur": "PA795844",
+   "votes": 3817,
+   "ecarts": 18,
+   "loyaute": 0.9953
+  },
+  {
+   "acteur": "PA841515",
+   "votes": 2702,
+   "ecarts": 12,
+   "loyaute": 0.9956
+  },
+  {
+   "acteur": "PA795746",
+   "votes": 2949,
+   "ecarts": 13,
+   "loyaute": 0.9956
+  },
+  {
+   "acteur": "PA793912",
+   "votes": 4592,
+   "ecarts": 20,
+   "loyaute": 0.9956
+  },
+  {
+   "acteur": "PA794786",
+   "votes": 5368,
+   "ecarts": 23,
+   "loyaute": 0.9957
+  },
+  {
+   "acteur": "PA842155",
+   "votes": 1405,
+   "ecarts": 6,
+   "loyaute": 0.9957
+  },
+  {
+   "acteur": "PA795482",
+   "votes": 2848,
+   "ecarts": 12,
+   "loyaute": 0.9958
+  },
+  {
+   "acteur": "PA795422",
+   "votes": 2525,
+   "ecarts": 10,
+   "loyaute": 0.996
+  },
+  {
+   "acteur": "PA841531",
+   "votes": 1576,
+   "ecarts": 6,
+   "loyaute": 0.9962
+  },
+  {
+   "acteur": "PA841657",
+   "votes": 2184,
+   "ecarts": 8,
+   "loyaute": 0.9963
+  },
+  {
+   "acteur": "PA793736",
+   "votes": 2828,
+   "ecarts": 10,
+   "loyaute": 0.9965
+  },
+  {
+   "acteur": "PA795596",
+   "votes": 2335,
+   "ecarts": 8,
+   "loyaute": 0.9966
+  },
+  {
+   "acteur": "PA720430",
+   "votes": 1989,
+   "ecarts": 5,
+   "loyaute": 0.9975
+  },
+  {
+   "acteur": "PA793444",
+   "votes": 2568,
+   "ecarts": 6,
+   "loyaute": 0.9977
+  },
+  {
+   "acteur": "PA842105",
+   "votes": 2716,
+   "ecarts": 5,
+   "loyaute": 0.9982
+  },
+  {
+   "acteur": "PA793744",
+   "votes": 4815,
+   "ecarts": 8,
+   "loyaute": 0.9983
+  },
+  {
+   "acteur": "PA720892",
+   "votes": 3078,
+   "ecarts": 5,
+   "loyaute": 0.9984
+  }
+ ]
+}

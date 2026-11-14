@@ -1,0 +1,25 @@
+{
+ "outil": "lire_acteur",
+ "id": "PA841613",
+ "note": "Copie allégée : la liste des mandats (50 au plus, des plus récents aux plus anciens) est réduite à la commission permanente en cours et à la fonction en cours.",
+ "fournisseur": "Hémicycle (hemicycle.ai)",
+ "consulte_le": "2026-11-14",
+ "source": {
+  "editeur": "Assemblée nationale",
+  "url": "https://www.assemblee-nationale.fr/dyn/deputes/PA841613",
+  "licence": "Licence Ouverte 2.0"
+ },
+ "civilite": "M.",
+ "prenom": "Marc",
+ "nom": "de Fleurian",
+ "profession": "(33) - Cadre de la fonction publique",
+ "hatvp": "https://www.hatvp.fr/pages_nominatives/de-fleurian-marc-27491",
+ "commission": {
+  "organe": "PO59047",
+  "qualites": [
+   "Membre"
+  ],
+  "debut": "2026-11-10"
+ },
+ "fonction": null
+}
