@@ -280,8 +280,9 @@ LIBELLES_CATEGORIE = {"aligné": "✅ aligné", "opposé": "❌ opposé", "abste
 
 
 @st.cache_data
-def scores_theme(theme, _version):
-    """Cached per theme; `_version` (mtime of validated.json) refreshes it after each validation."""
+def scores_theme(theme, version):
+    """Cached per theme. `version` must change whenever the result can change: it holds the mtimes of
+    validated.json and scoring.py (Streamlit ignores parameters starting with "_" in the cache key)."""
     return scoring.scores(theme), scoring.detail_votes(theme)
 
 
@@ -324,7 +325,7 @@ def page_classement(theme, label):
                 "« Validation des scrutins » pour obtenir des scores.")
         return
     path = matching.theme_path(theme, "validated.json")
-    df, detail = scores_theme(theme, os.path.getmtime(path))
+    df, detail = scores_theme(theme, (os.path.getmtime(path), os.path.getmtime(scoring.__file__)))
     s = scoring.seuils(theme)
     st.caption(f"Score = part des votes alignés sur le vote voulu, parmi les votes pour et contre. "
                f"Allié : {s['seuil_allie']} ou plus. Opposant : {s['seuil_opposant']} ou moins. "
@@ -388,7 +389,7 @@ def page_fiche(theme, label):
     if not os.path.exists(path):
         st.info("Aucun scrutin validé pour ce thème : la fiche ne peut pas encore montrer de score.")
         return
-    df, detail = scores_theme(theme, os.path.getmtime(path))
+    df, detail = scores_theme(theme, (os.path.getmtime(path), os.path.getmtime(scoring.__file__)))
     df = df.sort_values("nom")
     noms = {r.depute_id: f"{r.nom} ({r.groupe})" + ("" if r.en_mandat else ", ancien député")
             for r in df.itertuples()}
