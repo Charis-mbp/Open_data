@@ -18,6 +18,9 @@ from shortlist import DB_PATH, theme_path
 MIN_VOTES = 5          # fewer aligned + opposed votes: no score
 SEUIL_ALLIE = 70       # score >= 70: allié
 SEUIL_OPPOSANT = 30    # score <= 30: opposant
+ECART_GROUPE = 20      # score this far or more from the group average: à convaincre, "s'écarte de son groupe"
+SANS_GROUPE = "Non inscrit"  # not a political group: no group average, the rule does not apply
+NOTE_ECART = "s'écarte de son groupe"
 
 ALLIE = "allié"
 OPPOSANT = "opposant"
@@ -27,7 +30,8 @@ LABELS = [ALLIE, A_CONVAINCRE, OPPOSANT, INSUFFISANT]
 
 
 def seuils(theme):
-    s = {"min_votes": MIN_VOTES, "seuil_allie": SEUIL_ALLIE, "seuil_opposant": SEUIL_OPPOSANT}
+    s = {"min_votes": MIN_VOTES, "seuil_allie": SEUIL_ALLIE, "seuil_opposant": SEUIL_OPPOSANT,
+         "ecart_groupe": ECART_GROUPE}
     path = theme_path(theme, "theme.json")
     if os.path.exists(path):
         with open(path, encoding="utf-8") as f:
@@ -68,7 +72,8 @@ def detail_votes(theme):
     df = df.merge(votes, on=["scrutin_id", "depute_id"], how="left")
     df["vote"] = df["vote"].fillna("absent")
     df = df[["scrutin_id", "date", "depute_id", "nom", "groupe", "vote"]]
-    df = df.merge(acc[["scrutin_id", "numero", "titre", "url", "position_id", "position", "vote_retenu"]],
+    df = df.merge(acc[["scrutin_id", "numero", "titre", "url", "position_id", "position", "vote_retenu",
+                       "raison"]],
                   on="scrutin_id")
     oppose = {"pour": "contre", "contre": "pour"}
 
@@ -122,6 +127,16 @@ def scores(theme):
     df["score"] = [round(100 * a / e) if e else None for a, e in zip(df["alignes"], df["exprimes"])]
     df["label"] = [label(sc, e, s) for sc, e in zip(df["score"], df["exprimes"])]
     df.loc[df["exprimes"] < s["min_votes"], "score"] = None
+
+    # Group average over current members who have a score; the rule applies to anyone with a score.
+    moyennes = (df[df["en_mandat"] & df["score"].notna() & (df["groupe"] != SANS_GROUPE)]
+                .groupby("groupe")["score"].mean())
+    df["moyenne_groupe"] = df["groupe"].map(moyennes).round()
+    ecart = (df["score"] - df["moyenne_groupe"]).abs()
+    df["note"] = ""
+    hors_ligne = df["score"].notna() & df["moyenne_groupe"].notna() & (ecart >= s["ecart_groupe"])
+    df.loc[hors_ligne, "label"] = A_CONVAINCRE
+    df.loc[hors_ligne, "note"] = NOTE_ECART
     return df.sort_values(["score", "nom"], ascending=[False, True], na_position="last")
 
 

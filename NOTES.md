@@ -144,3 +144,17 @@ changed the keywords, since you chose them.
   from RN/DR that the majority voted down for tactical reasons. That is what the votes say, but it is worth
   explaining in the demo.
 - Performance note: the SQL join of mandats × votes took 100 s in SQLite (bad plan). The join is done in pandas.
+
+## Fiche député and "s'écarte de son groupe" (task 7, build step 5)
+
+- Rule in `scoring.py` (`ECART_GROUPE = 20`, overridable in theme.json `scoring.ecart_groupe`): group average =
+  mean score of the group's **current** members who have a score. A député with a score 20+ points away from
+  it gets "à convaincre" with the note "s'écarte de son groupe", whatever the score. Group = `deputes.groupe`
+  (current group). "Non inscrit" is not a group, so the rule doesn't apply to them.
+- nucleaire: 17 current députés flagged (e.g. EPR members at 71–78 vs EPR average 48, RN members at 57–62 vs 86).
+  Labels now: 121 allié, 101 opposant, 77 à convaincre, 275 données insuffisantes.
+- Fiche député page: identity, link to the député's page on assemblee-nationale.fr, score, label, group
+  average, the warning when the rule applies, counts, and every accepted scrutin with wanted vote, their vote,
+  how it counted, the reason and the scrutin link. Opened from Classement with "Ouvrir la fiche du député"
+  (sets `st.session_state["page"]`), or directly from the sidebar.
+- Classement table has a new "Note" column.

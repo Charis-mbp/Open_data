@@ -305,12 +305,13 @@ def votes_derriere(detail, depute_id):
     rows = rows.assign(_o=rows["categorie"].map(ordre)).sort_values(["_o", "date"])
     rows = rows.assign(categorie=rows["categorie"].map(LIBELLES_CATEGORIE))
     st.dataframe(
-        rows[["categorie", "numero", "date", "titre", "position_id", "vote_retenu", "vote", "url"]],
+        rows[["categorie", "numero", "date", "titre", "position_id", "vote_retenu", "vote", "raison", "url"]],
         hide_index=True, width="stretch",
         column_config={
             "categorie": "Compte comme", "numero": st.column_config.NumberColumn("N°", format="%d"),
             "date": "Date", "titre": st.column_config.TextColumn("Scrutin", width="large"),
             "position_id": "Position", "vote_retenu": "Vote voulu", "vote": "Son vote",
+            "raison": st.column_config.TextColumn("Raison", width="medium"),
             "url": st.column_config.LinkColumn("Lien", display_text="Voir le scrutin"),
         },
     )
@@ -349,13 +350,13 @@ def page_classement(theme, label):
 
     table = vue.assign(etiquette=vue["label"].map(lambda l: f"{COULEURS_LABEL[l]} {l}"))
     st.dataframe(
-        table[["nom", "groupe", "circonscription", "score", "etiquette", "alignes", "opposes",
+        table[["nom", "groupe", "circonscription", "score", "etiquette", "note", "alignes", "opposes",
                "abstentions", "absences"]],
         hide_index=True, width="stretch",
         column_config={
             "nom": "Député", "groupe": "Groupe", "circonscription": "Circonscription",
             "score": st.column_config.ProgressColumn("Score", min_value=0, max_value=100, format="%d"),
-            "etiquette": "Étiquette", "alignes": "Alignés", "opposes": "Opposés",
+            "etiquette": "Étiquette", "note": "Note", "alignes": "Alignés", "opposes": "Opposés",
             "abstentions": "Abstentions", "absences": "Absences",
         },
     )
@@ -368,8 +369,57 @@ def page_classement(theme, label):
             + (f"{int(r.score)}" if pd.notna(r.score) else "pas de score") for r in vue.itertuples()}
     choix = st.selectbox("Député", list(noms), format_func=noms.get)
     r = vue.set_index("depute_id").loc[choix]
-    st.markdown(f"{COULEURS_LABEL[r['label']]} **{r['label']}** · {r['alignes']} alignés, "
-                f"{r['opposes']} opposés, {r['abstentions']} abstentions, {r['absences']} absences")
+    st.markdown(f"{COULEURS_LABEL[r['label']]} **{r['label']}**"
+                + (f" ({r['note']})" if r["note"] else "")
+                + f" · {r['alignes']} alignés, {r['opposes']} opposés, {r['abstentions']} abstentions, "
+                f"{r['absences']} absences")
+    st.button("Ouvrir la fiche du député", on_click=ouvrir_fiche, args=(choix,))
+    votes_derriere(detail, choix)
+
+
+def ouvrir_fiche(depute_id):
+    st.session_state["fiche_depute"] = depute_id
+    st.session_state["page"] = "Fiche député"
+
+
+def page_fiche(theme, label):
+    st.header("Fiche député")
+    path = matching.theme_path(theme, "validated.json")
+    if not os.path.exists(path):
+        st.info("Aucun scrutin validé pour ce thème : la fiche ne peut pas encore montrer de score.")
+        return
+    df, detail = scores_theme(theme, os.path.getmtime(path))
+    df = df.sort_values("nom")
+    noms = {r.depute_id: f"{r.nom} ({r.groupe})" + ("" if r.en_mandat else ", ancien député")
+            for r in df.itertuples()}
+    ids = list(noms)
+    courant = st.session_state.get("fiche_depute")
+    choix = st.selectbox("Député", ids, index=ids.index(courant) if courant in ids else 0,
+                         format_func=noms.get)
+    st.session_state["fiche_depute"] = choix
+    r = df.set_index("depute_id").loc[choix]
+
+    st.subheader(r["nom"])
+    st.markdown(f"{r['groupe'] or 'Sans groupe'} · {r['circonscription']}"
+                + ("" if r["en_mandat"] else " · ne siège plus")
+                + f"  \n[Page du député sur le site de l'Assemblée nationale]"
+                f"(https://www.assemblee-nationale.fr/dyn/deputes/{choix})")
+
+    st.markdown(f"#### Thème : {label}")
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Score", "–" if pd.isna(r["score"]) else f"{int(r['score'])} / 100")
+    c2.metric("Étiquette", f"{COULEURS_LABEL[r['label']]} {r['label']}")
+    c3.metric("Moyenne de son groupe",
+              "–" if pd.isna(r["moyenne_groupe"]) else f"{int(r['moyenne_groupe'])} / 100")
+    if r["note"]:
+        st.warning(f"**{r['note'].capitalize()}** : son score est à {int(abs(r['score'] - r['moyenne_groupe']))} "
+                   f"points de la moyenne de son groupe. Classé « à convaincre », quel que soit le score.")
+    st.markdown(f"Sur les scrutins validés de ce thème tenus pendant son mandat : **{r['alignes']}** votes "
+                f"alignés et **{r['opposes']}** opposés (ce sont eux qui font le score), "
+                f"{r['abstentions']} abstentions et {r['absences']} absences (affichées, non comptées).")
+    bandeau_validation(theme)
+
+    st.markdown("#### Les votes derrière le score")
     votes_derriere(detail, choix)
 
 
@@ -383,7 +433,8 @@ def main():
         return
     theme = st.sidebar.selectbox("Thème", list(themes), format_func=lambda k: themes[k])
     st.session_state["theme"] = theme
-    page = st.sidebar.radio("Pages", ["Classement", "Validation des scrutins", "Shortlist", "Scrutins"])
+    page = st.sidebar.radio("Pages", ["Classement", "Fiche député", "Validation des scrutins",
+                                      "Shortlist", "Scrutins"], key="page")
 
     if not os.path.exists(DB_PATH):
         st.warning("Les données ne sont pas encore chargées. Lancez : python load_data.py")
@@ -391,6 +442,8 @@ def main():
     try:
         if page == "Classement":
             page_classement(theme, themes[theme])
+        elif page == "Fiche député":
+            page_fiche(theme, themes[theme])
         elif page == "Validation des scrutins":
             page_validation(theme, themes[theme])
         elif page == "Shortlist":
