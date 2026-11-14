@@ -158,3 +158,14 @@ changed the keywords, since you chose them.
   how it counted, the reason and the scrutin link. Opened from Classement with "Ouvrir la fiche du député"
   (sets `st.session_state["page"]`), or directly from the sidebar.
 - Classement table has a new "Note" column.
+
+## Four visual styles (task 8)
+
+- `styles.py`: 4 light styles inspired by Sanzo Wada's *A Dictionary of Color Combinations* (hex values are
+  approximations from his named colours, not exact plates): "Papier et vermillon", "Bleu de Prusse",
+  "Rose camée et sienne", "Vert-de-gris et paon". Each sets background, surfaces, text, accent, fonts
+  (Google Fonts) and the three label colours. "Apparence" selector at the top of the sidebar, with a swatch strip.
+- `.streamlit/config.toml` sets a light base theme: data tables are drawn by Streamlit, not by CSS, so they follow
+  this config, not the chosen style. That is why all four styles are light.
+- Label pills (`.pastille`) on the Fiche député. Tables still use emoji circles: their cells can't take CSS.
+- "Scrutin" and "Raison" columns widened to 420 px.

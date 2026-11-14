@@ -8,6 +8,7 @@ import streamlit as st
 
 import matching
 import scoring
+import styles
 from llm import LLMUnavailable
 from shortlist import build_shortlist, load_shortlist, normalise
 
@@ -310,9 +311,9 @@ def votes_derriere(detail, depute_id):
         hide_index=True, width="stretch",
         column_config={
             "categorie": "Compte comme", "numero": st.column_config.NumberColumn("N°", format="%d"),
-            "date": "Date", "titre": st.column_config.TextColumn("Scrutin", width="large"),
+            "date": "Date", "titre": st.column_config.TextColumn("Scrutin", width=420),
             "position_id": "Position", "vote_retenu": "Vote voulu", "vote": "Son vote",
-            "raison": st.column_config.TextColumn("Raison", width="medium"),
+            "raison": st.column_config.TextColumn("Raison", width=420),
             "url": st.column_config.LinkColumn("Lien", display_text="Voir le scrutin"),
         },
     )
@@ -401,6 +402,11 @@ def page_fiche(theme, label):
     r = df.set_index("depute_id").loc[choix]
 
     st.subheader(r["nom"])
+    classe = {scoring.ALLIE: "allie", scoring.A_CONVAINCRE: "convaincre", scoring.OPPOSANT: "opposant",
+              scoring.INSUFFISANT: "insuffisant"}[r["label"]]
+    st.markdown(f'<span class="pastille {classe}">{r["label"]}</span>'
+                + (f' <span class="pastille insuffisant">{r["note"]}</span>' if r["note"] else ""),
+                unsafe_allow_html=True)
     st.markdown(f"{r['groupe'] or 'Sans groupe'} · {r['circonscription']}"
                 + ("" if r["en_mandat"] else " · ne siège plus")
                 + f"  \n[Page du député sur le site de l'Assemblée nationale]"
@@ -432,6 +438,9 @@ def main():
     if not themes:
         st.error("Aucun thème trouvé dans le dossier themes/.")
         return
+    style = st.sidebar.selectbox("Apparence", list(styles.STYLES), key="style")
+    st.sidebar.markdown(styles.nuancier(style), unsafe_allow_html=True)
+    st.markdown(styles.css(style), unsafe_allow_html=True)
     theme = st.sidebar.selectbox("Thème", list(themes), format_func=lambda k: themes[k])
     st.session_state["theme"] = theme
     page = st.sidebar.radio("Pages", ["Classement", "Fiche député", "Validation des scrutins",
