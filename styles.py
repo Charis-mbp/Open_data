@@ -224,6 +224,22 @@ svg.hemi circle:hover {{ stroke: var(--craie); stroke-width: 1.5; }}
 .fiche-sous {{ color: var(--gris); margin: .3rem 0 .8rem; }}
 @media (max-width: 520px) {{ .metriques {{ grid-template-columns: minmax(0, 1fr); }} .metriques div + div {{ padding-left: 0; border-left: 0; border-top: 1px solid var(--filet); }} }}
 
+/* validation cards, prochain vote */
+.carte-tete {{ display: flex; justify-content: space-between; gap: .5rem 1rem; flex-wrap: wrap; align-items: center; }}
+.carte-titre {{ margin: .5rem 0 .2rem !important; padding: 0 !important; font: 600 1rem/1.45 var(--f-texte) !important; letter-spacing: 0 !important; }}
+.carte-titre a {{ text-decoration: none; }}
+.carte-titre a:hover {{ text-decoration: underline; }}
+.carte-pos {{ margin: 0 0 .7rem; color: var(--gris); font-size: .88rem; }}
+.carte-vote {{ display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.4rem; align-items: end; border-top: 1px solid var(--filet); padding-top: .7rem; }}
+.carte-vote > div {{ display: grid; gap: .25rem; }}
+.carte-vote b {{ font: 700 1.3rem/1 var(--f-titre); }}
+.conf .piste-c {{ display: block; height: 4px; background: var(--filet2); border-radius: 2px; max-width: 16rem; }}
+.conf .piste-c i {{ display: block; height: 100%; background: var(--cuivre); border-radius: 2px; }}
+.carte-raison {{ margin: .7rem 0 .2rem; color: #B9C3C9; font-size: .9rem; }}
+.avis {{ border-left: 3px solid var(--filet2); padding: .5rem .9rem; color: var(--gris); font-size: .88rem; margin: .2rem 0 1.2rem; max-width: 76ch; }}
+.metriques.quatre {{ grid-template-columns: repeat(4, minmax(0, 1fr)); }}
+@media (max-width: 700px) {{ .metriques.quatre {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }} .metriques.quatre div:nth-child(3) {{ padding-left: 0; border-left: 0; }} }}
+
 @media (max-width: 880px) {{
   .positions {{ grid-template-columns: minmax(0, 1fr); }}
   .position:nth-child(even) {{ padding-left: 0; border-left: 0; }}

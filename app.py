@@ -52,15 +52,18 @@ def scrutins_avec_decomptes():
 
 
 def page_scrutins():
-    st.header("Scrutins")
     df = scrutins_avec_decomptes()
+    demo = DB_PATH == DEMO_DB_PATH
+    st.markdown(styles.tete_page(
+        "Scrutins · 17e législature", f"{len(df):,} scrutins publics".replace(",", " "),
+        "Tous les scrutins chargés, du plus récent au plus ancien, avec le décompte des voix et le lien vers la "
+        "page officielle."
+        + (" Version de démonstration : seuls les scrutins retenus pour les thèmes sont chargés ; les 9 895 "
+           "scrutins de la législature se chargent avec load_data.py." if demo else "")), unsafe_allow_html=True)
     q = st.text_input("Rechercher dans le titre ou l'objet", placeholder="ex. nucléaire, EPR, électricité")
     if q.strip():
         df = df[df["_recherche"].str.contains(normalise(q.strip()), regex=False)]
-    st.caption(f"{len(df)} scrutins")
-    if DB_PATH == DEMO_DB_PATH:
-        st.caption("Version de démonstration : seuls les scrutins retenus pour les thèmes sont chargés. "
-                   "Les 9 895 scrutins de la législature se chargent avec load_data.py.")
+    st.markdown(styles.coupe("Les scrutins", f"{len(df)} résultats"), unsafe_allow_html=True)
     st.dataframe(
         df[["numero", "date", "titre", "resultat", "pour", "contre", "abstention", "url"]],
         hide_index=True,
@@ -112,8 +115,11 @@ def resume_groupes(rows):
 
 
 def page_shortlist(theme, label):
-    st.header(f"Shortlist : {label}")
     data = load_shortlist(theme)
+    st.markdown(styles.tete_page(
+        f"Shortlist · {label}", "Les scrutins retenus pour le thème",
+        "Un scrutin entre dans la shortlist si son titre ou son objet contient un mot-clé du thème, puis seulement "
+        "s'il a réuni assez de votants et si le vote était vraiment disputé."), unsafe_allow_html=True)
     if st.button("Recalculer la shortlist") or data is None:
         try:
             data = build_shortlist(theme)
@@ -122,6 +128,11 @@ def page_shortlist(theme, label):
             st.warning("Ce thème n'a pas encore de fichier keywords.txt.")
             return
     stats, regles = data["statistiques"], data["regles"]
+    st.markdown(styles.metriques([
+        ("Contiennent un mot-clé", stats["correspondances"], ""),
+        ("Après les filtres", stats["apres_filtres"], ""),
+        ("Retenus", stats["retenus"], ""),
+    ]), unsafe_allow_html=True)
     st.caption(
         f"{stats['correspondances']} scrutins contiennent un mot-clé ; "
         f"{stats['moins_de_votants']} écartés (moins de {regles['min_votants']} votants), "
@@ -135,6 +146,7 @@ def page_shortlist(theme, label):
         return
     groupes = decompte_par_groupe(tuple(scrutins["id"]))
 
+    st.markdown(styles.coupe("Les scrutins retenus", "vote majoritaire de chaque groupe"), unsafe_allow_html=True)
     q = st.text_input("Filtrer", placeholder="ex. amendement, article 5, hydroélectricité")
     if q.strip():
         scrutins = scrutins[(scrutins["titre"] + " " + scrutins["objet"]).map(normalise)
@@ -158,7 +170,7 @@ def page_shortlist(theme, label):
         },
     )
 
-    st.subheader("Détail par groupe politique")
+    st.markdown(styles.coupe("Détail par groupe politique", "un scrutin à la fois"), unsafe_allow_html=True)
     libelles = {r.id: f"n° {r.numero} ({r.date}) – {r.titre[:140]}" for r in scrutins.itertuples()}
     choix = st.selectbox("Scrutin", list(libelles), format_func=libelles.get)
     if choix:
@@ -176,7 +188,8 @@ AMBIGU_LIBELLE = "Ambigu : « cheval de Troie »"
 AMBIGU_AIDE = ("Le texte voté et l'intention de son auteur vont dans des sens opposés (par exemple un objectif "
                "climatique défendu dans l'exposé comme une alternative au nucléaire). Le vote compte dans le "
                "score, mais il est signalé partout où il apparaît.")
-LIBELLES_STATUT = {"accepte": "✅ accepté", "inverse": "🔁 accepté, vote inversé", "rejete": "❌ rejeté"}
+LIBELLES_STATUT = {"accepte": "accepté", "inverse": "accepté, vote inversé", "rejete": "rejeté"}
+CLASSES_STATUT = {"accepte": "allie", "inverse": "convaincre", "rejete": "opposant"}
 
 
 def lancer_analyse(theme):
@@ -201,10 +214,20 @@ def lancer_analyse(theme):
 
 def carte_match(theme, m, decision):
     with st.container(border=True):
-        st.markdown(f"**[n° {m['numero']}]({m['url']})** ({m['date']}) : {m['titre']}")
-        st.markdown(f"Position {m['position_id']} : *{m['position']}*  \n"
-                    f"Vote voulu proposé : **{m['vote_souhaite']}** · confiance {m['confiance']:.2f}  \n"
-                    f"Raison : {m['raison']}")
+        statut = decision["statut"] if decision else None
+        badge = (f'<span class="pastille {CLASSES_STATUT[statut]}">{LIBELLES_STATUT[statut]}'
+                 + (f" · vote retenu : {styles.e(decision['vote_retenu'])}" if decision.get("vote_retenu") else "")
+                 + "</span>") if statut else '<span class="pastille neutre">non validé</span>'
+        conf = int(round(100 * float(m["confiance"])))
+        st.markdown(
+            f'<div class="carte-tete"><span class="etiq">Scrutin n° {m["numero"]} · {styles.e(m["date"])} · '
+            f'position {styles.e(m["position_id"])}</span>{badge}</div>'
+            f'<h3 class="carte-titre"><a href="{styles.e(m["url"])}" target="_blank">'
+            f'{styles.e(m["titre"][:1].upper() + m["titre"][1:])}</a></h3>'
+            f'<p class="carte-pos">{styles.e(m["position"])}</p>'
+            f'<div class="carte-vote"><div><span class="etiq">Vote voulu proposé</span><b>{styles.e(m["vote_souhaite"])}</b></div>'
+            f'<div class="conf"><span class="etiq">Confiance du modèle · {conf} %</span><span class="piste-c"><i style="width:{conf}%"></i></span></div></div>'
+            f'<p class="carte-raison">{styles.e(m["raison"])}</p>', unsafe_allow_html=True)
         amdt = m.get("amendement")
         if amdt:
             groupe = f" ({amdt['groupe']})" if amdt["groupe"] else ""
@@ -219,9 +242,6 @@ def carte_match(theme, m, decision):
                         pg = f" ({parent['groupe']})" if parent["groupe"] else ""
                         st.markdown(f"**Amendement visé : n° {parent['numero']}**, {parent['auteur']}{pg}")
                         st.write(parent["expose"] or "(pas d'exposé sommaire)")
-        if decision:
-            st.caption(f"Décision :{LIBELLES_STATUT[decision['statut']]}"
-                       + (f" (vote retenu : {decision['vote_retenu']})" if decision["vote_retenu"] else ""))
         if decision and decision["statut"] in ("accepte", "inverse"):
             st.checkbox(AMBIGU_LIBELLE, value=bool(decision.get("ambigu")), key=f"amb-{m['numero']}",
                         help=AMBIGU_AIDE, on_change=lambda n=m["numero"]: matching.marquer_ambigu(
@@ -237,8 +257,12 @@ def carte_match(theme, m, decision):
 
 
 def page_validation(theme, label):
-    st.header(f"Validation des scrutins : {label}")
     data = matching.load_matching(theme)
+    st.markdown(styles.tete_page(
+        f"Validation des scrutins · {label}", "Le modèle propose, vous décidez",
+        "Pour chaque scrutin, le modèle dit quelle position de la note il touche, le vote que l'organisation aurait "
+        "voulu et pourquoi. Acceptez, inversez ou rejetez : seuls les scrutins acceptés comptent dans les scores."),
+        unsafe_allow_html=True)
     if data is None:
         st.info("Le modèle n'a pas encore analysé ce thème. L'analyse lit position.txt, en extrait "
                 "les positions, puis examine les scrutins de la shortlist par lots de 20.")
@@ -258,14 +282,13 @@ def page_validation(theme, label):
     acceptes = sum(1 for m in matches if decisions.get(str(m["numero"]), {}).get("statut") in ("accepte", "inverse"))
     rejetes = sum(1 for m in matches if decisions.get(str(m["numero"]), {}).get("statut") == "rejete")
     a_traiter = len(matches) - acceptes - rejetes
-    c1, c2, c3 = st.columns(3)
-    c1.metric("Acceptés", acceptes)
-    c2.metric("Rejetés", rejetes)
-    c3.metric("Non validés", a_traiter)
+    st.markdown(styles.metriques([("Acceptés", acceptes, "allie"), ("Rejetés", rejetes, "opposant"),
+                                  ("Non validés", a_traiter, "")]), unsafe_allow_html=True)
     st.caption(f"{len(matches)} correspondances proposées par le modèle sur "
                f"{len(load_shortlist(theme)['scrutins'])} scrutins de la shortlist. "
                "Seuls les scrutins acceptés comptent dans les scores.")
 
+    st.markdown(styles.coupe("Les propositions", "classées par confiance du modèle"), unsafe_allow_html=True)
     f1, f2 = st.columns(2)
     vue = f1.radio("Afficher", ["Non validés", "Acceptés", "Rejetés", "Tous"], horizontal=True)
     pos_ids = ["Toutes"] + [p["id"] for p in data["positions"]]
@@ -431,10 +454,10 @@ def page_classement(theme, label):
     )
 
 
-def ouvrir_depuis_tableau():
-    """Callback of the Classement table: the clicked row opens that député's fiche."""
-    lignes = st.session_state["tableau_classement"].selection.rows
-    ids = st.session_state.get("_classement_ids", [])
+def ouvrir_depuis_tableau(cle="tableau_classement", ids_cle="_classement_ids"):
+    """Callback of a table of députés: the clicked row opens that député's fiche."""
+    lignes = st.session_state[cle].selection.rows
+    ids = st.session_state.get(ids_cle, [])
     if lignes and lignes[0] < len(ids):
         ouvrir_fiche(ids[lignes[0]])
 
@@ -753,59 +776,65 @@ def prevision(theme, cfg):
 
 
 def page_prochain_vote(theme, label):
-    st.header(f"Prochain vote : {label}")
     path = matching.theme_path(theme, "theme.json")
     cfg = json.load(open(path, encoding="utf-8")).get("prochain_vote") if os.path.exists(path) else None
     if not cfg:
+        st.markdown(styles.tete_page(f"Prochain vote · {label}", "Prochain vote"), unsafe_allow_html=True)
         st.info("Aucun prochain vote n'est renseigné pour ce thème (theme.json, « prochain_vote »).")
         return
+    court = cfg["titre"].split("(")[0].strip()
+    st.markdown(styles.tete_page(
+        f"Prochain vote · {cfg.get('date', 'à confirmer')}", court,
+        f"{styles.e(cfg['titre'])}. Vote voulu par l'organisation : <b>{styles.e(cfg['vote_voulu'])}</b>."),
+        unsafe_allow_html=True)
     if not os.path.exists(matching.theme_path(theme, "validated.json")):
         st.info("Validez d'abord des scrutins : la page s'appuie sur les scores passés.")
         return
     df, source, message, oppose = prevision(theme, cfg)
-    st.markdown(f"**{cfg['titre']}**  \nDate : {cfg.get('date', 'à confirmer')} · vote voulu par "
-                f"l'organisation : **{cfg['vote_voulu']}**")
     if source == "simulation":
-        st.warning((message + " " if message else "") + "Affichage d'une **simulation** à partir des votes passés : "
-                   "un député qui vote rarement sur ces scrutins est compté absent, les autres votent dans le sens "
-                   "de leur score (ou de celui de leur groupe).")
+        avis = ((message + " ") if message else "") + ("Projection simulée à partir des votes passés : un député "
+                "qui vote rarement sur ces scrutins est compté absent, les autres votent dans le sens de leur score "
+                "(ou de celui de leur groupe).")
     else:
-        st.caption("Prédictions par député fournies par Hémicycle.")
+        avis = "Prédictions par député fournies par Hémicycle."
+    st.markdown(f'<p class="avis">{styles.e(avis)}</p>', unsafe_allow_html=True)
 
     totaux = df["vote_predit"].value_counts()
-    cols = st.columns(4)
-    for col, v in zip(cols, ["pour", "contre", "abstention", "absent"]):
-        col.metric(f"{v.capitalize()} ({'prévu' if source == 'Hémicycle' else 'simulé'})", int(totaux.get(v, 0)))
+    mot = "prévus" if source == "Hémicycle" else "simulés"
+    vv = cfg["vote_voulu"]
+    classes = {vv: "allie", oppose: "opposant", "abstention": "", "absent": ""}
+    st.markdown(styles.metriques([(f"{v.capitalize()} · {mot}", int(totaux.get(v, 0)), classes[v])
+                                  for v in [vv, oppose, "abstention", "absent"]]).replace(
+                    'class="metriques"', 'class="metriques quatre"')
+                + '<div class="repart" style="margin-top:.8rem">'
+                + "".join(f'<i class="{c or "vide"}" style="flex:{int(totaux.get(v, 0))}"></i>'
+                          for v, c in [(vv, "allie"), (oppose, "opposant"), ("abstention", ""), ("absent", "")]
+                          if int(totaux.get(v, 0)))
+                + "</div>", unsafe_allow_html=True)
 
     df = df.assign(raison=[scoring.raison(r) for _, r in df.iterrows()])
     colonnes = {"nom": "Député", "groupe": "Groupe",
                 "score": st.column_config.ProgressColumn("Score passé", min_value=0, max_value=100, format="%d"),
                 "vote_predit": "Vote prévu", "raison": st.column_config.TextColumn("Raison", width="large")}
-
-    st.subheader("À rencontrer")
-    st.caption(f"Prévus « {oppose} » alors que leur score passé est d'au moins {scoring.SEUIL_A_RENCONTRER} : "
-               "ils ont déjà voté avec vous.")
     rencontrer = df[(df["vote_predit"] == oppose) & (df["score"] >= scoring.SEUIL_A_RENCONTRER)]
     rencontrer = rencontrer.sort_values("score", ascending=False)
-    if rencontrer.empty:
-        st.info("Aucun député dans ce cas.")
-    else:
-        st.dataframe(rencontrer[list(colonnes)], hide_index=True, width="stretch", column_config=colonnes)
-
-    st.subheader("Alliés à mobiliser")
-    st.caption("Alliés dont on prévoit l'abstention ou l'absence : chaque voix compte.")
     mobiliser = df[(df["label"] == scoring.ALLIE) & df["vote_predit"].isin(["abstention", "absent"])]
     mobiliser = mobiliser.sort_values(["score", "exprimes"], ascending=False)
-    if mobiliser.empty:
-        st.info("Aucun allié dans ce cas.")
-    else:
-        st.dataframe(mobiliser[list(colonnes)], hide_index=True, width="stretch", column_config=colonnes)
 
-    choix = pd.concat([rencontrer, mobiliser])
-    if not choix.empty:
-        noms = {r.depute_id: f"{r.nom} ({r.groupe})" for r in choix.itertuples()}
-        qui = st.selectbox("Ouvrir la fiche de", list(noms), format_func=noms.get)
-        st.button("Ouvrir la fiche du député", key="pv-fiche", on_click=ouvrir_fiche, args=(qui,))
+    for cle, titre, sous, vue in [
+        ("pv_rencontrer", "À rencontrer",
+         f"Prévus « {oppose} » alors que leur score passé est d'au moins {scoring.SEUIL_A_RENCONTRER} : ils ont déjà "
+         "voté avec vous.", rencontrer),
+        ("pv_mobiliser", "Alliés à mobiliser",
+         "Alliés dont on prévoit l'abstention ou l'absence : chaque voix compte.", mobiliser)]:
+        st.markdown(styles.coupe(titre, f"{len(vue)} députés · cliquez une ligne pour ouvrir la fiche")
+                    + styles.titre_bande(titre, sous), unsafe_allow_html=True)
+        if vue.empty:
+            st.info("Aucun député dans ce cas.")
+            continue
+        st.session_state[f"_{cle}_ids"] = list(vue["depute_id"])
+        st.dataframe(vue[list(colonnes)], hide_index=True, width="stretch", column_config=colonnes, key=cle,
+                     on_select=lambda c=cle: ouvrir_depuis_tableau(c, f"_{c}_ids"), selection_mode="single-row")
 
 
 def main():

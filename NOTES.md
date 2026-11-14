@@ -319,3 +319,19 @@ changed the keywords, since you chose them.
   "non mesurée" when loyalty is missing). Then "Les votes derrière le score" with the table.
 - Checked with AppTest: all pages run; Daubié's fiche has the alert, Girard's does not. The row click cannot be
   simulated in AppTest; check it by hand.
+
+## Redesign step 3: Prochain vote, Validation, Scrutins, Shortlist (task 16)
+
+- Every page now opens with `styles.tete_page` and separates sections with `styles.coupe`.
+- Prochain vote: the short bill name as title, the full title and wanted vote under it; the simulation notice is
+  a quiet side-ruled line instead of a yellow warning; pour / contre / abstention / absent as big figures
+  (wanted vote green, opposite red) over a stacked bar; "À rencontrer" and "Alliés à mobiliser" each in their
+  own section. Clicking a row opens the fiche (same callback as Classement, now generic), so the selector at
+  the bottom is gone.
+- Validation: figures for accepted / rejected / not validated; each card has a mono header line (number, date,
+  position) with a status badge (accepté, accepté vote inversé, rejeté, non validé) instead of emoji, the
+  scrutin title as a link, the position, the proposed vote in large type, a confidence bar and the model's reason.
+  Amendment exposé, ambiguity checkbox and the three buttons are unchanged.
+- Shortlist: three figures (with a keyword, after filters, kept), then the table and the per-group detail as
+  sections. Scrutins: page head with the count; the demo-database note moved into the head.
+- Checked with AppTest: all 7 pages run; the "Acceptés" view shows 51 cards (50 accepted, 1 inverted).
