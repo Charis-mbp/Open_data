@@ -1,0 +1,193 @@
+<title>Boussole parlementaire</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one column of "chambre" bands on deep sage, like a folded leaflet; the hemicycle bar chart is the centrepiece.
+   Single committed look (the app's "Vert-de-gris et paon" palette), light only. */
+:root {
+  --fond: #C4D2BE;      /* deep sage page */
+  --papier: #EDF2E9;    /* pale card */
+  --encre: #12201A;     /* deep green ink */
+  --discret: #3B5246;
+  --paon: #0D5A63;      /* peacock blue accent */
+  --nuit: #1F3A30;      /* dark band */
+  --allie: #2E6A38; --convaincre: #B07E14; --opposant: #8A2E22; --neutre: #6F8378;
+  --f-titre: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-texte: "Inter", "Segoe UI", Arial, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--fond); color: var(--encre); font-family: var(--f-texte); font-size: 16px; line-height: 1.55; }
+.band { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 56px; }
+.wrap { max-width: 1040px; margin: 0 auto; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--f-titre); text-wrap: balance; margin: 0; line-height: 1.1; }
+h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); letter-spacing: -0.02em; }
+h3 { font-size: 1.1rem; }
+p { margin: 0; max-width: 65ch; }
+.eyebrow { font-family: var(--f-data); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--paon); }
+.nuit { background: var(--nuit); color: var(--papier); }
+.nuit .eyebrow { color: #9FD2C9; }
+.nuit p { color: #D3DECF; }
+.lead { font-size: 1.2rem; color: var(--discret); }
+.num { font-variant-numeric: tabular-nums; font-family: var(--f-data); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
+.compteurs { display: grid; gap: 10px; }
+.compteur { display: grid; grid-template-columns: 4.5rem 1fr; align-items: baseline; gap: 12px; padding: 12px 16px; background: var(--papier); border-radius: 10px; }
+.compteur b { font-family: var(--f-titre); font-size: 2rem; font-variant-numeric: tabular-nums; }
+.compteur.allie b { color: var(--allie); } .compteur.convaincre b { color: var(--convaincre); }
+.compteur.opposant b { color: var(--opposant); } .compteur.neutre b { color: var(--neutre); }
+.compteur span { color: var(--discret); font-size: .95rem; }
+
+/* steps */
+.etapes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; list-style: none; padding: 0; margin: 0; counter-reset: e; }
+.etapes li { counter-increment: e; padding: 18px; border-top: 3px solid #9FD2C9; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.etapes li::before { content: counter(e); font-family: var(--f-data); color: #9FD2C9; font-size: .9rem; }
+.etapes h3 { color: var(--papier); }
+.etapes p { font-size: .95rem; }
+
+/* hemicycle chart */
+.graph { background: var(--papier); border-radius: 14px; padding: 24px; display: grid; gap: 10px; }
+.ligne { display: grid; grid-template-columns: minmax(7rem, 15rem) 1fr 2.5rem; gap: 12px; align-items: center; }
+.ligne .nom { font-size: .92rem; min-width: 0; overflow-wrap: anywhere; }
+.piste { position: relative; height: 16px; background: #DCE6D7; border-radius: 3px; }
+.piste::before, .piste::after { content: ""; position: absolute; top: -4px; bottom: -4px; width: 1px; background: var(--discret); opacity: .5; }
+.piste::before { left: 30%; } .piste::after { left: 70%; }
+.barre { height: 100%; border-radius: 3px; }
+.ligne .val { text-align: right; }
+.legende { display: flex; flex-wrap: wrap; gap: 16px; font-size: .85rem; color: var(--discret); padding-top: 6px; }
+.legende i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+
+/* fiche example */
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+.fiche { background: var(--papier); border-radius: 14px; padding: 24px; display: grid; gap: 14px; border-left: 6px solid var(--convaincre); }
+.pastilles { display: flex; gap: 8px; flex-wrap: wrap; }
+.pastille { padding: 2px 10px; border-radius: 999px; color: #fff; font-size: .85rem; font-weight: 600; }
+.chiffres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.chiffres div { display: grid; gap: 2px; }
+.chiffres b { font-family: var(--f-titre); font-size: 1.6rem; }
+.chiffres span { font-size: .8rem; color: var(--discret); }
+.vote { font-size: .92rem; padding: 10px 12px; background: #DCE6D7; border-radius: 8px; }
+
+/* columns */
+.cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.cols > div { display: grid; gap: 8px; align-content: start; min-width: 0; }
+.data { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.data div { display: grid; gap: 2px; padding-top: 12px; border-top: 1px solid #5E7A6C; }
+.data b { font-family: var(--f-titre); font-size: 1.8rem; color: var(--papier); font-variant-numeric: tabular-nums; }
+.data span { font-size: .85rem; color: #B9CBB5; }
+footer { font-size: .85rem; color: var(--discret); }
+
+@media (max-width: 760px) {
+  .hero, .duo, .cols { grid-template-columns: 1fr; }
+  .etapes, .data { grid-template-columns: 1fr 1fr; }
+  .ligne { grid-template-columns: 6.5rem 1fr 2.2rem; }
+}
+@media (max-width: 420px) { .etapes, .data { grid-template-columns: 1fr; } }
+a { color: var(--paon); }
+a:focus-visible { outline: 2px solid var(--paon); outline-offset: 2px; }
+</style>
+
+<section class="band">
+  <div class="wrap hero">
+    <div style="display:grid;gap:18px">
+      <span class="eyebrow">Prototype · Assemblée nationale, 17e législature</span>
+      <h1>Boussole parlementaire</h1>
+      <p class="lead">Collez le document de position d'une organisation. La Boussole classe les 577 députés en alliés, opposants et à convaincre, et montre pour chaque score les votes qui le justifient.</p>
+      <p>Démonstration : la note de la Sfen sur la programmation pluriannuelle de l'énergie (février 2026), confrontée à 51 scrutins validés sur l'énergie.</p>
+    </div>
+    <div class="compteurs" aria-label="Résultat de la démonstration, députés en exercice">
+      <div class="compteur allie"><b class="num">121</b><span>alliés : 70 % ou plus de leurs votes dans le sens voulu</span></div>
+      <div class="compteur convaincre"><b class="num">77</b><span>à convaincre, dont 17 qui s'écartent de leur groupe</span></div>
+      <div class="compteur opposant"><b class="num">101</b><span>opposants : 30 % ou moins</span></div>
+      <div class="compteur neutre"><b class="num">275</b><span>pas assez de votes pour être classés</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band nuit">
+  <div class="wrap">
+    <span class="eyebrow">Comment ça marche</span>
+    <h2>Le modèle propose, une personne décide, le calcul reste simple</h2>
+    <ol class="etapes">
+      <li><h3>Les positions</h3><p>Un modèle de langage extrait 3 à 6 positions du document, chacune appuyée sur une citation. Pour la Sfen : relancer le nucléaire, prolonger le parc, sortir des fossiles, voter la loi de programmation.</p></li>
+      <li><h3>Les scrutins</h3><p>Sur 9 895 scrutins, 150 touchent le thème et sont disputés. Le modèle lit l'exposé sommaire de chaque amendement et propose le vote que l'organisation aurait voulu.</p></li>
+      <li><h3>La validation</h3><p>Une personne accepte, inverse ou rejette chaque proposition. Seuls les scrutins validés entrent dans le calcul.</p></li>
+      <li><h3>Le score</h3><p>Part des votes pour ou contre qui vont dans le sens voulu. Abstentions et absences sont montrées, jamais comptées.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <span class="eyebrow">Score moyen par groupe · thème nucléaire et énergie</span>
+    <h2>L'hémicycle vu depuis la note de la Sfen</h2>
+    <div class="graph" role="img" aria-label="Score moyen par groupe, de 89 pour la Droite Républicaine à 6 pour LFI et les Écologistes">
+      <div class="ligne"><span class="nom">Droite Républicaine</span><div class="piste"><div class="barre" style="width:89%;background:var(--allie)"></div></div><span class="val num">89</span></div>
+      <div class="ligne"><span class="nom">Union des droites pour la République</span><div class="piste"><div class="barre" style="width:86%;background:var(--allie)"></div></div><span class="val num">86</span></div>
+      <div class="ligne"><span class="nom">Rassemblement National</span><div class="piste"><div class="barre" style="width:86%;background:var(--allie)"></div></div><span class="val num">86</span></div>
+      <div class="ligne"><span class="nom">Horizons &amp; Indépendants</span><div class="piste"><div class="barre" style="width:73%;background:var(--allie)"></div></div><span class="val num">73</span></div>
+      <div class="ligne"><span class="nom">LIOT</span><div class="piste"><div class="barre" style="width:69%;background:var(--convaincre)"></div></div><span class="val num">69</span></div>
+      <div class="ligne"><span class="nom">Les Démocrates</span><div class="piste"><div class="barre" style="width:51%;background:var(--convaincre)"></div></div><span class="val num">51</span></div>
+      <div class="ligne"><span class="nom">Ensemble pour la République</span><div class="piste"><div class="barre" style="width:48%;background:var(--convaincre)"></div></div><span class="val num">48</span></div>
+      <div class="ligne"><span class="nom">Gauche Démocrate et Républicaine</span><div class="piste"><div class="barre" style="width:47%;background:var(--convaincre)"></div></div><span class="val num">47</span></div>
+      <div class="ligne"><span class="nom">Socialistes et apparentés</span><div class="piste"><div class="barre" style="width:24%;background:var(--opposant)"></div></div><span class="val num">24</span></div>
+      <div class="ligne"><span class="nom">La France insoumise</span><div class="piste"><div class="barre" style="width:6%;background:var(--opposant)"></div></div><span class="val num">6</span></div>
+      <div class="ligne"><span class="nom">Écologiste et Social</span><div class="piste"><div class="barre" style="width:6%;background:var(--opposant)"></div></div><span class="val num">6</span></div>
+      <div class="legende"><span><i style="background:var(--allie)"></i>70 et plus : allié</span><span><i style="background:var(--convaincre)"></i>entre 30 et 70 : à convaincre</span><span><i style="background:var(--opposant)"></i>30 et moins : opposant</span><span>Traits verticaux : seuils 30 et 70</span></div>
+    </div>
+    <p>Ensemble pour la République, camp pro-nucléaire, n'est qu'à 48 : la majorité a souvent rejeté des amendements pro-nucléaires venus du RN et de la Droite Républicaine. La Boussole ne juge pas les intentions, elle compte les votes.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap duo">
+    <div style="display:grid;gap:16px">
+      <span class="eyebrow">La fiche député</span>
+      <h2>Trouver les portes d'entrée</h2>
+      <p>Un député dont le score s'écarte de 20 points ou plus de la moyenne de son groupe est classé « à convaincre », quel que soit son score. Ce sont les interlocuteurs les plus utiles : ils partagent vos positions mais ne votent pas toujours avec vous.</p>
+      <p>Chaque fiche liste les scrutins derrière le score, le vote voulu, le vote réel, et renvoie à la page du scrutin sur le site de l'Assemblée.</p>
+    </div>
+    <article class="fiche" aria-label="Exemple de fiche">
+      <div style="display:grid;gap:4px"><span class="eyebrow">Exemple tiré de la démonstration</span><h3 style="font-size:1.4rem">Natalia Pouzyreff</h3><span style="color:var(--discret);font-size:.92rem">Ensemble pour la République · Yvelines, 6e circonscription</span></div>
+      <div class="pastilles"><span class="pastille" style="background:var(--convaincre)">à convaincre</span><span class="pastille" style="background:var(--neutre)">s'écarte de son groupe</span></div>
+      <div class="chiffres"><div><b class="num">78</b><span>son score</span></div><div><b class="num">48</b><span>moyenne du groupe</span></div><div><b class="num">7 / 2</b><span>votes alignés / opposés</span></div></div>
+      <div class="vote">Elle a voté contre les trajectoires de sortie du nucléaire (scrutins 2549 à 2551), comme le voulait la Sfen, mais aussi contre l'ensemble de la loi de programmation (scrutin 2653), avec son groupe.</div>
+    </article>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <span class="eyebrow">Pour qui</span>
+    <div class="cols">
+      <div><h3>Affaires publiques</h3><p>Une carte vérifiable de l'Assemblée sur un dossier, en quelques minutes plutôt qu'en jours de suivi des votes.</p></div>
+      <div><h3>ONG et fédérations</h3><p>Savoir qui soutient vraiment une cause dans ses votes, au-delà des déclarations, et préparer ses rendez-vous.</p></div>
+      <div><h3>Journalistes et citoyens</h3><p>Chaque chiffre renvoie à un vote public. Rien n'est caché dans une boîte noire.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band nuit">
+  <div class="wrap">
+    <span class="eyebrow">Sous le capot</span>
+    <h2>Des données publiques, un modèle sous contrôle</h2>
+    <div class="data">
+      <div><b>9 895</b><span>scrutins publics</span></div>
+      <div><b>1,46 M</b><span>votes nominatifs</span></div>
+      <div><b>148 034</b><span>amendements, avec leur exposé sommaire</span></div>
+      <div><b>655</b><span>députés et leurs périodes de mandat</span></div>
+    </div>
+    <p>Open data de l'Assemblée nationale, base SQLite, interface Streamlit. Le modèle de langage ne fait que deux choses : extraire les positions et proposer les scrutins liés. Il ne produit jamais de score ni de classement. Ses réponses sont validées et mises en cache : la démonstration fonctionne sans connexion. Ajouter un thème, c'est ajouter un dossier.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <footer>Prototype réalisé en une journée de hackathon. Données de l'Assemblée nationale, 17e législature, scrutins jusqu'au 12 novembre 2026. Les résultats de la démonstration portent sur les 574 députés en exercice.</footer>
+  </div>
+</section>
