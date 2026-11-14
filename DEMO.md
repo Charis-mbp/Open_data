@@ -9,7 +9,7 @@ Thème : Nucléaire et énergie. Document : note de la Sfen sur la PPE (février
 - Montrer la note de la Sfen dans le cadre, puis ouvrir « Positions extraites » :
   « Le modèle en a tiré 4 positions, chacune appuyée sur une citation du texte. »
 - Montrer les trois colonnes : alliés, à convaincre, opposants.
-  « 121 alliés, 77 à convaincre, 101 opposants. 275 députés n'ont pas assez de votes sur ces scrutins
+  « 121 alliés, 69 à convaincre, 109 opposants. 275 députés n'ont pas assez de votes sur ces scrutins
   pour être classés : on ne les invente pas. »
 
 ## 2. Fiche député (60 s)
