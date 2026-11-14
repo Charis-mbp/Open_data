@@ -1,7 +1,7 @@
-# Dark base matching the "Nuit et cuivre" style: data tables and charts are drawn by Streamlit and follow this, not the CSS.
+# Dark base matching the "Encre et cuivre" style: data tables and charts are drawn by Streamlit and follow this, not the CSS.
 [theme]
 base = "dark"
-backgroundColor = "#0B1116"
-secondaryBackgroundColor = "#121B22"
-textColor = "#E4ECEA"
-primaryColor = "#E3A15A"
+backgroundColor = "#0A0E12"
+secondaryBackgroundColor = "#121920"
+textColor = "#E8ECEE"
+primaryColor = "#D9965A"

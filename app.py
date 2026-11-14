@@ -290,8 +290,8 @@ COULEURS_LABEL = {scoring.ALLIE: "🟢", scoring.A_CONVAINCRE: "🟠", scoring.O
                   scoring.INSUFFISANT: "⚪"}
 CLASSE_LABEL = {scoring.ALLIE: "allie", scoring.A_CONVAINCRE: "convaincre", scoring.OPPOSANT: "opposant",
                 scoring.INSUFFISANT: "insuffisant"}
-COULEURS_HEX = {scoring.ALLIE: "#3FC488", scoring.A_CONVAINCRE: "#F2B544", scoring.OPPOSANT: "#EF5F57",
-                scoring.INSUFFISANT: "#5C6F6A"}
+COULEURS_HEX = {scoring.ALLIE: styles.P["allie"], scoring.A_CONVAINCRE: styles.P["convaincre"],
+                scoring.OPPOSANT: styles.P["opposant"], scoring.INSUFFISANT: "#4A5762"}
 
 
 def visuel_labels(vue):
@@ -526,28 +526,6 @@ def page_fiche(theme, label):
     votes_derriere(detail, choix)
 
 
-PITCH = ("**Collez le document de position d'une organisation : Cleon classe les 577 députés en "
-         "alliés, opposants et à convaincre, et montre pour chaque score les votes qui le justifient.**")
-
-COMMENT_UTILISATEUR = """
-1. **Le document de position.** L'organisation colle sa note. Un modèle de langage en extrait 3 à 6 positions,
-   chacune appuyée sur une citation du texte.
-2. **Les scrutins.** Parmi les 9 895 scrutins publics de la législature, Cleon garde ceux du thème
-   (mots-clés, assez de votants, vote assez disputé), puis le modèle propose ceux qui touchent une position
-   et le vote que l'organisation aurait voulu, pour ou contre. Pour un amendement, il lit son exposé sommaire.
-3. **La validation.** Une personne accepte, inverse ou rejette chaque proposition. Seuls les scrutins validés
-   comptent : le modèle propose, l'humain décide.
-4. **Le score.** Pour chaque député : part de ses votes pour ou contre qui vont dans le sens voulu.
-   70 ou plus : allié. 30 ou moins : opposant. Entre les deux : à convaincre. Un député qui suit nettement
-   moins souvent son groupe que ses collègues (loyauté mesurée par Hémicycle sur toute la législature, 5 points
-   sous la médiane du groupe) et qui, sur ce thème, a un score d'au moins 10 points au-dessus de la moyenne de son
-   groupe, est aussi « à convaincre » :
-   il s'écarte de son groupe, c'est une porte d'entrée.
-   Moins de 5 votes pour ou contre : données insuffisantes. Abstentions et absences sont montrées, jamais comptées.
-5. **La preuve.** Chaque score renvoie à la liste de ses votes, et chaque vote à sa page sur le site de
-   l'Assemblée nationale.
-"""
-
 COMMENT_TECHNIQUE = """
 - **Données** : open data de l'Assemblée nationale, 17e législature. 9 895 scrutins, 1,46 million de votes
   nominatifs, 655 députés avec leurs périodes de mandat, 148 034 amendements. Base SQLite, recalculée par
@@ -564,60 +542,181 @@ COMMENT_TECHNIQUE = """
 """
 
 
+@st.cache_data
+def sigles():
+    """{group name: short name} from the database, e.g. "Rassemblement National" -> "RN"."""
+    con = sqlite3.connect(DB_PATH)
+    out = dict(con.execute("SELECT nom, sigle FROM groupes").fetchall())
+    con.close()
+    return out
+
+
+# left-to-right seating of the groups in the hemicycle; unknown groups go between the last listed and NI
+ORDRE_GROUPES = ["LFI-NFP", "GDR", "ECOS", "SOC", "LIOT", "DEM", "EPR", "HOR", "DR", "UDR", "RN", "NI"]
+
+
+def trier_liste(actuels, lab):
+    liste = actuels[actuels["label"] == lab]
+    if lab == scoring.A_CONVAINCRE:  # most favourable compared with their own group first: the best leads
+        return liste.assign(_e=(liste["score"] - liste["moyenne_groupe"]).fillna(0)).sort_values(
+            ["_e", "exprimes"], ascending=False)
+    return liste.sort_values(["score", "exprimes"], ascending=[lab != scoring.ALLIE, False])
+
+
 def page_accueil(theme, label):
-    st.markdown(PITCH)
     texte_demo = matching.read_position_text(theme) or ""
     data = matching.load_matching(theme)
-
-    st.subheader(f"Thème : {label}")
-    with st.form("document"):
-        texte = st.text_area("Document de position", value=texte_demo, height=220)
-        envoye = st.form_submit_button("Analyser le document", type="primary")
-    if envoye and texte.strip() != texte_demo.strip():
-        st.info("Ce document n'a pas encore été analysé. L'analyse d'un nouveau document passe par le modèle "
-                "de langage puis par une validation humaine : elle se lance depuis la page « Validation des "
-                "scrutins ». Les résultats ci-dessous sont ceux du document de démonstration.")
-
-    if data is None:
-        st.info("Le document de ce thème n'a pas encore été analysé : rendez-vous sur la page "
-                "« Validation des scrutins ».")
-        return
-    with st.expander(f"Positions extraites du document ({len(data['positions'])})", expanded=True):
-        for p in data["positions"]:
-            st.markdown(f"**{p['id']}.** {p['position']}")
-
     path = matching.theme_path(theme, "validated.json")
-    if not os.path.exists(path):
-        st.info("Aucune correspondance n'a encore été validée : les listes apparaîtront après la validation.")
+    df = None
+    if data is not None and os.path.exists(path):
+        df, _ = scores_theme(theme, (os.path.getmtime(path), os.path.getmtime(scoring.__file__)))
+    actuels = df[df["en_mandat"]].copy() if df is not None else None
+    acceptes = scoring.scrutins_acceptes(theme)
+
+    # ---- hero: the question, the document, the hemicycle
+    gauche, droite = st.columns([1, 1.08], gap="large")
+    with gauche:
+        st.markdown(
+            f'<div class="hero-g"><span class="etiq">Assemblée nationale · 17e législature · Thème {styles.e(label.lower())}</span>'
+            '<h1>Qui, dans l\'hémicycle, vote comme vous&nbsp;?</h1>'
+            '<p class="chapo">Collez la note de position d\'une organisation. Cleon classe les <b>577 députés</b> en '
+            'alliés, opposants et à convaincre, et montre pour chaque score les votes qui le justifient.</p>'
+            '<ol class="etapes3"><li><b>1 · Propose</b>Un modèle relie la note aux scrutins.</li>'
+            '<li><b>2 · Valide</b>Une personne accepte ou rejette chaque lien.</li>'
+            '<li><b>3 · Calcule</b>Le score est la part des votes alignés.</li></ol></div>',
+            unsafe_allow_html=True)
+        with st.form("document"):
+            premiere = texte_demo.strip().splitlines()[0] if texte_demo.strip() else "Document de position"
+            infos = (f"{len(data['positions'])} positions extraites · {len(acceptes)} scrutins validés"
+                     if data is not None else "pas encore analysé")
+            st.markdown(f'<div class="doc-tete"><b>{styles.e(premiere)}</b><span class="etiq">{infos}</span></div>',
+                        unsafe_allow_html=True)
+            texte = st.text_area("Document de position", value=texte_demo, height=170, label_visibility="collapsed")
+            envoye = st.form_submit_button("Analyser le document", type="primary")
+        if envoye and texte.strip() != texte_demo.strip():
+            st.info("Ce document n'a pas encore été analysé. L'analyse d'un nouveau document passe par le modèle "
+                    "de langage puis par une validation humaine : elle se lance depuis la page « Validation des "
+                    "scrutins ». Les résultats affichés sont ceux du document de démonstration.")
+    with droite:
+        if actuels is None:
+            st.info("Le document de ce thème n'a pas encore été analysé ou validé : rendez-vous sur la page "
+                    "« Validation des scrutins ».")
+        else:
+            sig = sigles()
+            actuels["sigle"] = actuels["groupe"].map(sig).fillna("NI")
+            rang = {g: i for i, g in enumerate(ORDRE_GROUPES)}
+            actuels["_r"] = actuels["sigle"].map(lambda g: rang.get(g, len(ORDRE_GROUPES) - 1.5))
+            assis = actuels.assign(_s=actuels["score"].fillna(-1)).sort_values(["_r", "_s"], ascending=[True, False])
+            sieges = [(r.sigle, CLASSE_LABEL[r.label] if r.label != scoring.INSUFFISANT else "vide",
+                       f"{r.nom} ({r.sigle}) · " + (f"{int(r.score)}" if pd.notna(r.score) else "pas de score"))
+                      for r in assis.itertuples()]
+            n = {lab: int((actuels["label"] == lab).sum()) for lab in scoring.LABELS}
+            ordre = [(scoring.ALLIE, "alliés", "allie"), (scoring.A_CONVAINCRE, "à convaincre", "convaincre"),
+                     (scoring.OPPOSANT, "opposants", "opposant"), (scoring.INSUFFISANT, "trop peu de votes", "vide")]
+            barre = "".join(f'<i class="{c}" style="flex:{n[l]}"></i>' for l, _, c in ordre)
+            chiffres = "".join(f'<div class="{c}"><b>{n[l]}</b><span>{t}</span></div>' for l, t, c in ordre)
+            st.markdown(
+                '<div class="hemi-bloc"><div class="titre"><span class="etiq">L\'hémicycle vu depuis la note</span>'
+                '<span class="etiq">survolez un siège</span></div>'
+                + styles.hemicycle_svg(sieges)
+                + f'<div class="legende">{len(actuels)} députés en exercice. Chaque point est un siège ; les groupes sont '
+                  'placés de gauche à droite, chaque député coloré selon ses votes sur le thème.</div>'
+                + f'<div class="repart">{barre}</div><div class="decompte">{chiffres}</div></div>',
+                unsafe_allow_html=True)
+
+    if data is None or actuels is None:
         return
-    df, _ = scores_theme(theme, (os.path.getmtime(path), os.path.getmtime(scoring.__file__)))
-    bandeau_validation(theme)
-    actuels = df[df["en_mandat"]]
-    visuel_labels(actuels)
-    colonnes = st.columns(3)
-    for col, lab, asc in zip(colonnes, [scoring.ALLIE, scoring.A_CONVAINCRE, scoring.OPPOSANT],
-                             [False, False, True]):
-        liste = actuels[actuels["label"] == lab]
-        if lab == scoring.A_CONVAINCRE:  # most favourable compared with their own group first: the best leads
-            liste = liste.assign(_e=(liste["score"] - liste["moyenne_groupe"]).fillna(0)).sort_values(
-                ["_e", "exprimes"], ascending=False)
-        else:  # strongest scores first, then the most votes behind them
-            liste = liste.sort_values(["score", "exprimes"], ascending=[asc, False])
+
+    # ---- the positions
+    par_position = acceptes["position_id"].value_counts().to_dict() if not acceptes.empty else {}
+    cartes = "".join(
+        f'<div class="position"><div class="tete"><span class="id">{styles.e(p["id"])}</span>'
+        f'<span class="etiq">{par_position.get(p["id"], 0)} scrutins validés</span></div>'
+        f'<h3>{styles.e(p["position"])}</h3>'
+        + (f'<blockquote>« {styles.e(p["passage"][:228] + ("…" if len(p["passage"]) > 228 else ""))} »</blockquote>'
+           if p.get("passage") else "") + '</div>'
+        for p in data["positions"])
+    st.markdown(styles.coupe("Les positions", f"extraites de la note · {len(data['positions'])} positions")
+                + styles.titre_bande("Ce que demande la note",
+                                     "Le modèle a tiré ces positions du document, chacune appuyée sur un passage "
+                                     "du texte. Ce sont elles que Cleon cherche dans les votes.")
+                + f'<div class="positions">{cartes}</div>', unsafe_allow_html=True)
+
+    # ---- group averages, to scale
+    avec = actuels[actuels["score"].notna() & (actuels["sigle"] != "NI")]
+    moy = avec.groupby("sigle")["score"].mean().round().astype(int).sort_values(ascending=False)
+    taille = actuels.groupby("sigle").size()
+    noms = actuels.drop_duplicates("sigle").set_index("sigle")["groupe"]
+    s_ = scoring.seuils(theme)
+    classe = lambda v: "allie" if v >= s_["seuil_allie"] else "opposant" if v <= s_["seuil_opposant"] else "convaincre"
+    lignes = "".join(
+        f'<div class="ligne-g {classe(v)}"><div class="nom-g"><span class="data">{styles.e(g)}</span>'
+        f'<span>{styles.e(noms.get(g, g))} · {int(taille.get(g, 0))}</span></div>'
+        f'<div class="piste"><i style="width:{v}%;animation-delay:{i * 50}ms"></i></div><span class="val">{v}</span></div>'
+        for i, (g, v) in enumerate(moy.items()))
+    axe = ('<div class="axe"><div></div><div><span style="left:0;transform:none">0</span>'
+           f'<span style="left:{s_["seuil_opposant"]}%">{s_["seuil_opposant"]}</span>'
+           f'<span style="left:{s_["seuil_allie"]}%">{s_["seuil_allie"]}</span>'
+           '<span style="left:100%;transform:translateX(-100%)">100</span></div><div></div></div>')
+    st.markdown(styles.coupe("Les groupes", "score moyen des membres qui ont un score")
+                + styles.titre_bande("L'hémicycle, groupe par groupe",
+                                     f"Traits verticaux : {s_['seuil_opposant']} et {s_['seuil_allie']}, "
+                                     "les seuils d'opposant et d'allié.")
+                + f'<div class="groupes">{lignes}{axe}</div>', unsafe_allow_html=True)
+
+    # ---- the three lists
+    st.markdown(styles.coupe("Les trois listes", "députés en exercice · cliquez un nom pour sa fiche")
+                + styles.titre_bande("Alliés, à convaincre, opposants",
+                                     f"Les dix premiers de chaque liste. {n[scoring.INSUFFISANT]} députés ont moins de "
+                                     f"{s_['min_votes']} votes pour ou contre sur ces scrutins : Cleon ne leur "
+                                     "invente pas de score."), unsafe_allow_html=True)
+    colonnes = st.columns(3, gap="large")
+    for col, lab in zip(colonnes, [scoring.ALLIE, scoring.A_CONVAINCRE, scoring.OPPOSANT]):
+        liste = trier_liste(actuels, lab)
         titre = "À convaincre" if lab == scoring.A_CONVAINCRE else f"{lab.capitalize()}s"
-        col.markdown(styles.entete(CLASSE_LABEL[lab], titre, f"{len(liste)} députés"), unsafe_allow_html=True)
+        col.markdown(f'<div class="tete-liste {CLASSE_LABEL[lab]}"><b>{titre}</b><span>{len(liste)}</span></div>',
+                     unsafe_allow_html=True)
         boite = col.container(key=f"liste-{CLASSE_LABEL[lab]}")
         for r in liste.head(10).itertuples():
-            note = " · s'écarte de son groupe" if r.note else ""
-            boite.button(f"{r.nom} · {int(r.score)} · {r.groupe}{note}", key=f"acc-{r.depute_id}",
-                       on_click=ouvrir_fiche, args=(r.depute_id,), width="stretch")
-    st.caption(f"Dix premiers de chaque liste, députés en exercice. "
-               f"{(actuels['label'] == scoring.INSUFFISANT).sum()} députés n'ont pas assez de votes sur ces "
-               "scrutins pour être classés. La liste complète est sur la page « Classement ».")
+            note = " · s'écarte" if r.note else ""
+            boite.button(f"{r.nom} — {r.sigle} · {int(r.score)}{note}", key=f"acc-{r.depute_id}",
+                         on_click=ouvrir_fiche, args=(r.depute_id,), width="stretch")
 
-    st.markdown("### Comment ça marche")
-    t1, t2 = st.tabs(["Pour l'utilisateur", "Côté technique"])
-    t1.markdown(COMMENT_UTILISATEUR)
-    t2.markdown(COMMENT_TECHNIQUE)
+    # ---- entry points
+    portes = actuels[actuels["note"] != ""].sort_values("exprimes", ascending=False)
+    if not portes.empty:
+        st.markdown(styles.coupe("Les portes d'entrée", f"{len(portes)} députés s'écartent de leur groupe")
+                    + styles.titre_bande("Plus proches de vous que leur groupe",
+                                         f"Score au moins {s_['ecart_groupe']} points au-dessus de la moyenne du "
+                                         f"groupe, et loyauté au groupe au moins {s_['ecart_loyaute']} points sous la "
+                                         "médiane (mesure Hémicycle, toute la législature)."),
+                    unsafe_allow_html=True)
+        for col, r in zip(st.columns(2, gap="large"), portes.head(2).itertuples()):
+            f = hemicycle.fiche(r.depute_id)
+            com = f"{f['commission']['nom']}" if f and f.get("commission") and f["commission"].get("nom") else ""
+            with col.container(border=True):
+                st.markdown(
+                    '<div class="porte"><div class="pastilles"><span class="pastille convaincre">à convaincre</span>'
+                    '<span class="pastille neutre">s\'écarte de son groupe</span></div>'
+                    f'<h3>{styles.e(r.nom)}</h3><span class="etiq">{styles.e(r.groupe)} · {styles.e(r.circonscription)}</span>'
+                    + (f'<span style="color:var(--gris);font-size:.88rem">{styles.e(com)}</span>' if com else "")
+                    + f'<div class="chiffres"><div><b>{int(r.score)}</b><span>son score (groupe {int(r.moyenne_groupe)})</span></div>'
+                      f'<div><b>{int(r.alignes)} / {int(r.opposes)}</b><span>votes alignés / opposés</span></div>'
+                      f'<div><b>{pct(r.loyaute)} %</b><span>loyauté (médiane {pct(r.mediane_groupe)} %)</span></div></div></div>',
+                    unsafe_allow_html=True)
+                st.button("Ouvrir la fiche", key=f"porte-{r.depute_id}", on_click=ouvrir_fiche, args=(r.depute_id,))
+
+    # ---- method
+    st.markdown(styles.coupe("La méthode", "le modèle propose, l'humain décide")
+                + styles.titre_bande("Comment Cleon arrive à un score")
+                + '<div class="etapes4">'
+                  '<div><b>1</b><h3>Les positions</h3><p>Un modèle de langage extrait 3 à 6 positions de la note, chacune appuyée sur une citation.</p></div>'
+                  '<div><b>2</b><h3>Les scrutins</h3><p>Parmi les 9 895 scrutins de la législature, Cleon garde ceux du thème qui sont vraiment disputés. Le modèle lit l\'exposé de chaque amendement et propose le vote voulu.</p></div>'
+                  '<div><b>3</b><h3>La validation</h3><p>Une personne accepte, inverse ou rejette chaque proposition. Seuls les scrutins validés comptent.</p></div>'
+                  f'<div><b>4</b><h3>Le score</h3><p>Part des votes pour ou contre dans le sens voulu. {s_["seuil_allie"]} ou plus : allié. {s_["seuil_opposant"]} ou moins : opposant. Abstentions et absences sont montrées, jamais comptées.</p></div>'
+                  '</div>', unsafe_allow_html=True)
+    with st.expander("Côté technique"):
+        st.markdown(COMMENT_TECHNIQUE)
 
 
 def prevision(theme, cfg):
@@ -708,8 +807,9 @@ def page_prochain_vote(theme, label):
 
 
 def main():
-    st.markdown(styles.css(styles.DEFAUT), unsafe_allow_html=True)
-    st.markdown(styles.hero("Cleon", METHODE), unsafe_allow_html=True)
+    st.markdown(styles.css(), unsafe_allow_html=True)
+    st.sidebar.markdown(styles.marque_rail(), unsafe_allow_html=True)
+    st.markdown(styles.entete_page(METHODE), unsafe_allow_html=True)
 
     themes = list_themes()
     if not themes:

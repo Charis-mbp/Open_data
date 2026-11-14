@@ -283,3 +283,22 @@ changed the keywords, since you chose them.
   column headers on Accueil.
 - The counters' count-up uses CSS `@property`: works in Chrome/Edge/Firefox 128+; older browsers show the final number.
 - `themes/sante/` is empty, so only `nucleaire` appears in the selector (unchanged by this task).
+
+## Redesign step 1: "Encre et cuivre" look and the new Accueil (task 14)
+
+- `styles.py` rewritten: one palette (ink, hairlines, copper only on the wordmark dot and the primary button,
+  three label colours), Bricolage Grotesque / IBM Plex Sans / IBM Plex Mono. Earlier gimmicks removed:
+  gradient title, glows, slide-in blocks, pulsing pills, lifting cards. The compass logo is replaced by a
+  "Cleon" wordmark (sidebar and page header). Helpers still used by other pages (compteurs, repartition,
+  jauge, entete) are kept but drawn flat. `.streamlit/config.toml` follows the new palette.
+- Navigation stays in the sidebar, as CLAUDE.md asks; the prototype's top bar is not used.
+- Accueil, built from live data: hero (question, document form, hemicycle), then five sections, each opened
+  by a "cut" (a ruled strip with the section name and one fact): positions with their quotes and validated
+  counts, group averages drawn to scale with the 30/70 thresholds, the three lists (top 10, buttons that open
+  the fiche), entry-point cards for the "s'écarte de son groupe" députés, the method, and an expander with the
+  technical notes.
+- Hemicycle: `styles.hemicycle_svg()`, 574 seats on 11 rows, groups as wedges left to right (`ORDRE_GROUPES` in
+  app.py; a group not in the list sits just before NI), best scores on the inner rows. Static; each seat's
+  tooltip gives name, group and score. The prototype's group highlight on hover is not done.
+- Removed: PITCH and COMMENT_UTILISATEUR (replaced by the hero and the method section).
+- Checked: all 7 pages run with no error (AppTest). No screenshot: headless Firefox hangs on Streamlit.

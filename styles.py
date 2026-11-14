@@ -1,268 +1,294 @@
-"""Two visual styles for the app, inspired by Sanzo Wada's "A Dictionary of Color Combinations".
+"""Cleon's look: "Encre et cuivre". Dark ink surfaces, hairline rules, copper reserved for the wordmark and the
+main action, three label colours. Headings in Bricolage Grotesque, text in IBM Plex Sans, figures in IBM Plex Mono.
 
-Hex values are approximations of Wada's named colours, not exact plates.
-Each style sets the page colours, fonts and the colours of the three labels.
+Everything visual lives here: the CSS, and small HTML builders the pages call (header, section cuts, hemicycle,
+counters). No theme name and no data access in this file.
 """
+import html
+import math
 
-STYLES = {
-    "Papier et vermillon": {
-        "note": "Ivoire, encre, vermillon : Ivory Buff, Black, Scarlet, Cobalt Green, Yellow Ochre.",
-        "font_titre": "Shippori Mincho", "font_texte": "Noto Sans",
-        "fond": "#F3ECDD", "surface": "#E8DDC7", "texte": "#2A2723", "discret": "#6F6658",
-        "accent": "#C8473A", "ligne": "#CDBFA5",
-        "allie": "#4E8A6B", "convaincre": "#D29A2E", "opposant": "#A3322B",
-    },
-    "Vert-de-gris et paon": {
-        "note": "Vert-de-gris profond, bleu paon, ocre : Dusky Green, Peacock Blue, Olive Ocher, Etruscan Red.",
-        "font_titre": "Space Grotesk", "font_texte": "Inter",
-        "fond": "#C4D2BE", "surface": "#AFC2A8", "texte": "#12201A", "discret": "#3B5246",
-        "accent": "#0D5A63", "ligne": "#93AA8C",
-        "allie": "#2E6A38", "convaincre": "#B07E14", "opposant": "#8A2E22",
-        # dark green sidebar with light text
-        "sidebar_fond": "#1F3A30", "sidebar_texte": "#E4ECDF",
-    },
-    "Nuit et cuivre": {
-        "note": "Encre de nuit, cuivre, bleu paon : fond sombre, accent chaud, trois étiquettes lumineuses.",
-        "font_titre": "Space Grotesk", "font_texte": "Inter",
-        "fond": "#0B1116", "surface": "#121B22", "texte": "#E4ECEA", "discret": "#8DA19C",
-        "accent": "#E3A15A", "accent2": "#4FB6C2", "ligne": "#22323B",
-        "allie": "#3FC488", "convaincre": "#F2B544", "opposant": "#EF5F57",
-        "sidebar_fond": "#080D11", "sidebar_texte": "#C9D6D2",
-    },
+P = {
+    "encre": "#0A0E12", "encre2": "#0E1318", "ardoise": "#121920", "filet": "#1F2831", "filet2": "#2A3540",
+    "craie": "#E8ECEE", "gris": "#87939C", "cuivre": "#D9965A", "cuivre_clair": "#E4A66D",
+    "allie": "#4BC18C", "convaincre": "#E6B04B", "opposant": "#DE675D", "vide": "#27313B",
 }
-DEFAUT = "Nuit et cuivre"  # the style used by the app; the others are kept for reference
+FONTS = ("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800"
+         "&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap")
 
 
-def css(nom):
-    s = STYLES.get(nom, STYLES[DEFAUT])
-    fonts = "|".join(sorted({f.replace(" ", "+") + ":wght@400;500;600;700"
-                             for f in (s["font_titre"], s["font_texte"])}))
+def css():
     return f"""
 <style>
-@import url('https://fonts.googleapis.com/css2?family={fonts}&display=swap');
+@import url('{FONTS}');
 :root {{
-  --fond: {s['fond']}; --surface: {s['surface']}; --texte: {s['texte']}; --discret: {s['discret']};
-  --accent: {s['accent']}; --accent2: {s.get('accent2', s['accent'])}; --ligne: {s['ligne']};
-  --allie: {s['allie']}; --convaincre: {s['convaincre']}; --opposant: {s['opposant']};
-  --titre: '{s['font_titre']}', sans-serif;
+  --encre: {P['encre']}; --encre2: {P['encre2']}; --ardoise: {P['ardoise']}; --filet: {P['filet']}; --filet2: {P['filet2']};
+  --craie: {P['craie']}; --gris: {P['gris']}; --cuivre: {P['cuivre']}; --cuivre-clair: {P['cuivre_clair']};
+  --allie: {P['allie']}; --convaincre: {P['convaincre']}; --opposant: {P['opposant']}; --vide: {P['vide']};
+  --f-titre: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
+  --f-texte: 'IBM Plex Sans', system-ui, sans-serif;
+  --f-data: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  /* names kept for the pages not yet redesigned */
+  --fond: var(--encre); --surface: var(--ardoise); --texte: var(--craie); --discret: var(--gris);
+  --accent: var(--cuivre); --accent2: var(--cuivre); --ligne: var(--filet); --titre: var(--f-titre);
 }}
-@property --n {{ syntax: '<integer>'; initial-value: 0; inherits: false; }}
-@property --p {{ syntax: '<number>'; initial-value: 0; inherits: false; }}
-@keyframes monter {{ from {{ opacity: 0; transform: translateY(14px); }} to {{ opacity: 1; transform: none; }} }}
-@keyframes fondu {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
-@keyframes reflet {{ 0% {{ background-position: 0% 50%; }} 100% {{ background-position: 200% 50%; }} }}
-@keyframes derive {{ 0%, 100% {{ transform: translate(0, 0) scale(1); }} 50% {{ transform: translate(4%, 3%) scale(1.08); }} }}
-@keyframes aiguille {{ 0% {{ transform: rotate(-70deg); }} 55% {{ transform: rotate(28deg); }}
-  75% {{ transform: rotate(8deg); }} 100% {{ transform: rotate(16deg); }} }}
-@keyframes oscille {{ 0%, 100% {{ transform: rotate(16deg); }} 50% {{ transform: rotate(10deg); }} }}
-@keyframes compter {{ from {{ --n: 0; }} }}
-@keyframes remplir {{ from {{ --p: 0; }} }}
-@keyframes pousser {{ from {{ transform: scaleX(0); }} to {{ transform: scaleX(1); }} }}
-@keyframes pouls {{ 0%, 100% {{ box-shadow: 0 0 0 0 color-mix(in srgb, var(--c) 55%, transparent); }}
-  50% {{ box-shadow: 0 0 0 6px transparent; }} }}
+@keyframes poser {{ from {{ opacity: 0; transform: scale(.4); }} to {{ opacity: 1; transform: none; }} }}
+@keyframes pousser {{ from {{ transform: scaleX(0); }} }}
 
-.stApp, [data-testid="stAppViewContainer"] {{ background: var(--fond); color: var(--texte); }}
+.stApp, [data-testid="stAppViewContainer"] {{ background: var(--encre); color: var(--craie); }}
 [data-testid="stHeader"] {{ background: transparent; }}
-/* two slow-drifting glows behind the page */
-[data-testid="stAppViewContainer"]::before {{
-  content: ""; position: fixed; inset: -20%; z-index: 0; pointer-events: none;
-  background:
-    radial-gradient(40% 35% at 20% 15%, color-mix(in srgb, var(--accent2) 16%, transparent), transparent 70%),
-    radial-gradient(35% 30% at 85% 80%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%);
-  animation: derive 24s ease-in-out infinite;
-}}
-[data-testid="stMain"] {{ position: relative; z-index: 1; }}
+[data-testid="stMainBlockContainer"] {{ padding-top: 2.2rem; max-width: 1240px; }}
+/* text font on text elements only: spans and divs also hold Streamlit's icon font */
+.stApp, .stApp p, .stApp li, .stApp label, .stApp input, .stApp textarea, .stApp button {{ font-family: var(--f-texte); }}
+.stApp h1, .stApp h2, .stApp h3, .stApp h4 {{ font-family: var(--f-titre); color: var(--craie); letter-spacing: -.025em; text-wrap: balance; }}
+.stApp p, .stApp li, .stApp label {{ color: var(--craie); }}
+[data-testid="stCaptionContainer"], .stApp small {{ color: var(--gris) !important; }}
+.stApp a {{ color: var(--craie); text-decoration: underline; text-decoration-color: var(--filet2); text-underline-offset: 3px; }}
+.stApp a:hover {{ text-decoration-color: var(--cuivre); }}
 
-/* text font on text elements only: spans and divs also hold Streamlit's icon font ("arrow_down") */
-.stApp, .stApp p, .stApp li, .stApp label, .stApp input, .stApp textarea, .stApp button {{
-  font-family: '{s['font_texte']}', sans-serif;
-}}
-.stApp h1, .stApp h2, .stApp h3, .stApp h4 {{
-  font-family: var(--titre); color: var(--texte); letter-spacing: -0.02em;
-}}
-.stApp h2 {{ position: relative; padding-bottom: .4rem; }}
-.stApp h2::after {{
-  content: ""; position: absolute; left: 0; bottom: 0; width: 64px; height: 3px; border-radius: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2)); transform-origin: left;
-  animation: pousser .7s cubic-bezier(.2,.8,.2,1) both .1s;
-}}
-.stApp p, .stApp li, .stApp label {{ color: var(--texte); }}
-[data-testid="stCaptionContainer"], .stApp small {{ color: var(--discret) !important; }}
+/* sidebar: a quiet rail, the current page marked by a copper rule */
+[data-testid="stSidebar"] {{ background: #080B0E; border-right: 1px solid var(--filet); }}
+[data-testid="stSidebar"] label, [data-testid="stSidebar"] p {{ color: var(--gris); }}
+[data-testid="stSidebar"] [role="radiogroup"] {{ gap: 0; }}
+[data-testid="stSidebar"] [role="radiogroup"] > label {{ padding: .5rem .2rem .5rem .8rem; width: 100%; border-left: 2px solid transparent; }}
+[data-testid="stSidebar"] [role="radiogroup"] > label > div:first-child {{ display: none; }}
+[data-testid="stSidebar"] [role="radiogroup"] > label:hover p {{ color: var(--craie); }}
+[data-testid="stSidebar"] [role="radiogroup"] > label:has(input:checked) {{ border-left-color: var(--cuivre); }}
+[data-testid="stSidebar"] [role="radiogroup"] > label:has(input:checked) p {{ color: var(--craie); font-weight: 500; }}
+.marque-rail {{ font: 800 1.6rem/1 var(--f-titre); letter-spacing: -.03em; color: var(--craie); display: flex; align-items: baseline; gap: 2px; margin: .2rem 0 1.4rem .8rem; }}
+.marque-rail i, .marque i {{ width: .3em; height: .3em; border-radius: 50%; background: var(--cuivre); display: inline-block; }}
 
-/* every block of the page slides in, one after the other */
-[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"] > div {{
-  animation: monter .55s cubic-bezier(.2,.8,.2,1) both;
-}}
-[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"] > div:nth-child(2) {{ animation-delay: .05s; }}
-[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"] > div:nth-child(3) {{ animation-delay: .1s; }}
-[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"] > div:nth-child(4) {{ animation-delay: .15s; }}
-[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"] > div:nth-child(5) {{ animation-delay: .2s; }}
-[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"] > div:nth-child(n+6) {{ animation-delay: .25s; }}
+/* surfaces: flat, one hairline, small radius */
+[data-testid="stMetric"] {{ background: transparent; border-top: 1px solid var(--filet2); border-radius: 0; padding: .8rem 0; }}
+[data-testid="stMetricValue"] {{ color: var(--craie); font-family: var(--f-data); font-weight: 500; }}
+[data-testid="stMetricLabel"] p {{ color: var(--gris); }}
+[data-testid="stVerticalBlockBorderWrapper"], .stForm {{ border-color: var(--filet) !important; background: var(--ardoise); border-radius: 6px !important; }}
+[data-testid="stExpander"] details {{ background: transparent; border-color: var(--filet); border-radius: 6px; }}
+[data-testid="stDataFrame"] {{ border-top: 1px solid var(--filet2); }}
+[data-testid="stAlert"] {{ border-radius: 4px; }}
 
-/* sidebar: dark rail, pages as pills */
-[data-testid="stSidebar"] {{ background: {s.get('sidebar_fond', s['surface'])}; border-right: 1px solid var(--ligne); }}
-[data-testid="stSidebar"] label, [data-testid="stSidebar"] p {{ color: {s.get('sidebar_texte', s['texte'])}; }}
-[data-testid="stSidebar"] [role="radiogroup"] {{ gap: .2rem; }}
-[data-testid="stSidebar"] [role="radiogroup"] > label {{
-  padding: .45rem .7rem; border-radius: 10px; width: 100%; border: 1px solid transparent;
-  transition: background .2s, border-color .2s, transform .2s;
-}}
-[data-testid="stSidebar"] [role="radiogroup"] > label:hover {{
-  background: color-mix(in srgb, var(--accent2) 10%, transparent); transform: translateX(3px);
-}}
-[data-testid="stSidebar"] [role="radiogroup"] > label:has(input:checked) {{
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
-}}
-[data-testid="stSidebar"] [role="radiogroup"] > label:has(input:checked) p {{ color: var(--accent); font-weight: 600; }}
+/* buttons: plain by default, copper for the one primary action */
+.stButton button, .stFormSubmitButton button {{ background: transparent; color: var(--craie); border: 1px solid var(--filet2); border-radius: 4px; transition: border-color .15s, color .15s; }}
+.stButton button:hover, .stFormSubmitButton button:hover {{ border-color: var(--craie); color: var(--craie); }}
+.stButton button[kind="primary"], .stFormSubmitButton button[kind="primaryFormSubmit"] {{ background: var(--cuivre); color: #1B1007; border: 0; font-weight: 600; }}
+.stButton button[kind="primary"]:hover, .stFormSubmitButton button[kind="primaryFormSubmit"]:hover {{ background: var(--cuivre-clair); color: #1B1007; }}
+[data-baseweb="select"] > div, .stTextInput input, .stTextArea textarea {{ background: var(--encre) !important; border-color: var(--filet2) !important; color: var(--craie) !important; }}
+.stTextArea textarea {{ font-size: .9rem; line-height: 1.6; color: #B9C3C9 !important; }}
+[data-baseweb="tag"] {{ background: var(--filet2) !important; }}
+.stTabs [data-baseweb="tab-highlight"] {{ background: var(--cuivre); }}
 
-/* cards */
-[data-testid="stMetric"] {{
-  background: linear-gradient(160deg, color-mix(in srgb, var(--surface) 92%, white 8%), var(--surface));
-  border: 1px solid var(--ligne); border-radius: 14px; padding: .9rem 1.1rem;
-  transition: transform .25s, box-shadow .25s, border-color .25s;
-}}
-[data-testid="stMetric"]:hover {{
-  transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 50%, transparent);
-  box-shadow: 0 10px 30px -12px color-mix(in srgb, var(--accent) 45%, transparent);
-}}
-[data-testid="stMetricValue"] {{ color: var(--texte); font-family: var(--titre); }}
-[data-testid="stVerticalBlockBorderWrapper"], .stForm {{
-  border-color: var(--ligne) !important; background: var(--surface); border-radius: 14px !important;
-}}
-[data-testid="stExpander"] details {{ background: var(--surface); border-color: var(--ligne); border-radius: 14px; }}
-[data-testid="stDataFrame"] {{ border: 1px solid var(--ligne); border-radius: 12px; overflow: hidden; }}
-[data-testid="stAlert"] {{ border-radius: 12px; }}
+/* shared bits */
+.etiq {{ font: 500 .75rem/1.3 var(--f-data); letter-spacing: .08em; text-transform: uppercase; color: var(--gris); }}
+.data {{ font-family: var(--f-data); font-variant-numeric: tabular-nums; }}
+.allie {{ --c: var(--allie); }} .convaincre {{ --c: var(--convaincre); }} .opposant {{ --c: var(--opposant); }}
+.insuffisant, .vide {{ --c: var(--vide); }}
 
-/* buttons */
-.stButton button, .stDownloadButton button, .stFormSubmitButton button {{
-  background: var(--surface); color: var(--texte); border: 1px solid var(--ligne); border-radius: 10px;
-  transition: transform .2s, border-color .2s, box-shadow .2s, background .2s;
-}}
-.stButton button:hover, .stFormSubmitButton button:hover {{
-  border-color: var(--accent); color: var(--accent); transform: translateY(-2px);
-  box-shadow: 0 8px 22px -10px color-mix(in srgb, var(--accent) 60%, transparent);
-}}
-.stButton button[kind="primary"], .stFormSubmitButton button[kind="primaryFormSubmit"] {{
-  background: linear-gradient(120deg, var(--accent), color-mix(in srgb, var(--accent) 70%, var(--opposant)));
-  color: var(--fond); border: none; font-weight: 600;
-}}
-.stButton button[kind="primary"]:hover, .stFormSubmitButton button[kind="primaryFormSubmit"]:hover {{ color: var(--fond); }}
-.stApp a {{ color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s; }}
-.stApp a:hover {{ border-bottom-color: var(--accent2); }}
-[data-baseweb="select"] > div, .stTextInput input, .stTextArea textarea {{
-  background: var(--fond) !important; border-color: var(--ligne) !important; color: var(--texte) !important;
-}}
-[data-baseweb="tag"] {{ background: var(--accent) !important; }}
-.stTabs [data-baseweb="tab-highlight"] {{ background: var(--accent); }}
+/* page header: wordmark, method line */
+.entete-page {{ display: flex; justify-content: space-between; align-items: baseline; gap: .6rem 2rem; flex-wrap: wrap;
+  padding-bottom: .9rem; border-bottom: 1px solid var(--filet); margin-bottom: 1.6rem; }}
+.marque {{ font: 800 1.5rem/1 var(--f-titre); letter-spacing: -.03em; display: flex; align-items: baseline; gap: 2px; }}
+.entete-page .methode {{ color: var(--gris); font: 400 .78rem/1.4 var(--f-data); max-width: 70ch; }}
 
-/* the three Accueil columns: a coloured edge on each name */
-[class*="st-key-liste-"] button {{ justify-content: flex-start; text-align: left; border-left: 3px solid var(--c); }}
-[class*="st-key-liste-"] button:hover {{ border-color: var(--c); color: var(--c);
-  box-shadow: 0 8px 22px -10px var(--c); }}
-.st-key-liste-allie {{ --c: var(--allie); }}
-.st-key-liste-convaincre {{ --c: var(--convaincre); }}
-.st-key-liste-opposant {{ --c: var(--opposant); }}
+/* section cut: a ruled strip with the section's name and one fact */
+.coupe {{ display: flex; justify-content: space-between; align-items: center; gap: .5rem 1rem; flex-wrap: wrap;
+  border-top: 1px solid var(--filet2); padding: .8rem 0 0; margin: 3rem 0 1.4rem; }}
+.coupe .nom {{ display: flex; gap: .6rem; align-items: center; font: 500 .75rem/1 var(--f-data); letter-spacing: .1em; text-transform: uppercase; color: var(--craie); }}
+.coupe .nom::before {{ content: ""; width: 18px; height: 2px; background: var(--cuivre); }}
+.coupe .fait {{ color: var(--gris); font: 400 .75rem/1.3 var(--f-data); }}
+.titre-bande {{ margin: 0 0 .4rem; font: 700 clamp(1.6rem, 3vw, 2.2rem)/1.1 var(--f-titre); letter-spacing: -.025em; max-width: 26ch; }}
+.sous {{ margin: 0 0 1.4rem; color: var(--gris); max-width: 64ch; }}
 
-/* label pills */
-.pastille {{ display: inline-block; padding: .15rem .7rem; border-radius: 999px; color: var(--fond);
-  font-weight: 600; font-size: .9rem; background: var(--c); animation: pouls 2.4s ease-in-out infinite; }}
-.pastille.allie {{ --c: var(--allie); }}
-.pastille.convaincre {{ --c: var(--convaincre); }}
-.pastille.opposant {{ --c: var(--opposant); }}
-.pastille.insuffisant {{ --c: var(--discret); animation: none; }}
+/* hero */
+.hero-g {{ display: grid; gap: 1.2rem; }}
+.hero-g h1 {{ margin: 0; padding: 0; font: 700 clamp(2.2rem, 4.6vw, 3.5rem)/1.02 var(--f-titre); letter-spacing: -.035em; max-width: 14ch; }}
+.chapo {{ margin: 0; color: var(--gris); font-size: 1.1rem; max-width: 46ch; }}
+.chapo b {{ color: var(--craie); font-weight: 500; }}
+.etapes3 {{ list-style: none; margin: 0 !important; padding: 0 !important; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--filet); }}
+.etapes3 li {{ padding: .75rem .9rem 0 0; display: grid; gap: .25rem; font-size: .86rem; color: var(--gris); margin: 0; }}
+.etapes3 li + li {{ padding-left: .9rem; border-left: 1px solid var(--filet); }}
+.etapes3 b {{ font: 500 .75rem/1 var(--f-data); color: var(--craie); letter-spacing: .04em; }}
+.doc-tete {{ display: flex; justify-content: space-between; gap: .5rem 1rem; flex-wrap: wrap; align-items: baseline; }}
+.doc-tete b {{ font-weight: 600; }}
 
-/* hero with compass */
-.hero {{ display: flex; align-items: center; gap: 1.1rem; margin: .2rem 0 .3rem; }}
-.hero svg {{ width: 64px; height: 64px; flex: none; filter: drop-shadow(0 0 14px color-mix(in srgb, var(--accent) 40%, transparent)); }}
-.hero .aig {{ transform-origin: 32px 32px; animation: aiguille 1.6s cubic-bezier(.3,1.4,.4,1) both,
-  oscille 5s ease-in-out 1.6s infinite; }}
-.hero .cad {{ transform-origin: 32px 32px; animation: fondu 1s both; }}
-.hero h1 {{
-  margin: 0; padding: 0; font-size: 2.4rem; line-height: 1.05; border: none;
-  background: linear-gradient(90deg, var(--texte), var(--accent), var(--accent2), var(--texte));
-  background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent !important;
-  animation: reflet 9s linear infinite;
-}}
-.hero .methode {{ color: var(--discret); font-size: .88rem; margin-top: .35rem; }}
+/* hemicycle */
+.hemi-bloc {{ display: grid; gap: .9rem; }}
+.hemi-bloc .titre {{ display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }}
+svg.hemi {{ width: 100%; height: auto; display: block; }}
+svg.hemi circle {{ animation: poser .5s cubic-bezier(.2,.8,.2,1) both; transform-box: fill-box; transform-origin: center; }}
+svg.hemi circle:hover {{ stroke: var(--craie); stroke-width: 1.5; }}
+.hemi-bloc .legende {{ border-top: 1px solid var(--filet); padding-top: .6rem; color: var(--gris); font-size: .85rem; }}
+.repart {{ display: flex; height: 8px; border-radius: 2px; overflow: hidden; gap: 2px; }}
+.repart i {{ display: block; background: var(--c); }}
+.decompte {{ display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; }}
+.decompte div {{ display: grid; gap: .1rem; }}
+.decompte b {{ font: 500 1.5rem/1 var(--f-data); font-variant-numeric: tabular-nums; color: var(--craie); }}
+.decompte span {{ font-size: .8rem; color: var(--gris); display: flex; gap: .4rem; align-items: center; }}
+.decompte span::before {{ content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }}
 
-/* animated counters */
-.compteurs {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .8rem; margin: .6rem 0 1rem; }}
-.compteur {{ background: var(--surface); border: 1px solid var(--ligne); border-radius: 14px; padding: .9rem 1.1rem;
-  position: relative; overflow: hidden; animation: monter .6s cubic-bezier(.2,.8,.2,1) both;
-  transition: transform .25s, box-shadow .25s; }}
-.compteur:hover {{ transform: translateY(-3px); box-shadow: 0 12px 30px -14px var(--c); }}
-.compteur::before {{ content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--c); }}
-.compteur .val {{ font-family: var(--titre); font-size: 2.1rem; font-weight: 700; color: var(--c);
-  counter-reset: n var(--n); animation: compter 1.6s cubic-bezier(.2,.8,.2,1) both; }}
-.compteur .val::after {{ content: counter(n); }}
-.compteur .lib {{ color: var(--discret); font-size: .85rem; }}
+/* positions */
+.positions {{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--filet); }}
+.position {{ padding: 1.2rem 1.4rem 1.3rem 0; display: grid; gap: .6rem; align-content: start; border-bottom: 1px solid var(--filet); min-width: 0; }}
+.position:nth-child(even) {{ padding-left: 1.4rem; border-left: 1px solid var(--filet); }}
+.position .tete {{ display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }}
+.position .id {{ font: 500 .75rem/1 var(--f-data); color: var(--cuivre); letter-spacing: .06em; }}
+.position h3 {{ margin: 0; padding: 0; font: 600 1.08rem/1.4 var(--f-texte); letter-spacing: 0; }}
+.position blockquote {{ margin: 0; color: var(--gris); font-size: .88rem; border-left: 2px solid var(--filet2); padding-left: .8rem; }}
 
-/* stacked bar of labels */
+/* group chart, drawn to scale: thresholds at 30 and 70 */
+.groupes {{ display: grid; gap: .5rem; }}
+.ligne-g {{ display: grid; grid-template-columns: minmax(0, 16rem) minmax(0, 1fr) 3rem; gap: .9rem; align-items: center; }}
+.ligne-g .nom-g {{ display: flex; gap: .5rem; align-items: baseline; min-width: 0; }}
+.ligne-g .nom-g span:last-child {{ color: var(--gris); font-size: .8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }}
+.piste {{ position: relative; height: 22px; background: var(--ardoise); border-radius: 2px; }}
+.piste i {{ position: absolute; inset: 0 auto 0 0; background: var(--c); border-radius: 2px; transform-origin: left; animation: pousser .8s cubic-bezier(.2,.8,.2,1) both; }}
+.piste::before, .piste::after {{ content: ""; position: absolute; top: -4px; bottom: -4px; width: 1px; background: var(--filet2); z-index: 1; }}
+.piste::before {{ left: 30%; }} .piste::after {{ left: 70%; }}
+.ligne-g .val {{ font: 500 .95rem var(--f-data); text-align: right; }}
+.axe {{ display: grid; grid-template-columns: minmax(0, 16rem) minmax(0, 1fr) 3rem; gap: .9rem; }}
+.axe div {{ position: relative; height: 1.2em; font: 400 .75rem var(--f-data); color: var(--gris); }}
+.axe span {{ position: absolute; transform: translateX(-50%); }}
+
+/* the three lists: column heads, names as ruled rows */
+.tete-liste {{ display: flex; align-items: center; gap: .6rem; border-top: 1px solid var(--filet2); padding-top: 1rem; margin-bottom: .3rem; }}
+.tete-liste::before {{ content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--c); }}
+.tete-liste b {{ font: 700 1.12rem/1.2 var(--f-titre); flex: 1; }}
+.tete-liste span {{ font: 500 .9rem var(--f-data); color: var(--gris); }}
+[class*="st-key-liste-"] [data-testid="stVerticalBlock"] {{ gap: 0; }}
+[class*="st-key-liste-"] button {{ justify-content: flex-start; text-align: left; border: 0; border-bottom: 1px solid var(--filet); border-radius: 0; padding: .55rem 0; min-height: 0; }}
+[class*="st-key-liste-"] button p {{ font-size: .92rem; }}
+[class*="st-key-liste-"] button:hover {{ border-bottom-color: var(--c); }}
+[class*="st-key-liste-"] button:hover p {{ color: var(--c); }}
+.st-key-liste-allie {{ --c: var(--allie); }} .st-key-liste-convaincre {{ --c: var(--convaincre); }} .st-key-liste-opposant {{ --c: var(--opposant); }}
+
+/* entry-point cards */
+.porte {{ display: grid; gap: .8rem; }}
+.porte h3 {{ margin: 0; padding: 0; font: 700 1.5rem/1.1 var(--f-titre); }}
+.chiffres {{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; border-top: 1px solid var(--filet); padding-top: .7rem; }}
+.chiffres div {{ display: grid; gap: .1rem; }}
+.chiffres b {{ font: 500 1.35rem/1 var(--f-data); }}
+.chiffres span {{ font-size: .78rem; color: var(--gris); }}
+.pastilles {{ display: flex; gap: .4rem; flex-wrap: wrap; }}
+.pastille {{ display: inline-flex; align-items: center; font: 500 .8rem/1 var(--f-texte); padding: .3rem .55rem; border-radius: 3px;
+  background: color-mix(in srgb, var(--c) 16%, transparent); color: var(--c); border: 1px solid color-mix(in srgb, var(--c) 40%, transparent); }}
+.pastille.insuffisant, .pastille.neutre {{ --c: var(--gris); }}
+
+/* method, four steps */
+.etapes4 {{ display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--filet); }}
+.etapes4 div {{ padding: 1.1rem 1.1rem 0 0; display: grid; gap: .35rem; align-content: start; }}
+.etapes4 div + div {{ padding-left: 1.1rem; border-left: 1px solid var(--filet); }}
+.etapes4 b {{ font: 500 .75rem/1 var(--f-data); color: var(--cuivre); letter-spacing: .06em; }}
+.etapes4 h3 {{ margin: 0; padding: 0; font: 700 1.1rem var(--f-titre); }}
+.etapes4 p {{ margin: 0; color: var(--gris); font-size: .88rem; }}
+
+/* helpers still used by other pages, flattened */
+.compteurs {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); border-top: 1px solid var(--filet2); margin: .4rem 0 .8rem; }}
+.compteur {{ padding: .8rem 1rem .6rem 0; }}
+.compteur + .compteur {{ padding-left: 1rem; border-left: 1px solid var(--filet); }}
+.compteur .val {{ font: 500 1.8rem/1 var(--f-data); color: var(--c); }}
+.compteur .lib {{ color: var(--gris); font-size: .82rem; margin-top: .2rem; }}
+.compteur.neutre {{ --c: var(--gris); }}
 .repartition {{ margin: .4rem 0 1.2rem; }}
-.repartition .barre {{ display: flex; height: 16px; border-radius: 999px; overflow: hidden; background: var(--ligne);
-  transform-origin: left; animation: pousser 1.1s cubic-bezier(.2,.8,.2,1) both .2s; }}
-.repartition .barre span {{ height: 100%; transition: filter .2s; }}
-.repartition .barre span:hover {{ filter: brightness(1.25); }}
-.repartition .legende {{ display: flex; flex-wrap: wrap; gap: 1rem; margin-top: .5rem; font-size: .85rem; color: var(--discret); }}
-.repartition .legende i {{ display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: .35rem; background: var(--c); }}
+.repartition .barre {{ display: flex; height: 8px; border-radius: 2px; overflow: hidden; gap: 2px; }}
+.repartition .barre span {{ height: 100%; }}
+.repartition .legende {{ display: flex; flex-wrap: wrap; gap: 1rem; margin-top: .5rem; font-size: .82rem; color: var(--gris); }}
+.repartition .legende i {{ display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: .35rem; background: var(--c); }}
+.jauge {{ --c: var(--cuivre); width: 140px; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center;
+  background: conic-gradient(var(--c) calc(var(--p) * 1%), var(--filet) 0); position: relative; }}
+.jauge::before {{ content: ""; position: absolute; inset: 10px; border-radius: 50%; background: var(--encre); }}
+.jauge .centre {{ position: relative; text-align: center; }}
+.jauge .centre b {{ display: block; font: 500 2.2rem/1 var(--f-data); color: var(--craie); }}
+.jauge .centre small {{ color: var(--gris); font-size: .78rem; }}
+.entete {{ display: flex; align-items: center; gap: .6rem; border-top: 1px solid var(--filet2); padding-top: .8rem; margin-bottom: .4rem; }}
+.entete::before {{ content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--c); }}
+.entete b {{ font: 700 1.1rem var(--f-titre); }}
+.entete span {{ color: var(--gris); font-size: .88rem; }}
 
-/* score ring */
-.jauge {{ --c: var(--accent); width: 150px; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center;
-  background: conic-gradient(var(--c) calc(var(--p) * 1%), var(--ligne) 0);
-  animation: remplir 1.4s cubic-bezier(.2,.8,.2,1) both; position: relative;
-  filter: drop-shadow(0 0 18px color-mix(in srgb, var(--c) 35%, transparent)); }}
-.jauge::before {{ content: ""; position: absolute; inset: 12px; border-radius: 50%; background: var(--fond); }}
-.jauge .centre {{ position: relative; text-align: center; font-family: var(--titre); }}
-.jauge .centre b {{ display: block; font-size: 2.4rem; line-height: 1; color: var(--texte); }}
-.jauge .centre small {{ color: var(--discret); font-size: .8rem; }}
-
-/* column headers on Accueil */
-.entete {{ display: flex; align-items: baseline; gap: .5rem; padding: .7rem 1rem; margin-bottom: .5rem;
-  border-radius: 12px; background: linear-gradient(120deg, color-mix(in srgb, var(--c) 22%, transparent), transparent);
-  border: 1px solid color-mix(in srgb, var(--c) 35%, transparent); }}
-.entete b {{ font-family: var(--titre); font-size: 1.15rem; color: var(--c); }}
-.entete span {{ color: var(--discret); font-size: .9rem; }}
-.entete.allie, .compteur.allie, .repartition .allie {{ --c: var(--allie); }}
-.entete.convaincre, .compteur.convaincre, .repartition .convaincre {{ --c: var(--convaincre); }}
-.entete.opposant, .compteur.opposant, .repartition .opposant {{ --c: var(--opposant); }}
-.compteur.neutre, .repartition .insuffisant {{ --c: var(--discret); }}
-.compteur.accent {{ --c: var(--accent2); }}
-
-@media (prefers-reduced-motion: reduce) {{
-  *, *::before, *::after {{ animation-duration: .01s !important; animation-iteration-count: 1 !important; }}
+@media (max-width: 880px) {{
+  .positions {{ grid-template-columns: minmax(0, 1fr); }}
+  .position:nth-child(even) {{ padding-left: 0; border-left: 0; }}
+  .etapes4 {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }}
+  .etapes4 div:nth-child(3) {{ padding-left: 0; border-left: 0; }}
+  .ligne-g, .axe {{ grid-template-columns: minmax(0, 6rem) minmax(0, 1fr) 2.4rem; }}
+  .ligne-g .nom-g span:last-child {{ display: none; }}
 }}
+@media (max-width: 520px) {{
+  .etapes3, .etapes4 {{ grid-template-columns: minmax(0, 1fr); }}
+  .etapes3 li + li, .etapes4 div + div {{ padding-left: 0; border-left: 0; }}
+  .decompte {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }}
+}}
+@media (prefers-reduced-motion: reduce) {{ svg.hemi circle, .piste i {{ animation: none; }} }}
 </style>
 """
 
 
-BOUSSOLE_SVG = """<svg viewBox="0 0 64 64" aria-hidden="true">
-<g class="cad"><circle cx="32" cy="32" r="29" fill="none" stroke="var(--ligne)" stroke-width="2"/>
-<circle cx="32" cy="32" r="23" fill="none" stroke="var(--accent2)" stroke-opacity=".35" stroke-dasharray="2 4"/>
-<text x="32" y="10.5" text-anchor="middle" font-size="6" fill="var(--discret)" font-family="sans-serif">N</text></g>
-<g class="aig"><polygon points="32,8 36,32 28,32" fill="var(--accent)"/><polygon points="32,56 36,32 28,32" fill="var(--discret)"/>
-<circle cx="32" cy="32" r="3" fill="var(--texte)"/></g></svg>"""
+def e(s):
+    return html.escape(str(s if s is not None else ""))
 
 
-def hero(titre, methode):
-    return (f'<div class="hero">{BOUSSOLE_SVG}<div><h1>{titre}</h1>'
-            f'<div class="methode">{methode}</div></div></div>')
+def marque_rail():
+    return '<div class="marque-rail">Cleon<i aria-hidden="true"></i></div>'
+
+
+def entete_page(methode):
+    return (f'<div class="entete-page"><div class="marque">Cleon<i aria-hidden="true"></i></div>'
+            f'<div class="methode">{e(methode)}</div></div>')
+
+
+def coupe(nom, fait=""):
+    return f'<div class="coupe"><span class="nom">{e(nom)}</span><span class="fait">{e(fait)}</span></div>'
+
+
+def titre_bande(titre, sous=""):
+    return f'<h2 class="titre-bande">{e(titre)}</h2>' + (f'<p class="sous">{e(sous)}</p>' if sous else "")
+
+
+def hemicycle_svg(sieges):
+    """sieges: list of (group, label class, tooltip), already ordered left to right and, inside each group,
+    from the highest score to the lowest. Seats are laid on 11 concentric rows; ordering them by angle turns
+    each group into a wedge. Inside a wedge the best scores sit on the inner rows."""
+    n_tot = len(sieges)
+    if not n_tot:
+        return ""
+    cx, cy, r_ext, r_int, rangs = 300, 300, 286, 112, 11
+    rayons = [r_int + (r_ext - r_int) * i / (rangs - 1) for i in range(rangs)]
+    total = sum(rayons)
+    pts, reste = [], n_tot
+    for i, r in enumerate(rayons):
+        n = reste if i == rangs - 1 else round(n_tot * r / total)
+        reste -= n
+        for k in range(n):
+            a = math.pi * (1 - (k + .5) / n)
+            pts.append((a, i, cx + r * math.cos(a), cy - r * math.sin(a)))
+    pts.sort(key=lambda p: (-p[0], p[1]))
+    groupes = []
+    for g, *_ in sieges:
+        if not groupes or groupes[-1][0] != g:
+            groupes.append([g, 0])
+        groupes[-1][1] += 1
+    cercles, i = [], 0
+    for g, n in groupes:
+        tranche = sorted(pts[i:i + n], key=lambda p: (p[1], -p[0]))
+        for (a, rang, x, y), (_, classe, info) in zip(tranche, sieges[i:i + n]):
+            delai = int(rang * 28 + (1 - a / math.pi) * 220)
+            cercles.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5.6" fill="var(--{classe})" '
+                           f'style="animation-delay:{delai}ms"><title>{e(info)}</title></circle>')
+        i += n
+    return (f'<svg class="hemi" viewBox="0 0 600 318" role="img" aria-label="Hémicycle de {n_tot} députés en '
+            f'exercice, colorés selon leur étiquette">{"".join(cercles)}</svg>')
 
 
 def compteurs(items):
-    """items: list of (value, label, css class). Numbers count up from 0."""
-    cases = "".join(f'<div class="compteur {c}" style="--n:{int(v)};animation-delay:{i * .08:.2f}s">'
-                    f'<div class="val" style="--n:{int(v)}"></div><div class="lib">{lib}</div></div>'
-                    for i, (v, lib, c) in enumerate(items))
+    """items: list of (value, label, css class)."""
+    cases = "".join(f'<div class="compteur {c}"><div class="val">{int(v)}</div><div class="lib">{e(lib)}</div></div>'
+                    for v, lib, c in items)
     return f'<div class="compteurs">{cases}</div>'
 
 
 def repartition(items):
-    """items: list of (count, label, css class). A stacked bar that grows from the left."""
+    """items: list of (count, label, css class). A stacked bar with its legend."""
     total = sum(v for v, _, _ in items) or 1
     parts = "".join(f'<span class="{c}" style="width:{100 * v / total:.2f}%;background:var(--c)" '
-                    f'title="{lib} : {v}"></span>' for v, lib, c in items if v)
-    leg = "".join(f'<span class="{c}"><i></i>{lib} · {v}</span>' for v, lib, c in items)
+                    f'title="{e(lib)} : {v}"></span>' for v, lib, c in items if v)
+    leg = "".join(f'<span class="{c}"><i></i>{e(lib)} · {v}</span>' for v, lib, c in items)
     return f'<div class="repartition"><div class="barre">{parts}</div><div class="legende">{leg}</div></div>'
 
 
@@ -270,19 +296,10 @@ def jauge(score, classe):
     """Ring that fills up to the score. score None: empty ring with a dash."""
     p = 0 if score is None else int(score)
     texte = "–" if score is None else str(p)
-    return (f'<div class="jauge" style="--p:{p};--c:var(--{classe if classe != "insuffisant" else "discret"})">'
+    couleur = "gris" if classe == "insuffisant" else classe
+    return (f'<div class="jauge" style="--p:{p};--c:var(--{couleur})">'
             f'<div class="centre"><b>{texte}</b><small>sur 100</small></div></div>')
 
 
 def entete(classe, titre, n):
-    return f'<div class="entete {classe}"><b>{titre}</b><span>{n}</span></div>'
-
-
-def nuancier(nom):
-    """Small HTML swatch strip shown under the style selector."""
-    s = STYLES[nom]
-    cles = ["fond", "surface", "texte", "accent", "allie", "convaincre", "opposant"]
-    cases = "".join(f'<span title="{k}" style="display:inline-block;width:22px;height:22px;'
-                    f'background:{s[k]};border:1px solid #0002;margin-right:3px;border-radius:4px"></span>'
-                    for k in cles)
-    return f'<div>{cases}</div><div style="font-size:.75rem;opacity:.8;margin-top:.3rem">{s["note"]}</div>'
+    return f'<div class="entete {classe}"><b>{e(titre)}</b><span>{e(n)}</span></div>'
