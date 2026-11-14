@@ -1,0 +1,134 @@
+"""Scores and labels, computed from a theme's accepted matches only. Plain code, no model.
+
+For each député, over the accepted scrutins held while they were in office:
+    aligned  = votes equal to the wanted vote
+    opposed  = votes equal to the opposite vote
+    score    = 100 × aligned / (aligned + opposed)
+Abstentions and absences (non-votant or no vote recorded) are counted and shown, never in the score.
+"""
+import json
+import os
+import sqlite3
+
+import pandas as pd
+
+from shortlist import DB_PATH, theme_path
+
+# Thresholds; a theme can override them in theme.json under "scoring".
+MIN_VOTES = 5          # fewer aligned + opposed votes: no score
+SEUIL_ALLIE = 70       # score >= 70: allié
+SEUIL_OPPOSANT = 30    # score <= 30: opposant
+
+ALLIE = "allié"
+OPPOSANT = "opposant"
+A_CONVAINCRE = "à convaincre"
+INSUFFISANT = "données insuffisantes"
+LABELS = [ALLIE, A_CONVAINCRE, OPPOSANT, INSUFFISANT]
+
+
+def seuils(theme):
+    s = {"min_votes": MIN_VOTES, "seuil_allie": SEUIL_ALLIE, "seuil_opposant": SEUIL_OPPOSANT}
+    path = theme_path(theme, "theme.json")
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            s.update(json.load(f).get("scoring", {}))
+    return s
+
+
+def scrutins_acceptes(theme):
+    """Accepted (or flipped) matches from validated.json, as a DataFrame."""
+    path = theme_path(theme, "validated.json")
+    if not os.path.exists(path):
+        return pd.DataFrame()
+    with open(path, encoding="utf-8") as f:
+        decisions = json.load(f).get("decisions", {}).values()
+    rows = [d for d in decisions if d["statut"] in ("accepte", "inverse") and d.get("vote_retenu")]
+    return pd.DataFrame(rows)
+
+
+def detail_votes(theme):
+    """One row per (député in office, accepted scrutin): how they voted and how it counts."""
+    acc = scrutins_acceptes(theme)
+    if acc.empty:
+        return pd.DataFrame()
+    con = sqlite3.connect(DB_PATH)
+    marks = ",".join("?" * len(acc))
+    ids = list(acc["scrutin_id"])
+    scrutins = pd.read_sql_query(f"SELECT id AS scrutin_id, date FROM scrutins WHERE id IN ({marks})",
+                                 con, params=ids)
+    votes = pd.read_sql_query(f"SELECT scrutin_id, depute_id, position AS vote FROM votes "
+                              f"WHERE scrutin_id IN ({marks})", con, params=ids)
+    mandats = pd.read_sql_query("SELECT m.depute_id, m.debut, m.fin, d.nom, d.groupe "
+                                "FROM mandats m JOIN deputes d ON d.id = m.depute_id", con)
+    con.close()
+    # every député in office on the date of each scrutin (joins done in pandas: SQLite planned them badly)
+    df = scrutins.merge(mandats, how="cross")
+    df = df[(df["debut"] <= df["date"]) & (df["fin"].isna() | (df["fin"] >= df["date"]))]
+    df = df.drop_duplicates(["scrutin_id", "depute_id"])  # overlapping mandate periods
+    df = df.merge(votes, on=["scrutin_id", "depute_id"], how="left")
+    df["vote"] = df["vote"].fillna("absent")
+    df = df[["scrutin_id", "date", "depute_id", "nom", "groupe", "vote"]]
+    df = df.merge(acc[["scrutin_id", "numero", "titre", "url", "position_id", "position", "vote_retenu"]],
+                  on="scrutin_id")
+    oppose = {"pour": "contre", "contre": "pour"}
+
+    def categorie(r):
+        if r.vote == r.vote_retenu:
+            return "aligné"
+        if r.vote == oppose[r.vote_retenu]:
+            return "opposé"
+        if r.vote == "abstention":
+            return "abstention"
+        return "absent"  # non-votant, or no vote recorded
+
+    df["categorie"] = [categorie(r) for r in df.itertuples()]
+    return df
+
+
+def label(score, nb_exprimes, s):
+    if nb_exprimes < s["min_votes"] or score is None:
+        return INSUFFISANT
+    if score >= s["seuil_allie"]:
+        return ALLIE
+    if score <= s["seuil_opposant"]:
+        return OPPOSANT
+    return A_CONVAINCRE
+
+
+def scores(theme):
+    """One row per député: counts, score and label. Includes former députés (en_mandat False)."""
+    s = seuils(theme)
+    detail = detail_votes(theme)
+    con = sqlite3.connect(DB_PATH)
+    deputes = pd.read_sql_query("""
+        SELECT d.id AS depute_id, d.nom, d.groupe, d.circonscription,
+               MAX(m.fin IS NULL) AS en_mandat
+        FROM deputes d JOIN mandats m ON m.depute_id = d.id
+        GROUP BY d.id
+    """, con)
+    con.close()
+    deputes["en_mandat"] = deputes["en_mandat"].astype(bool)
+    cols = ["aligné", "opposé", "abstention", "absent"]
+    if detail.empty:
+        counts = pd.DataFrame(0, index=deputes["depute_id"], columns=cols)
+    else:
+        counts = (detail.groupby(["depute_id", "categorie"]).size().unstack(fill_value=0)
+                  .reindex(columns=cols, fill_value=0))
+    df = deputes.merge(counts, left_on="depute_id", right_index=True, how="left")
+    df[cols] = df[cols].fillna(0).astype(int)
+    df = df.rename(columns={"aligné": "alignes", "opposé": "opposes", "abstention": "abstentions",
+                            "absent": "absences"})
+    df["exprimes"] = df["alignes"] + df["opposes"]
+    df["score"] = [round(100 * a / e) if e else None for a, e in zip(df["alignes"], df["exprimes"])]
+    df["label"] = [label(sc, e, s) for sc, e in zip(df["score"], df["exprimes"])]
+    df.loc[df["exprimes"] < s["min_votes"], "score"] = None
+    return df.sort_values(["score", "nom"], ascending=[False, True], na_position="last")
+
+
+if __name__ == "__main__":
+    import sys
+    theme = sys.argv[1] if len(sys.argv) > 1 else "nucleaire"
+    df = scores(theme)
+    actuels = df[df["en_mandat"]]
+    print(actuels["label"].value_counts().to_string())
+    print(actuels.groupby("groupe")["score"].mean().round().sort_values(ascending=False).to_string())

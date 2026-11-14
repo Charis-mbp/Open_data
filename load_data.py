@@ -77,7 +77,7 @@ def load_deputes():
         o = json.load(open(f, encoding="utf-8"))["organe"]
         organes[o["uid"]] = o.get("libelle")
 
-    rows = []
+    rows, periodes = [], []
     for f in glob.glob(os.path.join(DATA, "amo20/json/acteur/*.json")):
         a = json.load(open(f, encoding="utf-8"))["acteur"]
         mandats = as_list(a["mandats"]["mandat"])
@@ -108,8 +108,10 @@ def load_deputes():
         if gps:
             gp = max(gps, key=lambda m: (m.get("dateFin") is None, m["dateDebut"]))
             groupe = organes.get(gp["organes"]["organeRef"], "")
-        rows.append((a["uid"]["#text"] if isinstance(a["uid"], dict) else a["uid"], nom, groupe, circo))
-    return rows
+        uid = a["uid"]["#text"] if isinstance(a["uid"], dict) else a["uid"]
+        rows.append((uid, nom, groupe, circo))
+        periodes += [(uid, m["dateDebut"], m.get("dateFin")) for m in assemblee]
+    return rows, periodes
 
 
 def html_to_text(fragment):
@@ -227,7 +229,7 @@ def load_scrutins():
 
 
 def build_db():
-    deputes = load_deputes()
+    deputes, periodes = load_deputes()
     scrutins, votes = load_scrutins()
     groupes = load_groupes()
     amendements, links = load_amendements(scrutins, {g[0]: g[2] for g in groupes})
@@ -245,8 +247,11 @@ def build_db():
         -- groupe: political group of the député at the time of the vote
         CREATE TABLE votes (scrutin_id TEXT, depute_id TEXT, position TEXT, groupe TEXT);
         CREATE TABLE groupes (id TEXT PRIMARY KEY, nom TEXT, sigle TEXT);
+        -- periods in office during the legislature; fin is NULL while the mandate runs
+        CREATE TABLE mandats (depute_id TEXT, debut TEXT, fin TEXT);
     """)
     con.executemany("INSERT INTO deputes VALUES (?,?,?,?)", deputes)
+    con.executemany("INSERT INTO mandats VALUES (?,?,?)", periodes)
     con.executemany("INSERT INTO scrutins VALUES (?,?,?,?,?,?,?,?,?)",
                     [s + (links.get(s[0]),) for s in scrutins])
     con.executemany("INSERT INTO amendements VALUES (:id,:numero,:auteur,:groupe,:expose,"

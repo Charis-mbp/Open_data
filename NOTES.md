@@ -123,3 +123,24 @@ changed the keywords, since you chose them.
   not be blind anyway.
 - Switching back to the API later: set `LLM_PROVIDER=anthropic` and the key in `.env`. The cache keys
   include the provider, so the API would recompute everything instead of reusing the manual answers.
+
+## Scoring and Classement (task 6, build step 4)
+
+- `scoring.py`: plain pandas, about 1 s. Thresholds are constants at the top (`MIN_VOTES=5`, `SEUIL_ALLIE=70`,
+  `SEUIL_OPPOSANT=30`). A theme can override them in theme.json with `"scoring": {...}`.
+- Only `accepte` / `inverse` decisions with a `vote_retenu` count.
+- **Absence = in office on the date of the scrutin, but non-votant or no vote recorded.** For this I added a
+  `mandats` table (depute_id, debut, fin) from AMO20. Some députés have two periods. Former députés are not
+  counted absent after they left. Abstentions and absences are shown, never in the score.
+- The "s'écarte de son groupe" rule is **not implemented yet**: it belongs to build step 5 (Fiche député).
+- Classement page: label counts, filters (group, label, name, include former députés), score bar, and below it
+  "Votes derrière un score", which lists every accepted scrutin for the chosen député with how it counted
+  and a link to the scrutin. Results are cached per theme and refresh when validated.json changes.
+- Result for nucleaire (574 current députés, 51 scrutins): 125 allié, 109 opposant, 65 à convaincre,
+  **275 données insuffisantes**. Most séance votes on amendments are attended by few députés: the median
+  député cast 6 pour/contre votes on these 51 scrutins.
+- Group averages: DR 89, UDR 86, RN 86, HOR 73, LIOT 69, DEM 51, EPR 48, GDR 47, SOC 24, LFI 6, ECOS 6.
+  EPR (pro-nuclear government camp) is only 48 because many accepted scrutins are pro-nuclear amendments
+  from RN/DR that the majority voted down for tactical reasons. That is what the votes say, but it is worth
+  explaining in the demo.
+- Performance note: the SQL join of mandats × votes took 100 s in SQLite (bad plan). The join is done in pandas.

@@ -7,6 +7,7 @@ import pandas as pd
 import streamlit as st
 
 import matching
+import scoring
 from llm import LLMUnavailable
 from shortlist import build_shortlist, load_shortlist, normalise
 
@@ -272,6 +273,106 @@ def page_validation(theme, label):
         carte_match(theme, m, decisions.get(str(m["numero"])))
 
 
+COULEURS_LABEL = {scoring.ALLIE: "🟢", scoring.A_CONVAINCRE: "🟠", scoring.OPPOSANT: "🔴",
+                  scoring.INSUFFISANT: "⚪"}
+LIBELLES_CATEGORIE = {"aligné": "✅ aligné", "opposé": "❌ opposé", "abstention": "➖ abstention",
+                      "absent": "· absent"}
+
+
+@st.cache_data
+def scores_theme(theme, _version):
+    """Cached per theme; `_version` (mtime of validated.json) refreshes it after each validation."""
+    return scoring.scores(theme), scoring.detail_votes(theme)
+
+
+def bandeau_validation(theme):
+    """How many scrutins the scores rest on, and how many proposals are still "non validés"."""
+    data = matching.load_matching(theme)
+    decisions = matching.load_validated(theme)
+    acceptes = sum(1 for d in decisions.values() if d["statut"] in ("accepte", "inverse"))
+    non_valides = 0 if data is None else sum(1 for m in data["matches"] if str(m["numero"]) not in decisions)
+    texte = f"Scores calculés sur **{acceptes} scrutins validés**."
+    if non_valides:
+        texte += f" {non_valides} propositions du modèle sont **non validées** et ne comptent pas."
+    st.markdown(texte)
+    return acceptes
+
+
+def votes_derriere(detail, depute_id):
+    """The votes behind one député's score, each linked to the scrutin page."""
+    ordre = {c: i for i, c in enumerate(LIBELLES_CATEGORIE)}  # aligné, opposé, abstention, absent
+    rows = detail[detail["depute_id"] == depute_id]
+    rows = rows.assign(_o=rows["categorie"].map(ordre)).sort_values(["_o", "date"])
+    rows = rows.assign(categorie=rows["categorie"].map(LIBELLES_CATEGORIE))
+    st.dataframe(
+        rows[["categorie", "numero", "date", "titre", "position_id", "vote_retenu", "vote", "url"]],
+        hide_index=True, width="stretch",
+        column_config={
+            "categorie": "Compte comme", "numero": st.column_config.NumberColumn("N°", format="%d"),
+            "date": "Date", "titre": st.column_config.TextColumn("Scrutin", width="large"),
+            "position_id": "Position", "vote_retenu": "Vote voulu", "vote": "Son vote",
+            "url": st.column_config.LinkColumn("Lien", display_text="Voir le scrutin"),
+        },
+    )
+
+
+def page_classement(theme, label):
+    st.header(f"Classement : {label}")
+    if not bandeau_validation(theme):
+        st.info("Aucun scrutin validé pour ce thème : validez des correspondances sur la page "
+                "« Validation des scrutins » pour obtenir des scores.")
+        return
+    path = matching.theme_path(theme, "validated.json")
+    df, detail = scores_theme(theme, os.path.getmtime(path))
+    s = scoring.seuils(theme)
+    st.caption(f"Score = part des votes alignés sur le vote voulu, parmi les votes pour et contre. "
+               f"Allié : {s['seuil_allie']} ou plus. Opposant : {s['seuil_opposant']} ou moins. "
+               f"Moins de {s['min_votes']} votes pour ou contre : données insuffisantes. "
+               "Abstentions et absences sont affichées mais ne comptent pas.")
+
+    f1, f2, f3 = st.columns([2, 2, 1])
+    groupes = f1.multiselect("Groupe", sorted(g for g in df["groupe"].unique() if g))
+    labels = f2.multiselect("Étiquette", scoring.LABELS)
+    anciens = f3.checkbox("Inclure les anciens députés")
+    q = st.text_input("Rechercher un député", placeholder="nom")
+    vue = df if anciens else df[df["en_mandat"]]
+    if groupes:
+        vue = vue[vue["groupe"].isin(groupes)]
+    if labels:
+        vue = vue[vue["label"].isin(labels)]
+    if q.strip():
+        vue = vue[vue["nom"].map(normalise).str.contains(normalise(q.strip()), regex=False)]
+
+    cols = st.columns(4)
+    for col, lab in zip(cols, scoring.LABELS):
+        col.metric(f"{COULEURS_LABEL[lab]} {lab}", int((vue["label"] == lab).sum()))
+
+    table = vue.assign(etiquette=vue["label"].map(lambda l: f"{COULEURS_LABEL[l]} {l}"))
+    st.dataframe(
+        table[["nom", "groupe", "circonscription", "score", "etiquette", "alignes", "opposes",
+               "abstentions", "absences"]],
+        hide_index=True, width="stretch",
+        column_config={
+            "nom": "Député", "groupe": "Groupe", "circonscription": "Circonscription",
+            "score": st.column_config.ProgressColumn("Score", min_value=0, max_value=100, format="%d"),
+            "etiquette": "Étiquette", "alignes": "Alignés", "opposes": "Opposés",
+            "abstentions": "Abstentions", "absences": "Absences",
+        },
+    )
+
+    st.subheader("Votes derrière un score")
+    if vue.empty:
+        st.info("Aucun député ne correspond aux filtres.")
+        return
+    noms = {r.depute_id: f"{r.nom} ({r.groupe}) : "
+            + (f"{int(r.score)}" if pd.notna(r.score) else "pas de score") for r in vue.itertuples()}
+    choix = st.selectbox("Député", list(noms), format_func=noms.get)
+    r = vue.set_index("depute_id").loc[choix]
+    st.markdown(f"{COULEURS_LABEL[r['label']]} **{r['label']}** · {r['alignes']} alignés, "
+                f"{r['opposes']} opposés, {r['abstentions']} abstentions, {r['absences']} absences")
+    votes_derriere(detail, choix)
+
+
 def main():
     st.title("Boussole parlementaire")
     st.caption(METHODE)
@@ -282,13 +383,15 @@ def main():
         return
     theme = st.sidebar.selectbox("Thème", list(themes), format_func=lambda k: themes[k])
     st.session_state["theme"] = theme
-    page = st.sidebar.radio("Pages", ["Validation des scrutins", "Shortlist", "Scrutins"])
+    page = st.sidebar.radio("Pages", ["Classement", "Validation des scrutins", "Shortlist", "Scrutins"])
 
     if not os.path.exists(DB_PATH):
         st.warning("Les données ne sont pas encore chargées. Lancez : python load_data.py")
         return
     try:
-        if page == "Validation des scrutins":
+        if page == "Classement":
+            page_classement(theme, themes[theme])
+        elif page == "Validation des scrutins":
             page_validation(theme, themes[theme])
         elif page == "Shortlist":
             page_shortlist(theme, themes[theme])
