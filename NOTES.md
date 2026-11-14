@@ -172,3 +172,18 @@ changed the keywords, since you chose them.
 - Final choice: "Vert-de-gris et paon", made darker (deep sage background, dark green sidebar). It is now the
   only look (`styles.DEFAUT`), with no selector. `.streamlit/config.toml` tints the tables pale green to match.
   "Papier et vermillon" stays in styles.py for reference.
+
+## Accueil page (task 9, build step 6)
+
+- First page of the app: pitch line, the theme's position paper in a text area with "Analyser le document",
+  the extracted positions, the "validés / non validés" banner, the three lists (top 10 current députés each,
+  every name opens their Fiche), and a "Comment ça marche" section with two tabs: user side and technical side.
+- **Pasting a different paper does not run an analysis** on this page. It shows a message pointing to the
+  Validation page. Reason: no API credits (manual provider), and `matching.run()` would overwrite the theme's
+  matching.json, which validated.json refers to. Live analysis of a new paper would need a key, plus results
+  stored per document. Not done.
+- Ordering of the lists: alliés by score then number of votes; opposants by lowest score; à convaincre by
+  distance **above** the group average (most persuadable first: e.g. EPR members at 71–78 vs group 48).
+- Spec quirk worth knowing: "s'écarte de son groupe" applies "whatever the score", so a député 20+ points
+  *below* their group is also "à convaincre" (e.g. a SOC député at 4 vs group 24). The label follows CLAUDE.md;
+  only the Accueil ordering pushes those cases down.

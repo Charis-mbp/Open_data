@@ -3,7 +3,7 @@
 Recap for a Claude session that picks this project up on another computer. Read `CLAUDE.md` first
 (the project rules), then this file, then `NOTES.md` (every choice made so far, task by task).
 
-State on 2026-11-14: build steps 1 to 5 are done and committed. Next is step 6 (Accueil, light version) and UI polish.
+State on 2026-11-14: build steps 1 to 6 are done and committed (plus a green "Vert-de-gris et paon" look, styles.py). The user postponed theme `sante`. Remaining: demo polish, then optionally steps 7–8.
 
 ## 1. Moving the project to the other computer
 
@@ -52,7 +52,7 @@ Demo theme `nucleaire`: position paper of the **Sfen** on the PPE (Feb 2026), in
 | 3. Positions, matching, Validation page | done: 4 positions, 53 proposals, user reviewed all of them (51 accepted incl. 1 inverted, 2 rejected) |
 | 4. Scoring + Classement page | done |
 | 5. Fiche député + "s'écarte de son groupe" rule | done: 17 current députés flagged |
-| 6. Accueil page + demo polish | **next**: light version (Sfen paper already analysed, no live analysis without API credits) |
+| 6. Accueil page + demo polish | done: Accueil with pitch, lists, how-it-works; no live analysis of a new paper |
 | 7. Theme `sante` through the same pipeline | todo: `themes/sante/` is empty (needs theme.json, keywords.txt, position.txt from the user) |
 | 8. Comparison view across themes | only if time |
 

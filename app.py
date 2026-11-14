@@ -430,6 +430,95 @@ def page_fiche(theme, label):
     votes_derriere(detail, choix)
 
 
+PITCH = ("**Collez le document de position d'une organisation : la Boussole classe les 577 députés en "
+         "alliés, opposants et à convaincre, et montre pour chaque score les votes qui le justifient.**")
+
+COMMENT_UTILISATEUR = """
+1. **Le document de position.** L'organisation colle sa note. Un modèle de langage en extrait 3 à 6 positions,
+   chacune appuyée sur une citation du texte.
+2. **Les scrutins.** Parmi les 9 895 scrutins publics de la législature, la Boussole garde ceux du thème
+   (mots-clés, assez de votants, vote assez disputé), puis le modèle propose ceux qui touchent une position
+   et le vote que l'organisation aurait voulu, pour ou contre. Pour un amendement, il lit son exposé sommaire.
+3. **La validation.** Une personne accepte, inverse ou rejette chaque proposition. Seuls les scrutins validés
+   comptent : le modèle propose, l'humain décide.
+4. **Le score.** Pour chaque député : part de ses votes pour ou contre qui vont dans le sens voulu.
+   70 ou plus : allié. 30 ou moins : opposant. Entre les deux : à convaincre. Un député à 20 points ou plus
+   de la moyenne de son groupe est aussi « à convaincre » : il s'écarte de son groupe, c'est une porte d'entrée.
+   Moins de 5 votes pour ou contre : données insuffisantes. Abstentions et absences sont montrées, jamais comptées.
+5. **La preuve.** Chaque score renvoie à la liste de ses votes, et chaque vote à sa page sur le site de
+   l'Assemblée nationale.
+"""
+
+COMMENT_TECHNIQUE = """
+- **Données** : open data de l'Assemblée nationale, 17e législature. 9 895 scrutins, 1,46 million de votes
+  nominatifs, 655 députés avec leurs périodes de mandat, 148 034 amendements. Base SQLite, recalculée par
+  `load_data.py`, avec contrôle des décomptes contre les totaux officiels.
+- **Shortlist** : mots-clés du thème (mot entier, sans accents), puis au moins 50 votants et pas plus de 90 %
+  des voix d'un côté. On garde au plus 150 scrutins, les plus disputés.
+- **Modèle de langage** : un seul point d'entrée (`llm.py`). Il fait deux choses seulement : extraire les
+  positions, proposer les correspondances par lots de 20 (titre, auteur, groupe, exposé sommaire de
+  l'amendement et de l'amendement visé). Réponses en JSON, validées, mises en cache sur disque : la démo
+  tourne sans connexion. Le modèle ne produit jamais de score ni de classement.
+- **Score** : code simple (`scoring.py`, pandas), seuils en constantes.
+- **Thèmes** : un thème = un dossier (mots-clés, document, validations). Aucun nom de thème dans le code.
+- **Interface** : Streamlit, en français.
+"""
+
+
+def page_accueil(theme, label):
+    st.markdown(PITCH)
+    texte_demo = matching.read_position_text(theme) or ""
+    data = matching.load_matching(theme)
+
+    st.subheader(f"Thème : {label}")
+    with st.form("document"):
+        texte = st.text_area("Document de position", value=texte_demo, height=220)
+        envoye = st.form_submit_button("Analyser le document", type="primary")
+    if envoye and texte.strip() != texte_demo.strip():
+        st.info("Ce document n'a pas encore été analysé. L'analyse d'un nouveau document passe par le modèle "
+                "de langage puis par une validation humaine : elle se lance depuis la page « Validation des "
+                "scrutins ». Les résultats ci-dessous sont ceux du document de démonstration.")
+
+    if data is None:
+        st.info("Le document de ce thème n'a pas encore été analysé : rendez-vous sur la page "
+                "« Validation des scrutins ».")
+        return
+    with st.expander(f"Positions extraites du document ({len(data['positions'])})", expanded=True):
+        for p in data["positions"]:
+            st.markdown(f"**{p['id']}.** {p['position']}")
+
+    path = matching.theme_path(theme, "validated.json")
+    if not os.path.exists(path):
+        st.info("Aucune correspondance n'a encore été validée : les listes apparaîtront après la validation.")
+        return
+    df, _ = scores_theme(theme, (os.path.getmtime(path), os.path.getmtime(scoring.__file__)))
+    bandeau_validation(theme)
+    actuels = df[df["en_mandat"]]
+    colonnes = st.columns(3)
+    for col, lab, asc in zip(colonnes, [scoring.ALLIE, scoring.A_CONVAINCRE, scoring.OPPOSANT],
+                             [False, False, True]):
+        liste = actuels[actuels["label"] == lab]
+        if lab == scoring.A_CONVAINCRE:  # most favourable compared with their own group first: the best leads
+            liste = liste.assign(_e=(liste["score"] - liste["moyenne_groupe"]).fillna(0)).sort_values(
+                ["_e", "exprimes"], ascending=False)
+        else:  # strongest scores first, then the most votes behind them
+            liste = liste.sort_values(["score", "exprimes"], ascending=[asc, False])
+        col.markdown(f"#### {COULEURS_LABEL[lab]} {lab.capitalize()}s ({len(liste)})"
+                     if lab != scoring.A_CONVAINCRE else f"#### {COULEURS_LABEL[lab]} À convaincre ({len(liste)})")
+        for r in liste.head(10).itertuples():
+            note = " · s'écarte de son groupe" if r.note else ""
+            col.button(f"{r.nom} · {int(r.score)} · {r.groupe}{note}", key=f"acc-{r.depute_id}",
+                       on_click=ouvrir_fiche, args=(r.depute_id,), width="stretch")
+    st.caption(f"Dix premiers de chaque liste, députés en exercice. "
+               f"{(actuels['label'] == scoring.INSUFFISANT).sum()} députés n'ont pas assez de votes sur ces "
+               "scrutins pour être classés. La liste complète est sur la page « Classement ».")
+
+    st.markdown("### Comment ça marche")
+    t1, t2 = st.tabs(["Pour l'utilisateur", "Côté technique"])
+    t1.markdown(COMMENT_UTILISATEUR)
+    t2.markdown(COMMENT_TECHNIQUE)
+
+
 def main():
     st.title("Boussole parlementaire")
     st.caption(METHODE)
@@ -441,14 +530,16 @@ def main():
     st.markdown(styles.css(styles.DEFAUT), unsafe_allow_html=True)
     theme = st.sidebar.selectbox("Thème", list(themes), format_func=lambda k: themes[k])
     st.session_state["theme"] = theme
-    page = st.sidebar.radio("Pages", ["Classement", "Fiche député", "Validation des scrutins",
+    page = st.sidebar.radio("Pages", ["Accueil", "Classement", "Fiche député", "Validation des scrutins",
                                       "Shortlist", "Scrutins"], key="page")
 
     if not os.path.exists(DB_PATH):
         st.warning("Les données ne sont pas encore chargées. Lancez : python load_data.py")
         return
     try:
-        if page == "Classement":
+        if page == "Accueil":
+            page_accueil(theme, themes[theme])
+        elif page == "Classement":
             page_classement(theme, themes[theme])
         elif page == "Fiche député":
             page_fiche(theme, themes[theme])
