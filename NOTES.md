@@ -253,3 +253,20 @@ changed the keywords, since you chose them.
 - Hémicycle's `lire_acteur` returns at most 50 mandates, newest first, so the first election date and the number
   of terms can't be read reliably. I left them out.
 - DEMO.md, HANDOFF.md and prospectus.html still describe the 20-point rule. Not touched (outside this task).
+
+## Demo database, stricter group rule, docs (task 13)
+
+- `make_demo_db.py` → `data/boussole_demo.db`, 2.5 MB: 150 scrutins, 22 848 votes, 655 députés, 14 groupes.
+  On top of the tables asked for, I also copied **mandats** (684 rows; scoring needs the mandate periods) and
+  the **149 amendements** of those scrutins plus their parents (matching reads the exposé). Without them the
+  app breaks on the demo DB. `shortlist.DB_PATH` uses `boussole.db` if present, else the demo copy, and
+  `app.py` imports it from there. All 7 pages run on the demo DB with identical figures. On the demo DB, the
+  Scrutins page says that only the shortlisted scrutins are loaded.
+- `.gitignore`: `data/` → `data/*` with exceptions for `data/boussole_demo.db` and `data/hemicycle/`.
+- Rule: `ECART_GROUPE = 10`, so the theme score must be at least 10 points above the group average, on top of
+  the loyalty condition. 2 remain: Daubié (DEM, 61 vs 51) and Brulebois (EPR, 60 vs 48, only 5 votes).
+  Labels: 125 allié, 109 opposant, 65 à convaincre, 275 insuffisant. All 30 Accueil députés still have a fiche.
+- Docs: the demo example is now **Daubié**, not Pouzyreff: he has 23 votes, sits on the economic affairs
+  committee, and is 10th in the À convaincre column. Brulebois was too thin, with 5 votes. The prospectus
+  counters were partly stale before this task (101 opposants), and are now fixed. HANDOFF.md rewritten
+  (GitHub remote, demo DB, Hémicycle). README.md added.
