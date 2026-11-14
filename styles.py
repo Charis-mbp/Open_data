@@ -40,7 +40,8 @@ def css(nom):
 .stApp, [data-testid="stAppViewContainer"], [data-testid="stHeader"] {{
   background: var(--fond); color: var(--texte);
 }}
-.stApp, .stApp p, .stApp li, .stApp label, .stApp span, .stApp div {{
+/* text font on text elements only: spans and divs also hold Streamlit's icon font ("arrow_down") */
+.stApp, .stApp p, .stApp li, .stApp label, .stApp input, .stApp textarea, .stApp button {{
   font-family: '{s['font_texte']}', sans-serif;
 }}
 .stApp h1, .stApp h2, .stApp h3, .stApp h4 {{
@@ -50,8 +51,7 @@ def css(nom):
 .stApp p, .stApp li, .stApp label {{ color: var(--texte); }}
 [data-testid="stCaptionContainer"], .stApp small {{ color: var(--discret) !important; }}
 [data-testid="stSidebar"] {{ background: {s.get('sidebar_fond', s['surface'])}; border-right: 1px solid var(--ligne); }}
-[data-testid="stSidebar"] label, [data-testid="stSidebar"] p, [data-testid="stSidebar"] span,
-[data-testid="stSidebar"] div {{ color: {s.get('sidebar_texte', s['texte'])}; }}
+[data-testid="stSidebar"] label, [data-testid="stSidebar"] p {{ color: {s.get('sidebar_texte', s['texte'])}; }}
 [data-testid="stSidebar"] [data-baseweb="select"] * {{ color: var(--texte); }}
 [data-testid="stMetric"] {{
   background: var(--surface); border: 1px solid var(--ligne); border-radius: 10px;
