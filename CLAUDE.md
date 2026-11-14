@@ -107,7 +107,7 @@ Labels:
 - allié: score of 70 or more
 - opposant: score of 30 or less
 - à convaincre: score between 30 and 70
-- à convaincre, with the note "s'écarte de son groupe": Hémicycle loyalty (share of votes following their group's majority position, whole legislature, cached in `data/hemicycle/`) 5 points or more below their group's median, and a theme score above their group's average, whatever the score (decided 2026-11-14: Hémicycle loyalty replaces the computed 20-point gap; a député less favourable than their group is no lead)
+- à convaincre, with the note "s'écarte de son groupe": Hémicycle loyalty (share of votes following their group's majority position, whole legislature, cached in `data/hemicycle/`) 5 points or more below their group's median, and a theme score 10 points or more above their group's average, whatever the score (decided 2026-11-14: Hémicycle loyalty replaces the computed 20-point gap; a député less favourable than their group is no lead; the 10-point floor keeps out députés barely above their group)
 
 Thresholds are constants at the top of `scoring.py`.
 

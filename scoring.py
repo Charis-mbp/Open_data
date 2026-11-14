@@ -18,8 +18,9 @@ from shortlist import DB_PATH, theme_path
 MIN_VOTES = 5          # fewer aligned + opposed votes: no score
 SEUIL_ALLIE = 70       # score >= 70: allié
 SEUIL_OPPOSANT = 30    # score <= 30: opposant
-ECART_LOYAUTE = 5      # Hémicycle loyalty this many points or more BELOW the group median, and a theme score above
-                       # the group average: à convaincre, "s'écarte de son groupe"
+ECART_LOYAUTE = 5      # Hémicycle loyalty this many points or more BELOW the group median, and
+ECART_GROUPE = 10      # a theme score this many points or more ABOVE the group average: à convaincre,
+                       # "s'écarte de son groupe"
 SANS_GROUPE = "Non inscrit"  # not a political group: no group average, the rule does not apply
 NOTE_ECART = "s'écarte de son groupe"
 HEMICYCLE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "hemicycle")
@@ -33,7 +34,7 @@ LABELS = [ALLIE, A_CONVAINCRE, OPPOSANT, INSUFFISANT]
 
 def seuils(theme):
     s = {"min_votes": MIN_VOTES, "seuil_allie": SEUIL_ALLIE, "seuil_opposant": SEUIL_OPPOSANT,
-         "ecart_loyaute": ECART_LOYAUTE}
+         "ecart_loyaute": ECART_LOYAUTE, "ecart_groupe": ECART_GROUPE}
     path = theme_path(theme, "theme.json")
     if os.path.exists(path):
         with open(path, encoding="utf-8") as f:
@@ -170,12 +171,12 @@ def scores(theme):
                 .groupby("groupe")["score"].mean())
     df["moyenne_groupe"] = df["groupe"].map(moyennes).round()
     # "S'écarte de son groupe": Hémicycle loyalty (all votes of the legislature) at least ecart_loyaute points
-    # below their group's median. Kept only for députés MORE favourable than their group on this theme (user
-    # decision of 2026-11-14): one less favourable than their own group is no lead, so they keep their label.
+    # below their group's median, AND a theme score at least ecart_groupe points above the group average (user
+    # decisions of 2026-11-14): one less favourable than their own group is no lead, so they keep their label.
     df = df.merge(loyautes(), on="depute_id", how="left")
     df["ecart_loyaute"] = (100 * (df["mediane_groupe"] - df["loyaute"])).round(1)
     df["note"] = ""
-    hors_ligne = (df["score"].notna() & df["moyenne_groupe"].notna() & (df["score"] > df["moyenne_groupe"])
+    hors_ligne = (df["score"].notna() & df["moyenne_groupe"].notna() & (df["score"] - df["moyenne_groupe"] >= s["ecart_groupe"])
                   & (df["ecart_loyaute"] >= s["ecart_loyaute"]) & (df["groupe"] != SANS_GROUPE))
     df.loc[hors_ligne, "label"] = A_CONVAINCRE
     df.loc[hors_ligne, "note"] = NOTE_ECART

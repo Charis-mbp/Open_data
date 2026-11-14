@@ -469,8 +469,8 @@ def page_fiche(theme, label):
         st.warning(f"**{r['note'].capitalize()}** : sur l'ensemble de la législature, il suit la position "
                    f"majoritaire de son groupe dans {pct(r['loyaute'])} % de ses votes, contre "
                    f"{pct(r['mediane_groupe'])} % pour le député médian du groupe (source : Hémicycle). "
-                   f"Sur ce thème, son score ({int(r['score'])}) dépasse la moyenne de son groupe "
-                   f"({int(r['moyenne_groupe'])}). Classé « à convaincre », quel que soit le score.")
+                   f"Sur ce thème, son score ({int(r['score'])}) dépasse de {int(r['score'] - r['moyenne_groupe'])} points "
+                   f"la moyenne de son groupe ({int(r['moyenne_groupe'])}). Classé « à convaincre », quel que soit le score.")
     st.markdown(f"Sur les scrutins validés de ce thème tenus pendant son mandat : **{r['alignes']}** votes "
                 f"alignés et **{r['opposes']}** opposés (ce sont eux qui font le score), "
                 f"{r['abstentions']} abstentions et {r['absences']} absences (affichées, non comptées).")
@@ -494,7 +494,8 @@ COMMENT_UTILISATEUR = """
 4. **Le score.** Pour chaque député : part de ses votes pour ou contre qui vont dans le sens voulu.
    70 ou plus : allié. 30 ou moins : opposant. Entre les deux : à convaincre. Un député qui suit nettement
    moins souvent son groupe que ses collègues (loyauté mesurée par Hémicycle sur toute la législature, 5 points
-   sous la médiane du groupe) et qui, sur ce thème, est plus favorable que son groupe, est aussi « à convaincre » :
+   sous la médiane du groupe) et qui, sur ce thème, a un score d'au moins 10 points au-dessus de la moyenne de son
+   groupe, est aussi « à convaincre » :
    il s'écarte de son groupe, c'est une porte d'entrée.
    Moins de 5 votes pour ou contre : données insuffisantes. Abstentions et absences sont montrées, jamais comptées.
 5. **La preuve.** Chaque score renvoie à la liste de ses votes, et chaque vote à sa page sur le site de
