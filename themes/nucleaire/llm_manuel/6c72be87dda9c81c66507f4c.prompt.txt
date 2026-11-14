@@ -1,0 +1,59 @@
+=== SYSTEM ===
+Tu aides une organisation à repérer, parmi des scrutins de l'Assemblée nationale, ceux qui touchent à ses positions, et à dire comment elle aurait voulu que les députés votent. Tu ne notes pas les députés et tu ne les classes pas. Tu réponds uniquement en JSON valide, sans texte autour.
+
+=== PROMPT ===
+Positions de l'organisation :
+P1. Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.
+P2. Prolonger les réacteurs existants au-delà de 50, voire 60 ans, et renoncer à la fermeture de 12 réacteurs.
+P3. Réduire fortement la part des énergies fossiles en électrifiant les usages.
+P4. Faire voter par le Parlement une loi de programmation énergétique fondée sur la PPL Grémillet.
+
+Scrutins à examiner :
+- n° 5336 (2026-02-05) : le sous-amendement n° 167 du Gouvernement à l'amendement n° 165 de Mme Battistel à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : le Gouvernement
+  Exposé sommaire : Sous-amendement de clarification. Ce sous-amendement vise à expliciter le fait que d'autres paramètres que le coût de production entreront en compte dans la définition du niveau de ce prix de réserve.
+  Amendement visé : n° 165 de Mme Battistel et al. (SOC). Exposé : Le présent amendement précise que la Commission de régulation de l'énergie doit prendre en compte les coûts de production pour fixer le prix de réserve des enchères.
+- n° 5338 (2026-02-05) : l'amendement n° 40 de M. Tavel à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Tavel et al. (LFI-NFP)
+  Exposé sommaire : Cet amendement du groupe LFI vise à protéger les consommateurs d’électricité soumis aux tarifs réglementés de vente (TRVE) d’une hausse des tarifs qui pourrait être engendrée par les enchères des produits financiers hydroélectriques mis aux enchères en application de l'article 12. En effet, puisque les installations hydroélectriques sont notamment amenées à être sollicités lors d’épisodes de pointe pour l’équilibrage du réseau électrique, les enchères des produits financiers associés sont susceptibles d’être conclues lorsque les prix sont particulièrement élevés sur les marchés. Il en résulterait une distorsion du prix moyen auquel EDF vend sa production, sans relation avec ses coûts de …
+- n° 5339 (2026-02-05) : l'amendement n° 158 de M. Jean-Pierre Vigier et l'amendement identique suivant à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Jean-Pierre Vigier et al. (DR)
+  Exposé sommaire : L’ouverture d’au moins 40 % de la totalité des capacités hydroélectriques installées en France à des entreprises autres qu’EDF constitue la clef de voûte de l’accord avec la Commission européenne. Il convient de s’assurer qu’il soit pleinement effectif, mais aussi que les produits de marché commercialisés par EDF pour mettre en oeuvre cet objectif respectent bien la ventilation entre produits non flexibles et produits flexibles telle qu’elle est prévue aux II à V de l’article 12. La Commission de régulations de l’énergie (CRE) est ainsi appelée à s’assurer que la flexibilité de l’hydroélectricité est effectivement associée à ces produits.
+- n° 5340 (2026-02-05) : l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+- n° 5341 (2026-02-05) : l'amendement n° 11 de M. Tavel à l'article 5 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Tavel et al. (LFI-NFP)
+  Exposé sommaire : Cet amendement de coordination du groupe LFI vise à remettre en conformité les articles 5 et 2, en précisant que les les terrains ne sont concernés qu’au titre des autorisations domaniales, tandis que l’attribution du droit réel porte quant à elle sur les ouvrages et installations seulement conformément aux termes de l’article 2.
+- n° 5342 (2026-02-05) : l'amendement n° 12 de M. Tavel à l'article 5 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Tavel et al. (LFI-NFP)
+  Exposé sommaire : Cet amendement du groupe LFI vise à expliciter que le projet de convention avec chaque exploitant porte nécessairement sur l’intégralité des ouvrages exploités par l’exploitant. Il vise à garantir qu’un exploitant ne puisse accepter le droit réel d'exploitation seulement pour certaines installations, tout en la refusant pour d’autres. En effet, le nouveau régime d’autorisation ne permet déjà aucune garantie d’investissements dans le parc hydroélectrique, puisque ceux-ci ne pourront désormais plus être pilotés par la puissance publique, et se voient laissés au bon vouloir des exploitants. Dans son rapport de 2021 sur l’analyse des couts du système de production électrique en France, la Cour …
+- n° 5343 (2026-02-05) : l'amendement n° 50 de M. Tavel à l'article 6 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Tavel et al. (LFI-NFP)
+  Exposé sommaire : Cet amendement du groupe LFI vise à garantir que le parc hydroélectrique ne pourra pas être ouvert à la concurrence. Il s’agit en effet d’un des objectifs affichés de la présente proposition de loi, en conformité avec la position unanime des différents groupes politiques. Pourtant, cet article 6 prévoit, en cas de défaut de signature d’une convention par un des exploitants historiques, qu’une procédure de sélection soit mise en œuvre, sans empêcher l’entrée de nouveaux acteurs. Ainsi, des acteurs concurrents, notamment étrangers voire extra-européens, pourraient participer à la procédure de sélection et l’emporter. Le présent amendement vise à encadrer les acteurs autorisés à participer à …
+- n° 5344 (2026-02-05) : l'amendement n° 51 de M. Tavel à l'article 6 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Tavel et al. (LFI-NFP)
+  Exposé sommaire : Cet amendement de repli groupe LFI vise à garantir qu’en cas de défaut d’attribution, la procédure de sélection, qui ouvre donc la porte à la concurrence, ne puisse donner lieu à une situation où du personnel soit employé sans le statut IEG (statut du personnel des installations électriques et gazières). L’article 17 de la présente proposition de loi, prévoit en effet uniquement qu’elle est « sans incidence » sur les dispositions actuelles, et ne prémunit donc pas suffisament contre les risques de contournement par de nouveaux acteurs, qu’il s’agisse de nouveaux acteurs n’ayant jamais eu d’activité hydroélectrique sur le territoire national, ou de nouvelles entités appartement à des …
+- n° 5345 (2026-02-05) : l'amendement n° 52 de M. Tavel à l'article 6 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Tavel et al. (LFI-NFP)
+  Exposé sommaire : Cet amendement du groupe LFI vise à prémunir un exploitant actuel de refuser l’attribution à la demande de son actionnaire principal, dans l’espoir de la voir attribuée, lors de la procédure de sélection qui s’en suit, à une autre de ses entités dont il est également actionnaire. Ce mécanisme permettrait de contourner la procédure de transfert des droits-réels, prévue par la présente proposition de loi, mais qui nécessite une procédure d’accord de l’Etat.
+- n° 5352 (2026-02-05) : l'amendement n° 42 de M. Tavel et l'amendement identique suivant à l'article 17 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Tavel et al. (LFI-NFP)
+  Exposé sommaire : Cet amendement de repli du groupe LFI vise à garantir le statut IEG (statut du personnel des industries électriques et gazières) à l’ensemble du personnel chargé d’opérations essentielles sur les installations électriques.
+
+Pour chaque scrutin, décide s'il porte directement sur l'une des positions. S'il ne touche aucune position, ou seulement de loin, ne le mentionne pas. S'il en touche plusieurs, garde la plus directe.
+
+Attention au sens du vote. Beaucoup de scrutins portent sur des amendements, des sous-amendements, des motions ou des articles :
+- Le vote voulu dépend de ce que fait le texte soumis au vote, pas de son sujet. Voter « pour » un amendement qui affaiblit une position, c'est voter contre cette position : l'organisation voudrait alors « contre ».
+- Un amendement de suppression d'un article supprime cet article : voter « pour » revient à rejeter l'article.
+- Une motion de rejet ou de renvoi en commission vise à écarter le texte entier.
+- Pour un amendement, l'exposé sommaire (rédigé par son auteur) et le groupe de l'auteur sont donnés quand ils existent. Appuie-toi d'abord sur l'exposé pour savoir ce que fait l'amendement, puis décide si l'adopter sert ou dessert la position. L'exposé peut être tronqué (« … »).
+- Un sous-amendement modifie l'amendement visé, dont l'exposé est aussi donné : demande-toi si le sous-amendement renforce ou affaiblit cet amendement, et dans quel sens cela pousse la position.
+- Confiance : élevée (0,8 et plus) quand l'exposé ou le titre rend le sens évident, comme un vote sur l'ensemble d'un texte ; nettement plus basse (0,5 ou moins) quand il n'y a pas d'exposé ou qu'il reste ambigu, et que tu dois deviner d'après l'auteur ou l'article.
+
+Réponds avec un tableau JSON, et rien d'autre. Un élément par scrutin retenu :
+[{"numero": 2653, "position": "P1", "vote": "pour", "raison": "une phrase en français", "confiance": 0.7}]
+- "numero" : le numéro du scrutin ;
+- "position" : l'identifiant de la position (P1, P2…) ;
+- "vote" : « pour » ou « contre », le vote que l'organisation aurait voulu ;
+- "raison" : une seule phrase en français qui explique le lien et le sens du vote ;
+- "confiance" : un nombre entre 0 et 1.
+Si aucun scrutin ne correspond, réponds [].

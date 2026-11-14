@@ -1,0 +1,22 @@
+{
+ "theme": "nucleaire",
+ "task": "matching",
+ "provider": "manuel",
+ "model": "claude-code",
+ "result": [
+  {
+   "numero": 2566,
+   "position_id": "P1",
+   "vote_souhaite": "pour",
+   "raison": "Ouvrir l'objectif de production de chaleur à toute chaleur bas carbone permet d'y inclure la chaleur nucléaire des petits réacteurs que la Sfen veut développer.",
+   "confiance": 0.6
+  },
+  {
+   "numero": 2598,
+   "position_id": "P1",
+   "vote_souhaite": "pour",
+   "raison": "Aligner les exigences sur la décarbonation plutôt que sur le seul caractère renouvelable met le nucléaire sur un pied d'égalité avec les renouvelables.",
+   "confiance": 0.5
+  }
+ ]
+}

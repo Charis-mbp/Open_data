@@ -9,7 +9,7 @@ import sqlite3
 import sys
 from datetime import datetime
 
-from llm import LLMUnavailable, ask_json, log
+from llm import LLMUnavailable, ReponseManuelleAttendue, ask_json, log
 from shortlist import DB_PATH, load_shortlist, theme_path
 
 BATCH_SIZE = 20
@@ -210,10 +210,14 @@ def run(theme, text=None, progress=None, avec_amendements=True, fichier="matchin
     by_numero = {s["numero"]: s for s in scrutins}
     amendements = amendements_for([s["id"] for s in scrutins]) if avec_amendements else {}
 
-    matches, skipped = [], []
+    matches, skipped, attendus = [], [], 0
     batches = [scrutins[i:i + BATCH_SIZE] for i in range(0, len(scrutins), BATCH_SIZE)]
     for i, batch in enumerate(batches):
-        result = match_batch(theme, positions, batch, amendements)
+        try:
+            result = match_batch(theme, positions, batch, amendements)
+        except ReponseManuelleAttendue:
+            attendus += 1  # write every missing prompt before stopping
+            continue
         if result is None:
             skipped.append([s["numero"] for s in batch])
         else:
@@ -230,6 +234,9 @@ def run(theme, text=None, progress=None, avec_amendements=True, fichier="matchin
         if progress:
             progress(i + 1, len(batches))
 
+    if attendus:
+        raise ReponseManuelleAttendue(f"{attendus} lot(s) attendent une réponse dans "
+                                      f"themes/{theme}/llm_manuel/")
     matches.sort(key=lambda m: (-m["confiance"], m["numero"]))
     result = {
         "theme": theme,

@@ -1,0 +1,14 @@
+[
+{"numero": 2513, "position": "P1", "vote": "pour", "raison": "Le sous-amendement prépare dès 2040 le déploiement industriel des réacteurs de 4e génération et de leurs combustibles, en soutien aux réacteurs innovants.", "confiance": 0.6},
+{"numero": 2518, "position": "P1", "vote": "pour", "raison": "Le sous-amendement fixe un objectif de chaleur nucléaire produite notamment par de petits réacteurs, exactement l'usage des petits réacteurs innovants que défend la Sfen.", "confiance": 0.8},
+{"numero": 2520, "position": "P2", "vote": "pour", "raison": "Augmenter d'au moins 3 GW la puissance des réacteurs existants prolonge et valorise le parc historique que la Sfen veut maintenir.", "confiance": 0.5},
+{"numero": 2521, "position": "P1", "vote": "pour", "raison": "L'amendement rétablit l'article 3 qui fixe les objectifs de relance du nucléaire, dont la construction de nouveaux réacteurs et le maintien du parc.", "confiance": 0.85},
+{"numero": 2522, "position": "P2", "vote": "pour", "raison": "Prévoir la réouverture de Fessenheim va dans le sens du refus des fermetures de réacteurs défendu par la Sfen.", "confiance": 0.45},
+{"numero": 2526, "position": "P1", "vote": "pour", "raison": "L'amendement fixe un objectif de chaleur nucléaire, notamment par de petits réacteurs calogènes, que la Sfen veut développer.", "confiance": 0.8},
+{"numero": 2527, "position": "P1", "vote": "pour", "raison": "L'amendement fait des réacteurs à neutrons rapides une priorité avec un démonstrateur d'ici 2030, en soutien aux réacteurs innovants.", "confiance": 0.65},
+{"numero": 2528, "position": "P1", "vote": "pour", "raison": "L'amendement prévoit de remplacer les anciens réacteurs par de nouveaux pour maintenir 63 GW, ce qui sert la relance du nucléaire.", "confiance": 0.7},
+{"numero": 2530, "position": "P2", "vote": "pour", "raison": "L'amendement vise à augmenter d'au moins 3 GW la puissance du parc existant, qui reste ainsi au cœur de la production.", "confiance": 0.5},
+{"numero": 2532, "position": "P1", "vote": "pour", "raison": "L'amendement valorise l'uranium appauvri comme réserve de combustible pour les réacteurs à neutrons rapides, dans la logique d'économie circulaire de la relance.", "confiance": 0.5},
+{"numero": 2534, "position": "P1", "vote": "pour", "raison": "L'amendement affirme le rôle stratégique et central du nucléaire dans les objectifs de la politique énergétique.", "confiance": 0.75},
+{"numero": 2535, "position": "P3", "vote": "pour", "raison": "Viser 100 % d'hydrogène bas-carbone en 2035 remplace l'hydrogène d'origine fossile, ce qui réduit la part des fossiles.", "confiance": 0.45}
+]

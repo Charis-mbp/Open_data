@@ -1,0 +1,106 @@
+{
+ "theme": "nucleaire",
+ "task": "matching",
+ "provider": "manuel",
+ "model": "claude-code",
+ "result": [
+  {
+   "numero": 2485,
+   "position_id": "P2",
+   "vote_souhaite": "contre",
+   "raison": "Le sous-amendement retire le maintien en fonctionnement des réacteurs des objectifs de la politique énergétique pour le renvoyer au seul examen de l'ASNR, ce qui affaiblit la prolongation voulue par la Sfen.",
+   "confiance": 0.6
+  },
+  {
+   "numero": 2486,
+   "position_id": "P2",
+   "vote_souhaite": "contre",
+   "raison": "Exiger des réacteurs prolongés le niveau de sûreté des installations neuves rendrait la prolongation bien plus difficile, alors que la Sfen la demande dans le respect des exigences applicables.",
+   "confiance": 0.5
+  },
+  {
+   "numero": 2487,
+   "position_id": "P2",
+   "vote_souhaite": "contre",
+   "raison": "Le sous-amendement retire l'objectif de modernisation et de renouvellement du parc existant, à l'inverse de la prolongation défendue par la Sfen.",
+   "confiance": 0.6
+  },
+  {
+   "numero": 2488,
+   "position_id": "P1",
+   "vote_souhaite": "contre",
+   "raison": "Le sous-amendement supprime l'objectif de 27 GW de nouvelles capacités nucléaires d'ici 2050, cœur de la relance voulue par la Sfen.",
+   "confiance": 0.9
+  },
+  {
+   "numero": 2492,
+   "position_id": "P1",
+   "vote_souhaite": "contre",
+   "raison": "Le sous-amendement supprime l'objectif de 27 GW de nouveau nucléaire en 2050 au profit d'une sortie progressive du nucléaire.",
+   "confiance": 0.9
+  },
+  {
+   "numero": 2493,
+   "position_id": "P1",
+   "vote_souhaite": "pour",
+   "raison": "Le sous-amendement renforce les objectifs de nouvelles capacités nucléaires d'ici 2050, ce qui sert la relance voulue par la Sfen.",
+   "confiance": 0.85
+  },
+  {
+   "numero": 2495,
+   "position_id": "P1",
+   "vote_souhaite": "contre",
+   "raison": "Le sous-amendement supprime l'engagement de construire au moins 10 GW de nouveaux réacteurs d'ici 2026, soit le programme EPR2 que soutient la Sfen.",
+   "confiance": 0.9
+  },
+  {
+   "numero": 2496,
+   "position_id": "P1",
+   "vote_souhaite": "contre",
+   "raison": "Le sous-amendement supprime l'objectif d'engager 13 GW de nouveaux réacteurs (8 EPR) d'ici 2030, à l'inverse de la relance voulue par la Sfen.",
+   "confiance": 0.9
+  },
+  {
+   "numero": 2499,
+   "position_id": "P1",
+   "vote_souhaite": "contre",
+   "raison": "Supprimer le maintien des installations de retraitement des combustibles usés va contre la stratégie d'économie circulaire incluse dans le plan de relance de la Sfen.",
+   "confiance": 0.7
+  },
+  {
+   "numero": 2501,
+   "position_id": "P1",
+   "vote_souhaite": "pour",
+   "raison": "Le sous-amendement inscrit le retraitement et le recyclage des combustibles usés comme principal mode de gestion, en ligne avec la stratégie d'économie circulaire voulue par la Sfen.",
+   "confiance": 0.7
+  },
+  {
+   "numero": 2502,
+   "position_id": "P1",
+   "vote_souhaite": "pour",
+   "raison": "Le sous-amendement prévoit de développer le recyclage des combustibles des réacteurs de 4e génération, ce qui prolonge la stratégie d'économie circulaire de la relance.",
+   "confiance": 0.55
+  },
+  {
+   "numero": 2503,
+   "position_id": "P1",
+   "vote_souhaite": "pour",
+   "raison": "Le sous-amendement rétablit l'ambition du traitement et du recyclage des combustibles usés, qui fait partie du plan de relance soutenu par la Sfen.",
+   "confiance": 0.7
+  },
+  {
+   "numero": 2510,
+   "position_id": "P1",
+   "vote_souhaite": "contre",
+   "raison": "Le sous-amendement supprime le soutien aux réacteurs de 4e génération, alors que la Sfen veut investir dans les réacteurs innovants.",
+   "confiance": 0.7
+  },
+  {
+   "numero": 2512,
+   "position_id": "P1",
+   "vote_souhaite": "pour",
+   "raison": "Le sous-amendement fixe un calendrier de déploiement industriel des réacteurs de 4e génération d'ici 2040, en soutien aux réacteurs innovants.",
+   "confiance": 0.6
+  }
+ ]
+}

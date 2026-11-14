@@ -1,0 +1,33 @@
+=== SYSTEM ===
+Tu analyses des documents de position d'organisations (associations, fédérations, entreprises) pour les comparer aux votes de l'Assemblée nationale. Tu réponds uniquement en JSON valide, sans texte autour.
+
+=== PROMPT ===
+Voici le document de position d'une organisation.
+
+<document>
+Position de la Sfen sur la Programmation pluriannuelle de l’énergie (PPE) du 13 février 2026
+Publié le 18 février 2026
+PPE
+
+La Sfen se félicite de la publication de la troisième programmation pluriannuelle de l’énergie (PPE-3). Elle permet de :
+
+    Prévoir un objectif ambitieux de réduction de la part des énergies fossiles à 40 % du mix énergétique en 2030 et de 30 % en 2035, contre 60 % aujourd’hui. Cet objectif répond à un triple impératif : décarbonation ; réduction de notre facture d’importations d’hydrocarbures (d’environ 60 Md€ par an) ; indépendance énergétique dans un nouveau contexte géopolitique. La France, qui dispose aujourd’hui d’une électricité abondante et parmi les plus décarbonées du monde, doit tirer parti de cet avantage compétitif en électrifiant ses usages.
+    Abroger la disposition du décret du 21 avril 2020 sur la fermeture de 12 réacteurs de 900 MWe entre 2025 et 2035 (en plus des deux réacteurs de Fessenheim) et propose de poursuivre le fonctionnement des réacteurs électronucléaires au-delà de 50 ans, voire de 60 ans, tant que toutes les exigences de sûreté applicables sont respectées. La Sfen rappelle que la Cour des comptes[1] a récemment estimé que le coût de prolongation du parc existant de 40 à 60 ans était « très compétitif par rapport à la construction de nouvelles capacités de production».
+    Inscrire dans le corpus réglementaire un véritable plan de relance du nucléaire en France, aux côtés du développement d’autres sources d’énergie bas carbone. Ce plan comprend le programme de construction de nouveaux réacteurs EPR2, une stratégie ambitieuse et de long terme en matière d’économie circulaire, et l’investissement dans le développement des petits réacteurs nucléaires innovants, en particulier pour produire de la chaleur bas carbone.
+
+La Sfen note un certain nombre de défis à relever :
+
+    Impératif d’un « choc d’électrification » pour une trajectoire de décarbonation rapide ;
+    Maîtrise des coûts et des transferts associés en cas de surproduction durable ;
+    Robustesse du système électrique dans un contexte de croissance de la part des énergies renouvelables variables.
+
+La Sfen soutient, en parallèle de la publication de la PPE-3, la poursuite de la procédure de vote au Parlement d’une loi de programmation énergétique, sur la base de la Proposition de loi (PPL) Grémillet, nécessaire pour asseoir la légitimité démocratique de la politique énergétique française. Si de nombreux débats ont eu lieu ces dernières années organisés par la Commission nationale de débat public (dont trois débats nationaux sur les EPR2) et au Parlement (vote de la loi d’accélération sur le nucléaire, navette parlementaire sur la PPL Grémillet), inscrire la relance du nucléaire dans la loi avant la fin 2026, quitte à adapter la PPE-3, permettrait d’assurer une continuité politique sur le temps long, au-delà des alternances politiques. ■
+</document>
+
+Extrais de 3 à 6 positions que l'organisation défend. Chaque position :
+- est une phrase courte en français, formulée comme ce que l'organisation veut (ex. « Construire de nouveaux réacteurs EPR2 ») ;
+- est assez précise pour qu'on puisse dire si un vote au Parlement va dans son sens ou contre elle ;
+- est accompagnée du passage du document qui la justifie, cité mot pour mot.
+
+Réponds avec ce JSON, et rien d'autre :
+{"positions": [{"position": "...", "passage": "..."}]}

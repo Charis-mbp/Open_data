@@ -1,0 +1,88 @@
+=== SYSTEM ===
+Tu aides une organisation à repérer, parmi des scrutins de l'Assemblée nationale, ceux qui touchent à ses positions, et à dire comment elle aurait voulu que les députés votent. Tu ne notes pas les députés et tu ne les classes pas. Tu réponds uniquement en JSON valide, sans texte autour.
+
+=== PROMPT ===
+Positions de l'organisation :
+P1. Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.
+P2. Prolonger les réacteurs existants au-delà de 50, voire 60 ans, et renoncer à la fermeture de 12 réacteurs.
+P3. Réduire fortement la part des énergies fossiles en électrifiant les usages.
+P4. Faire voter par le Parlement une loi de programmation énergétique fondée sur la PPL Grémillet.
+
+Scrutins à examiner :
+- n° 2610 (2025-06-19) : l'amendement n° 465 de M. Fugit après l'article 13 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).
+  Auteur : M. Fugit et al. (EPR)
+  Exposé sommaire : La Programmation Pluriannuelle de l'Energie (PPE) est un texte issu d’une longue concertation multi-acteurs qui projette l’ensemble de la filière énergie pour les prochaines années. Ce besoin de visibilité est nécessaire car les filières ont besoin d’avoir de la stabilité. Si la PPE permet de tracer la trajectoire de développement des énergies, et notamment celles des filières nucléaires et renouvelables mais aussi d'anticiper les efforts de sobriété et de développement de l'électrification des usages, il est aujourd'hui nécessaire de pouvoir, de la même manière, anticiper la trajectoire de financement de chaque énergie. Cet amendement propose donc qu'une stratégie pluriannuelle de …
+- n° 2611 (2025-06-19) : l'amendement n° 70 de M. Amblard après l'article 13 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).
+  Auteur : M. Amblard et al. (RN)
+  Exposé sommaire : Cet amendement du groupe Rassemblement National vise à cibler la baisse volontaire de la consommation d’énergie seulement sur les énergies fossiles, par sur toute la consommation d’énergie finale.
+- n° 2612 (2025-06-19) : l'amendement n° 29 de M. Amblard après l'article 13 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).
+  Auteur : M. Amblard et al. (RN)
+  Exposé sommaire : Cet amendement du groupe Rassemblement National vise à rendre cohérent les exigences à mettre sur les sources d’énergie avec les objectifs de décarbonation, et non de « renouvelabilité ».
+- n° 2613 (2025-06-19) : l'amendement n° 27 de M. Amblard après l'article 13 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).
+  Auteur : M. Amblard et al. (RN)
+  Exposé sommaire : Cet amendement du groupe Rassemblement National renforce le pilotage des réseaux en les plaçant au cœur de la planification énergétique. Il met en avant l’optimisation technique et économique du système, notamment par le recours aux stations de transfert d’énergie par pompage (STEP), qui jouent un rôle stratégique dans le stockage massif et l’équilibrage des réseaux électriques. Il s’agit d’adapter les infrastructures à un mix évolutif, tout en garantissant la stabilité du système et la soutenabilité des investissements.
+- n° 2614 (2025-06-19) : l'amendement n° 687 (rect.) du Gouvernement à l'article 16 bis (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).
+  Auteur : le Gouvernement
+  Exposé sommaire : Avant sa suppression en commission des affaires économiques de l’Assemblée nationale, l’article 3 introduisait des objectifs en matière de relance de l’énergie nucléaire. Le Gouvernement poursuit une relance ambitieuse de la filière nucléaire. Le I du présent amendement vise à réintroduire des objectifs en ce sens, en tenant compte des discussions intervenues à l’occasion de l’examen de l’article 3 en commission des affaires économiques, s’agissant notamment : - du renforcement de l’effort de recherche et d’innovation en faveur de l’énergie nucléaire ; - du maintien en fonctionnement les installations de production d’électricité d’origine nucléaire ; - de la construction de nouveaux …
+- n° 2615 (2025-06-19) : l'amendement n° 25 de M. Trébuchet et l'amendement identique suivant à l'article 16 bis (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).
+  Auteur : M. Trébuchet et al. (UDR)
+  Exposé sommaire : L'article 16 Bis complète le deuxième alinéa de l’article L. 542-13-2 du code de l’environnement afin de permettre à l’autorité administrative de requalifier en « stock stratégique » des matières radioactives pour lesquelles il existe des projets de valorisation futurs — notamment dans le cadre des réacteurs à neutrons rapides de 4ᵉ génération. Face aux enjeux de souveraineté industrielle et de gestion durable des matières nucléaires, il apparaît indispensable d’anticiper dès aujourd’hui les besoins de la filière des réacteurs de 4ᵉ génération à neutrons rapides. Ces futurs réacteurs, dont la mise en service est programmée à l’horizon 2030-2040, offriront la capacité unique de retraiter et …
+- n° 2619 (2025-06-19) : l'amendement n° 343 de M. Tavel après l'article 21 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).
+  Auteur : M. Tavel et al. (LFI-NFP)
+  Exposé sommaire : Cet amendement du groupe LFI-NFP prévoit que la Nation se fixe pour objectif d'obtenir une dérogation à la directive "Concessions" permettant d'éviter la mise en concurrence de l'exploitation des installations de production d'hydroélectricité. Les barrages les plus puissants (puissance installée de 4,5 MW et plus) sont actuellement exploités sous le régime de la concession de service public. Les installations hydrauliques relevant du régime de la concession appartiennent à l’État. Depuis 2003, les concessions commencent à arriver à échéance (38 aujourd’hui, 61 fin 2025) et le renouvellement des concessions impose, au regard du droit de l’UE, une remise en concurrence des exploitants comme …
+- n° 2623 (2025-06-19) : l'amendement n° 231 de Mme Guetté après l'article 25 D de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).
+  Auteur : Mme Guetté et al. (LFI-NFP)
+  Exposé sommaire : Par cet amendement, les député·es du groupe LFI-NUPES sollicitent la remise d’un rapport évaluant les coûts de la décarbonation du mix énergétique dans les DROM. Les caractéristiques climatiques et géographiques des ZNI ainsi que la petite taille de leurs systèmes électriques créent des contraintes pour le mix énergétique, la gestion du réseau électrique et l’approvisionnement. Elles justifient de recourir à des solutions technologiques adaptées et entraînent des coûts de production plus élevés que dans l’hexagone : ils atteignent 347 €/MWh en moyenne en 2023 d’après le graphique ci-dessous, selon la commission de régulation de l’énergie. Vu les variations importantes des coûts selon les …
+- n° 2629 (2025-06-19) : l'amendement n° 614 de M. Michoux après l'article 25 D de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).
+  Auteur : M. Michoux et al. (UDR)
+  Exposé sommaire : Cet amendement vise à alerter le gouvernement sur la concurrence déloyale subie par EDF avec la mise en place du dispositif ARENH et dont les conséquences ont été néfastes pour les ménages et les entreprises.
+- n° 2632 (2025-06-19) : l'amendement n° 888 de la commission des affaires économiques au titre de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).
+  Auteur : M. Armand et al. (EPR)
+  Exposé sommaire : Cet amendement vise à modifier le titre de la présente proposition de loi
+- n° 2653 (2025-06-24) : l'ensemble de la proposition de loi portant programmation nationale pour l'énergie et le climat pour les années 2025 à 2035 (première lecture).
+- n° 5319 (2026-02-05) : l'amendement n° 3 de M. Tavel à l'article premier de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Tavel et al. (LFI-NFP)
+  Exposé sommaire : Cet amendement de repli du groupe LFI prévoit d’éviter le passage immédiat des concessions hydroélectriques en cours dans le nouveau régime d’autorisation hydraulique, pour le reporter à l’expiration de leurs contrats de concession respectifs. Le texte prévoit que les installations de la CNR, pour lesquels les contrats de concession courent toujours, ne sont pas concernés par le nouveau régime d’autorisation. Il s’agit donc de faire preuve de la même cohérence pour les installations des autres exploitants. En effet, ce nouveau régime ne donne aucune garantie d’éviter une mise en concurrence des exploitations dans les cas où, notamment, les exploitants refuseraient de s’acquitter des sommes …
+- n° 5321 (2026-02-05) : l'amendement n° 1 de M. Tavel après l'article premier de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Tavel et al. (LFI-NFP)
+  Exposé sommaire : Cet amendement du groupe LFI prévoit que la nation se fixe comme objectif le développement des installations hydroélectriques afin d'atteindre une puissance installée d’au moins 28,7 gigawatts en 2035. La programmation pluriannuelle de l'énergie (PPE) n'ayant toujours pas été publiée par le Gouvernement, cet amendement vise ainsi à donner de la visibilité aux investissements nécessaires dans la filière. Il reprend les chiffres de la dernière PPE mise en consultation.
+- n° 5327 (2026-02-05) : l'amendement n° 17 de M. Tavel et les amendements identiques suivants de suppression de l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Tavel et al. (LFI-NFP)
+  Exposé sommaire : Cet amendement du groupe LFI propose de supprimer la mise en place des « mesures compensatoires » prévues à l'article 12 qui se feraient au détriment d’EDF et de l’hydroélectricité. Ces mesures compensatoires visent à espérer que le changement de régime en autorisation puisse avoir une chance d’être accepté – sans garantie – par la Commission européenne. Elles visent à contraindre EDF à vendre une partie de sa production hydroélectrique à ses concurrents sous forme de nouveaux produits financiers. Cela reviendrait à appliquer à l’hydroélectricité un mécanisme dont le principe est proche de celui de l’ARENH : : partager avec les concurrents un avantage d’EDF lié au parc existant et affaiblir …
+- n° 5329 (2026-02-05) : l'amendement n° 19 de M. Tavel et l'amendement identique suivant à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Tavel et al. (LFI-NFP)
+  Exposé sommaire : Cet amendement du groupe LFI propose de supprimer la mise en place des « mesures compensatoires » prévues à l'article 12 qui se feraient au détriment d’EDF et de l’hydroélectricité. Ces mesures compensatoires visent à espérer que le changement de régime en autorisation puisse avoir une chance d’être accepté – sans garantie – par la Commission européenne. Elles visent à contraindre EDF à vendre une partie de sa production hydroélectrique à ses concurrents sous forme de nouveaux produits financiers. Cela reviendrait à appliquer à l’hydroélectricité un mécanisme dont le principe est proche de celui de l’ARENH : partager avec les concurrents un avantage d’EDF lié au parc existant et affaiblir …
+- n° 5330 (2026-02-05) : l'amendement n° 157 rectifié de M. Jean-Pierre Vigier et l'amendement identique suivant à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Jean-Pierre Vigier et al. (DR)
+  Exposé sommaire : Cet amendement précise que l’ouverture de 40 % des capacités ne peut pas bénéficier aux filiales ou sociétés affiliées d’EDF. Il s’agit d’une clarification juridique pour garantir une ouverture réelle à des opérateurs distincts, conforme aux engagements européens.
+- n° 5331 (2026-02-05) : l'amendement n° 161 de M. Fugit à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Fugit et al. (EPR)
+  Exposé sommaire : Cet amendement précise les conditions et modalités de contrôle de l'objectif d'ouverture de 40 % des capacités hydroélectriques installées en France.
+- n° 5332 (2026-02-05) : l'amendement n° 136 de M. Fugit à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Fugit et al. (EPR)
+  Exposé sommaire : L’objectif est d’insister sur la distinction entre exploitation des installations et produits livrés sur les marchés.
+- n° 5334 (2026-02-05) : l'amendement n° 26 de M. Tavel à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Tavel et al. (LFI-NFP)
+  Exposé sommaire : Cet amendement du groupe LFI vise à la suppression de l'alinéa 11 de l'article 12, qui prévoit qu'en cas d’infructuosité partielle ou totale des enchères, les volumes de productible correspondant à la capacité virtuelle non vendue sont ajoutés à ceux des enchères ouvertes ultérieurement pour le même produit. Il vise à empêcher le report des volumes correspondant aux enchères non conclues, de sorte à limiter les possibilités de spéculations des acteurs tiers sur ces volumes. Cela répond également à une réalité physique : l’ajout du volume reporté d’une enchère à la suivante peut amener à soumettre aux enchères des volumes qui ne sont plus disponibles au regard de la situation hydrique, ou …
+- n° 5335 (2026-02-05) : l'amendement n° 30 de M. Tavel à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).
+  Auteur : M. Tavel et al. (LFI-NFP)
+  Exposé sommaire : Cet amendement du groupe LFI vise à ce que l’électricité mise à disposition par les enchères prévues à l'article 12 soit réservée en priorité à des contrats d’approvisionnement conclus avec des clients situés en France. Ces ouvrages ayant été historiquement construits sur fonds publics pour répondre aux besoins de la nation, il est normal que leur exploitation bénéficie en premier lieu aux intérêts du pays.
+
+Pour chaque scrutin, décide s'il porte directement sur l'une des positions. S'il ne touche aucune position, ou seulement de loin, ne le mentionne pas. S'il en touche plusieurs, garde la plus directe.
+
+Attention au sens du vote. Beaucoup de scrutins portent sur des amendements, des sous-amendements, des motions ou des articles :
+- Le vote voulu dépend de ce que fait le texte soumis au vote, pas de son sujet. Voter « pour » un amendement qui affaiblit une position, c'est voter contre cette position : l'organisation voudrait alors « contre ».
+- Un amendement de suppression d'un article supprime cet article : voter « pour » revient à rejeter l'article.
+- Une motion de rejet ou de renvoi en commission vise à écarter le texte entier.
+- Pour un amendement, l'exposé sommaire (rédigé par son auteur) et le groupe de l'auteur sont donnés quand ils existent. Appuie-toi d'abord sur l'exposé pour savoir ce que fait l'amendement, puis décide si l'adopter sert ou dessert la position. L'exposé peut être tronqué (« … »).
+- Un sous-amendement modifie l'amendement visé, dont l'exposé est aussi donné : demande-toi si le sous-amendement renforce ou affaiblit cet amendement, et dans quel sens cela pousse la position.
+- Confiance : élevée (0,8 et plus) quand l'exposé ou le titre rend le sens évident, comme un vote sur l'ensemble d'un texte ; nettement plus basse (0,5 ou moins) quand il n'y a pas d'exposé ou qu'il reste ambigu, et que tu dois deviner d'après l'auteur ou l'article.
+
+Réponds avec un tableau JSON, et rien d'autre. Un élément par scrutin retenu :
+[{"numero": 2653, "position": "P1", "vote": "pour", "raison": "une phrase en français", "confiance": 0.7}]
+- "numero" : le numéro du scrutin ;
+- "position" : l'identifiant de la position (P1, P2…) ;
+- "vote" : « pour » ou « contre », le vote que l'organisation aurait voulu ;
+- "raison" : une seule phrase en français qui explique le lien et le sens du vote ;
+- "confiance" : un nombre entre 0 et 1.
+Si aucun scrutin ne correspond, réponds [].

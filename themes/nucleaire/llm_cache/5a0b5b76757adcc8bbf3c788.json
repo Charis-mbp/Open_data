@@ -1,0 +1,57 @@
+{
+ "theme": "nucleaire",
+ "task": "matching",
+ "provider": "manuel",
+ "model": "claude-code",
+ "result": [
+  {
+   "numero": 2544,
+   "position_id": "P3",
+   "vote_souhaite": "pour",
+   "raison": "Interdire les aides publiques aux énergies fossiles accélère la baisse de leur part, objectif que soutient la Sfen.",
+   "confiance": 0.6
+  },
+  {
+   "numero": 2547,
+   "position_id": "P1",
+   "vote_souhaite": "contre",
+   "raison": "L'amendement remplace l'objectif d'énergies décarbonées, qui inclut le nucléaire, par un objectif limité aux renouvelables, ce qui efface le nucléaire de la trajectoire.",
+   "confiance": 0.55
+  },
+  {
+   "numero": 2548,
+   "position_id": "P1",
+   "vote_souhaite": "contre",
+   "raison": "Cet amendement de repli remplace lui aussi l'objectif d'énergies décarbonées incluant le nucléaire par un objectif limité aux renouvelables.",
+   "confiance": 0.5
+  },
+  {
+   "numero": 2549,
+   "position_id": "P1",
+   "vote_souhaite": "contre",
+   "raison": "L'amendement réécrit l'article 5 pour organiser la sortie du nucléaire et viser 100 % de renouvelables en 2050, à l'opposé de la relance voulue par la Sfen.",
+   "confiance": 0.9
+  },
+  {
+   "numero": 2550,
+   "position_id": "P1",
+   "vote_souhaite": "contre",
+   "raison": "L'amendement fixe une trajectoire de sortie du nucléaire vers 100 % de renouvelables en 2060, contraire à la relance défendue par la Sfen.",
+   "confiance": 0.9
+  },
+  {
+   "numero": 2551,
+   "position_id": "P1",
+   "vote_souhaite": "contre",
+   "raison": "L'amendement fixe une trajectoire de sortie du nucléaire vers 100 % de renouvelables en 2060, contraire à la relance défendue par la Sfen.",
+   "confiance": 0.9
+  },
+  {
+   "numero": 2560,
+   "position_id": "P3",
+   "vote_souhaite": "pour",
+   "raison": "Relever de 58 % à 67 % l'objectif d'énergies décarbonées en 2030 réduit d'autant la part des fossiles.",
+   "confiance": 0.45
+  }
+ ]
+}

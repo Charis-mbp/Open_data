@@ -1,0 +1,8 @@
+[
+{"numero": 2424, "position": "P1", "vote": "pour", "raison": "Supprimer le monopole d'EDF sur la construction et l'exploitation des réacteurs laisse les porteurs de petits réacteurs innovants développer leurs projets, que la Sfen veut soutenir.", "confiance": 0.55},
+{"numero": 2429, "position": "P3", "vote": "pour", "raison": "L'amendement fixe un cap de 1600 TWh d'énergie décarbonée produite par an, ce qui sert la sortie des énergies fossiles par l'électrification.", "confiance": 0.6},
+{"numero": 2430, "position": "P1", "vote": "pour", "raison": "L'amendement inscrit dans la loi que la politique énergétique s'appuie principalement sur le nucléaire, ce qui conforte sa relance.", "confiance": 0.8},
+{"numero": 2432, "position": "P4", "vote": "contre", "raison": "Supprimer l'article premier vide la loi de programmation d'une partie de ses objectifs, alors que la Sfen veut que le Parlement fixe ces choix par la loi.", "confiance": 0.45},
+{"numero": 2433, "position": "P3", "vote": "pour", "raison": "L'amendement fixe à l'État l'objectif de sortir rapidement des énergies fossiles pour réduire les émissions, en ligne avec la réduction de leur part voulue par la Sfen.", "confiance": 0.5},
+{"numero": 2445, "position": "P1", "vote": "contre", "raison": "Rétablir le monopole public et d'EDF sur les réacteurs fermerait la porte aux autres porteurs de petits réacteurs innovants que la Sfen veut voir se développer.", "confiance": 0.45}
+]

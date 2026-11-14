@@ -1,0 +1,43 @@
+{
+ "theme": "nucleaire",
+ "task": "matching",
+ "provider": "manuel",
+ "model": "claude-code",
+ "result": [
+  {
+   "numero": 2611,
+   "position_id": "P3",
+   "vote_souhaite": "pour",
+   "raison": "Cibler la baisse de consommation sur les seules énergies fossiles, et non sur toute l'énergie, va dans le sens de l'électrification des usages voulue par la Sfen.",
+   "confiance": 0.55
+  },
+  {
+   "numero": 2612,
+   "position_id": "P1",
+   "vote_souhaite": "pour",
+   "raison": "Fonder les exigences sur la décarbonation plutôt que sur le caractère renouvelable place le nucléaire au même rang que les renouvelables.",
+   "confiance": 0.5
+  },
+  {
+   "numero": 2614,
+   "position_id": "P1",
+   "vote_souhaite": "pour",
+   "raison": "L'amendement du Gouvernement réintroduit les objectifs de relance du nucléaire : recherche, maintien du parc et nouveaux réacteurs.",
+   "confiance": 0.85
+  },
+  {
+   "numero": 2615,
+   "position_id": "P1",
+   "vote_souhaite": "pour",
+   "raison": "Permettre de classer en stock stratégique les matières destinées aux réacteurs de 4e génération sert l'économie circulaire et les réacteurs innovants de la relance.",
+   "confiance": 0.55
+  },
+  {
+   "numero": 2653,
+   "position_id": "P4",
+   "vote_souhaite": "pour",
+   "raison": "Il s'agit du vote sur l'ensemble de la PPL Grémillet, dont la Sfen soutient l'adoption par le Parlement.",
+   "confiance": 0.95
+  }
+ ]
+}

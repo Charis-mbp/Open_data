@@ -1,0 +1,57 @@
+{
+ "theme": "nucleaire",
+ "task": "matching",
+ "provider": "manuel",
+ "model": "claude-code",
+ "result": [
+  {
+   "numero": 2457,
+   "position_id": "P1",
+   "vote_souhaite": "pour",
+   "raison": "L'amendement remplace les quotas d'énergies renouvelables par un objectif fondé sur les sources pilotables et décarbonées, en citant le nucléaire, ce qui conforte sa place.",
+   "confiance": 0.5
+  },
+  {
+   "numero": 2461,
+   "position_id": "P3",
+   "vote_souhaite": "contre",
+   "raison": "L'amendement prévoit de mobiliser les ressources fossiles nationales, à l'inverse de la réduction de la part des fossiles que défend la Sfen.",
+   "confiance": 0.65
+  },
+  {
+   "numero": 2462,
+   "position_id": "P1",
+   "vote_souhaite": "pour",
+   "raison": "L'amendement vise à structurer des chaînes de valeur industrielles, notamment dans le nucléaire, ce qui accompagne sa relance.",
+   "confiance": 0.45
+  },
+  {
+   "numero": 2472,
+   "position_id": "P2",
+   "vote_souhaite": "pour",
+   "raison": "L'amendement rétablit l'article 3 en affirmant le maintien en fonctionnement des réacteurs existants sous réserve de sûreté, ce que demande la Sfen.",
+   "confiance": 0.65
+  },
+  {
+   "numero": 2477,
+   "position_id": "P1",
+   "vote_souhaite": "contre",
+   "raison": "Le sous-amendement supprime l'effort public de recherche et d'innovation en faveur du nucléaire, dont les petits réacteurs innovants que la Sfen veut financer.",
+   "confiance": 0.85
+  },
+  {
+   "numero": 2480,
+   "position_id": "P2",
+   "vote_souhaite": "pour",
+   "raison": "Le sous-amendement vise à maintenir en activité aussi longtemps que possible l'ensemble des réacteurs nucléaires, ce que défend la Sfen.",
+   "confiance": 0.85
+  },
+  {
+   "numero": 2482,
+   "position_id": "P2",
+   "vote_souhaite": "contre",
+   "raison": "Le sous-amendement supprime l'objectif de 63 GW de capacité nucléaire et de renouvellement du parc, ce qui revient à refuser la prolongation voulue par la Sfen.",
+   "confiance": 0.85
+  }
+ ]
+}

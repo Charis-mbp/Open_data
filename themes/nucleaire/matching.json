@@ -1,0 +1,1136 @@
+{
+  "theme": "nucleaire",
+  "genere_le": "2026-11-14T12:26:34",
+  "positions": [
+    {
+      "id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "passage": "Inscrire dans le corpus réglementaire un véritable plan de relance du nucléaire en France, aux côtés du développement d’autres sources d’énergie bas carbone. Ce plan comprend le programme de construction de nouveaux réacteurs EPR2, une stratégie ambitieuse et de long terme en matière d’économie circulaire, et l’investissement dans le développement des petits réacteurs nucléaires innovants"
+    },
+    {
+      "id": "P2",
+      "position": "Prolonger les réacteurs existants au-delà de 50, voire 60 ans, et renoncer à la fermeture de 12 réacteurs.",
+      "passage": "Abroger la disposition du décret du 21 avril 2020 sur la fermeture de 12 réacteurs de 900 MWe entre 2025 et 2035 (en plus des deux réacteurs de Fessenheim) et propose de poursuivre le fonctionnement des réacteurs électronucléaires au-delà de 50 ans, voire de 60 ans, tant que toutes les exigences de sûreté applicables sont respectées."
+    },
+    {
+      "id": "P3",
+      "position": "Réduire fortement la part des énergies fossiles en électrifiant les usages.",
+      "passage": "Prévoir un objectif ambitieux de réduction de la part des énergies fossiles à 40 % du mix énergétique en 2030 et de 30 % en 2035, contre 60 % aujourd’hui."
+    },
+    {
+      "id": "P4",
+      "position": "Faire voter par le Parlement une loi de programmation énergétique fondée sur la PPL Grémillet.",
+      "passage": "La Sfen soutient, en parallèle de la publication de la PPE-3, la poursuite de la procédure de vote au Parlement d’une loi de programmation énergétique, sur la base de la Proposition de loi (PPL) Grémillet, nécessaire pour asseoir la légitimité démocratique de la politique énergétique française."
+    }
+  ],
+  "matches": [
+    {
+      "scrutin_id": "VTANR5L17V2653",
+      "numero": 2653,
+      "date": "2025-06-24",
+      "titre": "l'ensemble de la proposition de loi portant programmation nationale pour l'énergie et le climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2653",
+      "position_id": "P4",
+      "position": "Faire voter par le Parlement une loi de programmation énergétique fondée sur la PPL Grémillet.",
+      "vote_souhaite": "pour",
+      "raison": "Il s'agit du vote sur l'ensemble de la PPL Grémillet, dont la Sfen soutient l'adoption par le Parlement.",
+      "confiance": 0.95,
+      "amendement": null
+    },
+    {
+      "scrutin_id": "VTANR5L17V2488",
+      "numero": 2488,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 727 de Mme Laernoes et le sous-amendement identique suivant à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2488",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "contre",
+      "raison": "Le sous-amendement supprime l'objectif de 27 GW de nouvelles capacités nucléaires d'ici 2050, cœur de la relance voulue par la Sfen.",
+      "confiance": 0.9,
+      "amendement": {
+        "numero": "727",
+        "auteur": "Mme Laernoes et al.",
+        "groupe": "ECOS",
+        "expose": "Ce sous-amendement du groupe Écologiste et Social vise à supprimer l’alinéa 10 de l’amendement du rapporteur, qui acte une relance massive et précipitée du nucléaire pour atteindre 27 GW de nouvelles capacités nucléaires d’ici 2050.\nCette fuite en avant technologique repose sur une illusion de maîtrise industrielle et énergétique que les faits contredisent depuis des décennies. La filière nucléaire française est enlisée dans des dérives économiques et techniques majeures. Le nucléaire est devenu synonyme de promesses non tenues, de coûts publics vertigineux et de dépendance industrielle persistante.\nC’est aussi une technologie fondamentalement dangereuse, reposant sur une fausse promesse de contrôle total, ignorant la réalité de ses conséquences. La question des déchets radioactifs est systématiquement mise sous le tapis, repoussée à des décennies, voire des siècles, sans solution pleinement opérationnelle. Ni le projet Cigéo, ni aucun autre dispositif ne permet aujourd’hui de garantir une gestion sûre de ces matières sur le long terme. Ce sont les générations futures qui paieront le prix d’une énergie présentée comme propre mais profondément polluante dans la durée. L’inscription en droit d’une telle trajectoire, sans évaluation environnementale indépendante, constituerait ainsi une décision lourde de conséquences.\nLe nucléaire est en outre incapable de répondre rapidement à l’urgence climatique : aucun nouveau réacteur ne pourra être opérationnel avant au moins 15 ans. Or, la sortie des énergies fossiles et la réduction drastique de nos émissions doivent se faire maintenant, pas dans 20 ans. Pendant que des milliards sont aspirés par cette impasse industrielle, les solutions efficaces, sobres et renouvelables sont reléguées au second plan.\nEnfin, inscrire une telle trajectoire dans la loi revient à verrouiller notre mix énergétique autour d’une seule technologie rigide, centralisée, et déconnectée des principes de résilience, de diversité et de participation démocratique.\nCe sous-amendement propose donc de refuser cette re-nucléarisation coûteuse, lente, risquée et non assumée dans ses impacts environnementaux réels, pour redonner à la politique énergétique une vision d’avenir fondée sur la sobriété, les renouvelables, et la vérité !",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2492",
+      "numero": 2492,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 747 de M. Tavel à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2492",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "contre",
+      "raison": "Le sous-amendement supprime l'objectif de 27 GW de nouveau nucléaire en 2050 au profit d'une sortie progressive du nucléaire.",
+      "confiance": 0.9,
+      "amendement": {
+        "numero": "747",
+        "auteur": "M. Tavel et al.",
+        "groupe": "LFI-NFP",
+        "expose": "Ce sous-amendement du groupe LFI-NFP vise à supprimer l'objectif de \"tendre vers 27 gigawatts de nouvelles capacités installées de production d’électricité d’origine nucléaire à l’horizon 2050\".\nNous considérons en effet que l'horizon que nous devons tracer pour 2050 est celui du 100% renouvelables et de la sortie progressive du nucléaire.\nDepuis la révision de la Stratégie Nationale Bas-Carbone (SNBC) parue en 2018-2019, l’objectif d’atteindre la neutralité carbone à horizon 2050 est désormais fixé dans la loi. Ces dernières années, des organisations comme RTE, l’institut Negawatt ou encore l’ADEME ont publié différents travaux prospectifs sur un mix énergétique décarboné afin d’atteindre cet objectif.\nCes scénarios montrent qu’une production de 100% d’énergies renouvelables à l’horizon 2050 est possible, notamment le scénario Negawatt 2022 et le scénario M0 de RTE, et qu’une véritable bifurcation énergétique peut être déployée rapidement. Ces scénarios sont plus incertains sur le sort du nucléaire, allant de sa disparition à 14 EPR supplémentaires selon les projections.\nBien que complexe à mettre en œuvre, nous pensons que l’abandon du nucléaire à l’horizon 2050 est néanmoins souhaitable, aussi bien au regard de ses coûts, de son impact sur la facture des Français, des délais, de la fragilité technologique, du risque pour notre souveraineté énergétique ou des risques pour l'environnement et les générations futures.\nNous réinsistons ici sur ces derniers risques : risque d’accident majeur, accumulation des déchets nucléaires, destruction de l’environnement causée par l’exploitation des mines d’uranium... C’est également un danger pour notre souveraineté et notre indépendance énergétique : dépendance de la France aux importations d’uranium, risque d’une crise énergétique due à l’épuisement de l’uranium… Ces risques sont d’autant plus prégnants en raison de la multiplication des conflits prenant leurs sources dans des problèmes d’approvisionnement énergétique, notamment en Afghanistan, au Proche-Orient ou en Afrique subsaharienne.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2495",
+      "numero": 2495,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 741 de M. Laisney à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2495",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "contre",
+      "raison": "Le sous-amendement supprime l'engagement de construire au moins 10 GW de nouveaux réacteurs d'ici 2026, soit le programme EPR2 que soutient la Sfen.",
+      "confiance": 0.9,
+      "amendement": {
+        "numero": "741",
+        "auteur": "M. Laisney et al.",
+        "groupe": "LFI-NFP",
+        "expose": "Ce sous-amendement de repli du groupe LFI-NFP vise à supprimer l'objectif d'engager la construction d'au moins 10 gigawatts de nouvelles capacités nucléaires au plus tard en 2026, et 13 gigawatts au-delà, soit l'équivalent de 6+8 EPR dans les 5 ans à venir.\nNous considérons le choix de la relance du nucléaire, notamment au travers la construction de nouveaux EPR2, comme une impasse, aussi bien en termes de coûts, d'impact sur la facture des Français, de délais, de fragilité technologique, de risque pour notre souveraineté énergétique ou de risques pour l'environnement et les générations futures.\nEn effet, les coûts et les délais du programme EPR2 estimés par EDF sont toujours attendus pour la fin de l’année 2025. Mais d’ores et déjà le devis prévisionnel du programme EPR2 a augmenté de 30% en un an pour atteindre 67 milliards d’euros en euros de 2020 et 100 milliards en euros courants, selon la Cour des comptes. Le coût de production du Mwh pourrait ainsi avoisiner les 100 euros, avec des impacts dramatiques pour les factures des ménages et des entreprises.\nPar ailleurs les EPR 2, dont le design technique n’est toujours pas finalisé, ne pourraient pas être livrés, au mieux, avant 2038, bien trop tard pour répondre à l’urgence climatique.\nLe risque est d'autant plus important que les précédents chantiers EPR ont multiplié les surcoûts et les retards. Celui de Flamanville a accusé treize ans de retard et un surcoût d’environ 20 milliards, pour une facture originelle de 3 milliards d’euros. Celui d’Olkiluoto en Finlande est entré en fonctionnement en 2023 avec également treize ans de retard et une note passée de 2,2 milliards à 9,5 milliards d’euros. La construction par EDF des réacteurs d’Hinkley Point au Royaume-Uni suit le même chemin.\nFaire le choix du nucléaire à marche forcée, c'est aussi risquer d'investir insuffisamment dans les énergies renouvelables, et de faire face, dans la décennie qui vient, à un mur électrique aux conséquences catastrophiques : importation d’électricité plus carbonée que l’électricité française, sobriété subie, délestages ou encore échec des efforts de réindustrialisation.\nCes risques se cumulant avec les impacts pour l'environnement et les générations futures, catastrophe nucléaire, déchets radioactifs, impact sur la ressource en eau et la biodiversité dans un contexte de raréfaction de la ressource, nous proposons un moratoire sur les nouveaux réacteurs nucléaires.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2496",
+      "numero": 2496,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 745 de M. Laisney à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2496",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "contre",
+      "raison": "Le sous-amendement supprime l'objectif d'engager 13 GW de nouveaux réacteurs (8 EPR) d'ici 2030, à l'inverse de la relance voulue par la Sfen.",
+      "confiance": 0.9,
+      "amendement": {
+        "numero": "745",
+        "auteur": "M. Laisney et al.",
+        "groupe": "LFI-NFP",
+        "expose": "Ce sous-amendement de repli du groupe LFI-NFP vise à supprimer l'objectif d'engager la construction de 13 gigawatts de nouvelles capacités nucléaires (8 EPR) au plus tard en 2030.\nNous considérons le choix de la relance du nucléaire, notamment au travers la construction de nouveaux EPR2, comme une impasse, aussi bien en termes de coûts, d'impact sur la facture des Français, de délais, de fragilité technologique, de risque pour notre souveraineté énergétique ou de risques pour l'environnement et les générations futures.\nEn effet, les coûts et les délais du programme EPR2 estimés par EDF sont toujours attendus pour la fin de l’année 2025. Mais d’ores et déjà le devis prévisionnel du programme EPR2 a augmenté de 30% en un an pour atteindre 67 milliards d’euros en euros de 2020 et 100 milliards en euros courants, selon la Cour des comptes. Le coût de production du Mwh pourrait ainsi avoisiner les 100 euros, avec des impacts dramatiques pour les factures des ménages et des entreprises.\nPar ailleurs les EPR 2, dont le design technique n’est toujours pas finalisé, ne pourraient pas être livrés, au mieux, avant 2038, bien trop tard pour répondre à l’urgence climatique.\nLe risque est d'autant plus important que les précédents chantiers EPR ont multiplié les surcoûts et les retards. Celui de Flamanville a accusé treize ans de retard et un surcoût d’environ 20 milliards, pour une facture originelle de 3 milliards d’euros. Celui d’Olkiluoto en Finlande est entré en fonctionnement en 2023 avec également treize ans de retard et une note passée de 2,2 milliards à 9,5 milliards d’euros. La construction par EDF des réacteurs d’Hinkley Point au Royaume-Uni suit le même chemin.\nFaire le choix du nucléaire à marche forcée, c'est aussi risquer d'investir insuffisamment dans les énergies renouvelables, et de faire face, dans la décennie qui vient, à un mur électrique aux conséquences catastrophiques : importation d’électricité plus carbonée que l’électricité française, sobriété subie, délestages ou encore échec des efforts de réindustrialisation.\nCes risques se cumulant avec les impacts pour l'environnement et les générations futures, catastrophe nucléaire, déchets radioactifs, impact sur la ressource en eau et la biodiversité dans un contexte de raréfaction de la ressource, nous proposons un moratoire sur les nouveaux réacteurs nucléaires.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2549",
+      "numero": 2549,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 258 rectifié de Mme Guetté à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2549",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "contre",
+      "raison": "L'amendement réécrit l'article 5 pour organiser la sortie du nucléaire et viser 100 % de renouvelables en 2050, à l'opposé de la relance voulue par la Sfen.",
+      "confiance": 0.9,
+      "amendement": {
+        "numero": "258 (Rect)",
+        "auteur": "Mme Guetté et al.",
+        "groupe": "LFI-NFP",
+        "expose": "Cet amendement de réécriture générale du groupe LFI-NFP vise à permettre de fixer une trajectoire de développement des énergies renouvelables permettant de sortir du nucléaire et de viser l'objectif de 100% d'énergies renouvelables en 2050, en s'appuyant notamment sur le scénario M0 de RTE.\nDepuis la révision de la Stratégie Nationale Bas-Carbone (SNBC) parue en 2018-2019, l’objectif d’atteindre la neutralité carbone à horizon 2050 est désormais fixé dans la loi. Ces dernières années, des organisations comme RTE, l’institut Negawatt ou encore l’ADEME ont publié différents travaux prospectifs sur un mix énergétique décarboné afin d’atteindre cet objectif. Ces scénarios montrent qu’une production de 100% d’énergies renouvelables à l’horizon 2050 est possible, notamment le scénario Negawatt 2022 et le scénario M0 de RTE, et qu’une véritable bifurcation énergétique peut être déployée rapidement.\nBien que complexe à mettre en œuvre, nous pensons que l’abandon du nucléaire à l’horizon 2050 est néanmoins souhaitable, aussi bien au regard de ses coûts, de son impact sur la facture des Français, des délais, de la fragilité technologique, du risque pour notre souveraineté énergétique ou des risques pour l'environnement et les générations futures. Nous réinsistons ici sur ces derniers risques : risque d’accident majeur, accumulation des déchets nucléaires, destruction de l’environnement causée par l’exploitation des mines d’uranium... C’est également un danger pour notre souveraineté et notre indépendance énergétique : dépendance de la France aux importations d’uranium, risque d’une crise énergétique due à l’épuisement de l’uranium… Ces risques sont d’autant plus prégnants en raison de la multiplication des conflits prenant leurs sources dans des problèmes d’approvisionnement énergétique, notamment en Afghanistan, au Proche-Orient ou en Afrique subsaharienne.\nEn vue d'atteindre cet objectif de 100% d'énergies renouvelables, cet amendement prévoit un objectif intermédiaire de 44% d'énergies renouvelables en 2030. Il relève ainsi l'objectif actuellement en vigueur de 33% d'énergies renouvelables en 2030, en cohérence avec le relèvement des engagements pris au niveau européen à travers la dernière directive sur les énergies renouvelables, RED III, qui prévoit une part d'énergie produite à partir de sources renouvelables dans la consommation finale brute d'énergie de l'Union d'au moins 42,5 % en 2030 et évoque la nécessité de s'efforcer à porter collectivement cette part à 45 %. Pour atteindre cette cible, dans sa recommandation adressée à la France le 18 décembre 2023, la Commission européenne a suggéré d'intégrer une part d'énergies renouvelables de 44 % à l'horizon 2030 dans le Pniec français (plan national intégré en matière d'énergie et de climat). C'est ce que propose cet amendement, qui vise aussi à maintenir un objectif global de consommation d'énergies renouvelables en 2030, là où la rédaction actuelle de l'article supprime cet objectif au profit d'un objectif de consommation d'énergie \"décarbonée\" qui assimile indistinctement énergies renouvelables et nucléaire ou encore énergies fossiles associées à des technologies de capture et de stockage de carbone, entravant ainsi le développement des énergies renouvelables.\nCet amendement prévoit aussi des objectifs de développement des énergies renouvelables appuyés sur la trajectoire de référence du scénario M0 de RTE, qui prévoit un mix électrique 100% renouvelables en 2050, notamment :\n- 74 gigawatts de capacités installée de production d'électricité issue de l'éolien terrestre en 2050.\n- 62 gigawatts de capacités installée de production d'électricité issue de l'éolien en mer en 2050.\n- 208 gigawatts de capacités installée de production d'électricité issue du photovoltaïque en 2050.\nIl intègre également les objectifs adoptés en commission des affaires économiques, notamment :\n- 29 gigawatts de capacités installées de production d'électricité hydraulique à l’horizon 2035, dont 6,7 gigawatts pour les stations de transfert d’énergie par pompage.\n- L'objectif d’atteindre une capacité installée de production d’électricité issue d’installations utilisant l’énergie cinétique des courants marins ou fluviauxde 250 mégawatts d’ici 2035 et d’au moins 5 gigawatts en 2050",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2550",
+      "numero": 2550,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 261 rectifé de Mme Stambach-Terrenoir à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2550",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "contre",
+      "raison": "L'amendement fixe une trajectoire de sortie du nucléaire vers 100 % de renouvelables en 2060, contraire à la relance défendue par la Sfen.",
+      "confiance": 0.9,
+      "amendement": {
+        "numero": "261 (Rect)",
+        "auteur": "Mme Stambach-Terrenoir et al.",
+        "groupe": "LFI-NFP",
+        "expose": "Cet amendement de repli du groupe LFI-NFP propose une réécriture générale de l'article 5, qui vise à permettre de fixer une trajectoire de développement des énergies renouvelables permettant de sortir du nucléaire et de viser l'objectif de 100% d'énergies renouvelables en 2060, en s'appuyant notamment sur le scénario M1 de RTE.\nDepuis la révision de la Stratégie Nationale Bas-Carbone (SNBC) parue en 2018-2019, l’objectif d’atteindre la neutralité carbone à horizon 2050 est désormais fixé dans la loi. Ces dernières années, des organisations comme RTE, l’institut Negawatt ou encore l’ADEME ont publié différents travaux prospectifs sur un mix énergétique décarboné afin d’atteindre cet objectif. Ces scénarios montrent qu’une production de 100% d’énergies renouvelables à l’horizon 2050 est possible, notamment le scénario Negawatt 2022 et le scénario M0 de RTE, et qu’une véritable bifurcation énergétique peut être déployée rapidement.\nBien que complexe à mettre en œuvre, nous pensons que l’abandon du nucléaire à l’horizon 2050 est néanmoins souhaitable, aussi bien au regard de ses coûts, de son impact sur la facture des Français, des délais, de la fragilité technologique, du risque pour notre souveraineté énergétique ou des risques pour l'environnement et les générations futures. Nous réinsistons ici sur ces derniers risques : risque d’accident majeur, accumulation des déchets nucléaires, destruction de l’environnement causée par l’exploitation des mines d’uranium... C’est également un danger pour notre souveraineté et notre indépendance énergétique : dépendance de la France aux importations d’uranium, risque d’une crise énergétique due à l’épuisement de l’uranium… Ces risques sont d’autant plus prégnants en raison de la multiplication des conflits prenant leurs sources dans des problèmes d’approvisionnement énergétique, notamment en Afghanistan, au Proche-Orient ou en Afrique subsaharienne.\nEn vue d'atteindre cet objectif de 100% d'énergies renouvelables, cet amendement prévoit un objectif intermédiaire de 44% d'énergies renouvelables en 2030. Il relève ainsi l'objectif actuellement en vigueur de 33% d'énergies renouvelables en 2030, en cohérence avec le relèvement des engagements pris au niveau européen à travers la dernière directive sur les énergies renouvelables, RED III, qui prévoit une part d'énergie produite à partir de sources renouvelables dans la consommation finale brute d'énergie de l'Union d'au moins 42,5 % en 2030 et évoque la nécessité de s'efforcer à porter collectivement cette part à 45 %. Pour atteindre cette cible, dans sa recommandation adressée à la France le 18 décembre 2023, la Commission européenne a suggéré d'intégrer une part d'énergies renouvelables de 44 % à l'horizon 2030 dans le Pniec français (plan national intégré en matière d'énergie et de climat). C'est ce que propose cet amendement, qui vise aussi à maintenir un objectif global de consommation d'énergies renouvelables en 2030, là où la rédaction actuelle de l'article supprime cet objectif au profit d'un objectif de consommation d'énergie \"décarbonée\" qui assimile indistinctement énergies renouvelables et nucléaire ou encore énergies fossiles associées à des technologies de capture et de stockage de carbone, entravant ainsi le développement des énergies renouvelables.\nCet amendement prévoit aussi des objectifs de développement des énergies renouvelables appuyés sur la trajectoire de référence du scénario M1 de RTE, qui prévoit un mix électrique 100% renouvelables en 2060, notamment :\n- 59 gigawatts de capacités installée de production d'électricité issue de l'éolien terrestre en 2050.\n- 45 gigawatts de capacités installée de production d'électricité issue de l'éolien en mer en 2050.\n- 214 gigawatts de capacités installée de production d'électricité issue du photovoltaïque en 2050.\nIl intègre également les objectifs adoptés en commission des affaires économiques, notamment :\n- 29 gigawatts de capacités installées de production d'électricité hydraulique à l’horizon 2035, dont 6,7 gigawatts pour les stations de transfert d’énergie par pompage.\n- L'objectif d’atteindre une capacité installée de production d’électricité issue d’installations utilisant l’énergie cinétique des courants marins ou fluviauxde 250 mégawatts d’ici 2035 et d’au moins 5 gigawatts en 2050",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2551",
+      "numero": 2551,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 264 de M. Tavel à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2551",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "contre",
+      "raison": "L'amendement fixe une trajectoire de sortie du nucléaire vers 100 % de renouvelables en 2060, contraire à la relance défendue par la Sfen.",
+      "confiance": 0.9,
+      "amendement": {
+        "numero": "264",
+        "auteur": "M. Tavel et al.",
+        "groupe": "LFI-NFP",
+        "expose": "Cet amendement de repli du groupe LFI-NFP propose une réécriture générale de l'article 5, qui vise à permettre de fixer une trajectoire de développement des énergies renouvelables permettant de sortir du nucléaire et de viser l'objectif de 100% d'énergies renouvelables en 2060, en s'appuyant notamment sur le scénario M23 de RTE.\nDepuis la révision de la Stratégie Nationale Bas-Carbone (SNBC) parue en 2018-2019, l’objectif d’atteindre la neutralité carbone à horizon 2050 est désormais fixé dans la loi. Ces dernières années, des organisations comme RTE, l’institut Negawatt ou encore l’ADEME ont publié différents travaux prospectifs sur un mix énergétique décarboné afin d’atteindre cet objectif. Ces scénarios montrent qu’une production de 100% d’énergies renouvelables à l’horizon 2050 est possible, notamment le scénario Negawatt 2022 et le scénario M0 de RTE, et qu’une véritable bifurcation énergétique peut être déployée rapidement.\nBien que complexe à mettre en œuvre, nous pensons que l’abandon du nucléaire à l’horizon 2050 est néanmoins souhaitable, aussi bien au regard de ses coûts, de son impact sur la facture des Français, des délais, de la fragilité technologique, du risque pour notre souveraineté énergétique ou des risques pour l'environnement et les générations futures. Nous réinsistons ici sur ces derniers risques : risque d’accident majeur, accumulation des déchets nucléaires, destruction de l’environnement causée par l’exploitation des mines d’uranium... C’est également un danger pour notre souveraineté et notre indépendance énergétique : dépendance de la France aux importations d’uranium, risque d’une crise énergétique due à l’épuisement de l’uranium… Ces risques sont d’autant plus prégnants en raison de la multiplication des conflits prenant leurs sources dans des problèmes d’approvisionnement énergétique, notamment en Afghanistan, au Proche-Orient ou en Afrique subsaharienne.\nEn vue d'atteindre cet objectif de 100% d'énergies renouvelables, cet amendement prévoit un objectif intermédiaire de 44% d'énergies renouvelables en 2030. Il relève ainsi l'objectif actuellement en vigueur de 33% d'énergies renouvelables en 2030, en cohérence avec le relèvement des engagements pris au niveau européen à travers la dernière directive sur les énergies renouvelables, RED III, qui prévoit une part d'énergie produite à partir de sources renouvelables dans la consommation finale brute d'énergie de l'Union d'au moins 42,5 % en 2030 et évoque la nécessité de s'efforcer à porter collectivement cette part à 45 %. Pour atteindre cette cible, dans sa recommandation adressée à la France le 18 décembre 2023, la Commission européenne a suggéré d'intégrer une part d'énergies renouvelables de 44 % à l'horizon 2030 dans le Pniec français (plan national intégré en matière d'énergie et de climat). C'est ce que propose cet amendement, qui vise aussi à maintenir un objectif global de consommation d'énergies renouvelables en 2030, là où la rédaction actuelle de l'article supprime cet objectif au profit d'un objectif de consommation d'énergie \"décarbonée\" qui assimile indistinctement énergies renouvelables et nucléaire ou encore énergies fossiles associées à des technologies de capture et de stockage de carbone, entravant ainsi le développement des énergies renouvelables.\nCet amendement prévoit aussi des objectifs de développement des énergies renouvelables appuyés sur la trajectoire de référence du scénario M23 de RTE, qui prévoit un mix électrique 100% renouvelables en 2060, notamment :\n- 72 gigawatts de capacités installée de production d'électricité issue de l'éolien terrestre en 2050.\n- 60 gigawatts de capacités installée de production d'électricité issue de l'éolien en mer en 2050.\n- 125 gigawatts de capacités installée de production d'électricité issue du photovoltaïque en 2050.\nIl intègre également les objectifs adoptés en commission des affaires économiques, notamment :\n- 29 gigawatts de capacités installées de production d'électricité hydraulique à l’horizon 2035, dont 6,7 gigawatts pour les stations de transfert d’énergie par pompage.\n- L'objectif d’atteindre une capacité installée de production d’électricité issue d’installations utilisant l’énergie cinétique des courants marins ou fluviauxde 250 mégawatts d’ici 2035 et d’au moins 5 gigawatts en 2050",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2477",
+      "numero": 2477,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 723 de Mme Laernoes à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2477",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "contre",
+      "raison": "Le sous-amendement supprime l'effort public de recherche et d'innovation en faveur du nucléaire, dont les petits réacteurs innovants que la Sfen veut financer.",
+      "confiance": 0.85,
+      "amendement": {
+        "numero": "723",
+        "auteur": "Mme Laernoes et al.",
+        "groupe": "ECOS",
+        "expose": "Ce sous-amendement du groupe Écologiste et Social vise à supprimer les dispositions de l'amendement du rapporteur, qui consacrent un effort public renforcé en matière de recherche et d’innovation en faveur du nucléaire.\nL’État doit cesser de soutenir des projets nucléaires qui relèvent d’impasses technologiques et qui ont déjà englouti des milliards d’euros sans aucune démonstration de viabilité industrielle.\nIl est temps de sortir des illusions autour du nucléaire, pour concentrer l’effort public sur les vraies solutions de transition énergétique : sobriété, efficacité énergétique et renouvelables.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2480",
+      "numero": 2480,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 772 de M. Nury à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2480",
+      "position_id": "P2",
+      "position": "Prolonger les réacteurs existants au-delà de 50, voire 60 ans, et renoncer à la fermeture de 12 réacteurs.",
+      "vote_souhaite": "pour",
+      "raison": "Le sous-amendement vise à maintenir en activité aussi longtemps que possible l'ensemble des réacteurs nucléaires, ce que défend la Sfen.",
+      "confiance": 0.85,
+      "amendement": {
+        "numero": "772",
+        "auteur": "M. Nury et al.",
+        "groupe": "DR",
+        "expose": "Le présent sous-amendement du groupe Droite Républicaine vise à assurer le maintien en activité, aussi longtemps que possible, de l’ensemble des installations de production d'électricité d'origine nucléaire.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2482",
+      "numero": 2482,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 725 de Mme Laernoes et le sous-amendement identique suivant à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2482",
+      "position_id": "P2",
+      "position": "Prolonger les réacteurs existants au-delà de 50, voire 60 ans, et renoncer à la fermeture de 12 réacteurs.",
+      "vote_souhaite": "contre",
+      "raison": "Le sous-amendement supprime l'objectif de 63 GW de capacité nucléaire et de renouvellement du parc, ce qui revient à refuser la prolongation voulue par la Sfen.",
+      "confiance": 0.85,
+      "amendement": {
+        "numero": "725",
+        "auteur": "Mme Laernoes et al.",
+        "groupe": "ECOS",
+        "expose": "Ce sous-amendement du groupe Écologiste et Social vise à supprimer les objectifs de maintien d’une capacité installée de production nucléaire d’au moins 63 gigawatts, d’augmentation de la disponibilité des capacités installées, ainsi que du renouvellement progressif de ces installations, inscrit à l’alinéa 8 de cet amendement du rapporteur.\nFixer un tel objectif revient à acter une prolongation généralisée des réacteurs nucléaires existants, indépendamment de leur état réel, de leur vétusté ou des exigences de sûreté. C’est ériger la production à tout prix en priorité absolue, au détriment du principe fondamental de protection des populations et de l’environnement.\nCette logique est d’autant plus préoccupante qu’elle fragilise encore davantage l’indépendance du système de sûreté nucléaire, déjà affaibli par la réforme de 2024. Une telle disposition exercerait une pression politique accrue sur l’Autorité de sûreté nucléaire et de radioprotection (ASNR) pour qu’elle autorise coûte que coûte la prolongation des réacteurs, au mépris des standards de sûreté.\nSur le plan industriel, la mesure est tout aussi discutable. Les réacteurs existants ont été conçus pour 40 ans, et leur prolongation au-delà présente des incertitudes techniques majeures, des investissements colossaux et des risques accrus. Rien ne garantit que le seuil de 63 GW puisse être maintenu sans prendre des libertés avec les exigences de sûreté.\nCe sous-amendement vise donc à supprimer cette cible rigide et dangereuse, pour permettre des décisions fondées sur des expertises indépendantes et sur des critères de sécurité et de sûreté, et non sur un objectif politique arbitraire de maintien de puissance.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2493",
+      "numero": 2493,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 769 de M. Nury à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2493",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "Le sous-amendement renforce les objectifs de nouvelles capacités nucléaires d'ici 2050, ce qui sert la relance voulue par la Sfen.",
+      "confiance": 0.85,
+      "amendement": {
+        "numero": "769",
+        "auteur": "M. Nury et al.",
+        "groupe": "DR",
+        "expose": "Le président sous-alinéa du groupe Droite Républicaine vise à renforcer les objectifs d'installations de nouvelles capacités nucléaires d'ici 2050.\nCet objectif est nécessaire pour garantir la souveraineté énergétique de la France, décarboner nos usages, et garantir aux Français le prix d'une électricité bon marché et compétitive.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2521",
+      "numero": 2521,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 503 de M. Armand à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2521",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "L'amendement rétablit l'article 3 qui fixe les objectifs de relance du nucléaire, dont la construction de nouveaux réacteurs et le maintien du parc.",
+      "confiance": 0.85,
+      "amendement": {
+        "numero": "503",
+        "auteur": "M. Armand",
+        "groupe": "EPR",
+        "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2614",
+      "numero": 2614,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 687 (rect.) du Gouvernement à l'article 16 bis (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2614",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "L'amendement du Gouvernement réintroduit les objectifs de relance du nucléaire : recherche, maintien du parc et nouveaux réacteurs.",
+      "confiance": 0.85,
+      "amendement": {
+        "numero": "687 (Rect)",
+        "auteur": "le Gouvernement",
+        "groupe": "Gouvernement",
+        "expose": "Avant sa suppression en commission des affaires économiques de l’Assemblée nationale, l’article 3 introduisait des objectifs en matière de relance de l’énergie nucléaire.\nLe Gouvernement poursuit une relance ambitieuse de la filière nucléaire.\nLe I du présent amendement vise à réintroduire des objectifs en ce sens, en tenant compte des discussions intervenues à l’occasion de l’examen de l’article 3 en commission des affaires économiques, s’agissant notamment :\n- du renforcement de l’effort de recherche et d’innovation en faveur de l’énergie nucléaire ;\n- du maintien en fonctionnement les installations de production d’électricité d’origine nucléaire ;\n- de la construction de nouveaux réacteurs nucléaires ;\n- de la disponibilité d’installations permettant le retraitement et la valorisation des combustibles nucléaires usés ;\n- de la perspective de la fermeture du cycle du combustible à long terme ;\n- du développement de réacteurs de quatrième génération à neutrons rapides.\nLes dispositions proposées tiennent compte de l’avancement tant des travaux poursuivis entre la filière et l’Etat pour mettre en œuvre une relance de la filière nucléaire que des projets industriels associés. Les dispositions proposées s’attachent en particulier à conserver à la loi un caractère général, en préservant une latitude suffisante en matière d’innovation et de diversité de projets permettant de répondre aux objectifs de politique énergétique, au bénéfice de l’efficacité d’ensemble.\nLe présent amendement propose en outre de donner suite aux débats intervenus sur l’article 16 bis résultant des travaux du Sénat, et supprimé en commission des affaires économiques du développement durable et de l'aménagement du territoire de l’Assemblée nationale. Il s’agit d’expliciter la prise en compte d’une dimension stratégique pour apprécier les perspectives d’utilisation des matières radioactives, tout en confortant la cohérence juridique de leur classification.\nL’article 16 bis visait à instituer une nouvelle classification pour les matières radioactives, en ajoutant la catégorie de « stock stratégique » afin, selon l’exposé des motifs de l’amendement sénatorial qui l’a créé, de préserver la perspective de l’utilisation de l’uranium appauvri présent sur le territoire national pour le développement de la filière des réacteurs de quatrième génération.\nIl importe, au plan juridique et technique, de ne pas créer cette nouvelle catégorie administrative de « stock stratégique », dès lors qu’elle n’est ni nécessaire ni compatible avec la catégorisation complète définie à l’article L. 542-1-1 du code de l’environnement par les notions mutuellement exclusives de matières radioactives, pour lesquelles une utilisation ultérieure est prévue ou envisagée, et de déchets radioactifs, pour lesquels tel n’est pas le cas.\nLes débats intervenus sur l’article 16 bis ont toutefois montré l’intérêt de prendre en compte une dimension stratégique pour apprécier les perspectives d’utilisation des substances radioactives. Si l’autorité administrative peut en pratique déjà s’appuyer sur de telles considérations selon le cadre juridique actuel, il est également possible d’expliciter cette dimension dans la loi, dans le prolongement des débats intervenus et en cohérence avec les dispositions du droit applicable. C’est l’objet du II du présent amendement.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2430",
+      "numero": 2430,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 421 de M. Nury après l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2430",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "L'amendement inscrit dans la loi que la politique énergétique s'appuie principalement sur le nucléaire, ce qui conforte sa relance.",
+      "confiance": 0.8,
+      "amendement": {
+        "numero": "421",
+        "auteur": "M. Nury et al.",
+        "groupe": "DR",
+        "expose": "Le présent amendement du groupe Droite Républicaine vise à inscrire dans la loi le principe selon lequel la politique énergétique nationale s’appuie principalement sur l’énergie nucléaire, tout en favorisant le développement de filières complémentaires telles que l'hydroélectricité, la géothermie, le biogaz, la biomasse, les carburants de synthèse et l’hydrogène vert. Cette orientation garantit la sécurité d’approvisionnement, la stabilité des prix de l’électricité pour les Français, la réduction des émissions de gaz à effet de serre et la souveraineté énergétique du pays.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2518",
+      "numero": 2518,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 803 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2518",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "Le sous-amendement fixe un objectif de chaleur nucléaire produite notamment par de petits réacteurs, exactement l'usage des petits réacteurs innovants que défend la Sfen.",
+      "confiance": 0.8,
+      "amendement": {
+        "numero": "803",
+        "auteur": "M. Amblard et al.",
+        "groupe": "RN",
+        "expose": "Le présent amendement introduit un objectif de développement de la chaleur nucléaire, complément essentiel à la production d’électricité. Il encourage l’utilisation de la cogénération et des petits réacteurs calogènes pour répondre aux besoins de chaleur décarbonée dans l’industrie et le résidentiel, avec un objectif de 60 TWh par an d’ici 2050. Cette approche permet de réduire les besoins en combustibles fossiles dans les réseaux de chaleur ou les processus industriels, tout en optimisant le rendement global des installations.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2526",
+      "numero": 2526,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 108 de M. Amblard après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2526",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "L'amendement fixe un objectif de chaleur nucléaire, notamment par de petits réacteurs calogènes, que la Sfen veut développer.",
+      "confiance": 0.8,
+      "amendement": {
+        "numero": "108",
+        "auteur": "M. Amblard et al.",
+        "groupe": "RN",
+        "expose": "Le présent amendement introduit un objectif de développement de la chaleur nucléaire, complément essentiel à la production d’électricité. Il encourage l’utilisation de la cogénération et des petits réacteurs calogènes pour répondre aux besoins de chaleur décarbonée dans l’industrie et le résidentiel, avec un objectif de 60 TWh par an d’ici 2050. Cette approche permet de réduire les besoins en combustibles fossiles dans les réseaux de chaleur ou les processus industriels, tout en optimisant le rendement global des installations.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2534",
+      "numero": 2534,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 610 de M. Michoux à l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2534",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "L'amendement affirme le rôle stratégique et central du nucléaire dans les objectifs de la politique énergétique.",
+      "confiance": 0.75,
+      "amendement": {
+        "numero": "610",
+        "auteur": "M. Michoux et al.",
+        "groupe": "UDR",
+        "expose": "Cet amendement vise à affirmer le caractère stratégique du nucléaire et son importance primordiale pour arriver aux objectifs de décarbonation. La transition énergétique ne saurait se faire sans le nucléaire. Pilotable, décarboné, souverain, il constitue un pilier essentiel du mix énergétique français.\nCette disposition lui confirme son rôle centrale, claire et assumé dans les objectifs stratégiques.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2499",
+      "numero": 2499,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 728 de Mme Laernoes et le sous-amendement identique suivant à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2499",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "contre",
+      "raison": "Supprimer le maintien des installations de retraitement des combustibles usés va contre la stratégie d'économie circulaire incluse dans le plan de relance de la Sfen.",
+      "confiance": 0.7,
+      "amendement": {
+        "numero": "728",
+        "auteur": "Mme Laernoes et al.",
+        "groupe": "ECOS",
+        "expose": "Ce sous-amendement du groupe Écologiste et Social vise à supprimer le 5° quater, qui prévoit le maintien en fonctionnement de toutes les installations de retraitement et de valorisation des combustibles usés, au-delà de 2040.\nCette orientation soutient de fait la prolongation d’installations anciennes, comme celles de La Hague, dont la rénovation s’est pourtant déjà révélée extrêmement coûteuse. L’ambiguïté du texte laisse aussi craindre que ces prolongations viennent remplacer, plutôt que compléter, les nouvelles unités pourtant requises par les PPE et PNGMDR précédents. Ce serait un recul grave en matière de sûreté et de protection de l’environnement.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2501",
+      "numero": 2501,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 771 de Mme Givernet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2501",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "Le sous-amendement inscrit le retraitement et le recyclage des combustibles usés comme principal mode de gestion, en ligne avec la stratégie d'économie circulaire voulue par la Sfen.",
+      "confiance": 0.7,
+      "amendement": {
+        "numero": "771",
+        "auteur": "Mme Givernet",
+        "groupe": "EPR",
+        "expose": "Ancrer dans la loi le retraitement et le recyclage des combustibles nucléaires usés comme leur principal mode de gestion correspond aux demandes des Conseil de Politique Nucléaire de février 2024 et mars 2025 d’intégrer la confirmation de cette stratégie dans un texte de programmation énergétique, sans pour autant en figer de manière impérative et inévitable le caractère obligatoire. Cette dimension programmatique a tout son sens dans le code de l’énergie car elle donne la visibilité nécessaire à la mise en œuvre du programme de renouvellement des usines de l’aval du cycle. Cette rédaction reprend la rédaction proposée par le Sénat tout en maintenant un apport de la commission des affaires économiques : la suppression de la définition des modalités d’organisation et de gestion qui ne nécessite pas d’être mentionnée dans la loi.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2503",
+      "numero": 2503,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 780 de M. Nury à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2503",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "Le sous-amendement rétablit l'ambition du traitement et du recyclage des combustibles usés, qui fait partie du plan de relance soutenu par la Sfen.",
+      "confiance": 0.7,
+      "amendement": {
+        "numero": "780",
+        "auteur": "M. Nury",
+        "groupe": "DR",
+        "expose": "Ce sous amendement vise à rétablir l'alinéa voté au Sénat en rétablissant l'ambition sur le traitement et le recyclage des combustibles usés comme principal mode de gestion.\nL’enjeu de ce sous amendement est d’autant plus crucial que la relance mondiale du nucléaire civil, avec 65 réacteurs en construction, risque de provoquer des tensions sur le marché de l’uranium naturel, dont les réserves sont limitées comme toutes les ressources naturelles.\nTel est le sens de cet amendement.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2510",
+      "numero": 2510,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 731 de Mme Laernoes et le sous-amendement identique suivant à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2510",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "contre",
+      "raison": "Le sous-amendement supprime le soutien aux réacteurs de 4e génération, alors que la Sfen veut investir dans les réacteurs innovants.",
+      "confiance": 0.7,
+      "amendement": {
+        "numero": "731",
+        "auteur": "Mme Laernoes et al.",
+        "groupe": "ECOS",
+        "expose": "Ce sous-amendement du groupe Écologiste et Social vise à supprimer le 5° septies, qui vise à relancer le soutien aux réacteurs de quatrième génération à neutrons rapides, malgré les échecs industriels retentissants de Superphénix et l’abandon du projet ASTRID.\nEngager à nouveau des fonds publics dans cette impasse technologique, non maîtrisée, dangereuse et spéculative, relève de l’irresponsabilité !",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2528",
+      "numero": 2528,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 146 de M. Amblard après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2528",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "L'amendement prévoit de remplacer les anciens réacteurs par de nouveaux pour maintenir 63 GW, ce qui sert la relance du nucléaire.",
+      "confiance": 0.7,
+      "amendement": {
+        "numero": "146",
+        "auteur": "M. Amblard et al.",
+        "groupe": "RN",
+        "expose": "Les réacteurs mis en service avant 2005 devront progressivement être remplacés. Cet amendement prévoit leur renouvellement à partir de 2050 par la construction de nouveaux réacteurs, assurant le maintien d’une capacité minimale de 63 GW. Il s’agit d’un enjeu stratégique de continuité et de modernisation.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2461",
+      "numero": 2461,
+      "date": "2025-06-17",
+      "titre": "l'amendement n° 66 de M. Amblard après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2461",
+      "position_id": "P3",
+      "position": "Réduire fortement la part des énergies fossiles en électrifiant les usages.",
+      "vote_souhaite": "contre",
+      "raison": "L'amendement prévoit de mobiliser les ressources fossiles nationales, à l'inverse de la réduction de la part des fossiles que défend la Sfen.",
+      "confiance": 0.65,
+      "amendement": {
+        "numero": "66",
+        "auteur": "M. Amblard et al.",
+        "groupe": "RN",
+        "expose": "Cet amendement du groupe Rassemblement National introduit une disposition pragmatique visant à mobiliser temporairement les ressources fossiles nationales comme levier de transition. L’objectif n’est pas de pérenniser l’usage des hydrocarbures, mais de valoriser les ressources existantes pour financer la transition écologique vers des modes de production pilotables et bas-carbone. Cette stratégie permettrait de limiter les importations, de renforcer la balance commerciale et de financer massivement le développement de filières comme le nucléaire, la géothermie ou la biomasse. Elle inscrit la politique énergétique dans une logique de transition réaliste, progressive et économiquement soutenable, sans rupture brutale ni dépendance durable aux marchés extérieurs.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2472",
+      "numero": 2472,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 518 de Mme Laernoes à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2472",
+      "position_id": "P2",
+      "position": "Prolonger les réacteurs existants au-delà de 50, voire 60 ans, et renoncer à la fermeture de 12 réacteurs.",
+      "vote_souhaite": "pour",
+      "raison": "L'amendement rétablit l'article 3 en affirmant le maintien en fonctionnement des réacteurs existants sous réserve de sûreté, ce que demande la Sfen.",
+      "confiance": 0.65,
+      "amendement": {
+        "numero": "518",
+        "auteur": "Mme Laernoes et al.",
+        "groupe": "ECOS",
+        "expose": "Le présent amendement du groupe Écologiste et Social propose de rétablir l'article 3, supprimé en commission des affaires économiques, en affirmant le seul principe du maintien en fonctionnement des installations de production d’électricité d’origine nucléaire existantes, sous réserve du respect strict des exigences de sûreté nucléaire.\nIl s’agit ici d’une position de compromis et d’ouverture dans un souci de réalisme énergétique et de responsabilité politique.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2527",
+      "numero": 2527,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 143 de M. Amblard après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2527",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "L'amendement fait des réacteurs à neutrons rapides une priorité avec un démonstrateur d'ici 2030, en soutien aux réacteurs innovants.",
+      "confiance": 0.65,
+      "amendement": {
+        "numero": "143",
+        "auteur": "M. Amblard et al.",
+        "groupe": "RN",
+        "expose": "La fermeture du cycle nucléaire et le développement de réacteurs à neutrons rapides constituent une rupture technologique majeure. Cet amendement consacre cette orientation comme une priorité nationale, en fixant l’objectif de lancer un démonstrateur de réacteur à neutrons rapides d’ici 2030 en vue d’un déploiement industriel après 2040.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2429",
+      "numero": 2429,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 279 de M. Alfandari et les amendements identiques suivants à l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2429",
+      "position_id": "P3",
+      "position": "Réduire fortement la part des énergies fossiles en électrifiant les usages.",
+      "vote_souhaite": "pour",
+      "raison": "L'amendement fixe un cap de 1600 TWh d'énergie décarbonée produite par an, ce qui sert la sortie des énergies fossiles par l'électrification.",
+      "confiance": 0.6,
+      "amendement": {
+        "numero": "279",
+        "auteur": "M. Alfandari et al.",
+        "groupe": "HOR",
+        "expose": "Cet amendement du groupe Horizons & Indépendants a pour objectif de stabiliser dans la durée une trajectoire énergétique pour notre pays. Il fixe un cap à soixante ans pour atteindre, à terme, 1600 TWh d’énergie décarbonée produite chaque année. En veillant à ne pas discriminer les types d’énergies entre elles, il offre aux acteurs économiques, industriels et territoriaux de la souplesse, de la stabilité et de la visibilité indispensables pour les investissements et réussir la transition énergétique.\nIl propose une rédaction plus simple et lisible du code de l’énergie, en supprimant les redondances, les doublons et les contradictions des objectifs de la politique énergétique tout en intégrant et en fusionnant avec les propositions du Sénat.\nIl réaffirme le principe de décarbonation de notre mix de production énergétique. Il maintient la nécessité d’une réduction de la consommation d’énergie primaire et d’un engagement collectif en faveur de la sobriété énergétique.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2485",
+      "numero": 2485,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 726 de Mme Laernoes à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2485",
+      "position_id": "P2",
+      "position": "Prolonger les réacteurs existants au-delà de 50, voire 60 ans, et renoncer à la fermeture de 12 réacteurs.",
+      "vote_souhaite": "contre",
+      "raison": "Le sous-amendement retire le maintien en fonctionnement des réacteurs des objectifs de la politique énergétique pour le renvoyer au seul examen de l'ASNR, ce qui affaiblit la prolongation voulue par la Sfen.",
+      "confiance": 0.6,
+      "amendement": {
+        "numero": "726",
+        "auteur": "Mme Laernoes et al.",
+        "groupe": "ECOS",
+        "expose": "Par ce sous-amendement, le groupe Écologiste et Social souhaitent rappeler et préciser le rôle de l’Autorité de sureté nucléaire et de radioprotection (ASNR) dans la procédure de prolongation de l’exploitation de réacteurs nucléaires.\nPar son expertise technique, l’ASNR s’assure que les objectifs de sureté soient remplis lors des réexamens périodiques. Il est nécessaire que le potentiel maintien en fonctionnement des installations de production d’électricité d’origine nucléaire soit expertisé par l’ASNR dans les délais prévus, et non actés comme objectif de la politique énergétique.\nCe sous-amendement explicite donc que le maintien en fonctionnement des installations de production d’électricité d’origine nucléaire soit soumis à l'avis favorable de l'ASNR.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2487",
+      "numero": 2487,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 717 de Mme Voynet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2487",
+      "position_id": "P2",
+      "position": "Prolonger les réacteurs existants au-delà de 50, voire 60 ans, et renoncer à la fermeture de 12 réacteurs.",
+      "vote_souhaite": "contre",
+      "raison": "Le sous-amendement retire l'objectif de modernisation et de renouvellement du parc existant, à l'inverse de la prolongation défendue par la Sfen.",
+      "confiance": 0.6,
+      "amendement": {
+        "numero": "717",
+        "auteur": "Mme Voynet et al.",
+        "groupe": "ECOS",
+        "expose": "Le retrait de cette phrase empêche d’imposer la modernisation complète du parc existant sans évaluation préalable de coûts et de besoins. Le renouvellement complet des installations impliquerait un investissement massif : la Cour des comptes estime à 51,7 Md€ le coût de construction de six réacteurs nouveaux, hors intérêts. Inscrire un tel plan dans la loi anticipe une dépense supplémentaire considérable, alors que ce texte entend programmer déjà un nombre massif de constructions de réacteurs type EPR2 (10 + 13 réacteurs). La gestion des finances publiques est une chose sérieuse et des coûts mal estimés qui ne permettent pas de garantir ces « rénovations » de l’existant et la construction de nouveaux réacteurs.\nCe sous‑amendement garantit que toute modernisation s’appuiera sur une analyse technique, économique et environnementale anticipée.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2512",
+      "numero": 2512,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 753 de M. Nury à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2512",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "Le sous-amendement fixe un calendrier de déploiement industriel des réacteurs de 4e génération d'ici 2040, en soutien aux réacteurs innovants.",
+      "confiance": 0.6,
+      "amendement": {
+        "numero": "753",
+        "auteur": "M. Nury et al.",
+        "groupe": "DR",
+        "expose": "Ce sous amendement vise à s'assurer que le déploiement industriel du réacteur de quatrième génération à neutrons rapides puisse être déployé industriellement d'ici 2040.\nIl est ainsi proposé un calendrier ambitieux mais réaliste afin de donner de la visibilité à la filière nucléaire.\nTel est le sens de ce sous amendement.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2513",
+      "numero": 2513,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 799 de M. Alfandari à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2513",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "Le sous-amendement prépare dès 2040 le déploiement industriel des réacteurs de 4e génération et de leurs combustibles, en soutien aux réacteurs innovants.",
+      "confiance": 0.6,
+      "amendement": {
+        "numero": "799",
+        "auteur": "M. Alfandari",
+        "groupe": "HOR",
+        "expose": "Cet ajout vise à anticiper dès 2040 la mise en œuvre industrielle des réacteurs de quatrième génération en engageant, en parallèle, la préparation des combustibles associés, afin de garantir la cohérence technologique et la sécurité d’approvisionnement à long terme.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2544",
+      "numero": 2544,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 340 de Mme Trouvé après l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2544",
+      "position_id": "P3",
+      "position": "Réduire fortement la part des énergies fossiles en électrifiant les usages.",
+      "vote_souhaite": "pour",
+      "raison": "Interdire les aides publiques aux énergies fossiles accélère la baisse de leur part, objectif que soutient la Sfen.",
+      "confiance": 0.6,
+      "amendement": {
+        "numero": "340",
+        "auteur": "Mme Trouvé et al.",
+        "groupe": "LFI-NFP",
+        "expose": "Cet amendement du groupe LFI-NFP vise à inscrire dans le code de l’énergie un principe fondamental : l’interdiction des aides publiques aux énergies fossiles, qu’il s’agisse de subventions directes, de dispositifs fiscaux préférentiels, de garanties d’État ou d’aides à l’investissement.\nMalgré les engagements répétés de la France à la COP26 (Glasgow Statement), au G7 ou à l’OCDE, les soutiens publics aux activités fossiles persistent. Ils représentent encore plusieurs milliards d’euros par an, sous forme de de garanties export, ou d’investissements dans des infrastructures gazières et pétrolières.\nCes aides nourrissent des effets d’aubaine pour les opérateurs du fossile, freinent les investissements dans la sobriété et les renouvelables, et aggravent l’empreinte climatique de la France, notamment à l’international via ses soutiens financiers. Elles contredisent également l’objectif d’un « budget climatique » sincère et lisible, revendiqué dans la programmation pluriannuelle de l’énergie.\nL’amendement vise donc à poser un principe général d’exclusion de toute aide publique en faveur de l’exploration, de l’exploitation et de la transformation des énergies fossiles. Il permet ainsi d’aligner les instruments financiers de l’État avec ses objectifs climatiques.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2566",
+      "numero": 2566,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 345 de M. Meurin à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2566",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "Ouvrir l'objectif de production de chaleur à toute chaleur bas carbone permet d'y inclure la chaleur nucléaire des petits réacteurs que la Sfen veut développer.",
+      "confiance": 0.6,
+      "amendement": {
+        "numero": "345",
+        "auteur": "M. Meurin et al.",
+        "groupe": "RN",
+        "expose": "Cet amendement vise à élargir l’objectif de production de chaleur, ne le cantonnant plus qu’au renouvelable et à la récupération, mais l’ouvrant à toute production de chaleur bas carbone. Cet amendement permet ainsi de ne pas exclure des productions de chaleur qui iraient dans le sens du texte : l’augmentation de la part d’énergie décarbonée.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2424",
+      "numero": 2424,
+      "date": "2025-06-16",
+      "titre": "l'amendement de suppression n° 622 du Gouvernement et les amendements identiques suivants à l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2424",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "Supprimer le monopole d'EDF sur la construction et l'exploitation des réacteurs laisse les porteurs de petits réacteurs innovants développer leurs projets, que la Sfen veut soutenir.",
+      "confiance": 0.55,
+      "amendement": {
+        "numero": "622",
+        "auteur": "le Gouvernement",
+        "groupe": "Gouvernement",
+        "expose": "La commission des affaires économiques de l’Assemblée nationale a adopté l’article 1er A confiant le monopole de la construction et de l’exploitation des réacteurs électronucléaires à la puissance publique et à EDF.\nOr, toute disposition visant à instituer un monopole au bénéfice d'EDF pour la production d'électricité d'origine nucléaire contreviendrait à la liberté d'établissement et aux dispositions du droit de l'Union européenne, qui imposent l'ouverture à la concurrence du marché de la production d'électricité.\nPar ailleurs, il importe de laisser toute latitude aux projets de réacteurs innovants de proposer leur modèle d'affaires, qui peut inclure la construction ou l'exploitation d'un réacteur. A défaut, c’est toute la dynamique de développement des petits réacteurs modulaires et avancés qui serait remise en cause dans notre pays, alors même qu’elle fait l’objet d’un soutien public résolu de la part du Gouvernement et qu’onze projets différents ont été retenus au terme de la première phase d’un appel à projets organisé au titre du plan France 2030.\nEn tout état de cause, les activités de construction et d’exploitation des réacteurs électronucléaires sont placées sous le contrôle de l'Autorité de sûreté nucléaire et de radioprotection dans son champ de compétence. Tous les exploitants nucléaires sont soumis aux mêmes exigences élevées en matière de sûreté nucléaire et de radioprotection.\nDans ces conditions, il importe de supprimer l’article 1er A et c’est l’objet du présent amendement.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2502",
+      "numero": 2502,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 808 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2502",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "Le sous-amendement prévoit de développer le recyclage des combustibles des réacteurs de 4e génération, ce qui prolonge la stratégie d'économie circulaire de la relance.",
+      "confiance": 0.55,
+      "amendement": {
+        "numero": "808",
+        "auteur": "M. Amblard et al.",
+        "groupe": "RN",
+        "expose": "Cet amendement vise à prévoir un développement du retraitement et du recyclage des combustibles issus des réacteurs de 4e génération en parallèle afin que les deux technologies de production et de recyclage aient atteint le plus haut niveau de maturité en même temps.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2547",
+      "numero": 2547,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 546 de Mme Laernoes à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2547",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "contre",
+      "raison": "L'amendement remplace l'objectif d'énergies décarbonées, qui inclut le nucléaire, par un objectif limité aux renouvelables, ce qui efface le nucléaire de la trajectoire.",
+      "confiance": 0.55,
+      "amendement": {
+        "numero": "546",
+        "auteur": "Mme Laernoes et al.",
+        "groupe": "ECOS",
+        "expose": "Cet amendement du groupe Écologiste et Social vise à réécrire l'article 5 de la présente proposition de loi, pour redonner à la politique énergétique française une trajectoire claire et alignée sur les objectifs européens de développement des énergies renouvelables.\nAlors que la version actuelle de l’article privilégie un objectif ambigu de 58 % d’énergies « décarbonées » - formulation qui inclut le nucléaire sans le dire - nous proposons de fixer un objectif explicite : atteindre au moins 44 % d’énergies renouvelables dans la consommation finale brute d’énergie d’ici 2030, conformément à la directive européenne RED III. Ce seuil n’est pas un simple affichage, mais une exigence juridique et climatique minimale à respecter.\nL’amendement vient également préciser ou affiner les objectifs de production par grande filière (solaire, éolien terrestre et en mer, chaleur renouvelable, etc.), inspirés de données de scénarios les plus ambitieux - SFEC, négaWatt, RTE, ADEME, ou projections des filières elles-mêmes.\nCes jalons permettent de sortir de l’approche trop globale ou trop technocratique qui a freiné le développement des renouvelables en France ces dernières années.\nL’objectif est double : donner de la visibilité aux filières industrielles, aux collectivités et aux porteurs de projets ; et permettre une programmation cohérente des appels d’offres, des infrastructures et des soutiens publics.\nEn inscrivant des objectifs sectoriels concrets, cet amendement ancre véritablement la planification énergétique dans le réel, renforce la transparence des choix technologiques, et fixe un cap lisible pour accélérer la transition énergétique des 10 prochaines années.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2611",
+      "numero": 2611,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 70 de M. Amblard après l'article 13 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2611",
+      "position_id": "P3",
+      "position": "Réduire fortement la part des énergies fossiles en électrifiant les usages.",
+      "vote_souhaite": "pour",
+      "raison": "Cibler la baisse de consommation sur les seules énergies fossiles, et non sur toute l'énergie, va dans le sens de l'électrification des usages voulue par la Sfen.",
+      "confiance": 0.55,
+      "amendement": {
+        "numero": "70",
+        "auteur": "M. Amblard et al.",
+        "groupe": "RN",
+        "expose": "Cet amendement du groupe Rassemblement National vise à cibler la baisse volontaire de la consommation d’énergie seulement sur les énergies fossiles, par sur toute la consommation d’énergie finale.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2615",
+      "numero": 2615,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 25 de M. Trébuchet et l'amendement identique suivant à l'article 16 bis (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2615",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "Permettre de classer en stock stratégique les matières destinées aux réacteurs de 4e génération sert l'économie circulaire et les réacteurs innovants de la relance.",
+      "confiance": 0.55,
+      "amendement": {
+        "numero": "25",
+        "auteur": "M. Trébuchet et al.",
+        "groupe": "UDR",
+        "expose": "L'article 16 Bis complète le deuxième alinéa de l’article L. 542-13-2 du code de l’environnement afin de permettre à l’autorité administrative de requalifier en « stock stratégique » des matières radioactives pour lesquelles il existe des projets de valorisation futurs — notamment dans le cadre des réacteurs à neutrons rapides de 4ᵉ génération.\nFace aux enjeux de souveraineté industrielle et de gestion durable des matières nucléaires, il apparaît indispensable d’anticiper dès aujourd’hui les besoins de la filière des réacteurs de 4ᵉ génération à neutrons rapides. Ces futurs réacteurs, dont la mise en service est programmée à l’horizon 2030-2040, offriront la capacité unique de retraiter et de réutiliser les actinides contenus dans les combustibles usés du parc conventionnel. Pour garantir la disponibilité immédiate de ces ressources lors de la phase de montée en puissance de la filière, il convient de créer un cadre juridique solide permettant de réserver et de préserver les matières nécessaires sous forme de stocks stratégiques.\nAu début de l’année 2025, le Conseil de politique nucléaire a formellement recommandé la relance accélérée de la filière des neutrons rapides, insistant sur la nécessité d’augmenter les capacités de recherche-développement et de renforcer les infrastructures industrielles de traitement-recyclage. Il a souligné l’urgence d’aligner le Plan national de gestion des matières et déchets radioactifs (PNGMDR) sur ces orientations stratégiques. En intégrant dans la loi la possibilité de requalifier des matières en stock stratégique, cet amendement répond directement aux préconisations du Conseil, en fournissant le cadre réglementaire indispensable pour sécuriser et pérenniser les approvisionnements futurs.\nPour ces raisons, il est indispensable de rétablir cet article supprimé en commission, afin que le PNGMDR articule pleinement et efficacement la stratégie nationale de valorisation des matières nucléaires autour du futur parc à neutrons rapides. Il s'agit d'un article programmatif essentiel ayant toute sa place dans cette proposition de loi.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2433",
+      "numero": 2433,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 243 de M. Tavel à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2433",
+      "position_id": "P3",
+      "position": "Réduire fortement la part des énergies fossiles en électrifiant les usages.",
+      "vote_souhaite": "pour",
+      "raison": "L'amendement fixe à l'État l'objectif de sortir rapidement des énergies fossiles pour réduire les émissions, en ligne avec la réduction de leur part voulue par la Sfen.",
+      "confiance": 0.5,
+      "amendement": {
+        "numero": "243",
+        "auteur": "M. Tavel et al.",
+        "groupe": "LFI-NFP",
+        "expose": "Cet amendement d'appel du groupe LFI-NFP vise à rappeler, dès le début de la discussion sur cette proposition de loi, l'urgence climatique à laquelle nous devons répondre et qui doit nous guider dans l'élaboration de cette loi de programmation énergétique.\nCet amendement vise donc à rappeler que l'action de l'Etat concernant la production d'électricité doit être guidée par l'objectif de réduire les émissions de gaz à effet de serre d'au moins 50% d'ici 2030 par rapport à 1990 et d'atteindre la neutralité carbone en 2050.\nCes objectifs à très brève échéance nécessitent de sortir très rapidement des énergies fossiles sur lesquelles notre système énergétique repose toujours massivement : aujourd’hui, en France, environ 60 % de l’énergie utilisée est toujours d’origine fossile (il s’agit principalement des produits pétroliers (de l’ordre de 40 %), du gaz naturel (de l’ordre de 20 %) et du charbon (moins de 1 %)). Si le nucléaire représente bien 70 % de l’électricité produite en France, il représente moins de 20 % de l’énergie finale utilisée par les français.\nOr, dans les années qui viennent, seules les énergies renouvelables peuvent se substituer rapidement aux énergies fossiles, en complément des nécessaires efforts à réaliser en matière de sobriété et d'efficacité énergétique.\nNos propres objectifs climatiques nous invitent donc à investir massivement et dès aujourd'hui dans le développement des énergies renouvelables, et à renoncer à investir des centaines de milliards d'euros dans la construction de nouveaux réacteurs nucléaires qui ne seront prêts, s'ils fonctionnent un jour, que bien trop tard pour répondre à l'urgence climatique. Aucun scénario n'envisage en effet leur livraison avant 2038, et l'expérience de la construction des derniers réacteurs comme Flamanville nous a appris à considérer le retard massif que tendent à prendre ces chantiers.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2457",
+      "numero": 2457,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 46 de M. Amblard après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2457",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "L'amendement remplace les quotas d'énergies renouvelables par un objectif fondé sur les sources pilotables et décarbonées, en citant le nucléaire, ce qui conforte sa place.",
+      "confiance": 0.5,
+      "amendement": {
+        "numero": "46",
+        "auteur": "M. Amblard et al.",
+        "groupe": "RN",
+        "expose": "Le présent amendement du groupe Rassemblement National remplace une logique de quotas d’énergies renouvelables par un objectif fondé sur les sources pilotables et décarbonées, seules capables d’assurer à la fois la stabilité du réseau, la sécurité d’approvisionnement, la réduction des émissions de GES et la minimisation des prix de l’énergie. En mentionnant explicitement le nucléaire, l’hydroélectricité, la géothermie et la biomasse, le texte privilégie des technologies éprouvées, capables de fournir une énergie de base stable, en opposition aux sources intermittentes.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2486",
+      "numero": 2486,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 716 de Mme Voynet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2486",
+      "position_id": "P2",
+      "position": "Prolonger les réacteurs existants au-delà de 50, voire 60 ans, et renoncer à la fermeture de 12 réacteurs.",
+      "vote_souhaite": "contre",
+      "raison": "Exiger des réacteurs prolongés le niveau de sûreté des installations neuves rendrait la prolongation bien plus difficile, alors que la Sfen la demande dans le respect des exigences applicables.",
+      "confiance": 0.5,
+      "amendement": {
+        "numero": "716",
+        "auteur": "Mme Voynet et al.",
+        "groupe": "ECOS",
+        "expose": "Cet amendement introduit une exigence explicite de sûreté pour les réacteurs qui seront prolongés. Si la loi prévoit la possibilité de prolonger la durée de fonctionnement d’un réacteur, elle doit garantir que celui-ci réponde aux normes de sûreté les plus strictes, identiques à celles des nouvelles installations.\nDans un contexte de vieillissement avancé, seul un niveau de sûreté équivalent aux standards les plus exigeants pourrait justifier une telle prolongation. L’approche retenue semble donc insuffisante et incertaine.\nCette précision est essentielle pour renforcer la confiance publique et assurer une prise en compte systématique des derniers référentiels dans l’évaluation de sûreté.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2520",
+      "numero": 2520,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 807 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2520",
+      "position_id": "P2",
+      "position": "Prolonger les réacteurs existants au-delà de 50, voire 60 ans, et renoncer à la fermeture de 12 réacteurs.",
+      "vote_souhaite": "pour",
+      "raison": "Augmenter d'au moins 3 GW la puissance des réacteurs existants prolonge et valorise le parc historique que la Sfen veut maintenir.",
+      "confiance": 0.5,
+      "amendement": {
+        "numero": "807",
+        "auteur": "M. Amblard et al.",
+        "groupe": "RN",
+        "expose": "Cet amendement fixe des objectifs ambitieux mais réalistes pour améliorer l’utilisation effective des capacités existantes, en procédant à un power-up de nos réacteurs. Cela nous permettra d'augmenter la puissance du parc historique d'au moins 3 GW.",
+        "parent": {
+          "numero": "503",
+          "auteur": "M. Armand",
+          "groupe": "EPR",
+          "expose": "Cet amendement de rétablissement de l’article 3 reprend la rédaction proposée par le Sénat tout en maintenant plusieurs apports votés par la commission des affaires économiques, avant qu’elle ne rejette l’article à l’issue de son examen.\nLes principaux ajouts maintenus sont les suivants :\n– la simplification de la rédaction de l’alinéa 5 de l’article, qui porte sur la recherche et l’innovation en matière d’énergie nucléaire ;\n– la suppression des objectifs, fixés en pourcentage, de nucléaire dans le mix de production électrique, d’une part, et de décarbonation des mix électrique et énergétique, d’autre part ;\n– la réorganisation de la présentation des différents alinéas relatifs au nucléaire à l’article L. 100‑4 du code de l’énergie, en débutant par le maintien des capacités installées, puis le déploiement de nouvelles capacités et enfin les enjeux relatifs au cycle du combustible ;\n– la suppression de la mention de pourcentages précis de matières recyclées à utiliser dans les réacteurs, de même que celle de faire du retraitement et du recyclage des combustibles usés leur principal mode de gestion, afin de respecter le principe de neutralité technologique ;\n– enfin, le maintien de l’objectif d’engager la construction d’un démonstrateur de réacteur à neutrons rapides au plus tard en 2030.\nLes objectifs de développement de nouvelles capacités installées reprennent ceux proposés par le Sénat, en supprimant toutefois l’objectif d’engager la construction d’un petit réacteur modulaire d’ici 2030.\nEnfin, il est ajouté :\n– à l’article L. 100‑2, un alinéa soulignant l’importance de disposer d’informations relatives aux coûts et aux prix du nucléaire ;\n– à l’article L. 100‑4, un alinéa affirmant l’importance de la gestion des stocks de matières radioactives pour la fermeture du cycle du combustible, y compris en permettant la requalification de déchets radioactifs en matières radioactives. Il est également ajouté un objectif d’augmenter la disponibilité des réacteurs. L’objectif de maintenir 63 GW de capacités nucléaires installées, sous réserve des impératifs liés à la sûreté nucléaire, est maintenu sans limite de durée."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2530",
+      "numero": 2530,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 114 rectifié de M. Amblard après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2530",
+      "position_id": "P2",
+      "position": "Prolonger les réacteurs existants au-delà de 50, voire 60 ans, et renoncer à la fermeture de 12 réacteurs.",
+      "vote_souhaite": "pour",
+      "raison": "L'amendement vise à augmenter d'au moins 3 GW la puissance du parc existant, qui reste ainsi au cœur de la production.",
+      "confiance": 0.5,
+      "amendement": {
+        "numero": "114 (Rect)",
+        "auteur": "M. Amblard et al.",
+        "groupe": "RN",
+        "expose": "Cet amendement fixe des objectifs ambitieux mais réalistes pour améliorer l’utilisation effective des capacités existantes, en procédant à un power-up de nos réacteurs. Cela nous permettra d'augmenter la puissance du parc historique d'au moins 3 GW.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2532",
+      "numero": 2532,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 507 de M. Nury après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2532",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "L'amendement valorise l'uranium appauvri comme réserve de combustible pour les réacteurs à neutrons rapides, dans la logique d'économie circulaire de la relance.",
+      "confiance": 0.5,
+      "amendement": {
+        "numero": "507",
+        "auteur": "M. Nury et al.",
+        "groupe": "DR",
+        "expose": "Le stock français d’uranium appauvri représente une réserve stratégique de combustible pour les réacteurs à neutrons rapides (RNR), capable d’assurer la production d’électricité pendant plusieurs millénaires. Cet uranium appauvri est issu des usines de séparation isotopique, notamment celle de Pierrelatte, où l’uranium naturel est enrichi pour alimenter les réacteurs à neutrons lents (RNL), qui constituent aujourd’hui l’ensemble du parc nucléaire français et mondial. L’uranium appauvri, qui représente environ 94 % de l’uranium extrait, n’est pas utilisé dans les réacteurs actuels, mais il peut devenir un combustible précieux pour les RNR, comme cela a été démontré avec les réacteurs expérimentaux Phénix et Superphénix, ainsi que dans le cadre du projet Astrid.\nSuperphénix a été arrêté en 1998 pour des raisons essentiellement politiques, alors que la France bénéficiait d’une avance technologique de vingt ans. Le projet Astrid a également été abandonné en 2019, sans justification ni débat public, bien qu’il s’inscrivît dans le cadre de la loi de 2006 sur la transparence et la sécurité nucléaire (loi TSN), adoptée à l’unanimité.\nL’uranium appauvri est actuellement stocké sous forme d’oxyde (U₃O₈) dans des hangars standards, car il est chimiquement stable, non inflammable et très faiblement radioactif\nL’enjeu de cet amendement du groupe Droite Républicaine est d’autant plus crucial que la relance mondiale du nucléaire civil, avec 65 réacteurs en construction, risque de provoquer des tensions sur le marché de l’uranium naturel, dont les réserves sont limitées comme toutes les ressources naturelles. La valorisation du stock d’uranium appauvri permettrait à la France d’assurer sa souveraineté énergétique et de produire durablement de l’électricité pilotable et décarbonée.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2548",
+      "numero": 2548,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 549 de Mme Laernoes à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2548",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "contre",
+      "raison": "Cet amendement de repli remplace lui aussi l'objectif d'énergies décarbonées incluant le nucléaire par un objectif limité aux renouvelables.",
+      "confiance": 0.5,
+      "amendement": {
+        "numero": "549",
+        "auteur": "Mme Laernoes et al.",
+        "groupe": "ECOS",
+        "expose": "Amendement de repli à l'amendement n°546.\nIl vise à réécrire l'article 5 pour inscrire dans la loi l'objectif de 42,5 % d’énergies renouvelables dans la consommation finale brute d’énergie à l’horizon 2030, en cohérence avec l’objectif européen fixé par la directive RED III.\nPour rappel, cette directive impose aux États membres un objectif commun de 42,5 % d’EnR d’ici 2030, avec une incitation à atteindre 45 % via des contributions volontaires. Dans le cas de la France, la Commission européenne estime que notre part pour respecter cet objectif européen devrait être d’environ 44 %.\nL'objectif de 42,5% reste ainsi inférieur à celui de 44 %, mais marque un progrès net par rapport à la formulation actuelle en termes de part d’« énergies décarbonées », qui entretient volontairement une ambiguïté entre énergies renouvelables et nucléaire.\nCet amendement précise également des objectifs de production par filière, directement issus du projet de PPE3 (éolien terrestre, photovoltaïque, éolien en mer, chaleur renouvelable, etc.).",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2598",
+      "numero": 2598,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 32 de M. Amblard à l'article 10 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2598",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "Aligner les exigences sur la décarbonation plutôt que sur le seul caractère renouvelable met le nucléaire sur un pied d'égalité avec les renouvelables.",
+      "confiance": 0.5,
+      "amendement": {
+        "numero": "32",
+        "auteur": "M. Amblard et al.",
+        "groupe": "RN",
+        "expose": "Cet amendement du groupe Rassemblement National vise à rendre cohérent les exigences à mettre sur les sources d’énergie avec les objectifs de décarbonation, et non de « renouvelabilité ».",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2612",
+      "numero": 2612,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 29 de M. Amblard après l'article 13 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2612",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "Fonder les exigences sur la décarbonation plutôt que sur le caractère renouvelable place le nucléaire au même rang que les renouvelables.",
+      "confiance": 0.5,
+      "amendement": {
+        "numero": "29",
+        "auteur": "M. Amblard et al.",
+        "groupe": "RN",
+        "expose": "Cet amendement du groupe Rassemblement National vise à rendre cohérent les exigences à mettre sur les sources d’énergie avec les objectifs de décarbonation, et non de « renouvelabilité ».",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2432",
+      "numero": 2432,
+      "date": "2025-06-16",
+      "titre": "l'amendement de suppression n° 623 du Gouvernement à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2432",
+      "position_id": "P4",
+      "position": "Faire voter par le Parlement une loi de programmation énergétique fondée sur la PPL Grémillet.",
+      "vote_souhaite": "contre",
+      "raison": "Supprimer l'article premier vide la loi de programmation d'une partie de ses objectifs, alors que la Sfen veut que le Parlement fixe ces choix par la loi.",
+      "confiance": 0.45,
+      "amendement": {
+        "numero": "623",
+        "auteur": "le Gouvernement",
+        "groupe": "Gouvernement",
+        "expose": "L’article 1 contient de nombreuses dispositions qui sont déjà présentes dans le code de l’énergie.\nDe plus, l’article 1 dans sa version sortie de Commission présente différentes problématiques :\n- Il transforme Électricité de France en établissement public à caractère industriel et commercial. Le groupe Électricité de France joue un rôle essentiel dans le déploiement de la politique énergétique française. Toutefois, le statut de société anonyme facilite son positionnement sur les marchés concurrentiels internationaux, ainsi que sa capacité à proposer une offre de service diversifiée au niveau national. En outre, il permet à l'entreprise de diversifier les leviers de financement. C'est ainsi que les travaux sur la loi n° 2024-330 du 11 avril 2024 visant à protéger le groupe Électricité de France d'un démembrement ont conduit à conforter la position d’Électricité de France en tant que société anonyme, tout en précisant qu'il s'agit d'une société anonyme « d'intérêt national », dont le capital est détenu à 100% par l’État.\n- Il indexe les TRVe sur les coûts de production du système électrique. Or, ces derniers ont vocation à refléter les coûts supportés par les fournisseurs actifs en France. Conformément à l’article L. 337-6 du code de l’énergie, ces coûts comprennent les coûts d’approvisionnement en électricité (qu’elle soit produite en France ou non), les coûts du mécanisme de capacité, les frais d’accès aux marchés de l’énergie, l’espérance des risques quantifiables, les coûts liés aux écarts au périmètre d’équilibre, les coûts d’acheminement réseaux, les coûts commerciaux, etc.\n- Il rétablit les TRVgaz, alors que ceux-ci ont été jugés non conformes aux règles européennes par le Conseil d’Etat. Les TRVgaz ne contribuent ni à la sécurité d’approvisionnement, ni à la stabilité des prix. Les prix repères, publiés par la CRE, ont vocation à éclairer les consommateurs dans leur choix de fournisseur de gaz\nAinsi, dans un souci de simplification du droit, il est proposé de supprimer cet article",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2445",
+      "numero": 2445,
+      "date": "2025-06-16",
+      "titre": "le sous-amendement n° 758 de M. Tavel à l'amendement n° 371 de M. Brugerolles à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2445",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "contre",
+      "raison": "Rétablir le monopole public et d'EDF sur les réacteurs fermerait la porte aux autres porteurs de petits réacteurs innovants que la Sfen veut voir se développer.",
+      "confiance": 0.45,
+      "amendement": {
+        "numero": "758",
+        "auteur": "M. Tavel et al.",
+        "groupe": "LFI-NFP",
+        "expose": "Ce sous-amendement du groupe LFI-NFP vise à réintroduire les dispositions de l'article 1er A adopté en commission des affaires économiques. Il prévoit de confier le monopole de la construction et de l’exploitation des réacteurs électronucléaires à la puissance publique et à la société Électricité de France.",
+        "parent": {
+          "numero": "371",
+          "auteur": "M. Brugerolles et al.",
+          "groupe": "GDR",
+          "expose": "En 40 ans, nous sommes passés d’un service public intégré de l’énergie à un marché mal conçu, au simple service d’une concurrence factice et au détriment des usagers devenus des consommateurs. En 40 ans, les différents paquets énergétiques ont été adoptés : déréglementation, libéralisation, processus de privatisation. Non seulement cette évolution a conduit l’État à renoncer à une large part de sa souveraineté énergétique, mais elle a également impacté les nécessités de planification du secteur, qui supposent une centralisation du pilotage des ressources."
+        }
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2462",
+      "numero": 2462,
+      "date": "2025-06-17",
+      "titre": "l'amendement n° 71 de M. Amblard après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2462",
+      "position_id": "P1",
+      "position": "Relancer le nucléaire en construisant de nouveaux réacteurs EPR2 et des petits réacteurs innovants.",
+      "vote_souhaite": "pour",
+      "raison": "L'amendement vise à structurer des chaînes de valeur industrielles, notamment dans le nucléaire, ce qui accompagne sa relance.",
+      "confiance": 0.45,
+      "amendement": {
+        "numero": "71",
+        "auteur": "M. Amblard et al.",
+        "groupe": "RN",
+        "expose": "Cet amendement vise à structurer durablement des chaînes de valeur dans des secteurs stratégiques, tels que le nucléaire, l’hydroélectricité ou encore la rénovation thermique. En favorisant leur ancrage territorial, il permet aussi la création d’emplois qualifiés et la relocalisation industrielle. L’accent mis sur la compétitivité économique garantit que ces filières puissent répondre efficacement à la demande intérieure tout en favorisant les exportations, ce qui renforcera notre balance commerciale.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2522",
+      "numero": 2522,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 6 de M. Jean-Philippe Tanguy après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2522",
+      "position_id": "P2",
+      "position": "Prolonger les réacteurs existants au-delà de 50, voire 60 ans, et renoncer à la fermeture de 12 réacteurs.",
+      "vote_souhaite": "pour",
+      "raison": "Prévoir la réouverture de Fessenheim va dans le sens du refus des fermetures de réacteurs défendu par la Sfen.",
+      "confiance": 0.45,
+      "amendement": {
+        "numero": "6",
+        "auteur": "M. Jean-Philippe Tanguy et al.",
+        "groupe": "RN",
+        "expose": "La fermeture de Fessenheim en 2020, sous la présidence d’Emmanuel Macron, constitue une erreur stratégique majeure et une décision idéologique contraire à l’intérêt national.\nLa centrale nucléaire de Fessenheim était en bon état de fonctionnement au moment de sa fermeture et aurait pu continuer à produire de l’électricité pendant encore plusieurs années.\nSa réouverture devra avoir lieu le plus tôt possible dès que les conditions techniques et les mesures de sûreté le permettront.\nIl s’agit d’une nécessité pour notre souveraineté énergétique qui s’inscrit dans une politique ambitieuse de relance massive du nucléaire.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2535",
+      "numero": 2535,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 56 de M. Amblard à l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2535",
+      "position_id": "P3",
+      "position": "Réduire fortement la part des énergies fossiles en électrifiant les usages.",
+      "vote_souhaite": "pour",
+      "raison": "Viser 100 % d'hydrogène bas-carbone en 2035 remplace l'hydrogène d'origine fossile, ce qui réduit la part des fossiles.",
+      "confiance": 0.45,
+      "amendement": {
+        "numero": "56",
+        "auteur": "M. Amblard et al.",
+        "groupe": "RN",
+        "expose": "Le présent amendement du groupe Rassemblement National clarifie sans ambiguïté l’objectif de décarbonation totale de l’hydrogène consommé en France à l’horizon 2035. Il supprime les formulations confuses ou progressives pour fixer une trajectoire claire : 100 % d’hydrogène bas-carbone, tous usages confondus, afin d’en faire un vecteur énergétique pleinement aligné avec les objectifs climatiques et industriels. Il permet également de justifier les investissements publics en matière de production par électrolyse, d’hydrogène blanc ou de thermolyse.",
+        "parent": null
+      }
+    },
+    {
+      "scrutin_id": "VTANR5L17V2560",
+      "numero": 2560,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 523 de Mme Laernoes à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2560",
+      "position_id": "P3",
+      "position": "Réduire fortement la part des énergies fossiles en électrifiant les usages.",
+      "vote_souhaite": "pour",
+      "raison": "Relever de 58 % à 67 % l'objectif d'énergies décarbonées en 2030 réduit d'autant la part des fossiles.",
+      "confiance": 0.45,
+      "amendement": {
+        "numero": "523",
+        "auteur": "Mme Laernoes et al.",
+        "groupe": "ECOS",
+        "expose": "Cet amendement d’appel du groupe Écologiste et Social vise à substituer à l’objectif de 58 % d’énergies dites « décarbonées » dans la consommation finale brute d’énergie en 2030 un objectif de 67 %, afin d’assurer une meilleure cohérence avec les engagements européens de la France en matière de développement des énergies renouvelables.\nL’objectif de 58 % proposé par le socle gouvernemental repose sur une construction floue et une méthode de calcul opaque. Selon une note transmise par les autorités françaises à la Commission européenne le 8 juillet 2024, cet objectif correspond en réalité à seulement 35 % d’énergies renouvelables dans la consommation finale brute. Or, la directive européenne RED III demande à la France un objectif de 44 % d’EnR d’ici à 2030. Il existe donc un écart substantiel entre l’engagement européen réel de la France et la trajectoire prévue dans la présente proposition de loi.\nDans ce contexte, porter l’objectif global d’énergies décarbonées à 67 % est une nécessité politique et méthodologique : cela permettrait mathématiquement de relever la part d’énergies renouvelables à hauteur des 44 % requis par la directive. Ce calcul est certes indicatif et mérite d’être affiné avec des données précises par les services de l'État – notamment issues de l’outil SHARES de la Commission européenne – mais il illustre une volonté claire de faire en sorte que la France prenne pleinement sa part dans l’atteinte des objectifs européens.\nMaintenir un objectif aussi bas que 58 % revient à camoufler le retard structurel de la France sur les renouvelables, à dissimuler la faiblesse des engagements réels dans le débat public et à brouiller la visibilité nécessaire pour les filières industrielles, les collectivités et les investisseurs.\nLe groupe Écologiste et Social appelle donc le gouvernement à clarifier nos objectifs énergétiques, à une transparence renforcée dans la présentation et le calcul des trajectoires, et à une inscription sincère de la France dans le cap européen qu’elle a elle-même contribué à fixer. Tel est le sens de cet amendement.",
+        "parent": null
+      }
+    }
+  ],
+  "lots_ignores": [],
+  "avec_amendements": true
+}

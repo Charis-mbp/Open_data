@@ -103,3 +103,23 @@ changed the keywords, since you chose them.
 - **`requirements.txt` holds the Sfen position paper**, pasted in place of the dependency list.
   `themes/nucleaire/position.txt` still holds my fictional example. I did not move the text: that is for you
   to do. The dependency list is in the last commit (`git checkout requirements.txt` restores it).
+
+## Analysis without API credits (task 5)
+
+- You have no API credits, so the model calls were answered by Claude (Opus 5.5) inside this Claude Code
+  session, through a new provider `LLM_PROVIDER=manuel` in `llm.py`. `.env` holds `LLM_PROVIDER=manuel` and
+  `LLM_MODEL=claude-code`, no secrets. For each missing answer, `llm.py` writes the exact prompt to
+  `themes/<theme>/llm_manuel/<hash>.prompt.txt`. The answer goes in `<hash>.reponse.txt`, and the next run
+  validates and caches it like any other answer. Prompts and answers are committed as a record.
+- `themes/nucleaire/position.txt` now holds the real Sfen paper (you moved it from requirements.txt).
+  Positions extracted: P1 relaunch nuclear (EPR2, small innovative reactors, recycling), P2 extend existing
+  reactors / no closures, P3 reduce fossil fuels by electrifying, P4 vote a programming law based on the
+  Grémillet bill.
+- Result: 53 proposed matches out of 150 scrutins, average confidence 0.66, 0 batches skipped. P1: 35,
+  P2: 9, P3: 7, P4: 2. No match on the hydroelectricity bill and none on the wind/solar moratorium
+  amendments, because the Sfen paper takes no position on them. You can disagree on the Validation page.
+- **Titles-only comparison not done**: in manual mode it would mean answering 8 more batches by hand.
+  Note that the same Claude answered with the exposés in view, so a titles-only run by the same judge would
+  not be blind anyway.
+- Switching back to the API later: set `LLM_PROVIDER=anthropic` and the key in `.env`. The cache keys
+  include the provider, so the API would recompute everything instead of reusing the manual answers.

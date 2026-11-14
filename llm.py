@@ -4,6 +4,12 @@ Settings come from .env:
     LLM_PROVIDER=anthropic
     LLM_MODEL=claude-opus-5-5
     ANTHROPIC_API_KEY=...
+or, without API credits:
+    LLM_PROVIDER=manuel
+    LLM_MODEL=claude-code
+With "manuel", each missing answer's prompt is written to themes/<theme>/llm_manuel/<hash>.prompt.txt;
+a model run by hand (e.g. Claude in a Claude Code session) writes its raw answer to <hash>.reponse.txt,
+and the next run validates and caches it like any other answer.
 
 Every successful answer is cached in themes/<theme>/llm_cache/<hash>.json, the hash covering
 provider, model, task, system prompt and prompt. A cached call never touches the network.
@@ -35,8 +41,24 @@ class LLMUnavailable(Exception):
     """No cached answer and the model cannot be called (no key, no network, bad settings)."""
 
 
+class ReponseManuelleAttendue(LLMUnavailable):
+    """Provider "manuel": the prompt has been written to disk and awaits an answer."""
+
+
 def settings():
     return os.getenv("LLM_PROVIDER", "anthropic"), os.getenv("LLM_MODEL", "claude-opus-5-5")
+
+
+def _call_manuel(theme, key, system, prompt):
+    folder = os.path.join(THEMES_DIR, theme, "llm_manuel")
+    os.makedirs(folder, exist_ok=True)
+    answer = os.path.join(folder, f"{key}.reponse.txt")
+    if os.path.exists(answer):
+        with open(answer, encoding="utf-8") as f:
+            return f.read()
+    with open(os.path.join(folder, f"{key}.prompt.txt"), "w", encoding="utf-8") as f:
+        f.write(f"=== SYSTEM ===\n{system}\n\n=== PROMPT ===\n{prompt}\n")
+    raise ReponseManuelleAttendue(f"réponse attendue dans {answer}")
 
 
 def _cache_path(theme, key):
@@ -82,7 +104,9 @@ def _call_anthropic(model, system, prompt):
     return "".join(b.text for b in response.content if b.type == "text")
 
 
-def _call(provider, model, system, prompt):
+def _call(provider, model, system, prompt, theme, key):
+    if provider == "manuel":
+        return _call_manuel(theme, key, system, prompt)
     if provider == "anthropic":
         if not (os.getenv("ANTHROPIC_API_KEY") or os.getenv("ANTHROPIC_AUTH_TOKEN")):
             raise LLMUnavailable("ANTHROPIC_API_KEY absent du fichier .env")
@@ -108,7 +132,7 @@ def ask_json(theme, task, system, prompt, validate):
 
     for attempt in (1, 2):
         try:
-            raw = _call(provider, model, system, prompt)
+            raw = _call(provider, model, system, prompt, theme, key)
             result = validate(_parse_json(raw))
         except (ValueError, TypeError, KeyError) as e:  # json.JSONDecodeError is a ValueError
             log.warning("%s %s: réponse invalide (essai %d): %s", theme, task, attempt, e)
