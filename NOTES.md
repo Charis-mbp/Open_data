@@ -169,3 +169,6 @@ changed the keywords, since you chose them.
   this config, not the chosen style. That is why all four styles are light.
 - Label pills (`.pastille`) on the Fiche député. Tables still use emoji circles: their cells can't take CSS.
 - "Scrutin" and "Raison" columns widened to 420 px.
+- Final choice: "Vert-de-gris et paon", made darker (deep sage background, dark green sidebar). It is now the
+  only look (`styles.DEFAUT`), with no selector. `.streamlit/config.toml` tints the tables pale green to match.
+  "Papier et vermillon" stays in styles.py for reference.

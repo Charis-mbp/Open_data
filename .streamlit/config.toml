@@ -1,7 +1,7 @@
-# Light base so the data tables (drawn by Streamlit, not by CSS) match the four light styles in styles.py.
+# Light base matching the "Vert-de-gris et paon" style: data tables are drawn by Streamlit and follow this, not the CSS.
 [theme]
 base = "light"
-backgroundColor = "#FBF8F2"
-secondaryBackgroundColor = "#EFE9DE"
-textColor = "#2A2723"
-primaryColor = "#9A4A35"
+backgroundColor = "#EDF2E9"
+secondaryBackgroundColor = "#D9E4D3"
+textColor = "#12201A"
+primaryColor = "#0D5A63"

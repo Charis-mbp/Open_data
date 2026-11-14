@@ -438,9 +438,7 @@ def main():
     if not themes:
         st.error("Aucun thème trouvé dans le dossier themes/.")
         return
-    style = st.sidebar.selectbox("Apparence", list(styles.STYLES), key="style")
-    st.sidebar.markdown(styles.nuancier(style), unsafe_allow_html=True)
-    st.markdown(styles.css(style), unsafe_allow_html=True)
+    st.markdown(styles.css(styles.DEFAUT), unsafe_allow_html=True)
     theme = st.sidebar.selectbox("Thème", list(themes), format_func=lambda k: themes[k])
     st.session_state["theme"] = theme
     page = st.sidebar.radio("Pages", ["Classement", "Fiche député", "Validation des scrutins",

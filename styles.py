@@ -22,7 +22,7 @@ STYLES = {
         "sidebar_fond": "#1F3A30", "sidebar_texte": "#E4ECDF",
     },
 }
-DEFAUT = "Papier et vermillon"
+DEFAUT = "Vert-de-gris et paon"  # the style used by the app; the other one is kept for reference
 
 
 def css(nom):
