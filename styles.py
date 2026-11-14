@@ -13,11 +13,13 @@ STYLES = {
         "allie": "#4E8A6B", "convaincre": "#D29A2E", "opposant": "#A3322B",
     },
     "Vert-de-gris et paon": {
-        "note": "Vert pâle, bleu paon, ocre : Pale Lumiere Green, Peacock Blue, Olive Ocher, Etruscan Red.",
+        "note": "Vert-de-gris profond, bleu paon, ocre : Dusky Green, Peacock Blue, Olive Ocher, Etruscan Red.",
         "font_titre": "Space Grotesk", "font_texte": "Inter",
-        "fond": "#E8EDE3", "surface": "#D5DECF", "texte": "#1F2C27", "discret": "#566A60",
-        "accent": "#16707A", "ligne": "#BCC9B6",
-        "allie": "#4C7A3F", "convaincre": "#C59A22", "opposant": "#9A3B2C",
+        "fond": "#C4D2BE", "surface": "#AFC2A8", "texte": "#12201A", "discret": "#3B5246",
+        "accent": "#0D5A63", "ligne": "#93AA8C",
+        "allie": "#2E6A38", "convaincre": "#B07E14", "opposant": "#8A2E22",
+        # dark green sidebar with light text
+        "sidebar_fond": "#1F3A30", "sidebar_texte": "#E4ECDF",
     },
 }
 DEFAUT = "Papier et vermillon"
@@ -47,8 +49,10 @@ def css(nom):
 .stApp h1 {{ border-bottom: 3px solid var(--accent); padding-bottom: .3rem; }}
 .stApp p, .stApp li, .stApp label {{ color: var(--texte); }}
 [data-testid="stCaptionContainer"], .stApp small {{ color: var(--discret) !important; }}
-[data-testid="stSidebar"] {{ background: var(--surface); border-right: 1px solid var(--ligne); }}
-[data-testid="stSidebar"] * {{ color: var(--texte); }}
+[data-testid="stSidebar"] {{ background: {s.get('sidebar_fond', s['surface'])}; border-right: 1px solid var(--ligne); }}
+[data-testid="stSidebar"] label, [data-testid="stSidebar"] p, [data-testid="stSidebar"] span,
+[data-testid="stSidebar"] div {{ color: {s.get('sidebar_texte', s['texte'])}; }}
+[data-testid="stSidebar"] [data-baseweb="select"] * {{ color: var(--texte); }}
 [data-testid="stMetric"] {{
   background: var(--surface); border: 1px solid var(--ligne); border-radius: 10px;
   padding: .7rem 1rem; border-top: 4px solid var(--accent);
