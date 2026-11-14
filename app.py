@@ -837,19 +837,27 @@ def page_prochain_vote(theme, label):
                      on_select=lambda c=cle: ouvrir_depuis_tableau(c, f"_{c}_ids"), selection_mode="single-row")
 
 
+PAGES = ["Accueil", "Prochain vote", "Classement", "Fiche député", "Validation des scrutins", "Shortlist", "Scrutins"]
+PAGES_COURTS = {"Validation des scrutins": "Validation"}
+
+
 def main():
     st.markdown(styles.css(), unsafe_allow_html=True)
-    st.sidebar.markdown(styles.marque_rail(), unsafe_allow_html=True)
-    st.markdown(styles.entete_page(METHODE), unsafe_allow_html=True)
-
     themes = list_themes()
     if not themes:
         st.error("Aucun thème trouvé dans le dossier themes/.")
         return
-    theme = st.sidebar.selectbox("Thème", list(themes), format_func=lambda k: themes[k])
+
+    # top bar: wordmark, pages as tabs, theme selector; the method line runs underneath
+    with st.container(key="barre"):
+        marque, nav, choix_theme = st.columns([1, 6, 1.6], vertical_alignment="center")
+        marque.markdown('<div class="marque">Cleon<i aria-hidden="true"></i></div>', unsafe_allow_html=True)
+        page = nav.radio("Pages", PAGES, key="page", horizontal=True, label_visibility="collapsed",
+                         format_func=lambda p: PAGES_COURTS.get(p, p))
+        theme = choix_theme.selectbox("Thème", list(themes), format_func=lambda k: themes[k],
+                                      label_visibility="collapsed")
     st.session_state["theme"] = theme
-    page = st.sidebar.radio("Pages", ["Accueil", "Prochain vote", "Classement", "Fiche député", "Validation des scrutins",
-                                      "Shortlist", "Scrutins"], key="page")
+    st.markdown(f'<p class="methode-ligne">{styles.e(METHODE)}</p>', unsafe_allow_html=True)
 
     if not os.path.exists(DB_PATH):
         st.warning("Les données ne sont pas encore chargées. Lancez : python load_data.py")

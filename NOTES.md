@@ -335,3 +335,13 @@ changed the keywords, since you chose them.
 - Shortlist: three figures (with a keyword, after filters, kept), then the table and the per-group detail as
   sections. Scrutins: page head with the count; the demo-database note moved into the head.
 - Checked with AppTest: all 7 pages run; the "Acceptés" view shows 51 cards (50 accepted, 1 inverted).
+
+## Top bar instead of the sidebar (task 17)
+
+- User request: a horizontal menu integrated into the page. The sidebar is hidden; a sticky top bar (container
+  key `barre`) holds the Cleon wordmark, the pages as text tabs (the `page` radio, horizontal, copper underline
+  on the current one; "Validation des scrutins" shown as "Validation") and the theme selector. The method line
+  runs under the bar in small mono type, as CLAUDE.md asks. CLAUDE.md's Interface line updated (it said sidebar).
+- `ouvrir_fiche` still works unchanged: it sets the same `page` key. Checked with AppTest: all 7 pages run, and a
+  click on a name in the Accueil lists switches the menu to Fiche député for that député.
+- Removed the now unused `marque_rail` and `entete_page` helpers.

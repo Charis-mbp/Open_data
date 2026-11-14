@@ -44,7 +44,7 @@ themes/
     (same files)
 ```
 
-A theme selector in the sidebar switches the whole app between themes. Adding a third theme must need only a new folder with `theme.json`, `keywords.txt` and `position.txt`.
+A theme selector in the top bar switches the whole app between themes. Adding a third theme must need only a new folder with `theme.json`, `keywords.txt` and `position.txt`.
 
 ## Files
 
@@ -114,7 +114,7 @@ Thresholds are constants at the top of `scoring.py`.
 ## Interface
 
 - All text in French.
-- Sidebar: theme selector, then the pages.
+- Top bar (decided 2026-11-14, replaces the sidebar): wordmark, the pages as horizontal tabs, then the theme selector.
 - Pages: Accueil (paste a paper, see the three lists), Classement, Fiche député, Validation des scrutins, Scrutins.
 - Every score links to the votes behind it, and every vote links to its page on the Assemblée nationale website.
 - A line under the title states the method: the model proposes the votes, a person validates them, the score is a simple share.

@@ -240,6 +240,22 @@ svg.hemi circle:hover {{ stroke: var(--craie); stroke-width: 1.5; }}
 .metriques.quatre {{ grid-template-columns: repeat(4, minmax(0, 1fr)); }}
 @media (max-width: 700px) {{ .metriques.quatre {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }} .metriques.quatre div:nth-child(3) {{ padding-left: 0; border-left: 0; }} }}
 
+/* top bar replaces the sidebar: wordmark, pages as text tabs, theme selector */
+[data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"], [data-testid="stExpandSidebarButton"] {{ display: none !important; }}
+[data-testid="stMainBlockContainer"] {{ padding-top: 1rem !important; }}
+.st-key-barre {{ position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--encre) 94%, transparent);
+  backdrop-filter: blur(8px); border-bottom: 1px solid var(--filet); padding: .55rem 0 .45rem; margin: 0 0 .2rem; }}
+.st-key-barre .marque {{ margin: 0; }}
+.st-key-barre [role="radiogroup"] {{ gap: .2rem 1.4rem; flex-wrap: wrap; }}
+.st-key-barre [role="radiogroup"] > label {{ padding: .45rem 0 .35rem; margin: 0; border-bottom: 2px solid transparent; cursor: pointer; }}
+.st-key-barre [role="radiogroup"] > label > div:first-child {{ display: none; }}
+.st-key-barre [role="radiogroup"] > label p {{ color: var(--gris); font-size: .95rem; }}
+.st-key-barre [role="radiogroup"] > label:hover p {{ color: var(--craie); }}
+.st-key-barre [role="radiogroup"] > label:has(input:checked) {{ border-bottom-color: var(--cuivre); }}
+.st-key-barre [role="radiogroup"] > label:has(input:checked) p {{ color: var(--craie); font-weight: 500; }}
+.st-key-barre [data-baseweb="select"] > div {{ background: var(--ardoise) !important; font-size: .88rem; }}
+.methode-ligne {{ color: var(--gris) !important; font: 400 .75rem/1.4 var(--f-data) !important; margin: .2rem 0 1.4rem !important; }}
+
 @media (max-width: 880px) {{
   .positions {{ grid-template-columns: minmax(0, 1fr); }}
   .position:nth-child(even) {{ padding-left: 0; border-left: 0; }}
@@ -260,15 +276,6 @@ svg.hemi circle:hover {{ stroke: var(--craie); stroke-width: 1.5; }}
 
 def e(s):
     return html.escape(str(s if s is not None else ""))
-
-
-def marque_rail():
-    return '<div class="marque-rail">Cleon<i aria-hidden="true"></i></div>'
-
-
-def entete_page(methode):
-    return (f'<div class="entete-page"><div class="marque">Cleon<i aria-hidden="true"></i></div>'
-            f'<div class="methode">{e(methode)}</div></div>')
 
 
 def coupe(nom, fait=""):
