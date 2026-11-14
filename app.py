@@ -168,6 +168,10 @@ def page_shortlist(theme, label):
         })
 
 
+AMBIGU_LIBELLE = "🐴 Ambigu : « cheval de Troie »"
+AMBIGU_AIDE = ("Le texte voté et l'intention de son auteur vont dans des sens opposés (par exemple un objectif "
+               "climatique défendu dans l'exposé comme une alternative au nucléaire). Le vote compte dans le "
+               "score, mais il est signalé partout où il apparaît.")
 LIBELLES_STATUT = {"accepte": "✅ accepté", "inverse": "🔁 accepté, vote inversé", "rejete": "❌ rejeté"}
 
 
@@ -214,6 +218,10 @@ def carte_match(theme, m, decision):
         if decision:
             st.caption(f"Décision :{LIBELLES_STATUT[decision['statut']]}"
                        + (f" (vote retenu : {decision['vote_retenu']})" if decision["vote_retenu"] else ""))
+        if decision and decision["statut"] in ("accepte", "inverse"):
+            st.checkbox(AMBIGU_LIBELLE, value=bool(decision.get("ambigu")), key=f"amb-{m['numero']}",
+                        help=AMBIGU_AIDE, on_change=lambda n=m["numero"]: matching.marquer_ambigu(
+                            theme, n, st.session_state[f"amb-{n}"]))
         oppose = matching.OPPOSE[m["vote_souhaite"]]
         c1, c2, c3, _ = st.columns([1, 1.4, 1, 3])
         for col, statut, label in ((c1, "accepte", "Accepter"),
@@ -305,15 +313,18 @@ def votes_derriere(detail, depute_id):
     ordre = {c: i for i, c in enumerate(LIBELLES_CATEGORIE)}  # aligné, opposé, abstention, absent
     rows = detail[detail["depute_id"] == depute_id]
     rows = rows.assign(_o=rows["categorie"].map(ordre)).sort_values(["_o", "date"])
-    rows = rows.assign(categorie=rows["categorie"].map(LIBELLES_CATEGORIE))
+    rows = rows.assign(categorie=rows["categorie"].map(LIBELLES_CATEGORIE),
+                       ambigu=rows["ambigu"].map(lambda a: "🐴 cheval de Troie" if a else ""))
     st.dataframe(
-        rows[["categorie", "numero", "date", "titre", "position_id", "vote_retenu", "vote", "raison", "url"]],
+        rows[["categorie", "numero", "date", "titre", "ambigu", "position_id", "vote_retenu", "vote", "raison",
+              "url"]],
         hide_index=True, width="stretch",
         column_config={
             "categorie": "Compte comme", "numero": st.column_config.NumberColumn("N°", format="%d"),
             "date": "Date", "titre": st.column_config.TextColumn("Scrutin", width=420),
             "position_id": "Position", "vote_retenu": "Vote voulu", "vote": "Son vote",
             "raison": st.column_config.TextColumn("Raison", width=420),
+            "ambigu": st.column_config.TextColumn("Signal", help=AMBIGU_AIDE),
             "url": st.column_config.LinkColumn("Lien", display_text="Voir le scrutin"),
         },
     )

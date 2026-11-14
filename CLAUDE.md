@@ -107,7 +107,7 @@ Labels:
 - allié: score of 70 or more
 - opposant: score of 30 or less
 - à convaincre: score between 30 and 70
-- à convaincre, with the note "s'écarte de son groupe": score 20 points or more away from the average of their group, whatever the score
+- à convaincre, with the note "s'écarte de son groupe": score 20 points or more above the average of their group, whatever the score (decided 2026-11-14: a député less favourable than their group is no lead)
 
 Thresholds are constants at the top of `scoring.py`.
 

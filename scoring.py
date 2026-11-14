@@ -18,7 +18,7 @@ from shortlist import DB_PATH, theme_path
 MIN_VOTES = 5          # fewer aligned + opposed votes: no score
 SEUIL_ALLIE = 70       # score >= 70: allié
 SEUIL_OPPOSANT = 30    # score <= 30: opposant
-ECART_GROUPE = 20      # score this far or more from the group average: à convaincre, "s'écarte de son groupe"
+ECART_GROUPE = 20      # score this far or more ABOVE the group average: à convaincre, "s'écarte de son groupe"
 SANS_GROUPE = "Non inscrit"  # not a political group: no group average, the rule does not apply
 NOTE_ECART = "s'écarte de son groupe"
 
@@ -47,7 +47,10 @@ def scrutins_acceptes(theme):
     with open(path, encoding="utf-8") as f:
         decisions = json.load(f).get("decisions", {}).values()
     rows = [d for d in decisions if d["statut"] in ("accepte", "inverse") and d.get("vote_retenu")]
-    return pd.DataFrame(rows)
+    df = pd.DataFrame(rows)
+    if not df.empty:
+        df["ambigu"] = df.get("ambigu", pd.Series(False, index=df.index)).fillna(False).astype(bool)
+    return df
 
 
 def detail_votes(theme):
@@ -73,7 +76,7 @@ def detail_votes(theme):
     df["vote"] = df["vote"].fillna("absent")
     df = df[["scrutin_id", "date", "depute_id", "nom", "groupe", "vote"]]
     df = df.merge(acc[["scrutin_id", "numero", "titre", "url", "position_id", "position", "vote_retenu",
-                       "raison"]],
+                       "raison", "ambigu"]],
                   on="scrutin_id")
     oppose = {"pour": "contre", "contre": "pour"}
 
@@ -132,7 +135,9 @@ def scores(theme):
     moyennes = (df[df["en_mandat"] & df["score"].notna() & (df["groupe"] != SANS_GROUPE)]
                 .groupby("groupe")["score"].mean())
     df["moyenne_groupe"] = df["groupe"].map(moyennes).round()
-    ecart = (df["score"] - df["moyenne_groupe"]).abs()
+    # Only députés MORE favourable than their group (user decision): one less favourable than their own
+    # group is no lead, so they keep their normal label.
+    ecart = df["score"] - df["moyenne_groupe"]
     df["note"] = ""
     hors_ligne = df["score"].notna() & df["moyenne_groupe"].notna() & (ecart >= s["ecart_groupe"])
     df.loc[hors_ligne, "label"] = A_CONVAINCRE

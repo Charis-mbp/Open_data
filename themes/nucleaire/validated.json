@@ -573,7 +573,8 @@
       "statut": "inverse",
       "raison": "L'amendement fixe à l'État l'objectif de sortir rapidement des énergies fossiles pour réduire les émissions, en ligne avec la réduction de leur part voulue par la Sfen.",
       "confiance": 0.5,
-      "decide_le": "2026-11-14T14:05:18"
+      "decide_le": "2026-11-14T14:05:18",
+      "ambigu": true
     },
     "2611": {
       "scrutin_id": "VTANR5L17V2611",

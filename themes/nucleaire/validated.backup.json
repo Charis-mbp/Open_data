@@ -728,6 +728,20 @@
       "raison": "L'amendement remplace l'objectif d'énergies décarbonées, qui inclut le nucléaire, par un objectif limité aux renouvelables, ce qui efface le nucléaire de la trajectoire.",
       "confiance": 0.55,
       "decide_le": "2026-11-14T14:09:50"
+    },
+    "2432": {
+      "scrutin_id": "VTANR5L17V2432",
+      "numero": 2432,
+      "titre": "l'amendement de suppression n° 623 du Gouvernement à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2432",
+      "position_id": "P4",
+      "position": "Faire voter par le Parlement une loi de programmation énergétique fondée sur la PPL Grémillet.",
+      "vote_propose": "contre",
+      "vote_retenu": null,
+      "statut": "rejete",
+      "raison": "Supprimer l'article premier vide la loi de programmation d'une partie de ses objectifs, alors que la Sfen veut que le Parlement fixe ces choix par la loi.",
+      "confiance": 0.45,
+      "decide_le": "2026-11-14T14:09:54"
     }
   }
 }

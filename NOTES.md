@@ -187,3 +187,14 @@ changed the keywords, since you chose them.
 - Spec quirk worth knowing: "s'écarte de son groupe" applies "whatever the score", so a député 20+ points
   *below* their group is also "à convaincre" (e.g. a SOC député at 4 vs group 24). The label follows CLAUDE.md;
   only the Accueil ordering pushes those cases down.
+
+## Two user decisions (task 10)
+
+- "S'écarte de son groupe" now applies only to députés **20+ points above** their group average (CLAUDE.md
+  updated with the decision). 4 current députés flagged (EPR/DEM members at 71–78). Labels: 121 allié,
+  109 opposant, 69 à convaincre, 275 données insuffisantes.
+- New "🐴 cheval de Troie" flag for ambiguous decisions: the text voted and the author's intent point opposite
+  ways. Checkbox on accepted Validation cards. Stored as `"ambigu": true` on the entry in validated.json (entry
+  update, backup first). Still counted in the score, shown in the "Signal" column of every votes table.
+  n° 2433 is flagged: the dispositif only adds a −50 % / 2050 climate target, while the exposé argues against
+  new reactors. It stays "contre", by user decision.

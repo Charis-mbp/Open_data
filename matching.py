@@ -302,6 +302,25 @@ def save_decision(theme, match, statut):
     os.replace(tmp, path)
 
 
+def marquer_ambigu(theme, numero, valeur):
+    """Flag (or unflag) an accepted decision as ambiguous, a "cheval de Troie": the text voted and its author's
+    intent point in opposite directions. Still counted in the score; shown as a warning next to the vote.
+    Updates the one entry in validated.json, after a backup copy, like save_decision."""
+    path = theme_path(theme, "validated.json")
+    with open(path, encoding="utf-8") as f:
+        contenu = json.load(f)
+    entree = contenu["decisions"].get(str(numero))
+    if entree is None:
+        return
+    with open(theme_path(theme, "validated.backup.json"), "w", encoding="utf-8") as f:
+        json.dump(contenu, f, ensure_ascii=False, indent=2)
+    entree["ambigu"] = bool(valeur)
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(contenu, f, ensure_ascii=False, indent=2)
+    os.replace(tmp, path)
+
+
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     theme = args[0] if args else "nucleaire"
