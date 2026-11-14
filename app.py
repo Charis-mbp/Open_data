@@ -6,6 +6,8 @@ import traceback
 import pandas as pd
 import streamlit as st
 
+import matching
+from llm import LLMUnavailable
 from shortlist import build_shortlist, load_shortlist, normalise
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -164,6 +166,98 @@ def page_shortlist(theme, label):
         })
 
 
+LIBELLES_STATUT = {"accepte": "✅ accepté", "inverse": "🔁 accepté, vote inversé", "rejete": "❌ rejeté"}
+
+
+def lancer_analyse(theme):
+    barre = st.progress(0.0, text="Extraction des positions…")
+    try:
+        result = matching.run(theme, progress=lambda d, t: barre.progress(
+            d / t, text=f"Analyse des scrutins : lot {d} sur {t}"))
+    except LLMUnavailable as e:
+        barre.empty()
+        st.error(f"Le modèle n'est pas joignable : {e}. Vérifiez le fichier .env et la connexion.")
+        return None
+    except ValueError as e:
+        barre.empty()
+        st.error(str(e))
+        return None
+    barre.empty()
+    if result["lots_ignores"]:
+        st.warning(f"{len(result['lots_ignores'])} lot(s) de scrutins ignorés après deux réponses "
+                   "invalides du modèle (détails dans data/llm.log).")
+    return result
+
+
+def carte_match(theme, m, decision):
+    with st.container(border=True):
+        st.markdown(f"**[n° {m['numero']}]({m['url']})** ({m['date']}) : {m['titre']}")
+        st.markdown(f"Position {m['position_id']} : *{m['position']}*  \n"
+                    f"Vote voulu proposé : **{m['vote_souhaite']}** · confiance {m['confiance']:.2f}  \n"
+                    f"Raison : {m['raison']}")
+        if decision:
+            st.caption(f"Décision : {LIBELLES_STATUT[decision['statut']]}"
+                       + (f" (vote retenu : {decision['vote_retenu']})" if decision["vote_retenu"] else ""))
+        oppose = matching.OPPOSE[m["vote_souhaite"]]
+        c1, c2, c3, _ = st.columns([1, 1.4, 1, 3])
+        for col, statut, label in ((c1, "accepte", "Accepter"),
+                                   (c2, "inverse", f"Inverser (vouloir « {oppose} »)"),
+                                   (c3, "rejete", "Rejeter")):
+            col.button(label, key=f"{statut}-{m['numero']}", on_click=matching.save_decision,
+                       args=(theme, m, statut), width="stretch",
+                       disabled=bool(decision and decision["statut"] == statut))
+
+
+def page_validation(theme, label):
+    st.header(f"Validation des scrutins : {label}")
+    data = matching.load_matching(theme)
+    if data is None:
+        st.info("Le modèle n'a pas encore analysé ce thème. L'analyse lit position.txt, en extrait "
+                "les positions, puis examine les scrutins de la shortlist par lots de 20.")
+        if st.button("Lancer l'analyse par le modèle", type="primary"):
+            data = lancer_analyse(theme)
+        if data is None:
+            return
+
+    decisions = matching.load_validated(theme)
+    with st.expander(f"Positions extraites du document ({len(data['positions'])})"):
+        for p in data["positions"]:
+            st.markdown(f"**{p['id']}. {p['position']}**  \n> {p['passage']}")
+        if st.button("Relancer l'analyse (les réponses déjà obtenues sont reprises du cache)"):
+            data = lancer_analyse(theme) or data
+
+    matches = data["matches"]
+    acceptes = sum(1 for m in matches if decisions.get(str(m["numero"]), {}).get("statut") in ("accepte", "inverse"))
+    rejetes = sum(1 for m in matches if decisions.get(str(m["numero"]), {}).get("statut") == "rejete")
+    a_traiter = len(matches) - acceptes - rejetes
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Acceptés", acceptes)
+    c2.metric("Rejetés", rejetes)
+    c3.metric("Non validés", a_traiter)
+    st.caption(f"{len(matches)} correspondances proposées par le modèle sur "
+               f"{len(load_shortlist(theme)['scrutins'])} scrutins de la shortlist. "
+               "Seuls les scrutins acceptés comptent dans les scores.")
+
+    f1, f2 = st.columns(2)
+    vue = f1.radio("Afficher", ["Non validés", "Acceptés", "Rejetés", "Tous"], horizontal=True)
+    pos_ids = ["Toutes"] + [p["id"] for p in data["positions"]]
+    pos_libelles = {p["id"]: f"{p['id']}. {p['position']}" for p in data["positions"]}
+    filtre_pos = f2.selectbox("Position", pos_ids, format_func=lambda k: pos_libelles.get(k, k))
+
+    def garder(m):
+        statut = decisions.get(str(m["numero"]), {}).get("statut")
+        if filtre_pos != "Toutes" and m["position_id"] != filtre_pos:
+            return False
+        return {"Non validés": statut is None, "Acceptés": statut in ("accepte", "inverse"),
+                "Rejetés": statut == "rejete", "Tous": True}[vue]
+
+    shown = [m for m in matches if garder(m)]  # already sorted, highest confidence first
+    if not shown:
+        st.info("Aucune correspondance dans cette vue.")
+    for m in shown:
+        carte_match(theme, m, decisions.get(str(m["numero"])))
+
+
 def main():
     st.title("Boussole parlementaire")
     st.caption(METHODE)
@@ -174,13 +268,15 @@ def main():
         return
     theme = st.sidebar.selectbox("Thème", list(themes), format_func=lambda k: themes[k])
     st.session_state["theme"] = theme
-    page = st.sidebar.radio("Pages", ["Shortlist", "Scrutins"])
+    page = st.sidebar.radio("Pages", ["Validation des scrutins", "Shortlist", "Scrutins"])
 
     if not os.path.exists(DB_PATH):
         st.warning("Les données ne sont pas encore chargées. Lancez : python load_data.py")
         return
     try:
-        if page == "Shortlist":
+        if page == "Validation des scrutins":
+            page_validation(theme, themes[theme])
+        elif page == "Shortlist":
             page_shortlist(theme, themes[theme])
         elif page == "Scrutins":
             page_scrutins()

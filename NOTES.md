@@ -47,3 +47,33 @@ changed the keywords, since you chose them.
   file. There is also a new `groupes` table (id, nom, sigle). In 14 non-energy scrutins the source gives an
   invalid group "PO0". For those, I use the député's current group instead.
 - The page's error handler now prints the traceback in the terminal. The screen still shows only the French message.
+
+## Matching and validation (task 3)
+
+- **No `.env` and no `position.txt` existed.** I could not call the model, so nothing has been generated
+  yet. To run it: `cp .env.example .env`, add the key, then either click "Lancer l'analyse par le modèle"
+  on the Validation page or run `.venv/bin/python matching.py nucleaire`. Allow a few minutes: 1 extraction
+  call plus 8 batches of 20.
+- **`themes/nucleaire/position.txt` is a FICTIONAL example I wrote** ("Association Énergie Claire": EPR2,
+  no moratorium on wind, hydroelectricity, consumer prices, programming law). Its first line says
+  it is an example. Replace it with the real paper before running the analysis. A new text gets a new
+  hash, so it triggers fresh calls.
+- Provider: only `anthropic` is implemented in `llm.py` (`_call`). Another provider means adding one branch there.
+  Default model: `claude-opus-5-5`, effort `medium`. Server-side refusal fallback is on
+  (`fallbacks="default"`): if the model declines a request, the API retries it on another model within the
+  same call. Remove the two lines in `_call_anthropic` if you don't want that.
+- Cache: `themes/<theme>/llm_cache/<hash>.json`, one file per call. The hash covers provider, model, prompt
+  and input. It is committed, so the demo works offline. Changing the model in `.env` means new calls.
+  Invalid answers are never cached. Log: `data/llm.log`.
+- One match per scrutin at most: the model keeps the most direct position. This keeps the score simple
+  (one wanted vote per scrutin).
+- `validated.json` is keyed by scrutin numero. Each decision is `accepte`, `inverse` or `rejete`, and
+  `vote_retenu` holds the vote used for scoring (null if rejected). Every save merges into the existing file
+  (never replaces it), writes through a temp file, and first copies the previous version to
+  `validated.backup.json`. A decision can be changed later from the "Acceptés" / "Rejetés" views.
+- I tested the whole pipeline and the page with a stubbed model, in a scratch copy of the theme. Nothing
+  fake was written to `themes/nucleaire`.
+- **Known limit:** most shortlisted scrutins are amendments, and their titles only say
+  "l'amendement n° 345 de M. X à l'article 5". The model cannot know what the amendment does, so it must
+  guess from the author and give low confidence. Better version (about 30 min): download the amendments
+  dataset and add each amendment's "exposé sommaire" to the prompt. Not done.
