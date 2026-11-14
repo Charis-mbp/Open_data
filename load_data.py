@@ -53,6 +53,15 @@ def download(force=False):
                 z.extractall(target)
 
 
+def load_groupes():
+    rows = []
+    for f in glob.glob(os.path.join(DATA, "amo20/json/organe/*.json")):
+        o = json.load(open(f, encoding="utf-8"))["organe"]
+        if o.get("codeType") == "GP":
+            rows.append((o["uid"], o.get("libelle"), o.get("libelleAbrev")))
+    return rows
+
+
 def load_deputes():
     organes = {}
     for f in glob.glob(os.path.join(DATA, "amo20/json/organe/*.json")):
@@ -109,7 +118,7 @@ def load_scrutins():
             nominatif = g["vote"].get("decompteNominatif") or {}
             for key, position in POSITIONS.items():
                 for v in as_list((nominatif.get(key) or {}).get("votant")):
-                    votes.append((s["uid"], v["acteurRef"], position))
+                    votes.append((s["uid"], v["acteurRef"], position, g["organeRef"]))
     return scrutins, votes
 
 
@@ -123,11 +132,22 @@ def build_db():
         CREATE TABLE deputes (id TEXT PRIMARY KEY, nom TEXT, groupe TEXT, circonscription TEXT);
         CREATE TABLE scrutins (id TEXT PRIMARY KEY, date TEXT, titre TEXT, objet TEXT,
                                resultat TEXT, url TEXT, numero INTEGER);
-        CREATE TABLE votes (scrutin_id TEXT, depute_id TEXT, position TEXT);
+        -- groupe: political group of the député at the time of the vote
+        CREATE TABLE votes (scrutin_id TEXT, depute_id TEXT, position TEXT, groupe TEXT);
+        CREATE TABLE groupes (id TEXT PRIMARY KEY, nom TEXT, sigle TEXT);
     """)
     con.executemany("INSERT INTO deputes VALUES (?,?,?,?)", deputes)
     con.executemany("INSERT INTO scrutins VALUES (?,?,?,?,?,?,?)", scrutins)
-    con.executemany("INSERT INTO votes VALUES (?,?,?)", votes)
+    con.executemany("INSERT INTO votes VALUES (?,?,?,?)", votes)
+    con.executemany("INSERT INTO groupes VALUES (?,?,?)", load_groupes())
+    # A few scrutins (14) carry an invalid group reference ("PO0") in the source files.
+    # For those votes, fall back on the député's current (or last) group.
+    con.execute("""
+        UPDATE votes SET groupe = (
+            SELECT g.id FROM deputes d JOIN groupes g ON g.nom = d.groupe
+            WHERE d.id = votes.depute_id LIMIT 1)
+        WHERE groupe NOT IN (SELECT id FROM groupes)
+    """)
     con.executescript("""
         CREATE INDEX idx_votes_scrutin ON votes(scrutin_id);
         CREATE INDEX idx_votes_depute ON votes(depute_id);

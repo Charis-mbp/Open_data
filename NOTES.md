@@ -28,3 +28,22 @@ No scrutin titre or objet contains "Gremillet", and neither does any raw file. T
 Effect on step 2: the keywords `Gremillet` and `programmation énergétique` match nothing. Adding
 `programmation nationale énergie` and `énergie et le climat` to `keywords.txt` would catch them. I have not
 changed the keywords, since you chose them.
+
+## Shortlist (task 2)
+
+- `keywords.txt` had been edited (programmation nationale, transition énergétique, éolien, …) when I
+  started. I used your version as is, and it is included in this commit.
+- Keyword matching is **whole word**, case and accent insensitive, on titre + objet. Substring matching would
+  let `EPR` match "reprise" or "représentant". Side effect: `nucléaire` does not match "nucléaires",
+  which keeps out the bill on victims of nuclear tests. Plurals need their own line in `keywords.txt`.
+- "Cast a vote" = pour + contre + abstention. "Expressed votes" = pour + contre.
+- "Most even split" = smallest |pour − contre| / (pour + contre), stored as `ecart` in shortlist.json.
+- Thresholds are constants at the top of `shortlist.py`. A theme can override them in theme.json with
+  `"shortlist": {"min_votants": 50, "max_meme_cote": 0.9, "max_scrutins": 150}`.
+- Result for nucleaire: 249 match a keyword, 5 have under 50 votants, 28 are over 90% one-sided, 216 remain,
+  and the 150 most even are kept. All come from two bills: the PPE bill (programmation nationale énergie
+  et climat) and the hydroelectricity bill. Scrutin 2653 is in the list.
+- `votes` has a new `groupe` column: the député's group **at the time of the vote**, taken from the scrutin
+  file. There is also a new `groupes` table (id, nom, sigle). In 14 non-energy scrutins the source gives an
+  invalid group "PO0". For those, I use the député's current group instead.
+- The page's error handler now prints the traceback in the terminal. The screen still shows only the French message.

@@ -1,0 +1,2573 @@
+{
+  "theme": "nucleaire",
+  "genere_le": "2026-11-14T11:25:29",
+  "mots_cles": [
+    "programmation nationale",
+    "simplification normative",
+    "secteur de l'énergie",
+    "accélération du nucléaire",
+    "transition énergétique",
+    "souveraineté énergétique",
+    "mix énergétique",
+    "nucléaire",
+    "EPR",
+    "EPR2",
+    "réacteur",
+    "Fessenheim",
+    "sûreté nucléaire",
+    "déchets radioactifs",
+    "combustible",
+    "énergie",
+    "électricité",
+    "EDF",
+    "renouvelables",
+    "éolien",
+    "photovoltaïque",
+    "moratoire"
+  ],
+  "regles": {
+    "min_votants": 50,
+    "max_meme_cote": 0.9,
+    "max_scrutins": 150
+  },
+  "statistiques": {
+    "correspondances": 249,
+    "moins_de_votants": 5,
+    "trop_desequilibres": 28,
+    "apres_filtres": 216,
+    "retenus": 150
+  },
+  "scrutins": [
+    {
+      "id": "VTANR5L17V2424",
+      "numero": 2424,
+      "date": "2025-06-16",
+      "titre": "l'amendement de suppression n° 622 du Gouvernement et les amendements identiques suivants à l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement de suppression n° 622 du Gouvernement et les amendements identiques suivants à l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2424",
+      "pour": 29,
+      "contre": 62,
+      "abstention": 0,
+      "ecart": 0.3626,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2425",
+      "numero": 2425,
+      "date": "2025-06-16",
+      "titre": "le sous-amendement n° 752 de M. Amblard à l'amendement n° 279 de M. Alfandari et aux amendements identiques suivants à l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 752 de M. Amblard à l'amendement n° 279 de M. Alfandari et aux amendements identiques suivants à l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2425",
+      "pour": 81,
+      "contre": 76,
+      "abstention": 0,
+      "ecart": 0.0318,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2426",
+      "numero": 2426,
+      "date": "2025-06-16",
+      "titre": "le sous-amendement n° 711 de M. Amblard à l'amendement n° 279 de M. Alfandari et aux amendements identiques suivants à l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 711 de M. Amblard à l'amendement n° 279 de M. Alfandari et aux amendements identiques suivants à l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2426",
+      "pour": 82,
+      "contre": 76,
+      "abstention": 0,
+      "ecart": 0.038,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2427",
+      "numero": 2427,
+      "date": "2025-06-16",
+      "titre": "le sous-amendement n° 710 de M. Amblard à l'amendement n° 279 de M. Alfandari et aux amendements identiques suivants à l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 710 de M. Amblard à l'amendement n° 279 de M. Alfandari et aux amendements identiques suivants à l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2427",
+      "pour": 86,
+      "contre": 72,
+      "abstention": 1,
+      "ecart": 0.0886,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2428",
+      "numero": 2428,
+      "date": "2025-06-16",
+      "titre": "le sous-amendement n° 751 de M. Jean-Philippe Tanguy à l'amendement n° 279 de M. Alfandari et aux amendements identiques suivants à l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 751 de M. Jean-Philippe Tanguy à l'amendement n° 279 de M. Alfandari et aux amendements identiques suivants à l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2428",
+      "pour": 80,
+      "contre": 73,
+      "abstention": 2,
+      "ecart": 0.0458,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2429",
+      "numero": 2429,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 279 de M. Alfandari et les amendements identiques suivants à l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 279 de M. Alfandari et les amendements identiques suivants à l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2429",
+      "pour": 94,
+      "contre": 65,
+      "abstention": 1,
+      "ecart": 0.1824,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2430",
+      "numero": 2430,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 421 de M. Nury après l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 421 de M. Nury après l'article 1er A de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2430",
+      "pour": 82,
+      "contre": 61,
+      "abstention": 0,
+      "ecart": 0.1469,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2432",
+      "numero": 2432,
+      "date": "2025-06-16",
+      "titre": "l'amendement de suppression n° 623 du Gouvernement à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement de suppression n° 623 du Gouvernement à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2432",
+      "pour": 36,
+      "contre": 70,
+      "abstention": 0,
+      "ecart": 0.3208,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2433",
+      "numero": 2433,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 243 de M. Tavel à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 243 de M. Tavel à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2433",
+      "pour": 44,
+      "contre": 75,
+      "abstention": 2,
+      "ecart": 0.2605,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2434",
+      "numero": 2434,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 693 de M. Amblard à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 693 de M. Amblard à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2434",
+      "pour": 47,
+      "contre": 86,
+      "abstention": 0,
+      "ecart": 0.2932,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2435",
+      "numero": 2435,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 77 de M. Amblard à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 77 de M. Amblard à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2435",
+      "pour": 47,
+      "contre": 86,
+      "abstention": 0,
+      "ecart": 0.2932,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2438",
+      "numero": 2438,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 625 du Gouvernement et les amendements identiques suivants à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 625 du Gouvernement et les amendements identiques suivants à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2438",
+      "pour": 71,
+      "contre": 110,
+      "abstention": 0,
+      "ecart": 0.2155,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2439",
+      "numero": 2439,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 195 de M. Tavel à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 195 de M. Tavel à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2439",
+      "pour": 126,
+      "contre": 50,
+      "abstention": 12,
+      "ecart": 0.4318,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2440",
+      "numero": 2440,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 624 du Gouvernement et les amendements identiques suivants à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 624 du Gouvernement et les amendements identiques suivants à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2440",
+      "pour": 49,
+      "contre": 133,
+      "abstention": 12,
+      "ecart": 0.4615,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2441",
+      "numero": 2441,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 403 de Mme Voynet à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 403 de Mme Voynet à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2441",
+      "pour": 55,
+      "contre": 123,
+      "abstention": 0,
+      "ecart": 0.382,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2444",
+      "numero": 2444,
+      "date": "2025-06-16",
+      "titre": "le sous-amendement n° 762 de M. Jean-Philippe Tanguy à l'amendement n° 371 de M. Brugerolles à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 762 de M. Jean-Philippe Tanguy à l'amendement n° 371 de M. Brugerolles à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2444",
+      "pour": 85,
+      "contre": 65,
+      "abstention": 7,
+      "ecart": 0.1333,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2445",
+      "numero": 2445,
+      "date": "2025-06-16",
+      "titre": "le sous-amendement n° 758 de M. Tavel à l'amendement n° 371 de M. Brugerolles à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 758 de M. Tavel à l'amendement n° 371 de M. Brugerolles à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2445",
+      "pour": 123,
+      "contre": 49,
+      "abstention": 14,
+      "ecart": 0.4302,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2446",
+      "numero": 2446,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 371 de M. Brugerolles à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 371 de M. Brugerolles à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2446",
+      "pour": 119,
+      "contre": 68,
+      "abstention": 1,
+      "ecart": 0.2727,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2447",
+      "numero": 2447,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 43 de M. Amblard à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 43 de M. Amblard à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2447",
+      "pour": 87,
+      "contre": 100,
+      "abstention": 0,
+      "ecart": 0.0695,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2448",
+      "numero": 2448,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 119 de M. Bruneau à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 119 de M. Bruneau à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2448",
+      "pour": 96,
+      "contre": 38,
+      "abstention": 25,
+      "ecart": 0.4328,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2453",
+      "numero": 2453,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 198 de Mme Stambach-Terrenoir à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 198 de Mme Stambach-Terrenoir à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2453",
+      "pour": 57,
+      "contre": 113,
+      "abstention": 0,
+      "ecart": 0.3294,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2454",
+      "numero": 2454,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 315 de M. Meizonnet à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 315 de M. Meizonnet à l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2454",
+      "pour": 78,
+      "contre": 92,
+      "abstention": 0,
+      "ecart": 0.0824,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2456",
+      "numero": 2456,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 40 de M. Amblard après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 40 de M. Amblard après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2456",
+      "pour": 58,
+      "contre": 52,
+      "abstention": 1,
+      "ecart": 0.0545,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2457",
+      "numero": 2457,
+      "date": "2025-06-16",
+      "titre": "l'amendement n° 46 de M. Amblard après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 46 de M. Amblard après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2457",
+      "pour": 55,
+      "contre": 71,
+      "abstention": 0,
+      "ecart": 0.127,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2461",
+      "numero": 2461,
+      "date": "2025-06-17",
+      "titre": "l'amendement n° 66 de M. Amblard après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 66 de M. Amblard après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2461",
+      "pour": 56,
+      "contre": 79,
+      "abstention": 1,
+      "ecart": 0.1704,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2462",
+      "numero": 2462,
+      "date": "2025-06-17",
+      "titre": "l'amendement n° 71 de M. Amblard après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 71 de M. Amblard après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2462",
+      "pour": 61,
+      "contre": 82,
+      "abstention": 2,
+      "ecart": 0.1469,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2463",
+      "numero": 2463,
+      "date": "2025-06-17",
+      "titre": "l'amendement n° 39 de M. Amblard après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 39 de M. Amblard après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2463",
+      "pour": 62,
+      "contre": 79,
+      "abstention": 2,
+      "ecart": 0.1206,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2464",
+      "numero": 2464,
+      "date": "2025-06-17",
+      "titre": "l'amendement n° 582 de M. Benbrahim après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 582 de M. Benbrahim après l'article premier de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2464",
+      "pour": 52,
+      "contre": 97,
+      "abstention": 1,
+      "ecart": 0.302,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2465",
+      "numero": 2465,
+      "date": "2025-06-17",
+      "titre": "l'amendement n° 100 de M. Taite à l'article 1er bis (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 100 de M. Taite à l'article 1er bis (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2465",
+      "pour": 57,
+      "contre": 81,
+      "abstention": 3,
+      "ecart": 0.1739,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2466",
+      "numero": 2466,
+      "date": "2025-06-17",
+      "titre": "l'amendement n° 586 de Mme Battistel à l'article 1er bis (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 586 de Mme Battistel à l'article 1er bis (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2466",
+      "pour": 46,
+      "contre": 83,
+      "abstention": 8,
+      "ecart": 0.2868,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2467",
+      "numero": 2467,
+      "date": "2025-06-17",
+      "titre": "l'amendement n° 477 (rect.) de M. Fugit et l'amendement identique suivant à l'article 2 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 477 (rect.) de M. Fugit et l'amendement identique suivant à l'article 2 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2467",
+      "pour": 18,
+      "contre": 49,
+      "abstention": 2,
+      "ecart": 0.4627,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2468",
+      "numero": 2468,
+      "date": "2025-06-17",
+      "titre": "l'amendement n° 517 de Mme Laernoes à l'article 2 bis de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 517 de Mme Laernoes à l'article 2 bis de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2468",
+      "pour": 35,
+      "contre": 80,
+      "abstention": 12,
+      "ecart": 0.3913,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2469",
+      "numero": 2469,
+      "date": "2025-06-17",
+      "titre": "l'article 2 bis de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'article 2 bis de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2469",
+      "pour": 23,
+      "contre": 56,
+      "abstention": 12,
+      "ecart": 0.4177,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2471",
+      "numero": 2471,
+      "date": "2025-06-17",
+      "titre": "l'amendement n° 183 de M. Bruneau après l'article 2 bis de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 183 de M. Bruneau après l'article 2 bis de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2471",
+      "pour": 58,
+      "contre": 73,
+      "abstention": 1,
+      "ecart": 0.1145,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2472",
+      "numero": 2472,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 518 de Mme Laernoes à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 518 de Mme Laernoes à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2472",
+      "pour": 63,
+      "contre": 188,
+      "abstention": 0,
+      "ecart": 0.498,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2476",
+      "numero": 2476,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 714 de Mme Voynet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 714 de Mme Voynet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2476",
+      "pour": 117,
+      "contre": 129,
+      "abstention": 4,
+      "ecart": 0.0488,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2477",
+      "numero": 2477,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 723 de Mme Laernoes à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 723 de Mme Laernoes à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2477",
+      "pour": 63,
+      "contre": 190,
+      "abstention": 0,
+      "ecart": 0.502,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2480",
+      "numero": 2480,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 772 de M. Nury à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 772 de M. Nury à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2480",
+      "pour": 100,
+      "contre": 146,
+      "abstention": 7,
+      "ecart": 0.187,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2482",
+      "numero": 2482,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 725 de Mme Laernoes et le sous-amendement identique suivant à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 725 de Mme Laernoes et le sous-amendement identique suivant à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2482",
+      "pour": 64,
+      "contre": 190,
+      "abstention": 0,
+      "ecart": 0.4961,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2483",
+      "numero": 2483,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 825 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 825 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2483",
+      "pour": 117,
+      "contre": 131,
+      "abstention": 2,
+      "ecart": 0.0565,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2484",
+      "numero": 2484,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 779 de M. Bruneau à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 779 de M. Bruneau à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2484",
+      "pour": 161,
+      "contre": 89,
+      "abstention": 1,
+      "ecart": 0.288,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2485",
+      "numero": 2485,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 726 de Mme Laernoes à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 726 de Mme Laernoes à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2485",
+      "pour": 92,
+      "contre": 162,
+      "abstention": 0,
+      "ecart": 0.2756,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2486",
+      "numero": 2486,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 716 de Mme Voynet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 716 de Mme Voynet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2486",
+      "pour": 64,
+      "contre": 163,
+      "abstention": 27,
+      "ecart": 0.4361,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2487",
+      "numero": 2487,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 717 de Mme Voynet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 717 de Mme Voynet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2487",
+      "pour": 64,
+      "contre": 191,
+      "abstention": 0,
+      "ecart": 0.498,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2488",
+      "numero": 2488,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 727 de Mme Laernoes et le sous-amendement identique suivant à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 727 de Mme Laernoes et le sous-amendement identique suivant à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2488",
+      "pour": 64,
+      "contre": 191,
+      "abstention": 0,
+      "ecart": 0.498,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2491",
+      "numero": 2491,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 805 de Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 805 de Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2491",
+      "pour": 93,
+      "contre": 152,
+      "abstention": 9,
+      "ecart": 0.2408,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2492",
+      "numero": 2492,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 747 de M. Tavel à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 747 de M. Tavel à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2492",
+      "pour": 89,
+      "contre": 165,
+      "abstention": 0,
+      "ecart": 0.2992,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2493",
+      "numero": 2493,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 769 de M. Nury à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 769 de M. Nury à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2493",
+      "pour": 115,
+      "contre": 138,
+      "abstention": 0,
+      "ecart": 0.0909,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2494",
+      "numero": 2494,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 809 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 809 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2494",
+      "pour": 100,
+      "contre": 150,
+      "abstention": 2,
+      "ecart": 0.2,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2495",
+      "numero": 2495,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 741 de M. Laisney à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 741 de M. Laisney à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2495",
+      "pour": 63,
+      "contre": 165,
+      "abstention": 26,
+      "ecart": 0.4474,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2496",
+      "numero": 2496,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 745 de M. Laisney à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 745 de M. Laisney à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2496",
+      "pour": 89,
+      "contre": 165,
+      "abstention": 0,
+      "ecart": 0.2992,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2499",
+      "numero": 2499,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 728 de Mme Laernoes et le sous-amendement identique suivant à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 728 de Mme Laernoes et le sous-amendement identique suivant à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2499",
+      "pour": 63,
+      "contre": 189,
+      "abstention": 0,
+      "ecart": 0.5,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2500",
+      "numero": 2500,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 828 du Gouvernement à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 828 du Gouvernement à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2500",
+      "pour": 58,
+      "contre": 167,
+      "abstention": 29,
+      "ecart": 0.4844,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2501",
+      "numero": 2501,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 771 de Mme Givernet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 771 de Mme Givernet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2501",
+      "pour": 68,
+      "contre": 183,
+      "abstention": 1,
+      "ecart": 0.4582,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2502",
+      "numero": 2502,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 808 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 808 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2502",
+      "pour": 109,
+      "contre": 137,
+      "abstention": 5,
+      "ecart": 0.1138,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2503",
+      "numero": 2503,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 780 de M. Nury à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 780 de M. Nury à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2503",
+      "pour": 110,
+      "contre": 139,
+      "abstention": 3,
+      "ecart": 0.1165,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2507",
+      "numero": 2507,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 718 de Mme Voynet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 718 de Mme Voynet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2507",
+      "pour": 63,
+      "contre": 164,
+      "abstention": 25,
+      "ecart": 0.4449,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2509",
+      "numero": 2509,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 720 de Mme Voynet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 720 de Mme Voynet à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2509",
+      "pour": 85,
+      "contre": 165,
+      "abstention": 0,
+      "ecart": 0.32,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2510",
+      "numero": 2510,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 731 de Mme Laernoes et le sous-amendement identique suivant à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 731 de Mme Laernoes et le sous-amendement identique suivant à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2510",
+      "pour": 88,
+      "contre": 164,
+      "abstention": 0,
+      "ecart": 0.3016,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2512",
+      "numero": 2512,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 753 de M. Nury à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 753 de M. Nury à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2512",
+      "pour": 116,
+      "contre": 134,
+      "abstention": 0,
+      "ecart": 0.072,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2513",
+      "numero": 2513,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 799 de M. Alfandari à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 799 de M. Alfandari à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2513",
+      "pour": 115,
+      "contre": 133,
+      "abstention": 2,
+      "ecart": 0.0726,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2514",
+      "numero": 2514,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 781 de M. Bruneau à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 781 de M. Bruneau à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2514",
+      "pour": 102,
+      "contre": 124,
+      "abstention": 25,
+      "ecart": 0.0973,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2516",
+      "numero": 2516,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 800 de M. Alfandari à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 800 de M. Alfandari à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2516",
+      "pour": 183,
+      "contre": 65,
+      "abstention": 2,
+      "ecart": 0.4758,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2517",
+      "numero": 2517,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 801 de M. Alfandari à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 801 de M. Alfandari à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2517",
+      "pour": 93,
+      "contre": 158,
+      "abstention": 0,
+      "ecart": 0.259,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2518",
+      "numero": 2518,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 803 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 803 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2518",
+      "pour": 108,
+      "contre": 141,
+      "abstention": 5,
+      "ecart": 0.1325,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2519",
+      "numero": 2519,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 806 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 806 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2519",
+      "pour": 107,
+      "contre": 140,
+      "abstention": 6,
+      "ecart": 0.1336,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2520",
+      "numero": 2520,
+      "date": "2025-06-18",
+      "titre": "le sous-amendement n° 807 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 807 de M. Amblard à l'amendement n° 503 de M. Armand et aux amendements identiques suivants à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2520",
+      "pour": 109,
+      "contre": 143,
+      "abstention": 2,
+      "ecart": 0.1349,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2521",
+      "numero": 2521,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 503 de M. Armand à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 503 de M. Armand à l'article 3 (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2521",
+      "pour": 163,
+      "contre": 90,
+      "abstention": 1,
+      "ecart": 0.2885,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2522",
+      "numero": 2522,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 6 de M. Jean-Philippe Tanguy après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 6 de M. Jean-Philippe Tanguy après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2522",
+      "pour": 55,
+      "contre": 47,
+      "abstention": 2,
+      "ecart": 0.0784,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2524",
+      "numero": 2524,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 591 de M. Potier après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 591 de M. Potier après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2524",
+      "pour": 31,
+      "contre": 92,
+      "abstention": 4,
+      "ecart": 0.4959,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2525",
+      "numero": 2525,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 590 de M. Potier après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 590 de M. Potier après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2525",
+      "pour": 39,
+      "contre": 96,
+      "abstention": 0,
+      "ecart": 0.4222,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2526",
+      "numero": 2526,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 108 de M. Amblard après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 108 de M. Amblard après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2526",
+      "pour": 67,
+      "contre": 72,
+      "abstention": 0,
+      "ecart": 0.036,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2527",
+      "numero": 2527,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 143 de M. Amblard après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 143 de M. Amblard après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2527",
+      "pour": 68,
+      "contre": 71,
+      "abstention": 0,
+      "ecart": 0.0216,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2528",
+      "numero": 2528,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 146 de M. Amblard après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 146 de M. Amblard après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2528",
+      "pour": 79,
+      "contre": 70,
+      "abstention": 0,
+      "ecart": 0.0604,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2529",
+      "numero": 2529,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 110 rectifié de M. Amblard après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 110 rectifié de M. Amblard après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2529",
+      "pour": 83,
+      "contre": 71,
+      "abstention": 1,
+      "ecart": 0.0779,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2530",
+      "numero": 2530,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 114 rectifié de M. Amblard après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 114 rectifié de M. Amblard après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2530",
+      "pour": 84,
+      "contre": 70,
+      "abstention": 1,
+      "ecart": 0.0909,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2532",
+      "numero": 2532,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 507 de M. Nury après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 507 de M. Nury après l'article 3 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2532",
+      "pour": 88,
+      "contre": 64,
+      "abstention": 3,
+      "ecart": 0.1579,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2533",
+      "numero": 2533,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 67 de M. Amblard à l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 67 de M. Amblard à l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2533",
+      "pour": 80,
+      "contre": 67,
+      "abstention": 0,
+      "ecart": 0.0884,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2534",
+      "numero": 2534,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 610 de M. Michoux à l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 610 de M. Michoux à l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2534",
+      "pour": 75,
+      "contre": 62,
+      "abstention": 0,
+      "ecart": 0.0949,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2535",
+      "numero": 2535,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 56 de M. Amblard à l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 56 de M. Amblard à l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2535",
+      "pour": 76,
+      "contre": 64,
+      "abstention": 0,
+      "ecart": 0.0857,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2536",
+      "numero": 2536,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 460 rectifié de M. Fugit à l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 460 rectifié de M. Fugit à l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2536",
+      "pour": 32,
+      "contre": 92,
+      "abstention": 15,
+      "ecart": 0.4839,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2540",
+      "numero": 2540,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 387 de M. Brugerolles à l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 387 de M. Brugerolles à l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2540",
+      "pour": 19,
+      "contre": 15,
+      "abstention": 24,
+      "ecart": 0.1176,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2541",
+      "numero": 2541,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 105 de M. de Courson et l'amendement identique suivant après l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 105 de M. de Courson et l'amendement identique suivant après l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2541",
+      "pour": 32,
+      "contre": 76,
+      "abstention": 0,
+      "ecart": 0.4074,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2544",
+      "numero": 2544,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 340 de Mme Trouvé après l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 340 de Mme Trouvé après l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2544",
+      "pour": 35,
+      "contre": 87,
+      "abstention": 0,
+      "ecart": 0.4262,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2546",
+      "numero": 2546,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 251 de Mme Trouvé après l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 251 de Mme Trouvé après l'article 4 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2546",
+      "pour": 36,
+      "contre": 97,
+      "abstention": 1,
+      "ecart": 0.4586,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2547",
+      "numero": 2547,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 546 de Mme Laernoes à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 546 de Mme Laernoes à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2547",
+      "pour": 62,
+      "contre": 101,
+      "abstention": 1,
+      "ecart": 0.2393,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2548",
+      "numero": 2548,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 549 de Mme Laernoes à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 549 de Mme Laernoes à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2548",
+      "pour": 61,
+      "contre": 107,
+      "abstention": 1,
+      "ecart": 0.2738,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2549",
+      "numero": 2549,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 258 rectifié de Mme Guetté à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 258 rectifié de Mme Guetté à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2549",
+      "pour": 46,
+      "contre": 101,
+      "abstention": 9,
+      "ecart": 0.3741,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2550",
+      "numero": 2550,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 261 rectifé de Mme Stambach-Terrenoir à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 261 rectifé de Mme Stambach-Terrenoir à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2550",
+      "pour": 45,
+      "contre": 100,
+      "abstention": 9,
+      "ecart": 0.3793,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2551",
+      "numero": 2551,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 264 de M. Tavel à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 264 de M. Tavel à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2551",
+      "pour": 45,
+      "contre": 101,
+      "abstention": 8,
+      "ecart": 0.3836,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2552",
+      "numero": 2552,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 256 de M. Laisney à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 256 de M. Laisney à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2552",
+      "pour": 56,
+      "contre": 99,
+      "abstention": 1,
+      "ecart": 0.2774,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2553",
+      "numero": 2553,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 255 de M. Tavel à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 255 de M. Tavel à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2553",
+      "pour": 55,
+      "contre": 99,
+      "abstention": 1,
+      "ecart": 0.2857,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2554",
+      "numero": 2554,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 208 de M. Laisney à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 208 de M. Laisney à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2554",
+      "pour": 55,
+      "contre": 99,
+      "abstention": 1,
+      "ecart": 0.2857,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2555",
+      "numero": 2555,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 204 de Mme Guetté à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 204 de Mme Guetté à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2555",
+      "pour": 56,
+      "contre": 99,
+      "abstention": 1,
+      "ecart": 0.2774,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2556",
+      "numero": 2556,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 236 de M. Tavel et l'amendement identique suivant à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 236 de M. Tavel et l'amendement identique suivant à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2556",
+      "pour": 40,
+      "contre": 74,
+      "abstention": 11,
+      "ecart": 0.2982,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2557",
+      "numero": 2557,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 526 de Mme Laernoes et l'amendement identique suivant à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 526 de Mme Laernoes et l'amendement identique suivant à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2557",
+      "pour": 49,
+      "contre": 73,
+      "abstention": 2,
+      "ecart": 0.1967,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2558",
+      "numero": 2558,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 210 de Mme Stambach-Terrenoir à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 210 de Mme Stambach-Terrenoir à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2558",
+      "pour": 49,
+      "contre": 74,
+      "abstention": 2,
+      "ecart": 0.2033,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2559",
+      "numero": 2559,
+      "date": "2025-06-18",
+      "titre": "l'amendement n° 238 de M. Laisney à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 238 de M. Laisney à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2559",
+      "pour": 49,
+      "contre": 74,
+      "abstention": 2,
+      "ecart": 0.2033,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2560",
+      "numero": 2560,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 523 de Mme Laernoes à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 523 de Mme Laernoes à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2560",
+      "pour": 19,
+      "contre": 33,
+      "abstention": 0,
+      "ecart": 0.2692,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2561",
+      "numero": 2561,
+      "date": "2025-06-19",
+      "titre": "le sous-amendement n° 864 de M. Alfandari à l'amendement n° 859 de la commission des affaires économiques à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 864 de M. Alfandari à l'amendement n° 859 de la commission des affaires économiques à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2561",
+      "pour": 29,
+      "contre": 25,
+      "abstention": 0,
+      "ecart": 0.0741,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2563",
+      "numero": 2563,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 521 de Mme Laernoes à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 521 de Mme Laernoes à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2563",
+      "pour": 17,
+      "contre": 43,
+      "abstention": 2,
+      "ecart": 0.4333,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2564",
+      "numero": 2564,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 601 de Mme Battistel à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 601 de Mme Battistel à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2564",
+      "pour": 46,
+      "contre": 43,
+      "abstention": 1,
+      "ecart": 0.0337,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2565",
+      "numero": 2565,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 463 de M. Fugit et l'amendement identique suivant à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 463 de M. Fugit et l'amendement identique suivant à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2565",
+      "pour": 43,
+      "contre": 46,
+      "abstention": 0,
+      "ecart": 0.0337,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2566",
+      "numero": 2566,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 345 de M. Meurin à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 345 de M. Meurin à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2566",
+      "pour": 48,
+      "contre": 46,
+      "abstention": 1,
+      "ecart": 0.0213,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2567",
+      "numero": 2567,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 525 de Mme Laernoes et l'amendement identique suivant à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 525 de Mme Laernoes et l'amendement identique suivant à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2567",
+      "pour": 31,
+      "contre": 64,
+      "abstention": 0,
+      "ecart": 0.3474,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2573",
+      "numero": 2573,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 339 de Mme Trouvé à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 339 de Mme Trouvé à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2573",
+      "pour": 29,
+      "contre": 79,
+      "abstention": 0,
+      "ecart": 0.463,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2574",
+      "numero": 2574,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 568 de M. Armand et l'amendement identique suivant à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 568 de M. Armand et l'amendement identique suivant à l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2574",
+      "pour": 100,
+      "contre": 46,
+      "abstention": 8,
+      "ecart": 0.3699,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2576",
+      "numero": 2576,
+      "date": "2025-06-19",
+      "titre": "le sous-amendement n° 883 de M. Renault à l'amendement n° 447 de M. Nury après l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 883 de M. Renault à l'amendement n° 447 de M. Nury après l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2576",
+      "pour": 54,
+      "contre": 72,
+      "abstention": 3,
+      "ecart": 0.1429,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2577",
+      "numero": 2577,
+      "date": "2025-06-19",
+      "titre": "le sous-amendement n° 886 de M. Renault à l'amendement n° 447 de M. Nury après l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 886 de M. Renault à l'amendement n° 447 de M. Nury après l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2577",
+      "pour": 53,
+      "contre": 72,
+      "abstention": 2,
+      "ecart": 0.152,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2578",
+      "numero": 2578,
+      "date": "2025-06-19",
+      "titre": "le sous-amendement n° 885 de M. Amblard à l'amendement n° 447 de M. Nury après l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "le sous-amendement n° 885 de M. Amblard à l'amendement n° 447 de M. Nury après l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2578",
+      "pour": 57,
+      "contre": 67,
+      "abstention": 0,
+      "ecart": 0.0806,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2579",
+      "numero": 2579,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 447 de M. Nury après l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 447 de M. Nury après l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2579",
+      "pour": 57,
+      "contre": 69,
+      "abstention": 2,
+      "ecart": 0.0952,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2580",
+      "numero": 2580,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 486 de M. Nury après l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 486 de M. Nury après l'article 5 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2580",
+      "pour": 65,
+      "contre": 62,
+      "abstention": 4,
+      "ecart": 0.0236,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2582",
+      "numero": 2582,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 31 de M. Amblard à l'article 8 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 31 de M. Amblard à l'article 8 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2582",
+      "pour": 40,
+      "contre": 25,
+      "abstention": 2,
+      "ecart": 0.2308,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2589",
+      "numero": 2589,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 316 de M. Falcon à l'article 9 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 316 de M. Falcon à l'article 9 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2589",
+      "pour": 48,
+      "contre": 29,
+      "abstention": 0,
+      "ecart": 0.2468,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2595",
+      "numero": 2595,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 349 de M. Meurin après l'article 9 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 349 de M. Meurin après l'article 9 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2595",
+      "pour": 36,
+      "contre": 23,
+      "abstention": 3,
+      "ecart": 0.2203,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2598",
+      "numero": 2598,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 32 de M. Amblard à l'article 10 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 32 de M. Amblard à l'article 10 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2598",
+      "pour": 41,
+      "contre": 30,
+      "abstention": 0,
+      "ecart": 0.1549,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2600",
+      "numero": 2600,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 627 du Gouvernement et l'amendement identique suivant à l'article 11 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 627 du Gouvernement et l'amendement identique suivant à l'article 11 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2600",
+      "pour": 47,
+      "contre": 22,
+      "abstention": 1,
+      "ecart": 0.3623,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2602",
+      "numero": 2602,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 281 de M. Houssin après l'article 11 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 281 de M. Houssin après l'article 11 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2602",
+      "pour": 35,
+      "contre": 22,
+      "abstention": 1,
+      "ecart": 0.2281,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2605",
+      "numero": 2605,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 324 de M. Tavel à l'article 11 bis de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 324 de M. Tavel à l'article 11 bis de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2605",
+      "pour": 50,
+      "contre": 21,
+      "abstention": 0,
+      "ecart": 0.4085,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2606",
+      "numero": 2606,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 13 de Mme Bouquin après l'article 11 bis de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 13 de Mme Bouquin après l'article 11 bis de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2606",
+      "pour": 39,
+      "contre": 21,
+      "abstention": 3,
+      "ecart": 0.3,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2610",
+      "numero": 2610,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 465 de M. Fugit après l'article 13 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 465 de M. Fugit après l'article 13 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2610",
+      "pour": 26,
+      "contre": 45,
+      "abstention": 0,
+      "ecart": 0.2676,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2611",
+      "numero": 2611,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 70 de M. Amblard après l'article 13 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 70 de M. Amblard après l'article 13 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2611",
+      "pour": 39,
+      "contre": 31,
+      "abstention": 0,
+      "ecart": 0.1143,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2612",
+      "numero": 2612,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 29 de M. Amblard après l'article 13 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 29 de M. Amblard après l'article 13 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2612",
+      "pour": 38,
+      "contre": 32,
+      "abstention": 0,
+      "ecart": 0.0857,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2613",
+      "numero": 2613,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 27 de M. Amblard après l'article 13 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 27 de M. Amblard après l'article 13 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2613",
+      "pour": 39,
+      "contre": 26,
+      "abstention": 1,
+      "ecart": 0.2,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2614",
+      "numero": 2614,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 687 (rect.) du Gouvernement à l'article 16 bis (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 687 (rect.) du Gouvernement à l'article 16 bis (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2614",
+      "pour": 19,
+      "contre": 53,
+      "abstention": 0,
+      "ecart": 0.4722,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2615",
+      "numero": 2615,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 25 de M. Trébuchet et l'amendement identique suivant à l'article 16 bis (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 25 de M. Trébuchet et l'amendement identique suivant à l'article 16 bis (supprimé) de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2615",
+      "pour": 39,
+      "contre": 33,
+      "abstention": 0,
+      "ecart": 0.0833,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2619",
+      "numero": 2619,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 343 de M. Tavel après l'article 21 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 343 de M. Tavel après l'article 21 de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2619",
+      "pour": 51,
+      "contre": 17,
+      "abstention": 2,
+      "ecart": 0.5,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2623",
+      "numero": 2623,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 231 de Mme Guetté après l'article 25 D de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 231 de Mme Guetté après l'article 25 D de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2623",
+      "pour": 46,
+      "contre": 18,
+      "abstention": 1,
+      "ecart": 0.4375,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2629",
+      "numero": 2629,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 614 de M. Michoux après l'article 25 D de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 614 de M. Michoux après l'article 25 D de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2629",
+      "pour": 40,
+      "contre": 26,
+      "abstention": 1,
+      "ecart": 0.2121,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2632",
+      "numero": 2632,
+      "date": "2025-06-19",
+      "titre": "l'amendement n° 888 de la commission des affaires économiques au titre de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'amendement n° 888 de la commission des affaires économiques au titre de la proposition de loi portant programmation nationale énergie et climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2632",
+      "pour": 28,
+      "contre": 43,
+      "abstention": 3,
+      "ecart": 0.2113,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V2653",
+      "numero": 2653,
+      "date": "2025-06-24",
+      "titre": "l'ensemble de la proposition de loi portant programmation nationale pour l'énergie et le climat pour les années 2025 à 2035 (première lecture).",
+      "objet": "l'ensemble de la proposition de loi portant programmation nationale pour l'énergie et le climat pour les années 2025 à 2035 (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2653",
+      "pour": 142,
+      "contre": 377,
+      "abstention": 47,
+      "ecart": 0.4528,
+      "mots_cles": [
+        "programmation nationale",
+        "énergie"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5319",
+      "numero": 5319,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 3 de M. Tavel à l'article premier de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 3 de M. Tavel à l'article premier de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5319",
+      "pour": 17,
+      "contre": 49,
+      "abstention": 11,
+      "ecart": 0.4848,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5321",
+      "numero": 5321,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 1 de M. Tavel après l'article premier de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 1 de M. Tavel après l'article premier de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5321",
+      "pour": 27,
+      "contre": 50,
+      "abstention": 5,
+      "ecart": 0.2987,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5327",
+      "numero": 5327,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 17 de M. Tavel et les amendements identiques suivants de suppression de l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 17 de M. Tavel et les amendements identiques suivants de suppression de l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5327",
+      "pour": 54,
+      "contre": 75,
+      "abstention": 0,
+      "ecart": 0.1628,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5329",
+      "numero": 5329,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 19 de M. Tavel et l'amendement identique suivant à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 19 de M. Tavel et l'amendement identique suivant à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5329",
+      "pour": 32,
+      "contre": 61,
+      "abstention": 0,
+      "ecart": 0.3118,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5330",
+      "numero": 5330,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 157 rectifié de M. Jean-Pierre Vigier et l'amendement identique suivant à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 157 rectifié de M. Jean-Pierre Vigier et l'amendement identique suivant à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5330",
+      "pour": 46,
+      "contre": 31,
+      "abstention": 2,
+      "ecart": 0.1948,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5331",
+      "numero": 5331,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 161 de M. Fugit à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 161 de M. Fugit à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5331",
+      "pour": 43,
+      "contre": 27,
+      "abstention": 1,
+      "ecart": 0.2286,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5332",
+      "numero": 5332,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 136 de M. Fugit à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 136 de M. Fugit à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5332",
+      "pour": 47,
+      "contre": 18,
+      "abstention": 6,
+      "ecart": 0.4462,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5334",
+      "numero": 5334,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 26 de M. Tavel à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 26 de M. Tavel à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5334",
+      "pour": 32,
+      "contre": 49,
+      "abstention": 1,
+      "ecart": 0.2099,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5335",
+      "numero": 5335,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 30 de M. Tavel à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 30 de M. Tavel à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5335",
+      "pour": 34,
+      "contre": 50,
+      "abstention": 1,
+      "ecart": 0.1905,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5336",
+      "numero": 5336,
+      "date": "2026-02-05",
+      "titre": "le sous-amendement n° 167 du Gouvernement à l'amendement n° 165 de Mme Battistel à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "le sous-amendement n° 167 du Gouvernement à l'amendement n° 165 de Mme Battistel à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5336",
+      "pour": 23,
+      "contre": 62,
+      "abstention": 3,
+      "ecart": 0.4588,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5338",
+      "numero": 5338,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 40 de M. Tavel à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 40 de M. Tavel à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5338",
+      "pour": 49,
+      "contre": 62,
+      "abstention": 1,
+      "ecart": 0.1171,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5339",
+      "numero": 5339,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 158 de M. Jean-Pierre Vigier et l'amendement identique suivant à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 158 de M. Jean-Pierre Vigier et l'amendement identique suivant à l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5339",
+      "pour": 78,
+      "contre": 59,
+      "abstention": 1,
+      "ecart": 0.1387,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5340",
+      "numero": 5340,
+      "date": "2026-02-05",
+      "titre": "l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'article 12 (examen prioritaire) de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5340",
+      "pour": 81,
+      "contre": 62,
+      "abstention": 0,
+      "ecart": 0.1329,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5341",
+      "numero": 5341,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 11 de M. Tavel à l'article 5 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 11 de M. Tavel à l'article 5 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5341",
+      "pour": 27,
+      "contre": 21,
+      "abstention": 5,
+      "ecart": 0.125,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5342",
+      "numero": 5342,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 12 de M. Tavel à l'article 5 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 12 de M. Tavel à l'article 5 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5342",
+      "pour": 37,
+      "contre": 14,
+      "abstention": 1,
+      "ecart": 0.451,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5343",
+      "numero": 5343,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 50 de M. Tavel à l'article 6 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 50 de M. Tavel à l'article 6 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5343",
+      "pour": 21,
+      "contre": 37,
+      "abstention": 0,
+      "ecart": 0.2759,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5344",
+      "numero": 5344,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 51 de M. Tavel à l'article 6 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 51 de M. Tavel à l'article 6 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5344",
+      "pour": 19,
+      "contre": 38,
+      "abstention": 2,
+      "ecart": 0.3333,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5345",
+      "numero": 5345,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 52 de M. Tavel à l'article 6 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 52 de M. Tavel à l'article 6 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5345",
+      "pour": 20,
+      "contre": 39,
+      "abstention": 1,
+      "ecart": 0.322,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    },
+    {
+      "id": "VTANR5L17V5352",
+      "numero": 5352,
+      "date": "2026-02-05",
+      "titre": "l'amendement n° 42 de M. Tavel et l'amendement identique suivant à l'article 17 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "objet": "l'amendement n° 42 de M. Tavel et l'amendement identique suivant à l'article 17 de la proposition de loi visant à relancer les investissements dans le secteur de l’hydroélectricité pour contribuer à la transition énergétique (première lecture).",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5352",
+      "pour": 15,
+      "contre": 34,
+      "abstention": 6,
+      "ecart": 0.3878,
+      "mots_cles": [
+        "transition énergétique"
+      ]
+    }
+  ]
+}

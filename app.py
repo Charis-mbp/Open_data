@@ -1,10 +1,12 @@
 import json
 import os
 import sqlite3
-import unicodedata
+import traceback
 
 import pandas as pd
 import streamlit as st
+
+from shortlist import build_shortlist, load_shortlist, normalise
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(ROOT, "data", "boussole.db")
@@ -27,11 +29,6 @@ def list_themes():
     return themes
 
 
-def sans_accents(text):
-    text = unicodedata.normalize("NFKD", str(text))
-    return "".join(c for c in text if not unicodedata.combining(c)).lower()
-
-
 @st.cache_data
 def scrutins_avec_decomptes():
     con = sqlite3.connect(DB_PATH)
@@ -45,7 +42,7 @@ def scrutins_avec_decomptes():
         ORDER BY s.date DESC, s.numero DESC
     """, con)
     con.close()
-    df["_recherche"] = (df["titre"] + " " + df["objet"]).map(sans_accents)
+    df["_recherche"] = (df["titre"] + " " + df["objet"]).map(normalise)
     return df
 
 
@@ -54,7 +51,7 @@ def page_scrutins():
     df = scrutins_avec_decomptes()
     q = st.text_input("Rechercher dans le titre ou l'objet", placeholder="ex. nucléaire, EPR, électricité")
     if q.strip():
-        df = df[df["_recherche"].str.contains(sans_accents(q.strip()), regex=False)]
+        df = df[df["_recherche"].str.contains(normalise(q.strip()), regex=False)]
     st.caption(f"{len(df)} scrutins")
     st.dataframe(
         df[["numero", "date", "titre", "resultat", "pour", "contre", "abstention", "url"]],
@@ -73,6 +70,100 @@ def page_scrutins():
     )
 
 
+@st.cache_data
+def decompte_par_groupe(scrutin_ids):
+    """One row per (scrutin, groupe) with the count of each position."""
+    con = sqlite3.connect(DB_PATH)
+    marks = ",".join("?" * len(scrutin_ids))
+    df = pd.read_sql_query(f"""
+        SELECT v.scrutin_id, g.sigle, g.nom AS groupe,
+               SUM(v.position = 'pour') AS pour,
+               SUM(v.position = 'contre') AS contre,
+               SUM(v.position = 'abstention') AS abstention,
+               SUM(v.position = 'non-votant') AS non_votant
+        FROM votes v JOIN groupes g ON g.id = v.groupe
+        WHERE v.scrutin_id IN ({marks})
+        GROUP BY v.scrutin_id, g.id
+        ORDER BY v.scrutin_id, (pour + contre + abstention) DESC
+    """, con, params=list(scrutin_ids))
+    con.close()
+    return df
+
+
+def resume_groupes(rows):
+    """'RN contre · EPR pour · …': majority position of each group that voted."""
+    parts = []
+    for r in rows.itertuples():
+        counts = {"pour": r.pour, "contre": r.contre, "abst.": r.abstention}
+        if sum(counts.values()) == 0:
+            continue
+        best = max(counts, key=counts.get)
+        divise = " (divisé)" if sorted(counts.values())[-2] > 0 else ""
+        parts.append(f"{r.sigle} {best}{divise}")
+    return " · ".join(parts)
+
+
+def page_shortlist(theme, label):
+    st.header(f"Shortlist : {label}")
+    data = load_shortlist(theme)
+    if st.button("Recalculer la shortlist") or data is None:
+        try:
+            data = build_shortlist(theme)
+            st.cache_data.clear()
+        except FileNotFoundError:
+            st.warning("Ce thème n'a pas encore de fichier keywords.txt.")
+            return
+    stats, regles = data["statistiques"], data["regles"]
+    st.caption(
+        f"{stats['correspondances']} scrutins contiennent un mot-clé ; "
+        f"{stats['moins_de_votants']} écartés (moins de {regles['min_votants']} votants), "
+        f"{stats['trop_desequilibres']} écartés (plus de {regles['max_meme_cote']:.0%} des voix exprimées du même côté). "
+        f"{stats['retenus']} retenus sur {stats['apres_filtres']}"
+        + (f", les {regles['max_scrutins']} aux votes les plus partagés." if stats["apres_filtres"] > stats["retenus"] else ".")
+    )
+    scrutins = pd.DataFrame(data["scrutins"])
+    if scrutins.empty:
+        st.info("Aucun scrutin ne correspond aux mots-clés de ce thème.")
+        return
+    groupes = decompte_par_groupe(tuple(scrutins["id"]))
+
+    q = st.text_input("Filtrer", placeholder="ex. amendement, article 5, hydroélectricité")
+    if q.strip():
+        scrutins = scrutins[(scrutins["titre"] + " " + scrutins["objet"]).map(normalise)
+                            .str.contains(normalise(q.strip()), regex=False)]
+    scrutins = scrutins.sort_values(["date", "numero"], ascending=False)
+    scrutins["groupes"] = scrutins["id"].map(
+        lambda sid: resume_groupes(groupes[groupes["scrutin_id"] == sid]))
+    scrutins["mots_cles"] = scrutins["mots_cles"].map(", ".join)
+    st.dataframe(
+        scrutins[["numero", "date", "titre", "pour", "contre", "abstention", "groupes", "mots_cles", "url"]],
+        hide_index=True,
+        width="stretch",
+        column_config={
+            "numero": st.column_config.NumberColumn("N°", format="%d"),
+            "date": "Date",
+            "titre": st.column_config.TextColumn("Titre", width="large"),
+            "pour": "Pour", "contre": "Contre", "abstention": "Abstention",
+            "groupes": st.column_config.TextColumn("Vote majoritaire par groupe", width="large"),
+            "mots_cles": "Mots-clés",
+            "url": st.column_config.LinkColumn("Lien", display_text="Voir sur assemblee-nationale.fr"),
+        },
+    )
+
+    st.subheader("Détail par groupe politique")
+    libelles = {r.id: f"n° {r.numero} ({r.date}) – {r.titre[:140]}" for r in scrutins.itertuples()}
+    choix = st.selectbox("Scrutin", list(libelles), format_func=libelles.get)
+    if choix:
+        r = scrutins.set_index("id").loc[choix]
+        st.markdown(f"**n° {r['numero']}**, {r['date']} : {r['titre']}  \n"
+                    f"Résultat : {r['resultat']}. [Voir le scrutin sur le site de l'Assemblée]({r['url']})")
+        detail = groupes[groupes["scrutin_id"] == choix].drop(columns=["scrutin_id"])
+        st.dataframe(detail, hide_index=True, width="stretch", column_config={
+            "sigle": "Sigle", "groupe": "Groupe", "pour": "Pour", "contre": "Contre",
+            "abstention": "Abstention", "non_votant": "Non-votant",
+        })
+
+
 def main():
     st.title("Boussole parlementaire")
     st.caption(METHODE)
@@ -81,18 +172,20 @@ def main():
     if not themes:
         st.error("Aucun thème trouvé dans le dossier themes/.")
         return
-    st.session_state["theme"] = st.sidebar.selectbox(
-        "Thème", list(themes), format_func=lambda k: themes[k]
-    )
-    page = st.sidebar.radio("Pages", ["Scrutins"])
+    theme = st.sidebar.selectbox("Thème", list(themes), format_func=lambda k: themes[k])
+    st.session_state["theme"] = theme
+    page = st.sidebar.radio("Pages", ["Shortlist", "Scrutins"])
 
     if not os.path.exists(DB_PATH):
         st.warning("Les données ne sont pas encore chargées. Lancez : python load_data.py")
         return
     try:
-        if page == "Scrutins":
+        if page == "Shortlist":
+            page_shortlist(theme, themes[theme])
+        elif page == "Scrutins":
             page_scrutins()
     except Exception:
+        traceback.print_exc()  # in the terminal only, never on screen
         st.error("Une erreur est survenue lors de l'affichage de cette page.")
 
 
